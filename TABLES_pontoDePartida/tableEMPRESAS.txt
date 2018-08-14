@@ -17,11 +17,4 @@ dataAtivacao
 dataExpiracao
 validadeCertificado
 
-TABLE_USUARIO
-id
-nome
-usuario
-senha
-cpf
-funcao
 

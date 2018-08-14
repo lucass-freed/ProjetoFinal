@@ -1,0 +1,11 @@
+TABLE_USUARIO
+id
+id_Empresa
+id_funcao
+nome
+usuario
+senha
+cpf
+telefone
+dataNascimento
+
