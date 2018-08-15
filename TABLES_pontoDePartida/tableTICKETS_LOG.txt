@@ -1,0 +1,8 @@
+table_TICKETS_LOG
+
+// log de movimentação dos tickets (OBS.: Somente recebe inserts feitos pelo próprio sistema a medida que os tickets são movimentados
+
+id
+dataMovto
+hora
+txt

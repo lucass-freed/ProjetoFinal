@@ -1,0 +1,23 @@
+TABLE_COLABORADOR
+
+// armazena colaboradores (agentes responsáveis pelas movimentações dos tickets)
+
+id
+id_colaborador_funcao
+usuario
+senha
+nome
+cpf
+dataNascimento
+telefone
+email
+rua
+numero
+complemento
+bairro
+cep
+cidade
+uf
+dataAdmissao
+ctps
+pis

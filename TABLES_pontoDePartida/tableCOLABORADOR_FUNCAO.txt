@@ -1,0 +1,10 @@
+TABLE_COLABORADOR_FUNCAO
+
+//cargos dos colaboradores (agentes dos tickets)
+
+id (FK na table COLABORADOR)
+setor
+descricao
+
+
+

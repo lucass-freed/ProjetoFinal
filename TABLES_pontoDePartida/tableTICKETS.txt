@@ -1,0 +1,26 @@
+table_TICKETS
+
+/*	armazena os tickets(registros dos atendimentos)
+	- tickets são cadastrados por USUARIO
+	- remetem informações de uma EMPRESA
+	- são movimentados por COLABORADOR
+	- são sinalizados por CRITICIDADE
+	- relacionam-se com TAGS através da TICKETS_TAGS
+*/
+
+
+id (número do protocolo de atendimento)
+id_empresa
+id_usuario
+id_criticidade
+id_colaborador
+id_ticket_sazonalidade
+status
+titulo
+dataAbertura
+sistemaOperacional
+versaoBanco
+descricao
+dataEncerramento
+procedimentoResolucao
+

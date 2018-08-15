@@ -1,0 +1,10 @@
+TABLE_USUARIO_FUNCAO
+
+//cargos dos usuários (funcionários dos clientes)
+
+id (vai ser FK na tableUSUARIOS)
+cargo
+descricao
+
+
+

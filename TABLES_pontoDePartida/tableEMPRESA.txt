@@ -1,4 +1,5 @@
-TABLE_EMPRESAS
+TABLE_EMPRESA
+
 id
 cnpj
 razaoSocial

@@ -1,0 +1,16 @@
+TABLE_USUARIO
+
+//armazena funcionários dos clientes (empresas) que irão cadastrar os tickets
+
+id
+id_empresa
+id_usuario_funcao
+usuario
+senha
+nome
+cpf
+dataNascimento
+telefone
+email
+
+

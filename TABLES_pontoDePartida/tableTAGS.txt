@@ -1,0 +1,6 @@
+table_TAGS
+
+// permitirá agrupamento e rastreabilidade dos tickets na base de conhecimento
+
+id
+titulo

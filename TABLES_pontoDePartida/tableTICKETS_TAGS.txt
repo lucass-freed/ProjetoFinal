@@ -1,0 +1,6 @@
+table_TICKETS_TAGS
+
+// relaciona TICKETS com TAGS (relacionamento *:*)
+
+id_Tickets
+id_Tags

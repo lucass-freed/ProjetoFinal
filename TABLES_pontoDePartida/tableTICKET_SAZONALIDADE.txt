@@ -1,0 +1,6 @@
+TABLE_TICKET_SAZONALIDADE
+
+// classifica periodização da ocorrência
+
+id
+sazonalidade

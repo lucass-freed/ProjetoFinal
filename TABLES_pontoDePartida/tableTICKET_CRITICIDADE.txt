@@ -1,0 +1,7 @@
+TABLE_TICKET_CRITICIDADE
+
+// classifica tickets de acordo com prioridade de atendimento (ITIL)
+
+id
+titulo
+prazo
