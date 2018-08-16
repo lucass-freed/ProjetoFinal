@@ -1,4 +1,4 @@
-package database;
+package br.com.projetofinal.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
