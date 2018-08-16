@@ -1,0 +1,5 @@
+CREATE TABLE colaborador_funcao (
+	id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	setor VARCHAR(20) NOT NULL,
+	descricao VARCHAR(100) NOT NULL
+);
