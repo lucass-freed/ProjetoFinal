@@ -11,8 +11,8 @@ CREATE TABLE ticket(
 	situacao VARCHAR (100),
 	titulo VARCHAR (150),
 	data_abertura DATE NOT NULL,
-	sistemaOperacional VARCHAR (50),
-	versaoBanco VARCHAR (10),
+	sistema_operacional VARCHAR (50),
+	versao_banco VARCHAR (10),
 	descricao TEXT,
 	data_encerramento DATE NOT NULL,
 	procedimento_resolucao TEXT
