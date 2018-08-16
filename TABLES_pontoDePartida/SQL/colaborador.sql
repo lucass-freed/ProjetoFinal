@@ -1,0 +1,22 @@
+CREATE TABLE colaborador (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	id_colaborador_funcao INT NOT NULL,
+	usuario VARCHAR(50) NOT NULL,
+	senha VARCHAR(30) NOT NULL,
+	nome VARCHAR(200) NOT NULL,
+	cpf VARCHAR(20) NOT NULL,
+	data_nascimento DATE NOT NULL,
+	telefone VARCHAR(20) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	rua VARCHAR(100) NOT NULL,
+	numero TINYINT NOT NULL,
+	complemento VARCHAR(50) NOT NULL,
+	bairro VARCHAR(50) NOT NULL,
+	cep VARCHAR(20) NOT NULL,
+	cidade VARCHAR(50) NOT NULL,
+	uf VARCHAR(20) NOT NULL,
+	data_admissao DATE NOT NULL,
+	ctps VARCHAR(100) NOT NULL,
+	pis VARCHAR(100) NOT NULL,
+	FOREIGN KEY(id_colaborador_funcao) REFERENCES colaborador_funcao(id)
+);
