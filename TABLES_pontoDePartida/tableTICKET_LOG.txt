@@ -1,4 +1,4 @@
-table_TICKETS_LOG
+table_TICKET_LOG
 
 // log de movimentação dos tickets (OBS.: Somente recebe inserts feitos pelo próprio sistema a medida que os tickets são movimentados
 

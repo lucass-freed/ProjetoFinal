@@ -1,6 +1,6 @@
-table_TICKETS_TAGS
+table_TICKET_TAGS
 
 // relaciona TICKETS com TAGS (relacionamento *:*)
 
-id_Tickets
+id_Ticket
 id_Tags

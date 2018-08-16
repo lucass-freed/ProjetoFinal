@@ -1,4 +1,4 @@
-table_TICKETS
+table_TICKET
 
 /*	armazena os tickets(registros dos atendimentos)
 	- tickets são cadastrados por USUARIO
