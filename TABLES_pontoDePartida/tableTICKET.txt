@@ -15,7 +15,7 @@ id_usuario
 id_criticidade
 id_colaborador
 id_ticket_sazonalidade
-status
+situacao
 titulo
 dataAbertura
 sistemaOperacional
