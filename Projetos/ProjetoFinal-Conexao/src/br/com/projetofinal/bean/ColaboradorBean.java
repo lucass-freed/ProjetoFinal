@@ -15,7 +15,7 @@ public class ColaboradorBean {
     private String data_nascimento;
     private int telefone;
     private String email;
-    private String rua;
+    private String logradouro;
     private int numero;
     private String complemento;
     private String bairro;
@@ -99,11 +99,11 @@ public class ColaboradorBean {
     }
 
     public String getRua() {
-        return rua;
+        return logradouro;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setRua(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public int getNumero() {
