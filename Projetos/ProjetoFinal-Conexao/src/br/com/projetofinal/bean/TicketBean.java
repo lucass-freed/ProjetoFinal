@@ -1,8 +1,3 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.projetofinal.bean;
 
 import br.com.projetofinal.enumTypes.SazonalidadeType;
@@ -10,7 +5,7 @@ import br.com.projetofinal.enumTypes.TicketStatusType;
 
 /**
  *
- * @author Alunos
+ * @author Matheus Werner
  */
 public class TicketBean {
     
@@ -18,6 +13,14 @@ public class TicketBean {
     private EmpresaBean empresa;
     private ColaboradorBean colaborador;
     private SazonalidadeType sazonalidade;
+    private TicketStatusType situacao;
+    private String titulo;
+    private int dataAbertura;
+    private String sistemaOperacional;
+    private String versaoBanco;
+    private String descricao;
+    private int dataEncerramento;
+    private String procedimentoResolucao;
 
     public int getId() {
         return id;
@@ -114,12 +117,4 @@ public class TicketBean {
     public void setProcedimentoResolucao(String procedimentoResolucao) {
         this.procedimentoResolucao = procedimentoResolucao;
     }
-    private TicketStatusType situacao;
-    private String titulo;
-    private int dataAbertura;
-    private String sistemaOperacional;
-    private String versaoBanco;
-    private String descricao;
-    private int dataEncerramento;
-    private String procedimentoResolucao;
 }
