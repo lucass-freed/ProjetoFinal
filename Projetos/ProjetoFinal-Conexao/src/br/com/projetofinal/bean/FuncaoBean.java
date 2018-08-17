@@ -6,6 +6,8 @@ package br.com.projetofinal.bean;
  */
 public class FuncaoBean {
     
+    private String funcao;
+    
     
     
 }
