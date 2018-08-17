@@ -6,6 +6,6 @@ package br.com.projetofinal.enumTypes;
  */
 public enum TicketStatusType {
     
-    ABERTO, FECHADO, PENDENTE, EM_ESPERA;
+    ABERTO, FECHADO, PENDENTE;
     
 }
