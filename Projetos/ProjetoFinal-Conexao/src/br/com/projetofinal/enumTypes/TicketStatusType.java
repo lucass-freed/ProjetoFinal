@@ -6,6 +6,12 @@ package br.com.projetofinal.enumTypes;
  */
 public enum TicketStatusType {
     
-    ABERTO, FECHADO, PENDENTE;
+    ABERTO("Aberto"), FECHADO("Fechado"), PENDENTE("Pendente");
+    
+    private final String descricao;
+
+    private TicketStatusType(String descricao) {
+        this.descricao = descricao;
+    }
     
 }
