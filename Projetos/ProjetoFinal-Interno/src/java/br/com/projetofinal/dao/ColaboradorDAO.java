@@ -1,4 +1,4 @@
-package dao;
+package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.database.Conexao;
@@ -38,9 +38,10 @@ public class ColaboradorDAO {
                     + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, colaborador.getId());
-                ps.setInt(2, colaborador.getId());
-                ps.setString(3, colaborador.get);
+                int quantidade = 0;
+                ps.setInt(quantidade++, colaborador.getId());
+                ps.setString(quantidade++, colaborador.getUsuario());
+                ps.
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
