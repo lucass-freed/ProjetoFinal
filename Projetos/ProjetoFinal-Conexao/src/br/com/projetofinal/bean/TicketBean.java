@@ -11,4 +11,9 @@ package br.com.projetofinal.bean;
  */
 public class TicketBean {
     
+    private int id;
+    private EmpresaBean empresa;
+    private ColaboradorBean colaborador;
+    
+    
 }
