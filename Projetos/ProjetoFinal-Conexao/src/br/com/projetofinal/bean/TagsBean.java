@@ -2,7 +2,7 @@ package br.com.projetofinal.bean;
 
 /**
  *
- * @author Alunos
+ * @author Matheus Werner
  */
 public class TagsBean {
     
