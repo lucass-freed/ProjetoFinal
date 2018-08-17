@@ -1,10 +1,21 @@
 package br.com.projetofinal.Util;
 
+/**
+ *
+ * @author Lucas Rodrigo
+ */
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class SHA512Metodos {
+    
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        String senha = "Teste123";
+        String novaSenha = new SHA512Metodos().criptografarSenha(senha);
+        System.out.println("SENHA: " + novaSenha);
+    }
     
     public String criptografarSenha(String senha) throws NoSuchAlgorithmException {
         String input = senha;

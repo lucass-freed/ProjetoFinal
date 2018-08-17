@@ -7,6 +7,7 @@ package br.com.projetofinal.bean;
 public class ColaboradorBean {
     
     private int id;
+    private int idFuncao;
     private FuncaoBean funcao;
     private String usuario;
     private String senha;
@@ -98,11 +99,11 @@ public class ColaboradorBean {
         this.email = email;
     }
 
-    public String getRua() {
+    public String getLogradouro() {
         return logradouro;
     }
 
-    public void setRua(String logradouro) {
+    public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
 
@@ -176,5 +177,13 @@ public class ColaboradorBean {
 
     public void setPis(String pis) {
         this.pis = pis;
+    }
+    
+    public int getIdFuncao() {
+        return idFuncao;
+    }
+
+    public void setIdFuncao(int idFuncao) {
+        this.idFuncao = idFuncao;
     }
 }
