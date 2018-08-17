@@ -120,7 +120,20 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "ctps, "
                     + "pis FROM alunos;";
             try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                while (rs.next()) {
+                    ColaboradorBean colaborador = new ColaboradorBean();
+                    colaborador.setId(rs.getInt("id"));
+                    colaborador.setIdFuncao(rs.getInt("id_funcao"));
+                    colaborador.setNome(rs.getString("usuario"));
+                    colaboradores.add(colaborador);
+                }
             } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
             }
         } 
         return colaboradores;
