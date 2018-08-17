@@ -6,4 +6,7 @@ package br.com.projetofinal.bean;
  */
 public class TagsBean {
     
+    private int id;
+    private String titulo;
+    
 }
