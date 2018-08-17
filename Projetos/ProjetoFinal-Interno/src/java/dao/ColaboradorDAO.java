@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 /**
  *
- * @author Alunos
+ * @author Lucas Rodrigo
  */
 public class ColaboradorDAO {
+    
+    public int inserir()
     
 }
