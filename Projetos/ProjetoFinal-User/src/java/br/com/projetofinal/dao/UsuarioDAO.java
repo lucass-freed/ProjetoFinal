@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.UsuarioBean;

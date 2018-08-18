@@ -17,7 +17,7 @@ import java.util.List;
  * @author Lucas Rodrigo
  */
 public class ColaboradorDAO extends SHA512Metodos {
-    
+
     public int inserir(ColaboradorBean colaborador) throws NoSuchAlgorithmException {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -64,7 +64,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 ps.setString(quantidade++, colaborador.getCtps());
                 ps.setString(quantidade++, colaborador.getPis());
                 ps.execute();
-                
+
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
                     return rs.getInt(1);
@@ -77,7 +77,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return 0;
     }
-    
+
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -94,13 +94,13 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return false;
     }
-    
+
     public List<ColaboradorBean> obterColaboradores() {
         List<ColaboradorBean> colaboradores = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "SELECT "
-                    + "id,"
+                    + "id, "
                     + "id_funcao, "
                     + "usuario, "
                     + "senha, "
@@ -128,6 +128,20 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setId(rs.getInt("id"));
                     colaborador.setIdFuncao(rs.getInt("id_funcao"));
                     colaborador.setNome(rs.getString("usuario"));
+                    colaborador.setCpf(rs.getString("cpf"));
+                    colaborador.setData_nascimento(rs.getString("data_nascimento"));
+                    colaborador.setTelefone(rs.getInt("telefone"));
+                    colaborador.setEmail(rs.getString("email"));
+                    colaborador.setLogradouro(rs.getString("logradouro"));
+                    colaborador.setNumero(rs.getInt("numero"));
+                    colaborador.setComplemento(rs.getString("complemento"));
+                    colaborador.setBairro(rs.getString("bairro"));
+                    colaborador.setCep(rs.getString("cep"));
+                    colaborador.setCidade(rs.getString("cidade"));
+                    colaborador.setUf(rs.getString("uf"));
+                    colaborador.setData_admissao(rs.getString("data_admissao"));
+                    colaborador.setCtps(rs.getString("ctps"));
+                    colaborador.setPis(rs.getString("pis"));
                     colaboradores.add(colaborador);
                 }
             } catch (Exception e) {
@@ -135,8 +149,78 @@ public class ColaboradorDAO extends SHA512Metodos {
             } finally {
                 Conexao.closeConnection();
             }
-        } 
+        }
         return colaboradores;
     }
+
+    public ColaboradorBean obterColaboradorPorID(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT "
+                    + "id,"
+                    + "id_funcao, "
+                    + "usuario, "
+                    + "senha, "
+                    + "nome, "
+                    + "cpf, "
+                    + "data_nascimento, "
+                    + "telefone, "
+                    + "email, "
+                    + "logradouro, "
+                    + "numero, "
+                    + "complemento, "
+                    + "bairro, "
+                    + "cep, "
+                    + "cidade, "
+                    + "uf, "
+                    + "data_admissao, "
+                    + "ctps, "
+                    + "pis FROM alunos WHERE id = ?;";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(1, id);
+                ResultSet rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    ColaboradorBean colaborador = new ColaboradorBean();
+                    colaborador.setId(rs.getInt("id"));
+                    colaborador.setIdFuncao(rs.getInt("id_funcao"));
+                    colaborador.setNome(rs.getString("usuario"));
+                    colaborador.setCpf(rs.getString("cpf"));
+                    colaborador.setData_nascimento(rs.getString("data_nascimento"));
+                    colaborador.setTelefone(rs.getInt("telefone"));
+                    colaborador.setEmail(rs.getString("email"));
+                    colaborador.setLogradouro(rs.getString("logradouro"));
+                    colaborador.setNumero(rs.getInt("numero"));
+                    colaborador.setComplemento(rs.getString("complemento"));
+                    colaborador.setBairro(rs.getString("bairro"));
+                    colaborador.setCep(rs.getString("cep"));
+                    colaborador.setCidade(rs.getString("cidade"));
+                    colaborador.setUf(rs.getString("uf"));
+                    colaborador.setData_admissao(rs.getString("data_admissao"));
+                    colaborador.setCtps(rs.getString("ctps"));
+                    colaborador.setPis(rs.getString("pis"));
+                    return colaborador;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return null;
+    }
     
+    public boolean isContainsAluno(String nomeColaborador) {
+        List<ColaboradorBean> colaboradores = obterColaboradores();
+        boolean is = false;
+        for (ColaboradorBean colaborador : colaboradores) {
+            if (!is) {
+                is = colaborador.getNome().equalsIgnoreCase(nomeColaborador);
+            }
+        }
+        return false;
+    }
+    
+    
+
 }
