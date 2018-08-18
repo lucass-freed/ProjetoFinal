@@ -4,7 +4,7 @@ USE projeto_final_banco;
 
 CREATE TABLE funcoes (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(100),
+    nome VARCHAR(100),
 	setor VARCHAR(100) NOT NULL,
 	descricao TEXT
 );
