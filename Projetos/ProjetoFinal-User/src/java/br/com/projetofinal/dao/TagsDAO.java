@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teste;
+package br.com.projetofinal.dao;
 
 /**
  *
  * @author Alunos
  */
-public class teste {
+public class TagsDAO {
     
 }

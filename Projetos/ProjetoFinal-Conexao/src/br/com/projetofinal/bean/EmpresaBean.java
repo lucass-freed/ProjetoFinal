@@ -7,7 +7,7 @@ package br.com.projetofinal.bean;
 public class EmpresaBean {
     
     private int id;
-    private String cpf;
+    private String cnpj;
     private String razaoSocial;
     private String nomeFantasia;
     private String email;
@@ -29,12 +29,12 @@ public class EmpresaBean {
         this.id = id;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getRazaoSocial() {

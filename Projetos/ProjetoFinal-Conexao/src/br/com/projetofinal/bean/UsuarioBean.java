@@ -5,9 +5,15 @@ package br.com.projetofinal.bean;
  * @author Lucas Rodrigo
  */
 public class UsuarioBean {
+
+   
     
     private int id;
+    private int idEmpresa;
     private EmpresaBean empresa;
+    private int idFuncao;
+
+  
     private FuncaoBean funcao;
     private String usuario;
     private String senha;
@@ -15,7 +21,23 @@ public class UsuarioBean {
     private String cpf;
     private String data_nascimento;
     private int telefone;
-    private int email;
+    private String email;
+    
+      public int getIdFuncao() {
+        return idFuncao;
+    }
+
+    public void setIdFuncao(int idFuncao) {
+        this.idFuncao = idFuncao;
+    }
+    
+     public int getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
 
     public int getId() {
         return id;
@@ -89,11 +111,11 @@ public class UsuarioBean {
         this.telefone = telefone;
     }
 
-    public int getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(int email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }
