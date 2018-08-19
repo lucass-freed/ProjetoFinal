@@ -12,13 +12,21 @@ public class EmpresaBean {
     private String nomeFantasia;
     private String email;
     private String telefone;
-    private String rua;
+    private String logradouro;
     private String numero;
     private String complemento;
     private String bairro;
     private String cep;
     private String cidade;
-    private String uf;
+    private String uf, inscricaoEstadual;
+
+    public String getInscricaoEstadual() {
+        return inscricaoEstadual;
+    }
+
+    public void setInscricaoEstadual(String inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
+    }
     private String dataAtivacao, dataExpiracao, validadeCertificado;       
 
     public int getId() {
@@ -69,12 +77,12 @@ public class EmpresaBean {
         this.telefone = telefone;
     }
 
-    public String getRua() {
-        return rua;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public String getNumero() {
