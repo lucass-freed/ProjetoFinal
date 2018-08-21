@@ -12,14 +12,12 @@ public class UsuarioBean {
     private int idEmpresa;
     private EmpresaBean empresa;
     private int idFuncao;
-
-  
     private FuncaoBean funcao;
     private String usuario;
     private String senha;
     private String nome;
     private String cpf;
-    private String data_nascimento;
+    private String dataNascimento;
     private int telefone;
     private String email;
     
@@ -95,12 +93,12 @@ public class UsuarioBean {
         this.cpf = cpf;
     }
 
-    public String getData_nascimento() {
-        return data_nascimento;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(String data_nascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public int getTelefone() {
