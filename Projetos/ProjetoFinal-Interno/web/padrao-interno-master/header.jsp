@@ -10,11 +10,9 @@
                 data-toggle="collapse">
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
-        <div class="">
-            <a href="/ProjetoFinal-Interno/home" class="navbar-brand navbar-brand-center">
-                <img class="navbar-brand-logo" src="/ProjetoFinal-Interno/tema/assets/images/logo.png" title="FlowDesk">
-                <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
-            </a>
+        <div class="navbar-brand navbar-brand-center">
+            <img class="navbar-brand-logo" src="/ProjetoFinal-Interno/tema/assets/images/logo.png" title="FlowDesk">
+            <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
@@ -144,7 +142,19 @@
         </div>
         <!-- End Navbar Collapse -->
 
+        <!-- Site Navbar Seach -->
+        <div class="collapse navbar-search-overlap" id="site-navbar-search">
+            <form role="search">
+                <div class="form-group">
+                    <div class="input-search">
+                        <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                        <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                        <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
+                                data-toggle="collapse" aria-label="Close"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End Site Navbar Seach -->
     </div>
-
-
-</nav>  
+</nav>

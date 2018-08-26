@@ -36,7 +36,7 @@
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="/ProjetoFinal-Interno/empresa">
+                                <a class="animsition-link" href="../layouts/menu-collapsed.html">
                                     <span class="site-menu-title">Consultar</span>
                                 </a>
                             </li>

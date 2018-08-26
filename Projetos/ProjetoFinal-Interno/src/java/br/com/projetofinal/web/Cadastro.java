@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.com.projetofinal.web.empresa;
+package br.com.projetofinal.web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,14 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Grupo
+ * @author Lucas Rodrigo
  */
-@WebServlet("/empresa")
-public class EmpresaIndex extends HttpServlet {
+@WebServlet("/cadastro")
+public class Cadastro extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/empresa/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/cadastro/index.jsp").include(req, resp);
     }
 
 }
