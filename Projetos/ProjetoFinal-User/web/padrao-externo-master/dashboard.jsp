@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
+
 <%@include file="header.jsp" %>
 <%@include file="sidebar.jsp.jsp" %>
 <%@include file="rodape.jsp.jsp" %>
