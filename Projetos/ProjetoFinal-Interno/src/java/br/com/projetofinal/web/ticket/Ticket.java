@@ -17,6 +17,8 @@ public class Ticket extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, 
             HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("interno/ticket.jsp").include(req,resp);
+        
+        req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
+        req.getRequestDispatcher("/ticket/index.jsp").include(req,resp);
     }
 }

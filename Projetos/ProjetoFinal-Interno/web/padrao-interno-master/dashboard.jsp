@@ -1,4 +1,4 @@
-5<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
 <!--        <meta charset="utf-8">
