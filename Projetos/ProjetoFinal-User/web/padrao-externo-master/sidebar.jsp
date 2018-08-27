@@ -172,7 +172,7 @@
     <div>
       <div>
         <ul class="site-menu" data-plugin="menu">
-          <li class="site-menu-category">General</li>
+          <li class="site-menu-category">Externo</li>
           <li class="site-menu-item has-sub">
             <a href="/ProjetoFinal-User/empresa">
               <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
@@ -214,15 +214,9 @@
 <div class="page">
   <div class="page-header">
     <h1 class="page-title">Exemplo Padrão Externo</h1>
-</button>
-</div>
-</div>
-
-<div class="page-content">
-  <div class="panel">
-      </div>
-    </div>
-    <!-- End Page -->
 
 
-  </body>
+
+
+
+

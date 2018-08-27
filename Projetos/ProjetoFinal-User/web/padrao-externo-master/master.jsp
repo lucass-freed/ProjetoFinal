@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
-<!--        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <meta name="description" content="bootstrap admin template">
-        <meta name="author" content="">-->
+        <!--        <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+                <meta name="description" content="bootstrap admin template">
+                <meta name="author" content="">-->
 
         <title>Padrão Externo | FlowDesk</title>
 
@@ -38,11 +38,12 @@
             Breakpoints();
         </script>
     </head>
-    <body class="animsition">
-        
-        <%@include file="header.jsp" %> 
-        <%@include file="sidebar.jsp" %>
 
-        <!-- Page -->
-        <div class="page">
-            <div class="page-content">
+
+    <%@include file="sidebar.jsp" %>
+    <%@include file="header.jsp" %> 
+
+    <!-- Page -->
+    <div class="page">
+        <div class="page-content container-fluid">
+

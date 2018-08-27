@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+        </div>
+    </div>
+    </body>
         <!-- Core  -->
         <script src="/ProjetoFinal-User/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
         <script src="/ProjetoFinal-User/tema/global/vendor/jquery/jquery.js"></script>
