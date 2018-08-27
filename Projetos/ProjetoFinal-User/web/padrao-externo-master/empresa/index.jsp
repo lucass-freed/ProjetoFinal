@@ -175,4 +175,4 @@
 }); 
     </script>
         
-<%@include file="rodape.jsp" %>
+<%@include file="../rodape.jsp" %>
