@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/padrao-externo-user/dashboard.jsp"%>
+<%@include file="/padrao-externo-regular/usuario/master.jsp"%>
 
 <h4> Página Inicial </h4>
 
-<%@include file="/padrao-externo-master/rodape.jsp"%>
+<%@include file="/padrao-externo-regular/usuario/rodape.jsp"%>

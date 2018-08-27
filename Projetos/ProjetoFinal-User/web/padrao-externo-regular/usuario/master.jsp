@@ -1,4 +1,4 @@
-5<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
 <!--        <meta charset="utf-8">
@@ -7,7 +7,7 @@
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">-->
 
-        <title>Padrão Interno | FlowDesk</title>
+        <title>Padrão Externo | FlowDesk</title>
 
         <link rel="apple-touch-icon" href="/ProjetoFinal-User/tema/assets/images/apple-touch-icon.png">
         <link rel="shortcut icon" href="/ProjetoFinal-User/tema/assets/images/favicon.png">
