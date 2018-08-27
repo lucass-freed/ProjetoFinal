@@ -21,7 +21,7 @@
     <i class="icon wb-more-horizontal" aria-hidden="true"></i>
   </button>
   <div class="navbar-brand navbar-brand-center">
-    <img class="navbar-brand-logo" src="../../assets/images/logo.png" title="Remark">
+    <img class="navbar-brand-logo" src="/ProjetoFinal-User/tema/assets/images/logo.png" title="FlowDesk">
     <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
   </div>
   <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
@@ -174,7 +174,7 @@
         <ul class="site-menu" data-plugin="menu">
           <li class="site-menu-category">General</li>
           <li class="site-menu-item has-sub">
-            <a href="javascript:void(0)">
+            <a href="/ProjetoFinal-User/empresa">
               <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
               <span class="site-menu-title">Empresa</span>
             </a>
