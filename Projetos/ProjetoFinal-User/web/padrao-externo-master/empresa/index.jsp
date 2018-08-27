@@ -132,7 +132,6 @@
     
     <!-- End Page -->
 
-<%@include file="sidebar.jsp.jsp" %>
 
        <script src="../../../global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
     <script src="../../../global/vendor/jquery/jquery.js"></script>
@@ -176,4 +175,4 @@
 }); 
     </script>
         
-<%@include file="rodape.jsp.jsp" %>
+<%@include file="rodape.jsp" %>
