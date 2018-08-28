@@ -1,4 +1,4 @@
-<%-- 
+4<%-- 
     Document   : index
     Created on : 26/08/2018, 16:00:28
     Author     : Lucas Rodrigo
@@ -108,8 +108,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-control-label" for="inputBasicUF">UF</label>
-                                <input type="text" class="form-control" id="inputBasicUF" name="inputUF"
-                                       placeholder="UF" autocomplete="off"/>
+                                <input type="text" class="form-control" id="inputBasicUF" name="inputUF" placeholder="UF" autocomplete="off" maxlength="2"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -140,5 +139,47 @@
         <!-- End Panel Input Grid -->
     </div>
 </div>
+
+<script src="/ProjetoFinal-Interno/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
+<script src="/ProjetoFinal-Interno/tema/global/vendor/jquery/jquery.js"></script>
+
+<script src="/ProjetoFinal-Interno/tema/global/js/Plugin.js"></script>
+<script src="/ProjetoFinal-Interno/tema/global/vendor/breakpoints/breakpoints.js"></script>
+
+<script src="/ProjetoFinal-Interno/tema/global/vendor/formatter/jquery.formatter.js"></script>
+
+<script src="/ProjetoFinal-Interno/tema/global/js/Plugin/formatter.js"></script>
+
+<script>
+    Breakpoints();
+</script>
+
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+
+    $('#inputBasicTelefone').formatter({
+        'pattern': '({{99}}){{99999}}-{{9999}}',
+        'persistent': false
+    });
+    $('#inputBasicCPF').formatter({
+        'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
+        'persistent': false
+    });
+    $('#inputBasicDataNascimento').formatter({
+        'pattern': '{{99}}/{{99}}/{{9999}}',
+        'persistent': false
+    });
+    $('#inputBasicCEP').formatter({
+        'pattern': '{{99999}}-{{999}}',
+        'persistent': false
+    });
+</script>
 
 <%@include file="/padrao-interno-master/rodape.jsp" %>
