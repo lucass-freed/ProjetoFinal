@@ -6,8 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@include file="/padrao-externo-master/header.jsp" %>
-<%@include file="/padrao-externo-master/sidebar.jsp" %>
+<%@include file="/padrao-externo-master/master.jsp" %>
+
+</div>
+</div>
 
 <h2>Cadastro Interno</h2>
 <div class="panel">
