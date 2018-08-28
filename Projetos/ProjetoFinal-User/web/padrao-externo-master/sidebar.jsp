@@ -174,13 +174,13 @@
         <ul class="site-menu" data-plugin="menu">
           <li class="site-menu-category">Externo</li>
           <li class="site-menu-item has-sub">
-            <a href="/ProjetoFinal-User/empresa">
+            <a href="/ProjetoFinal-User/empresa-externo">
               <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
               <span class="site-menu-title">Empresa</span>
             </a>
           </li>
           <li class="site-menu-item has-sub">
-            <a href="/ProjetoFinal-User/usuario-externo">
+            <a href="/ProjetoFinal-User/usuario-master-externo">
               <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
               <span class="site-menu-title">Usuários</span>
             </a>
