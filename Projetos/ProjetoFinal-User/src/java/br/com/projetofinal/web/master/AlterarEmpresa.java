@@ -14,15 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thiago
+ * @author Alunos
  */
-@WebServlet("/empresa-externo")
-public class EmpresaIndex extends HttpServlet{
+@WebServlet("/empresa-externo/alterar-empresa")
+public class AlterarEmpresa extends HttpServlet{
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("/padrao-externo-master/empresa/index.jsp").include(req, resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("padrao-externo-master/empresa/alterar-empresa").include(req, resp);
     }
     
 }

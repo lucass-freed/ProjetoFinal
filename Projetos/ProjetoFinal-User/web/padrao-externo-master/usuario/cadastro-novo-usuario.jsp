@@ -1,14 +1,17 @@
 <%-- 
-    Document   : index
-    Created on : 26/08/2018, 16:00:28
-    Author     : Lucas Rodrigo
+    Document   : cadastrro-novo-usuario
+    Created on : 28/08/2018, 08:38:17
+    Author     : Alunos
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/padrao-interno-master/dashboard.jsp" %>
+<%@include file="/padrao-externo-master/master.jsp" %>
+
+</div>
+</div>
 
 <h2>Cadastro Interno</h2>
-<div class="panel box-shadow">
+<div class="panel">
     <div class="panel-body container-fluid">
         <div class="row row-lg">
             <div class="col-md-6">
@@ -84,7 +87,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" style="text-align: center;">
+                            <div class="form-group">
                                 <button type="button" class="btn btn-primary">Cadastrar</button>
                             </div>
                     </div>
@@ -108,7 +111,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-control-label" for="inputBasicUF">UF</label>
-                                <input type="text" class="form-control" id="inputBasicUF" name="inputUF" placeholder="UF" autocomplete="off" maxlength="2"/>
+                                <input type="text" class="form-control" id="inputBasicUF" name="inputUF"
+                                       placeholder="UF" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -140,46 +144,5 @@
     </div>
 </div>
 
-<script src="/ProjetoFinal-Interno/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-<script src="/ProjetoFinal-Interno/tema/global/vendor/jquery/jquery.js"></script>
+<%@include file="/padrao-externo-master/rodape.jsp" %>
 
-<script src="/ProjetoFinal-Interno/tema/global/js/Plugin.js"></script>
-<script src="/ProjetoFinal-Interno/tema/global/vendor/breakpoints/breakpoints.js"></script>
-
-<script src="/ProjetoFinal-Interno/tema/global/vendor/formatter/jquery.formatter.js"></script>
-
-<script src="/ProjetoFinal-Interno/tema/global/js/Plugin/formatter.js"></script>
-
-<script>
-    Breakpoints();
-</script>
-
-<script>
-    (function (document, window, $) {
-        'use strict';
-
-        var Site = window.Site;
-        $(document).ready(function () {
-            Site.run();
-        });
-    })(document, window, jQuery);
-
-    $('#inputBasicTelefone').formatter({
-        'pattern': '({{99}}){{99999}}-{{9999}}',
-        'persistent': false
-    });
-    $('#inputBasicCPF').formatter({
-        'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
-        'persistent': false
-    });
-    $('#inputBasicDataNascimento').formatter({
-        'pattern': '{{99}}/{{99}}/{{9999}}',
-        'persistent': false
-    });
-    $('#inputBasicCEP').formatter({
-        'pattern': '{{99999}}-{{999}}',
-        'persistent': false
-    });
-</script>
-
-<%@include file="/padrao-interno-master/rodape.jsp" %>
