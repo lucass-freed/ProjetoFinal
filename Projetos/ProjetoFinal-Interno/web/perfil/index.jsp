@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="blue-600">
+            <div>
                 <table class="table">
                     <tbody>
                         <tr>
