@@ -22,7 +22,7 @@
           </div>
           <div class="panel-body container-fluid">
             <div class="row row-lg">
-              <div class="col-xl-6">
+              <div class="col-xl-12">
                 <!-- Tabs -->
                 <div class="example-wrap">
                   <div class="nav-tabs-horizontal" data-plugin="tabs">
@@ -38,18 +38,35 @@
                     </ul>
                     <div class="tab-content pt-20">
                       <div class="tab-pane active" id="exampleTabsOne" role="tabpanel">
-                        <div>     
-                          <div class="criticidade" style="text-align: right;">
+                        <!--Descrição do Ticket -->
+                        <h4>Título do Ticket</h4>
+                        <div class="criticidade" style="text-align: right;">
                                 <span class="badge badge-success">Baixa</span>  
                                 <span class="badge badge-primary">Média</span>
                                 <span class="badge badge-warning">Alta</span>
                                 <span class="badge badge-danger">Altíssima</span>
-                            </div>
-                       </div>
+                        </div>
+                        <div class="page-content container-fluid">
+                        <div class="row">
+                        <div class="col-lg-8">
+                        Exemplo de descrição do problema:::
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neglegentur sabinum instructus
                         fingitur accusantibus harum neque consuetudine intereant
                         numeris, ipse tuemur suum apud mediocrem iactant. Libidinibus
                         amatoriis dicta albuci manum, statue.
+                        </div>
+                        </div>
+                        </div>
+                        <div class="example-wrap">
+                  <div class="tags" style="text-align: right;">
+                      <!--Acho que aqui vai um for para percorer as tags-->
+                    <span class="badge badge-outline badge-dark">ExemploTag</span>
+                    <span class="badge badge-outline badge-dark">Banco de Dados</span>
+                    <span class="badge badge-outline badge-dark">Rede e Internet</span>
+                    <span class="badge badge-outline badge-dark">Periféricos</span>
+                  </div>
+                        </div>
+                        
                       </div>
                       <div class="tab-pane" id="exampleTabsTwo" role="tabpanel">                          
                         Negant parvos fructu nostram mutans supplicii ac dissentias, maius tibi licebit

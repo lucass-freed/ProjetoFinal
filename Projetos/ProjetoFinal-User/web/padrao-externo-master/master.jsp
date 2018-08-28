@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/global/css/bootstrap-extend.min.css">
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/assets/css/site.min.css">
+        <link rel="stylesheet" href="../assets/examples/css/tables/basic.min.css?v4.0.2">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/global/vendor/animsition/animsition.css">

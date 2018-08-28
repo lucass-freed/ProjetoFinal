@@ -1,19 +1,18 @@
 package br.com.projetofinal.bean;
 
-import br.com.projetofinal.enumTypes.SazonalidadeType;
-import br.com.projetofinal.enumTypes.TicketStatusType;
-
 /**
  *
  * @author Matheus Werner
+ * @contributor: Michelle de Jesus Rogério
+ * Edited on 2018-08-28 visando adequação para retornos corretos no TicketDAO
  */
 public class TicketBean {
     
     private int id;
-    private EmpresaBean empresa;
-    private ColaboradorBean colaborador;
-    private SazonalidadeType sazonalidade;
-    private TicketStatusType situacao;
+    private int idEmpresa;
+    private int idColaborador;
+    private int idSazonalidade;
+    private int idSituacao;
     private String titulo;
     private int dataAbertura;
     private String sistemaOperacional;
@@ -30,36 +29,36 @@ public class TicketBean {
         this.id = id;
     }
 
-    public EmpresaBean getEmpresa() {
-        return empresa;
+    public int getIdEmpresa() {
+        return idEmpresa;
     }
 
-    public void setEmpresa(EmpresaBean empresa) {
-        this.empresa = empresa;
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
-    public ColaboradorBean getColaborador() {
-        return colaborador;
+    public int getIdColaborador() {
+        return idColaborador;
     }
 
-    public void setColaborador(ColaboradorBean colaborador) {
-        this.colaborador = colaborador;
+    public void setIdColaborador(int idColaborador) {
+        this.idColaborador = idColaborador;
     }
 
-    public SazonalidadeType getSazonalidade() {
-        return sazonalidade;
+    public int getIdSazonalidade() {
+        return idSazonalidade;
     }
 
-    public void setSazonalidade(SazonalidadeType sazonalidade) {
-        this.sazonalidade = sazonalidade;
+    public void setIdSazonalidade(int idSazonalidade) {
+        this.idSazonalidade = idSazonalidade;
     }
 
-    public TicketStatusType getSituacao() {
-        return situacao;
+    public int getIdSituacao() {
+        return idSituacao;
     }
 
-    public void setSituacao(TicketStatusType situacao) {
-        this.situacao = situacao;
+    public void setIdSituacao(int idSituacao) {
+        this.idSituacao = idSituacao;
     }
 
     public String getTitulo() {
@@ -117,4 +116,7 @@ public class TicketBean {
     public void setProcedimentoResolucao(String procedimentoResolucao) {
         this.procedimentoResolucao = procedimentoResolucao;
     }
+    
+
+    
 }

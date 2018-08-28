@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.projetofinal.web.master;
+package br.com.projetofinal.web.regular;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,15 +14,17 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thiago
+ * @author Alunos
  */
-@WebServlet("/empresa-externo")
-public class EmpresaIndex extends HttpServlet{
+@WebServlet("/chamado")
+public class ChamadoIndex extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("/padrao-externo-master/empresa/index.jsp").include(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    throws ServletException, IOException {
+        req.getRequestDispatcher("/padrao-externo-regular/chamado/index.jsp").include(req, resp);
     }
+    
+    
     
 }

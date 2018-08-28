@@ -25,6 +25,8 @@
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link rel="stylesheet" href="/ProjetoFinal-User/tema/assets/examples/css/forms/layouts.css">
+        <link rel="stylesheet" href="/ProjetoFinal-User/tema/assets/examples/css/pages/search-result.css">
+
 
 
         <!-- Fonts -->
@@ -38,7 +40,7 @@
             Breakpoints();
         </script>
     </head>
-    <body class="animsition">
+    <body class="animsition" >
         
         <%@include file="header.jsp" %> 
         <%@include file="sidebar.jsp" %>
