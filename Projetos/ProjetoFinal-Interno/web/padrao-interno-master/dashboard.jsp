@@ -24,8 +24,7 @@
         <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/intro-js/introjs.css">
         <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/assets/examples/css/forms/layouts.css">
-
+        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/assets/css/layouts.css">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/fonts/web-icons/web-icons.min.css">

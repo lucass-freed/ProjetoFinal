@@ -1,4 +1,4 @@
-4<%-- 
+<%-- 
     Document   : index
     Created on : 26/08/2018, 16:00:28
     Author     : Lucas Rodrigo
@@ -8,7 +8,7 @@
 <%@include file="/padrao-interno-master/dashboard.jsp" %>
 
 <h2>Cadastro Interno</h2>
-<div class="panel">
+<div class="panel box-shadow">
     <div class="panel-body container-fluid">
         <div class="row row-lg">
             <div class="col-md-6">
@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="text-align: center;">
                                 <button type="button" class="btn btn-primary">Cadastrar</button>
                             </div>
                     </div>
