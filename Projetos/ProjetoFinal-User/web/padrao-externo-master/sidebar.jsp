@@ -180,7 +180,7 @@
             </a>
           </li>
           <li class="site-menu-item has-sub">
-            <a href="javascript:void(0)">
+            <a href="/ProjetoFinal-User/usuario-externo">
               <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
               <span class="site-menu-title">Usuários</span>
             </a>
