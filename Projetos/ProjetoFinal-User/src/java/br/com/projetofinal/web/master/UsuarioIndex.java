@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Alunos
  */
-@WebServlet("/usuario-externo")
+@WebServlet("/usuario-master-externo")
 public class UsuarioIndex extends HttpServlet{
 
     @Override
