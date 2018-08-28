@@ -77,7 +77,7 @@ CREATE TABLE tickets_criticidade (
 
 CREATE TABLE tickets_log (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	data_hora_mvto TIMESTAMP,
+	data_hora_mvto DEFAULT CURRENT_TIMESTAMP,
 	observacao TEXT
 );
 
@@ -100,7 +100,7 @@ CREATE TABLE tickets (
 	sistema_operacional VARCHAR (50),
 	versao_banco VARCHAR (10),
 	descricao TEXT,
-	data_encerramento DATE NOT NULL,
+	data_encerramento DATE,
 	procedimento_resolucao TEXT NOT NULL
 );
 

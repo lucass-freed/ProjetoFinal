@@ -20,7 +20,7 @@
             #Select com ID do Ticket;
             </h3>
           </div>
-          <div class="panel-body container">
+          <div class="panel-body container-fluid">
             <div class="row row-lg">
               <div class="col-xl-12">
                 <!-- Tabs -->
