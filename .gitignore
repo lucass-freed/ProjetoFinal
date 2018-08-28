@@ -12,13 +12,12 @@
 /Projetos/ProjetoFinalConexao/dist/
 /Projetos/ProjetoFinalConexao/build/
 /Projetos/ProjetoFinal-User/build/
-<<<<<<< HEAD
+
 /Projetos/ProjetoFinal-Principal/nbproject/private/
 /Projetos/ProjetoFinal-Principal/build/
-=======
 *.properties
-*.properties
->>>>>>> 7108f7b2083ffebf1bc3dc3e56fe602118f53219
+
 *.css
+
 *.xml
-*.xml
+
