@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thiago
  */
-@WebServlet("/empresa")
+@WebServlet("/empresa-externo")
 public class EmpresaIndex extends HttpServlet{
 
     @Override
