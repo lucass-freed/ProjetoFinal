@@ -77,7 +77,7 @@ CREATE TABLE tickets_criticidade (
 
 CREATE TABLE tickets_log (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	data_hora_mvto TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	data_hora_mvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	observacao TEXT
 );
 
@@ -88,20 +88,20 @@ CREATE TABLE tickets_sazonalidade (
 
 CREATE TABLE tickets (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	id_empresa INT NOT NULL,
+	/*id_empresa INT NOT NULL,
 	FOREIGN KEY (id_empresa) references empresas(id),
 	id_colaborador INT NOT NULL,
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_ticket_sazonalidade INT NOT NULL,
 	FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
 	situacao VARCHAR (100),
-	titulo VARCHAR (150),
-	data_abertura DATE NOT NULL,
+	*/titulo VARCHAR (150)/*,
+	data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	sistema_operacional VARCHAR (50),
 	versao_banco VARCHAR (10),
 	descricao TEXT,
 	data_encerramento DATE,
-	procedimento_resolucao TEXT NOT NULL
+	procedimento_resolucao TEXT NOT NULL*/
 );
 
 CREATE TABLE tags(
@@ -116,3 +116,7 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
 
+INSERT INTO tickets (titulo) VALUES 
+("Probleminha"),
+("Problemão urgente")
+;

@@ -1,5 +1,7 @@
 package br.com.projetofinal.web.ticket;
 
+import br.com.projetofinal.bean.TicketBean;
+import br.com.projetofinal.dao.TicketDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +14,16 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2018-08-27
  */
 @WebServlet("/interno/ticket")
-public class Ticket extends HttpServlet{
+public class Ticket extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, 
+    protected void doGet(HttpServletRequest req,
             HttpServletResponse resp) throws ServletException, IOException {
-        
+        int id = Integer.parseInt(req.getParameter("id"));
+        TicketBean ticket = new TicketDAO().obterTicketPorID(id);
+
+        req.setAttribute("ticket", ticket);
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
-        req.getRequestDispatcher("/ticket/index.jsp").include(req,resp);
+        req.getRequestDispatcher("/ticket/index.jsp").include(req, resp);
     }
 }
