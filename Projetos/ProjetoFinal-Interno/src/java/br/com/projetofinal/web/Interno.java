@@ -16,12 +16,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Alunos
  */
-@WebServlet("/home")
-public class Home extends HttpServlet {
+@WebServlet("/interno")
+public class Interno extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/home/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/interno/index.jsp").include(req, resp);
     }
 
 }
