@@ -22,10 +22,10 @@
             <div class="row row-lg">
               <div class="col-md-12">
                 <div class="example-wrap">
-                <% EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(); %>
+                    <% EmpresaBean empresa = (EmpresaBean) request.getAttribute("empresa"); %>
                     <h3 class="example-title">Cadastro de Empresa</h3>
                   <div class="example">
-                    <form method="post" action="#" autocomplete="off">
+                    <form method="get" action="#" autocomplete="off">
                       <div class="row">
 	                      <div class="form-group col-md-12">
                                   <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= empresa.getCnpj() %>"/>

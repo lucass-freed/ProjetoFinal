@@ -19,14 +19,16 @@ import javax.servlet.http.HttpServletResponse;
  * @author Thiago
  */
 @WebServlet("/empresa-externo")
-public class EmpresaIndex extends HttpServlet{
+public class EmpresaIndex extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(id);
-        
+
+        req.setAttribute("empresa", empresa);
+
         req.getRequestDispatcher("/padrao-externo-master/empresa/index.jsp").include(req, resp);
     }
-    
+
 }
