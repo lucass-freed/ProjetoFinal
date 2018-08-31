@@ -1,8 +1,8 @@
 package br.com.projetofinal.enumTypes;
 
 /**
- *
  * @author Lucas Rodrigo
+ * updated by Michelle de Jesus Rogério
  */
 public enum EnumTicketStatusType {
 
