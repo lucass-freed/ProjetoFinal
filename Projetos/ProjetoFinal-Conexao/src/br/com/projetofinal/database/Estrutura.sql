@@ -95,8 +95,8 @@ CREATE TABLE tickets (
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_ticket_sazonalidade INT NOT NULL,
 	FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
-	situacao VARCHAR (100),
-	*/titulo VARCHAR (150)/*,
+	*/situacao VARCHAR (100),
+	titulo VARCHAR (150)/*,
 	data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	sistema_operacional VARCHAR (50),
 	versao_banco VARCHAR (10),
@@ -117,9 +117,9 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
 
-INSERT INTO tickets (titulo) VALUES 
-("Probleminha"),
-("Problemão urgente")
+INSERT INTO tickets (titulo, situacao) VALUES 
+("Probleminha", "Concluído"),
+("Problemão urgente", "Aberto")
 ;
 
 INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 

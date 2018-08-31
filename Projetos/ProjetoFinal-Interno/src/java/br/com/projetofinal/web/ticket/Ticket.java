@@ -2,6 +2,7 @@ package br.com.projetofinal.web.ticket;
 
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.dao.TicketDAO;
+import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,7 @@ public class Ticket extends HttpServlet {
             HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         TicketBean ticket = new TicketDAO().obterTicketPorID(id);
-
+        
         req.setAttribute("ticket", ticket);
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
         req.getRequestDispatcher("/ticket/index.jsp").include(req, resp);
