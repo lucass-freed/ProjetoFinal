@@ -49,9 +49,10 @@ CREATE TABLE empresas (
 	cep VARCHAR(50) NOT NULL,
 	cidade VARCHAR(100) NOT NULL,
 	uf VARCHAR(2) NOT NULL,
+	sistema VARCHAR(100) NOT NULL,
 	data_ativacao DATE NOT NULL,
 	data_expiracao DATE NOT NULL,
-	validade_certificado DATE NOT NULL
+	validade_certificado DATE
 );
 
 CREATE TABLE usuarios (
@@ -120,3 +121,45 @@ INSERT INTO tickets (titulo) VALUES
 ("Probleminha"),
 ("Problemão urgente")
 ;
+
+INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
+	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, data_ativacao, data_expiracao, 
+	validade_certificado) VALUES
+("50525544000145",
+"Laís e Alessandra Corretores Associados Ltda",
+"Alfa Corretora",
+"601497732",
+"posvenda@laisealessandracorretoresassociadosltda.com.br",
+"4828208738",
+"Rua Graça Aranha",
+"423",
+"Apto 12",
+"Pio Corrêa",
+"88811575",
+"Criciúma",
+"SC",
+"SafeCorporate",
+"2013-08-31",
+"2019-01-08",
+"2018-11-20"),
+("35392425000178",
+"Miguel e Cauê Casa Noturna Ltda",
+"Gueto RapBox",
+"689.707.177",
+"fabricacao@miguelecauecasanoturnaltda.com.br",
+"1129371397",
+"Nestor Pestana",
+"777",
+"Casa",
+"República",
+"01303010",
+"São Paulo",
+"SP",
+"SellerNight",
+"2018-05-24",
+"2019-05-24",
+"2019-03-01");
+
+
+
+ 
