@@ -4,13 +4,14 @@
     Author     : Thiago
 --%>
 
+<%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
+<%@page import="br.com.projetofinal.bean.EmpresaBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
 
 </div>
 </div>
 <!-- Page -->
-    
         <div class="col-md-12">
             <button type="button" class="btn btn-outline-primary col-md-4 offset-8" id="botao-alterar">Alterar</button>
         </div>
@@ -21,10 +22,11 @@
                 <div class="example-wrap">
                     <h3 class="example-title">Cadastro de Empresa</h3>
                   <div class="example">
+                      <% EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(1); %>
                     <form method="post" action="#" autocomplete="off">
                       <div class="row">
 	                      <div class="form-group col-md-12">
-                                  <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled"/>
+                                  <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= empresa.getCnpj() %>"/>
 	                      </div>
                       </div>
                       <div class="row">
