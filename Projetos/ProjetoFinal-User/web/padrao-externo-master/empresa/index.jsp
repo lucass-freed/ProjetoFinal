@@ -9,6 +9,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
 
+
+
 </div>
 </div>
 <!-- Page -->
@@ -20,9 +22,9 @@
             <div class="row row-lg">
               <div class="col-md-12">
                 <div class="example-wrap">
+                <% EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(); %>
                     <h3 class="example-title">Cadastro de Empresa</h3>
                   <div class="example">
-                      <% EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(1); %>
                     <form method="post" action="#" autocomplete="off">
                       <div class="row">
 	                      <div class="form-group col-md-12">
@@ -32,56 +34,56 @@
                       <div class="row">
 	                      <div class="form-group col-md-12">                  
 	                        <input type="text" class="form-control minha-classe" id="inputBasicRazaoSocial" name="inputRazaoSocial"
-	                          autocomplete="off" placeholder="Razão Social" disabled="disabled"/>
+	                          autocomplete="off" placeholder="Razão Social" disabled="disabled" value="<%= empresa.getRazaoSocial()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-12">                  
-	                        <input type="text" class="form-control minha-classe" id="inputBasicNomeFantasia" name="inputNomeFantasia" autocomplete="off" placeholder="Nome Fantasia" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicNomeFantasia" name="inputNomeFantasia" autocomplete="off" placeholder="Nome Fantasia" disabled="disabled" value="<%= empresa.getNomeFantasia()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-12">                  
-	                        <input type="text" class="form-control minha-classe" id="inputBasicIE" name="inputIE" autocomplete="off" placeholder="Inscrição Estadual" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicIE" name="inputIE" autocomplete="off" placeholder="Inscrição Estadual" disabled="disabled" value="<%= empresa.getInscricaoEstadual()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-6"> 
 	                        <input type="email" class="form-control minha-classe" id="inputBasicEmail" name="inputEmail"
-	                          autocomplete="off" placeholder="E-mail" disabled="disabled"/>
+                                       autocomplete="off" placeholder="E-mail" disabled="disabled" value="<%= empresa.getEmail()%>"/>
 	                      </div>
 	                      <div class="form-group col-md-6"> 
-	                        <input type="text" class="form-control minha-classe" id="inputPhone" placeholder="Telefone  Ex:(00)0000-0000" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputPhone" placeholder="Telefone  Ex:(00)0000-0000" disabled="disabled" value="<%= empresa.getTelefone()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-12">                   
-	                        <input type="text" class="form-control minha-classe" id="inputBasicLogradouro" name="inputLogradouro" autocomplete="off" placeholder="Logradouro" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicLogradouro" name="inputLogradouro" autocomplete="off" placeholder="Logradouro" disabled="disabled" value="<%= empresa.getLogradouro()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-6">                  
-	                        <input type="text" class="form-control minha-classe" id="inputBasicNumero" name="inputNumero" autocomplete="off" placeholder="Número" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicNumero" name="inputNumero" autocomplete="off" placeholder="Número" disabled="disabled" value="<%= empresa.getNumero()%>"/>
 	                      </div>
 	                      <div class="form-group col-md-6">                 
-	                        <input type="text" class="form-control minha-classe" id="inputBasicComplemento" name="inputComplemento" autocomplete="off" placeholder="Complemento" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicComplemento" name="inputComplemento" autocomplete="off" placeholder="Complemento" disabled="disabled" value="<%= empresa.getComplemento()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-6">                   
-	                        <input type="text" class="form-control minha-classe" id="inputBasicBairro" name="inputBairro" autocomplete="off" placeholder="Bairro" disabled="disabled"/>
+                                  <input type="text" class="form-control minha-classe" id="inputBasicBairro" name="inputBairro" autocomplete="off" placeholder="Bairro" disabled="disabled" value="<%= empresa.getBairro()%>"/>
 	                      </div> 
 	                      <div class="form-group col-md-6">
-	                        <input type="text" class="form-control minha-classe" id="inputBasicCEP" name="inputCEP" autocomplete="off" placeholder="CEP  Ex:00000-000" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicCEP" name="inputCEP" autocomplete="off" placeholder="CEP  Ex:00000-000" disabled="disabled" value="<%= empresa.getCep()%>"/>
 	                      </div>
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-6">                   
-	                        <input type="text" class="form-control minha-classe" id="inputBasicCidade" name="inputCidade"autocomplete="off" placeholder="Cidade" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicCidade" name="inputCidade"autocomplete="off" placeholder="Cidade" disabled="disabled" value="<%= empresa.getCidade()%>"/>
 	                      </div>                               
 	                      <div class="form-group col-md-6"> 
 	                        <select class="form-control minha-classe" disabled="disabled">
-	                          <option disabled="disabled" selected="selected">Selecione um Estado</option>
+	                          <option disabled="disabled" selected="selected" value="<%= empresa.getUf()%>">Selecione um Estado</option>
 	                          <option value="ac">AC</option>
 	                          <option value="al">AL</option>
 	                          <option value="ap">AP</option>
@@ -114,15 +116,15 @@
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-6">                  
-	                        <input type="text" class="form-control minha-classe" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled" value="<%= empresa.getDataAtivacao()%>"/>
 	                      </div>
 	                      <div class="form-group col-md-6">                   
-	                        <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled"/>
+	                        <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= empresa.getDataExpiracao()%>"/>
 	                      </div>
                       </div>
                      <div class="row">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="desativarCampos()">Cancelar</button>
+                            <button type="button" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar">Cancelar</button>
                           <button type="button" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled">Salvar</button>
                         
                       </div>
