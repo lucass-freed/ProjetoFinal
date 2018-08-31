@@ -145,6 +145,167 @@
         <!-- End Navbar Collapse -->
 
     </div>
+    
+    <div class="row" data-plugin="matchHeight" data-by-row="true">
+          <div class="col-xl-12 col-lg-10">
+            <!-- Panel Tickets -->
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Tickets</h3>
+                <div class="panel-actions panel-actions-keep">
+                  <div class="dropdown">
+                    <a class="panel-action" id="examplePanelDropdown" data-toggle="dropdown" href="#"
+                      aria-expanded="false" role="button"><i class="icon wb-more-vertical" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu dropdown-menu-bullet dropdown-menu-right" aria-labelledby="examplePanelDropdown"
+                      role="menu">
+                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-flag" aria-hidden="true"></i> Action</a>
+                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-print" aria-hidden="true"></i> Another action</a>
+                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-heart" aria-hidden="true"></i> Something else here</a>
+                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i> Separated link</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <ul class="list-group list-group-dividered list-group-full h-300" data-plugin="scrollable">
+                  <div data-role="container">
+                    <div data-role="content">
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-info float-right">Completed</small>
+                        <p>
+                          <span>Server unavaible</span>
+                          <span>[13060]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/1.jpg" alt="">
+                            </span>
+                            <span>Herman Beck</span>
+                          </a>
+                          <time datetime="2018-07-01T08:55">2 hours ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-warning float-right">Pendening</small>
+                        <p>
+                          <span>Mobile App Problem</span>
+                          <span>[13061]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/2.jpg" alt="">
+                            </span>
+                            <span>Mary Adams</span>
+                          </a>
+                          <time datetime="2018-07-01T07:55">1 hour ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-primary float-right">In progress</small>
+                        <p>
+                          <span>IE8 problem</span>
+                          <span>[13062]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/3.jpg" alt="">
+                            </span>
+                            <span>Caleb Richards</span>
+                          </a>
+                          <time datetime="2018-06-28T21:05">3 days ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-danger float-right">Rejected</small>
+                        <p>
+                          <span>Respoonsive problem</span>
+                          <span>[13063]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/4.jpg" alt="">
+                            </span>
+                            <span>June Lane</span>
+                          </a>
+                          <time datetime="2018-06-27T13:05">4 days ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-info float-right">Completed</small>
+                        <p>
+                          <span>Server unavaible</span>
+                          <span>[13060]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/5.jpg" alt="">
+                            </span>
+                            <span>Herman Beck</span>
+                          </a>
+                          <time datetime="2018-07-01T08:55">2 hours ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-warning float-right">Pendening</small>
+                        <p>
+                          <span>Mobile App Problem</span>
+                          <span>[13061]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/6.jpg" alt="">
+                            </span>
+                            <span>Mary Adams</span>
+                          </a>
+                          <time datetime="2018-07-01T07:55">1 hour ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-primary float-right">In progress</small>
+                        <p>
+                          <span>IE8 problem</span>
+                          <span>[13062]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/7.jpg" alt="">
+                            </span>
+                            <span>Caleb Richards</span>
+                          </a>
+                          <time datetime="2018-06-28T21:05">3 days ago</time>
+                        </small>
+                      </li>
+                      <li class="list-group-item justify-content-between">
+                        <small class="badge badge-round badge-danger float-right">Rejected</small>
+                        <p>
+                          <span>Respoonsive problem</span>
+                          <span>[13063]</span>
+                        </p>
+                        <small>Opened by
+                          <a class="hightlight" href="javascript:void(0)">
+                            <span class="avatar avatar-xs">
+                              <img src="../../../global/portraits/8.jpg" alt="">
+                            </span>
+                            <span>June Lane</span>
+                          </a>
+                          <time datetime="2018-06-27T13:05">4 days ago</time>
+                        </small>
+                      </li>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <!-- End Panel Tickets -->
+          </div>
+        </div>
 
 
-</nav>  
+</nav>

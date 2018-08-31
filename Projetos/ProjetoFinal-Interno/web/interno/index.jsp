@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/padrao-interno-master/dashboard.jsp"%>
+<%@include file="/padrao-interno-regular/dashboard.jsp"%>
 
 <h4>Página inicial</h4>
 
-<%@include file="/padrao-interno-master/rodape.jsp"%>
+<%@include file="/padrao-interno-regular/rodape.jsp"%>
