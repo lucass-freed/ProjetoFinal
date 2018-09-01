@@ -6096,7 +6096,7 @@ ul.panel-actions > li:first-child {
 /* Modifier `overlay-background`
  ========================================================================== */
 .overlay-background {
-    background: rgba(0, 0, 0, 0.5); }
+    background: #3e8ef7; }
 
 /* Modifier `overlay-image`
  ========================================================================== */

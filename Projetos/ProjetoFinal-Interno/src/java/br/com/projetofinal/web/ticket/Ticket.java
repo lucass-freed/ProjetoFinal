@@ -2,7 +2,6 @@ package br.com.projetofinal.web.ticket;
 
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.dao.TicketDAO;
-import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

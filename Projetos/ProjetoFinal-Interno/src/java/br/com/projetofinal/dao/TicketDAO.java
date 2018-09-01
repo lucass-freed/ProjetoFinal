@@ -1,6 +1,5 @@
 package br.com.projetofinal.dao;
 
-import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketLogBean;
 import br.com.projetofinal.database.Conexao;

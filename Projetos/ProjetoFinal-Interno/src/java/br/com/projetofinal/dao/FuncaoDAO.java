@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class FuncaoDAO {
     

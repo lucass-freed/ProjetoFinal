@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 @WebServlet("/cadastro")
 public class Cadastro extends HttpServlet {
