@@ -14,16 +14,16 @@
 </div>
 </div>
 <!-- Page -->
-        <div class="col-md-12">
-            <button type="button" class="btn btn-outline-primary col-md-4 offset-8" id="botao-alterar">Alterar</button>
-        </div>
         <div class="panel">
           <div class="panel-body container-fluid">
             <div class="row row-lg">
               <div class="col-md-12">
                 <div class="example-wrap">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-outline-primary col-md-4 float-right" id="botao-alterar">Alterar</button>
+                    <h3 class="example-title col-md-4 float-left">Cadastro de Empresa</h3>
+                </div>
                     <% EmpresaBean empresa = (EmpresaBean) request.getAttribute("empresa"); %>
-                    <h3 class="example-title">Cadastro de Empresa</h3>
                   <div class="example">
                     <form method="get" action="#" autocomplete="off">
                       <div class="row">
@@ -82,8 +82,8 @@
 	                        <input type="text" class="form-control minha-classe" id="inputBasicCidade" name="inputCidade"autocomplete="off" placeholder="Cidade" disabled="disabled" value="<%= empresa.getCidade()%>"/>
 	                      </div>                               
 	                      <div class="form-group col-md-6"> 
-	                        <select class="form-control minha-classe" disabled="disabled">
-	                          <option disabled="disabled" selected="selected" value="<%= empresa.getUf()%>">Selecione um Estado</option>
+	                        <select class="form-control minha-classe" disabled="disabled" value="<%= empresa.getUf()%>">
+	                          <option disabled="disabled" selected="selected" >Selecione um Estado</option>
 	                          <option value="ac">AC</option>
 	                          <option value="al">AL</option>
 	                          <option value="ap">AP</option>
