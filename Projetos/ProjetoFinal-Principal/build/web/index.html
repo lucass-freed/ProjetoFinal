@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">
-        <title>FlowDesk | Página Inicial</title>
+        <title>FlowDesk | Entrar</title>
 
         <link rel="apple-touch-icon" href="/ProjetoFinal-Principal/tema/assets/images/apple-touch-icon.png">
         <link rel="shortcut icon" href="/ProjetoFinal-Principal/tema/assets/images/favicon.png">
@@ -49,13 +49,13 @@
                         <img class="brand-img" src="/ProjetoFinal-Principal/tema/assets//images/logo-colored@2x.png" alt="...">
                         <h2 class="brand-text font-size-30">FlowDesk</h2>
                     </div>
-                    <form method="post" action="#">
+                    <form method="post" method="post" onsubmit="validarLogin()">
                         <div class="form-group form-material floating" data-plugin="formMaterial">
-                            <input type="email" class="form-control" name="email" />
+                            <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
                             <label class="floating-label">Usuário</label>
                         </div>
                         <div class="form-group form-material floating" data-plugin="formMaterial">
-                            <input type="password" class="form-control" name="password"/>
+                            <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
                             <label class="floating-label">Senha</label>
                         </div>
                         <div class="form-group clearfix">
@@ -65,7 +65,7 @@
                             </div>
                             <a class="float-right" href="/ProjetoFinal-Principal/forgot-password/index.jsp">Esqueceu a senha?</a>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Entrar</button>
+                        <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
                     </form>
                 </div>
             </div>
@@ -85,6 +85,7 @@
 <script src="/ProjetoFinal-Principal/tema/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
 <script src="/ProjetoFinal-Principal/tema/global/vendor/asscrollable/jquery-asScrollable.js"></script>
 <script src="/ProjetoFinal-Principal/tema/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+<script src="/ProjetoFinal-Principal/tema/global/js/login.js"></script>
 
 <!-- Plugins -->
 <script src="/ProjetoFinal-Principal/tema/global/vendor/switchery/switchery.js"></script>

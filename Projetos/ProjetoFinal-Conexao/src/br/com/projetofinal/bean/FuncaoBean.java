@@ -2,7 +2,7 @@ package br.com.projetofinal.bean;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class FuncaoBean {
     

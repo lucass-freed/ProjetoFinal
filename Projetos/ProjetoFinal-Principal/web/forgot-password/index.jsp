@@ -14,7 +14,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     
-    <title>FlowDesk - Esquecer a Senha</title>
+    <title>Esquecer Senha - FlowDesk</title>
     
     <link rel="apple-touch-icon" href="/ProjetoFinal-Principal/tema/assets/images/apple-touch-icon.png">
     <link rel="shortcut icon" href="/ProjetoFinal-Principal/tema/assets/images/favicon.png">

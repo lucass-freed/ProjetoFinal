@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.projetofinal.Util;
 
 /**
  *
- * @author Alunos
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -29,8 +24,8 @@ public class SHA512Metodos{
         return strHashCode;
     }
     
-    public boolean compararSenha(String senhaCriptografada, String senhaInformar) {
-        return senhaCriptografada.equals(senhaInformar);
+    public boolean compararSenha(String senhaCriptografada, String senhaInformar) throws NoSuchAlgorithmException {
+        return senhaCriptografada.equals(criptografarSenha(senhaInformar));
     }
     
 }

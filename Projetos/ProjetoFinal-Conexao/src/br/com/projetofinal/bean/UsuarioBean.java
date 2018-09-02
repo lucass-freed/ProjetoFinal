@@ -2,12 +2,10 @@ package br.com.projetofinal.bean;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class UsuarioBean {
 
-   
-    
     private int id;
     private int idEmpresa;
     private EmpresaBean empresa;
@@ -20,6 +18,7 @@ public class UsuarioBean {
     private String dataNascimento;
     private int telefone;
     private String email;
+    private boolean usuarioMaster;
     
       public int getIdFuncao() {
         return idFuncao;
@@ -97,7 +96,7 @@ public class UsuarioBean {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String data_nascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -115,5 +114,13 @@ public class UsuarioBean {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isUsuarioMaster() {
+        return usuarioMaster;
+    }
+
+    public void setUsuarioMaster(boolean usuarioMaster) {
+        this.usuarioMaster = usuarioMaster;
     }
 }

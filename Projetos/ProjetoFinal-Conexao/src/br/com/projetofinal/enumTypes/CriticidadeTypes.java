@@ -2,7 +2,7 @@ package br.com.projetofinal.enumTypes;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public enum CriticidadeTypes {
     

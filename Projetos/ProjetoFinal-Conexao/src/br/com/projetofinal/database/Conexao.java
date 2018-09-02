@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class Conexao {
     
