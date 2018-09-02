@@ -1,18 +1,19 @@
 package br.com.projetofinal.bean;
 
+import br.com.projetofinal.enumTypes.EnumTicketStatusType;
+
 /**
  *
  * @author Matheus Werner
- * @contributor: Michelle de Jesus Rogério
- * Edited on 2018-08-28 visando adequação para retornos corretos no TicketDAO
+ * @contributor: Michelle de Jesus Rogério Edited on 2018-08-28 visando
+ * adequação para retornos corretos no TicketDAO
  */
 public class TicketBean {
-    
+
     private int id;
     private int idEmpresa;
     private int idColaborador;
     private int idSazonalidade;
-    private int idSituacao;
     private String titulo;
     private int dataAbertura;
     private String sistemaOperacional;
@@ -20,6 +21,16 @@ public class TicketBean {
     private String descricao;
     private int dataEncerramento;
     private String procedimentoResolucao;
+    private EnumTicketStatusType status;
+
+
+    public EnumTicketStatusType getStatus() {
+        return status;
+    }
+
+    public void setStatus(EnumTicketStatusType status) {
+        this.status = status;
+    }
 
     public int getId() {
         return id;
@@ -51,14 +62,6 @@ public class TicketBean {
 
     public void setIdSazonalidade(int idSazonalidade) {
         this.idSazonalidade = idSazonalidade;
-    }
-
-    public int getIdSituacao() {
-        return idSituacao;
-    }
-
-    public void setIdSituacao(int idSituacao) {
-        this.idSituacao = idSituacao;
     }
 
     public String getTitulo() {
@@ -116,7 +119,5 @@ public class TicketBean {
     public void setProcedimentoResolucao(String procedimentoResolucao) {
         this.procedimentoResolucao = procedimentoResolucao;
     }
-    
 
-    
 }

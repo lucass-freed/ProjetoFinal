@@ -49,9 +49,10 @@ CREATE TABLE empresas (
 	cep VARCHAR(50) NOT NULL,
 	cidade VARCHAR(100) NOT NULL,
 	uf VARCHAR(2) NOT NULL,
+	sistema VARCHAR(100) NOT NULL,
 	data_ativacao DATE NOT NULL,
 	data_expiracao DATE NOT NULL,
-	validade_certificado DATE NOT NULL
+	validade_certificado DATE
 );
 
 CREATE TABLE usuarios (
@@ -77,7 +78,7 @@ CREATE TABLE tickets_criticidade (
 
 CREATE TABLE tickets_log (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	data_hora_mvto TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	data_hora_mvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	observacao TEXT
 );
 
@@ -88,20 +89,20 @@ CREATE TABLE tickets_sazonalidade (
 
 CREATE TABLE tickets (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	id_empresa INT NOT NULL,
+	/*id_empresa INT NOT NULL,
 	FOREIGN KEY (id_empresa) references empresas(id),
 	id_colaborador INT NOT NULL,
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_ticket_sazonalidade INT NOT NULL,
 	FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
-	situacao VARCHAR (100),
-	titulo VARCHAR (150),
-	data_abertura DATE NOT NULL,
+	*/situacao VARCHAR (100),
+	titulo VARCHAR (150)/*,
+	data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	sistema_operacional VARCHAR (50),
 	versao_banco VARCHAR (10),
 	descricao TEXT,
 	data_encerramento DATE,
-	procedimento_resolucao TEXT NOT NULL
+	procedimento_resolucao TEXT NOT NULL*/
 );
 
 CREATE TABLE tags(
@@ -116,3 +117,49 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
 
+INSERT INTO tickets (titulo, situacao) VALUES 
+("Probleminha", "Concluído"),
+("Problemão urgente", "Aberto")
+;
+
+INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
+	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, data_ativacao, data_expiracao, 
+	validade_certificado) VALUES
+("50525544000145",
+"Laís e Alessandra Corretores Associados Ltda",
+"Alfa Corretora",
+"601497732",
+"posvenda@laisealessandracorretoresassociadosltda.com.br",
+"4828208738",
+"Rua Graça Aranha",
+"423",
+"Apto 12",
+"Pio Corrêa",
+"88811575",
+"Criciúma",
+"SC",
+"SafeCorporate",
+"2013-08-31",
+"2019-01-08",
+"2018-11-20"),
+("35392425000178",
+"Miguel e Cauê Casa Noturna Ltda",
+"Gueto RapBox",
+"689.707.177",
+"fabricacao@miguelecauecasanoturnaltda.com.br",
+"1129371397",
+"Nestor Pestana",
+"777",
+"Casa",
+"República",
+"01303010",
+"São Paulo",
+"SP",
+"SellerNight",
+"2018-05-24",
+"2019-05-24",
+"2019-03-01");
+
+
+
+ 

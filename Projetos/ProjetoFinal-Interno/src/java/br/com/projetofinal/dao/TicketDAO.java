@@ -1,9 +1,9 @@
 package br.com.projetofinal.dao;
 
-import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketLogBean;
 import br.com.projetofinal.database.Conexao;
+import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,35 +23,39 @@ public class TicketDAO {
         if (conexao != null) {
             String sql = "SELECT "
                     + "id, "
-                    + "id_empresa, "
-                    + "id_colaborador, "
-                    + "id_ticket_sazonalidade, "
-                    + "situacao, "
                     + "titulo, "
-                    + "data_abertura, "
+                    /*  + "id_empresa, "
+                    + "id_colaborador, "
+                    + "id_ticket_sazonalidade, "*/
+                    + "situacao "
+                    /* "data_abertura, "
                     + "sistema_operacional, "
                     + "versao_banco, "
                     + "descricao, "
                     + "data_encerramento, "
-                    + "procedimento_resolucao FROM tickets";
+                    + "procedimento_resolucao"*/
+                    + " FROM tickets WHERE id = ?";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
-                ResultSet rs = ps.getGeneratedKeys();
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
                     TicketBean ticket = new TicketBean();
                     ticket.setId(rs.getInt("id"));
-                    ticket.setIdEmpresa(rs.getInt("empresa"));
-                    ticket.setIdColaborador(rs.getInt("colaborador"));
-                    ticket.setIdSazonalidade(rs.getInt("sazonalidade"));
-                    ticket.setIdSituacao(rs.getInt("situacao"));
                     ticket.setTitulo(rs.getString("titulo"));
+                    /* ticket.setIdEmpresa(rs.getInt("empresa"));
+                    ticket.setIdColaborador(rs.getInt("colaborador"));
+                    ticket.setIdSazonalidade(rs.getInt("sazonalidade"));*/
+                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
+                    /* ticket.setTitulo(rs.getString("titulo"));
                     ticket.setDataAbertura(rs.getInt("dataAbertura"));
-                    ticket.setSistemaOperacional(rs.getString("sistemaOperacional"));
+                    ticket.setSistemaOperacional(rs.getString("sistema_operacional"));
                     ticket.setVersaoBanco(rs.getString("versaoBanco"));
                     ticket.setDescricao(rs.getString("descricao"));
                     ticket.setDataEncerramento(rs.getInt("dataEncerramento"));
-                    ticket.setProcedimentoResolucao(rs.getString("procedimentoResolucao"));
+                    ticket.setProcedimentoResolucao(rs.getString("procedimentoResolucao"));*/
+                    return ticket;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -89,7 +93,7 @@ public class TicketDAO {
                     ticket.setIdEmpresa(rs.getInt("empresa"));
                     ticket.setIdColaborador(rs.getInt("colaborador"));
                     ticket.setIdSazonalidade(rs.getInt("sazonalidade"));
-                    ticket.setIdSituacao(rs.getInt("situacao"));
+                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
                     ticket.setTitulo(rs.getString("titulo"));
                     ticket.setDataAbertura(rs.getInt("dataAbertura"));
                     ticket.setSistemaOperacional(rs.getString("sistemaOperacional"));
@@ -111,10 +115,9 @@ public class TicketDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "INSERT INTO tickets_log("
-                    + "id"
-                    + "data_hora_mvto"
-                    + "observacao"
-                    + "VALUES (?,CURRENT_TIMESTAMP,?)";
+                    + "\nid, "
+                    + "\nobservacao"
+                    + "\nVALUES (?,?)";
 
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);

@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Lucas Rodrigo Frederico
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet("/perfil")
+@WebServlet("/interno/perfil")
 public class Perfil extends HttpServlet {
     
     @Override

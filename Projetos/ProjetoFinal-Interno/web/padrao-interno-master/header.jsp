@@ -10,9 +10,11 @@
                 data-toggle="collapse">
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
-        <div class="navbar-brand navbar-brand-center">
-            <img class="navbar-brand-logo" src="/ProjetoFinal-Interno/tema/assets/images/logo.png" title="FlowDesk">
-            <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
+        <div>
+            <a href="/ProjetoFinal-Interno/interno" class="navbar-brand navbar-brand-center">
+                <img class="navbar-brand-logo" src="/ProjetoFinal-Interno/tema/assets/images/logo.png" title="FlowDesk">
+                <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
+            </a>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
