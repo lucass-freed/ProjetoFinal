@@ -36,9 +36,9 @@ public class EmpresaDAO {
                 empresa.setCep(resultSet.getString("cep"));
                 empresa.setCidade(resultSet.getString("cidade"));
                 empresa.setUf(resultSet.getString("uf"));
-                empresa.setDataAtivacao(resultSet.getString("data_ativacao"));
-                empresa.setDataExpiracao(resultSet.getString("data_expiracao"));
-                empresa.setValidadeCertificado(resultSet.getString("validade_certificado"));
+                empresa.setDataAtivacao(resultSet.getDate("data_ativacao"));
+                empresa.setDataExpiracao(resultSet.getDate("data_expiracao"));
+                empresa.setValidadeCertificado(resultSet.getDate("validade_certificado"));
                 return empresa;
             }
         }catch(SQLException e){

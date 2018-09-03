@@ -8,6 +8,7 @@ package br.com.projetofinal.web.master;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.dao.EmpresaDAO;
 import java.io.IOException;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +30,7 @@ public class EmpresaIndex extends HttpServlet {
         req.setAttribute("empresa", empresa);
 
         req.getRequestDispatcher("/padrao-externo-master/empresa/index.jsp").include(req, resp);
+        
     }
 
 }

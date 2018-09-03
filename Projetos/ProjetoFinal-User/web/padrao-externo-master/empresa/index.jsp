@@ -4,10 +4,10 @@
     Author     : Thiago
 --%>
 
-<%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
-<%@page import="br.com.projetofinal.bean.EmpresaBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
+<%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
+<%@page import="br.com.projetofinal.bean.EmpresaBean"%>
 
 
 
