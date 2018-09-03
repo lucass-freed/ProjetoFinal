@@ -1,5 +1,7 @@
 package br.com.projetofinal.bean;
 
+import java.sql.Date;
+
 /**
  *
  * @author Matheus Werner
@@ -19,6 +21,7 @@ public class EmpresaBean {
     private String cep;
     private String cidade;
     private String uf, inscricaoEstadual;
+    private Date dataAtivacao, dataExpiracao, validadeCertificado;       
 
     public String getInscricaoEstadual() {
         return inscricaoEstadual;
@@ -27,7 +30,6 @@ public class EmpresaBean {
     public void setInscricaoEstadual(String inscricaoEstadual) {
         this.inscricaoEstadual = inscricaoEstadual;
     }
-    private String dataAtivacao, dataExpiracao, validadeCertificado;       
 
     public int getId() {
         return id;
@@ -133,27 +135,27 @@ public class EmpresaBean {
         this.uf = uf;
     }
 
-    public String getDataAtivacao() {
+    public Date getDataAtivacao() {
         return dataAtivacao;
     }
 
-    public void setDataAtivacao(String dataAtivacao) {
+    public void setDataAtivacao(Date dataAtivacao) {
         this.dataAtivacao = dataAtivacao;
     }
 
-    public String getDataExpiracao() {
+    public Date getDataExpiracao() {
         return dataExpiracao;
     }
 
-    public void setDataExpiracao(String dataExpiracao) {
+    public void setDataExpiracao(Date dataExpiracao) {
         this.dataExpiracao = dataExpiracao;
     }
 
-    public String getValidadeCertificado() {
+    public Date getValidadeCertificado() {
         return validadeCertificado;
     }
 
-    public void setValidadeCertificado(String validadeCertificado) {
+    public void setValidadeCertificado(Date validadeCertificado) {
         this.validadeCertificado = validadeCertificado;
     }
 
