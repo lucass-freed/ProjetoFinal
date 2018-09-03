@@ -13,11 +13,11 @@
         <%@include file="/padrao-interno-master/dashboard.jsp"%>
 
         <!-- Personal -->
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/assets/css/perfil.css">
-        <script src="/ProjetoFinal-Interno/tema/global/vendor/switchery/switchery.js"></script>
-        <script src="/ProjetoFinal-Interno/tema/global/vendor/intro-js/intro.js"></script>
-        <script src="/ProjetoFinal-Interno/tema/global/vendor/screenfull/screenfull.js"></script>
-        <script src="/ProjetoFinal-Interno/tema/global/vendor/slidepanel/jquery-slidePanel.js"></script>
+        <link rel="stylesheet" href="/tema/assets/css/perfil.css">
+        <script src="/tema/global/vendor/switchery/switchery.js"></script>
+        <script src="/tema/global/vendor/intro-js/intro.js"></script>
+        <script src="/tema/global/vendor/screenfull/screenfull.js"></script>
+        <script src="/tema/global/vendor/slidepanel/jquery-slidePanel.js"></script>
         <!-- Page -->
     <div class="container-fluid">
         <div class="row">
@@ -27,7 +27,7 @@
                     <div class="card-block">
                         <div class="overlay-panel overlay-background">
                             <a class="avatar avatar-100" href="javascript:void(0)">
-                                <img src="/ProjetoFinal-Interno/tema/global/portraits/7.jpg" alt="...">
+                                <img src="/tema/global/portraits/7.jpg" alt="...">
                             </a>
                         </div>
                     </div>
