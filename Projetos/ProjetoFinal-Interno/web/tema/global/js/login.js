@@ -1,11 +1,11 @@
 function validarLogin() {
     event.preventDefault();
-    if (isSenhaInvalida()) {
+    if (isLoginInvalido()) {
         event.preventDefault();
     }
 }
 
-function isSenhaInvalida() {
+function isLoginInvalido() {
     var usuario = document.getElementById("campo-usuario").value;
     var password = document.getElementById("campo-senha").value;
     $.ajax({
