@@ -31,7 +31,7 @@
                         </a>
                         <ul class="site-menu-sub">
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="/ProjetoFinal-Interno/empresa">
+                                <a class="animsition-link" href="/empresa">
                                     <span class="site-menu-title">Consultar</span>
                                 </a>
                             </li>

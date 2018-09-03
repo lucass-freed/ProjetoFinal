@@ -57,11 +57,19 @@ CREATE TABLE empresas (
 
 CREATE TABLE usuarios (
        id INT AUTO_INCREMENT PRIMARY KEY,
-       id_empresa INT NOT NULL,
-       id_funcao INT NOT NULL,
+       /*id_empresa INT NOT NULL,
+       id_funcao INT NOT NULL,*/
+       id_empresa INT,
+       id_funcao INT,
        usuario VARCHAR(100) NOT NULL,
        senha VARCHAR(150) NOT NULL,
-       nome VARCHAR(100) NOT NULL,
+      /* nome VARCHAR(100) NOT NULL,
+       cpf VARCHAR(11) NOT NULL,
+       data_nascimento DATE NOT NULL,
+       telefone VARCHAR(14) NOT NULL,
+       email VARCHAR(100) NOT NULL,
+       usuario_master BOOLEAN,*/
+		nome VARCHAR(100) NOT NULL,
        cpf VARCHAR(11) NOT NULL,
        data_nascimento DATE NOT NULL,
        telefone VARCHAR(14) NOT NULL,
@@ -161,6 +169,8 @@ INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, ema
 "2019-05-24",
 "2019-03-01");
 
+INSERT INTO funcoes (nome, setor) VALUES 
+("Estagiário", "Suporte");
 
-
- 
+INSERT INTO usuarios (usuario, senha, email, data_nascimento) VALUES 
+('francisco','godinho@gmail.com', '123', '1994-06-04');

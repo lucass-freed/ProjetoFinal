@@ -1,33 +1,39 @@
-        <link rel="apple-touch-icon" href="/ProjetoFinal-Interno/tema/assets/images/apple-touch-icon.png">
-        <link rel="shortcut icon" href="/ProjetoFinal-Interno/tema/assets/images/favicon.png">
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description" content="bootstrap admin template">
+        <meta name="author" content="">
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/css/bootstrap-extend.min.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/assets/css/site.min.css">
+        <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
+        <link rel="stylesheet" href="/tema/assets/css/site.min.css">
 
         <!-- Plugins -->
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/animsition/animsition.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/asscrollable/asScrollable.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/switchery/switchery.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/intro-js/introjs.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/slidepanel/slidePanel.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/assets/css/layouts.css">
+        <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">
+        <link rel="stylesheet" href="/tema/global/vendor/asscrollable/asScrollable.css">
+        <link rel="stylesheet" href="/tema/global/vendor/switchery/switchery.css">
+        <link rel="stylesheet" href="/tema/global/vendor/intro-js/introjs.css">
+        <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
+        <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
+        <link rel="stylesheet" href="/tema/assets/css/layouts.css">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/fonts/web-icons/web-icons.min.css">
-        <link rel="stylesheet" href="/ProjetoFinal-Interno/tema/global/fonts/brand-icons/brand-icons.min.css">
+        <link rel="stylesheet" href="/tema/global/fonts/web-icons/web-icons.min.css">
+        <link rel="stylesheet" href="/tema/global/fonts/brand-icons/brand-icons.min.css">
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
         <!-- Scripts -->
-        <script src="/ProjetoFinal-Interno/tema/global/vendor/breakpoints/breakpoints.js"></script>
+        <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
         <script>
             Breakpoints();
         </script>
     </head>
     <body class="animsition">
-        
+
         <%@include file="header.jsp" %> 
         <%@include file="sidebar.jsp" %>
 

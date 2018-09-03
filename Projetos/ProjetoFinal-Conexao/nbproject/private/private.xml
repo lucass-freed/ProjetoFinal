@@ -2,23 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/build/built-jar.properties</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/ColaboradorBean.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/TicketLogBean.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/database/Conexao.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/build.xml</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/enumTypes/SazonalidadeType.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/FuncaoBean.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/Util/SHA512Metodos.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/database/Estrutura.sql</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/EmpresaBean.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/TicketBean.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/enumTypes/CriticidadeTypes.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/enumTypes/EnumTicketStatusType.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/TagsBean.java</file>
-            <file>file:/C:/Users/lukin/Documents/GitHub/ProjetoFinal/Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/bean/UsuarioBean.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

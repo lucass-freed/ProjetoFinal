@@ -11,8 +11,8 @@
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div>
-            <a href="/ProjetoFinal-Interno/interno" class="navbar-brand navbar-brand-center">
-                <img class="navbar-brand-logo" src="/ProjetoFinal-Interno/tema/assets/images/logo.png" title="FlowDesk">
+            <a href="/interno" class="navbar-brand navbar-brand-center">
+                <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
                 <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
             </a>
         </div>
@@ -45,7 +45,7 @@
                     <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="scale-up" role="button">
                         <span class="avatar avatar-online">
-                            <img src="/ProjetoFinal-Interno/tema/global/portraits/5.jpg" alt="...">
+                            <img src="/tema/global/portraits/5.jpg" alt="...">
                             <i></i>
                         </span>
                     </a>

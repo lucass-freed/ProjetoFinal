@@ -23,7 +23,7 @@ public class UsuarioDAO {
     public int inserir(UsuarioBean usuario) throws NoSuchAlgorithmException {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "INSERT INTO usuario (id_empresa, id_usuario_funcao, usuario,"
+            String sql = "INSERT INTO usuario (id_empresa, id_funcao, usuario,"
                     + "senha, nome, cpf, data_nascimento, telefone, email, usuario_master)"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?) ";
             try {
@@ -38,7 +38,7 @@ public class UsuarioDAO {
                 ps.setString(quantidade++, senhaCriptografada);
                 ps.setString(quantidade++, usuario.getNome());
                 ps.setString(quantidade++, usuario.getCpf());
-                ps.setString(quantidade++, usuario.getDataNascimento());
+                ps.setDate(quantidade++, usuario.getDataNascimento());
                 ps.setInt(quantidade++, usuario.getTelefone());
                 ps.setString(quantidade++, usuario.getEmail());
                 ps.setBoolean(quantidade++, usuario.isUsuarioMaster());
@@ -78,7 +78,7 @@ public class UsuarioDAO {
         List<UsuarioBean> usuarios = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id, id_empresa, id_usuario_funcao, usuario,"
+            String sql = "SELECT id, id_empresa, id_funcao, usuario,"
                     + "senha, nome, cpf, data_nascimento, telefone, email, usuario_master"
                     + "FROM usuarios;";
             try {
@@ -89,11 +89,11 @@ public class UsuarioDAO {
                     UsuarioBean usuario = new UsuarioBean();
                     usuario.setId(rs.getInt("id"));
                     usuario.setIdEmpresa(rs.getInt("id_empresa"));
-                    usuario.setIdFuncao(rs.getInt("id_usuario_funcao"));
+                    usuario.setIdFuncao(rs.getInt("id_funcao"));
                     usuario.setUsuario(rs.getString("usuario"));
                     usuario.setNome(rs.getString("nome"));
                     usuario.setCpf(rs.getString("cpf"));
-                    usuario.setDataNascimento(rs.getString("data_nascimento"));
+                    usuario.setDataNascimento(rs.getDate("data_nascimento"));
                     usuario.setTelefone(rs.getInt("telefone"));
                     usuario.setEmail(rs.getString("email"));
                     usuario.setUsuarioMaster(rs.getBoolean("usuario_master"));
@@ -112,22 +112,23 @@ public class UsuarioDAO {
     public UsuarioBean obterUsuarioPorID(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id, id_empresa, id_usuario_funcao, usuario,"
-                    + "senha, nome, cpf, data_nascimento, telefone, email, usuario_master"
-                    + "FROM usuarios WHERE id = ?;";
+            String sql = "SELECT id, id_empresa, id_funcao, usuario,"
+                    + "\nsenha, nome, cpf, data_nascimento, telefone, email, usuario_master"
+                    + "\nFROM usuarios WHERE id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
-                ResultSet rs = ps.getGeneratedKeys();
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
                     UsuarioBean usuario = new UsuarioBean();
                     usuario.setId(rs.getInt("id"));
                     usuario.setIdEmpresa(rs.getInt("id_empresa"));
-                    usuario.setIdFuncao(rs.getInt("id_usuario_funcao"));
+                    usuario.setIdFuncao(rs.getInt("id_funcao"));
                     usuario.setUsuario(rs.getString("usuario"));
                     usuario.setNome(rs.getString("nome"));
                     usuario.setCpf(rs.getString("cpf"));
-                    usuario.setDataNascimento(rs.getString("data_nascimento"));
+                    usuario.setDataNascimento(rs.getDate("data_nascimento"));
                     usuario.setTelefone(rs.getInt("telefone"));
                     usuario.setEmail(rs.getString("email"));
                     usuario.setUsuarioMaster(rs.getBoolean("usuario_master"));
@@ -143,10 +144,25 @@ public class UsuarioDAO {
         return null;
     }
 
-    public UsuarioBean obterUsuarioPeloUsuarioOuEmail(String usuario) {
-        for (UsuarioBean user : obterUsuarios()) {
-            if (user.getUsuario().equals(usuario) || user.getEmail().equals(usuario)) {
-                return user;
+    public UsuarioBean validarLoginSenha(String usuario, String senha) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT id FROM usuarios WHERE (usuario = ? OR email = ?) AND senha = ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setString(1, usuario);
+                ps.setString(2, usuario);
+                ps.setString(3, senha);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    return obterUsuarioPorID(id);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
             }
         }
         return null;
