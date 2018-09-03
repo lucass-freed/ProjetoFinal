@@ -8,6 +8,8 @@ package br.com.projetofinal.web.master;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.dao.EmpresaDAO;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +28,10 @@ public class EmpresaIndex extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(id);
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        EmpresaBean dataValidacao = new EmpresaDAO().
+        LocalDate dataAtivacao = LocalDate.parse( , formato);
+            
 
         req.setAttribute("empresa", empresa);
 
