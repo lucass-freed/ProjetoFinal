@@ -1,24 +1,29 @@
 function validarLogin() {
     event.preventDefault();
-    if (isUsuarioInvalido() || isSenhaInvalida()) {
+    if (isSenhaInvalida()) {
         event.preventDefault();
     }
 }
 
-function isUsuarioInvalido() {
-    var usuario = document.getElementById("campo-usuario").value;
-    var i;
-    for (i = 0; i < (new UsuarioDAO().obterUsuarios().size()); i++) {
-        return (new UsuarioDAO.obterUsuarios().get(i).getUsuario().equals(usuario)
-                || new UsuarioDAO.obterUsuarios().get(i).getEmail().equals(usuario)
-                );
-    }
-}
-
 function isSenhaInvalida() {
-    var usuario = new UsuarioDAO().obterUsuarioPeloUsuarioOuEmail(document.getElementById("campo-usuario").value);
-    var senha = document.getElementById("campo-senha").value;
-    return (new SHA512Metodos().compararSenha(usuario.getSenha(), senha));
+    var usuario = document.getElementById("campo-usuario").value;
+    var password = document.getElementById("campo-senha").value;
+    $.ajax({
+        url: "/usuario/login",
+        method: "post",
+        data: {
+            login: usuario,
+            senha: password
+        },
+        success: function (data, textStatus, jqXHR) {
+            alert(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+        }
+    });
+
+
 }
 
 function apagarClasse(id, classeCor) {

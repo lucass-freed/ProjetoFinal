@@ -1,5 +1,7 @@
 package br.com.projetofinal.bean;
 
+import java.sql.Date;
+
 /**
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
@@ -15,7 +17,7 @@ public class UsuarioBean {
     private String senha;
     private String nome;
     private String cpf;
-    private String dataNascimento;
+    private Date dataNascimento;
     private int telefone;
     private String email;
     private boolean usuarioMaster;
@@ -92,11 +94,11 @@ public class UsuarioBean {
         this.cpf = cpf;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
