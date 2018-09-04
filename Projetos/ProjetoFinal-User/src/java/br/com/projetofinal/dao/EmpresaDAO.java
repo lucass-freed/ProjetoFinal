@@ -3,6 +3,7 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.database.Conexao;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,4 +49,5 @@ public class EmpresaDAO {
         }
         return null;
     }
+    
 }

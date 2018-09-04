@@ -28,10 +28,6 @@ public class EmpresaIndex extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(id);
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        EmpresaBean dataValidacao = new EmpresaDAO().
-        LocalDate dataAtivacao = LocalDate.parse( , formato);
-            
 
         req.setAttribute("empresa", empresa);
 
