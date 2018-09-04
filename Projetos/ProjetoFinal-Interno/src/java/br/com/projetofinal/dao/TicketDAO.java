@@ -3,6 +3,7 @@ package br.com.projetofinal.dao;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketLogBean;
 import br.com.projetofinal.database.Conexao;
+import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,12 +28,13 @@ public class TicketDAO {
                     /*  + "id_empresa, "
                     + "id_colaborador, "
                     + "id_ticket_sazonalidade, "*/
-                    + "situacao "
+                    + "situacao, "
+                    + "criticidade, "
                     /* "data_abertura, "
                     + "sistema_operacional, "
-                    + "versao_banco, "
-                    + "descricao, "
-                    + "data_encerramento, "
+                    + "versao_banco, " */
+                    + "descricao "
+                    /*+ "data_encerramento, "
                     + "procedimento_resolucao"*/
                     + " FROM tickets WHERE id = ?";
             try {
@@ -47,12 +49,13 @@ public class TicketDAO {
                     /* ticket.setIdEmpresa(rs.getInt("empresa"));
                     ticket.setIdColaborador(rs.getInt("colaborador"));
                     ticket.setIdSazonalidade(rs.getInt("sazonalidade"));*/
+                    ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("criticidade")));
                     ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
                     /* ticket.setTitulo(rs.getString("titulo"));
                     ticket.setDataAbertura(rs.getInt("dataAbertura"));
                     ticket.setSistemaOperacional(rs.getString("sistema_operacional"));
-                    ticket.setVersaoBanco(rs.getString("versaoBanco"));
-                    ticket.setDescricao(rs.getString("descricao"));
+                    ticket.setVersaoBanco(rs.getString("versaoBanco"));*/
+                    ticket.setDescricao(rs.getString("descricao"));/*
                     ticket.setDataEncerramento(rs.getInt("dataEncerramento"));
                     ticket.setProcedimentoResolucao(rs.getString("procedimentoResolucao"));*/
                     return ticket;

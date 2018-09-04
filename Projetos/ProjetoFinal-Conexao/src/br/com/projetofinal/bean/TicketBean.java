@@ -1,5 +1,6 @@
 package br.com.projetofinal.bean;
 
+import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 
 /**
@@ -22,7 +23,16 @@ public class TicketBean {
     private int dataEncerramento;
     private String procedimentoResolucao;
     private EnumTicketStatusType status;
+    private CriticidadeTypes criticidade;
 
+    public CriticidadeTypes getCriticidade() {
+        return criticidade;
+    }
+
+    public void setCriticidade(CriticidadeTypes criticidade) {
+        this.criticidade = criticidade;
+    }
+     
 
     public EnumTicketStatusType getStatus() {
         return status;

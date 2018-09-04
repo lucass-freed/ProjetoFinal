@@ -2,7 +2,7 @@ package br.com.projetofinal.enumTypes;
 
 /**
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
- * updated by Michelle de Jesus Rogério
+ * updated by Michelle de Jesus Rogério inclusão do getEnum
  */
 public enum EnumTicketStatusType {
 
@@ -20,7 +20,7 @@ public enum EnumTicketStatusType {
         switch (descricao) {
             case "Aberto":
                 return EnumTicketStatusType.ABERTO;
-            case "Em Andmento":
+            case "Em Andamento":
                 return EnumTicketStatusType.EM_ANDAMENTO;
             default:
                 return EnumTicketStatusType.CONCLUIDO;

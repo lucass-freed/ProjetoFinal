@@ -69,11 +69,11 @@ CREATE TABLE usuarios (
        telefone VARCHAR(14) NOT NULL,
        email VARCHAR(100) NOT NULL,
        usuario_master BOOLEAN,*/
-	   #nome VARCHAR(100) NOT NULL,
-       #cpf VARCHAR(11) NOT NULL,
-       #telefone VARCHAR(14) NOT NULL,
+		nome VARCHAR(100) NOT NULL,
+       cpf VARCHAR(11) NOT NULL,
+       data_nascimento DATE NOT NULL,
+       telefone VARCHAR(14) NOT NULL,
        email VARCHAR(100) NOT NULL,
-	   data_nascimento DATE NOT NULL,
        usuario_master BOOLEAN,
        FOREIGN KEY(id_empresa) REFERENCES empresas(id),
        FOREIGN KEY (id_funcao) REFERENCES funcoes(id)
@@ -104,12 +104,14 @@ CREATE TABLE tickets (
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_ticket_sazonalidade INT NOT NULL,
 	FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
-	*/situacao VARCHAR (100),
-	titulo VARCHAR (150)/*,
+	*/
+	titulo VARCHAR (150),	
+	criticidade VARCHAR (50),
+	situacao VARCHAR (100),
+	descricao TEXT	/*,
 	data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	sistema_operacional VARCHAR (50),
 	versao_banco VARCHAR (10),
-	descricao TEXT,
 	data_encerramento DATE,
 	procedimento_resolucao TEXT NOT NULL*/
 );
@@ -126,9 +128,9 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
 
-INSERT INTO tickets (titulo, situacao) VALUES 
-("Probleminha", "Concluído"),
-("Problemão urgente", "Aberto")
+INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
+("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
+("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
 ;
 
 INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
@@ -172,5 +174,11 @@ INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, ema
 INSERT INTO funcoes (nome, setor) VALUES 
 ("Estagiário", "Suporte");
 
-INSERT INTO usuarios (usuario, email, senha, data_nascimento) VALUES 
+INSERT INTO usuarios (usuario, senha, email, data_nascimento) VALUES 
 ('francisco','godinho@gmail.com', '123', '1994-06-04');
+
+INSERT INTO tags (titulo) values
+("Banco de Dados"),
+("Periféricos"),
+("Comercial"),
+("Cadastral");
