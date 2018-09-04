@@ -13,7 +13,7 @@
         <%@include file="/padrao-interno-master/dashboard.jsp"%>
 
         <!-- Personal -->
-        <link rel="stylesheet" href="/tema/assets/css/perfil.css">
+        <link rel="stylesheet" href="/css/perfil.css">
         <script src="/tema/global/vendor/switchery/switchery.js"></script>
         <script src="/tema/global/vendor/intro-js/intro.js"></script>
         <script src="/tema/global/vendor/screenfull/screenfull.js"></script>

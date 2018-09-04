@@ -9,6 +9,9 @@ CREATE TABLE funcoes (
 	descricao TEXT
 );
 
+INSERT INTO funcoes (nome, setor) VALUES 
+("Estagiário", "Suporte");
+
 CREATE TABLE colaboradores (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	id_funcao INT NOT NULL,
@@ -29,8 +32,18 @@ CREATE TABLE colaboradores (
 	data_admissao DATE NOT NULL,
 	ctps VARCHAR(100) NOT NULL,
 	pis VARCHAR(100) NOT NULL,
+	usuario_master BOOLEAN,
 	FOREIGN KEY(id_funcao) REFERENCES funcoes(id)
 );
+
+INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 
+data_admissao, ctps, pis, usuario_master) VALUES 
+(1, 'thiago', '123', 'Thiago Oliveira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', 
+'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
+(1, 'michele', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', 
+'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
+(1, 'matheus', '123', 'Gabriel Ferreira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com',
+'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true);
 
 
 
@@ -57,19 +70,11 @@ CREATE TABLE empresas (
 
 CREATE TABLE usuarios (
        id INT AUTO_INCREMENT PRIMARY KEY,
-       /*id_empresa INT NOT NULL,
-       id_funcao INT NOT NULL,*/
        id_empresa INT,
-       id_funcao INT,
+       id_funcao INT NOT NULL,
        usuario VARCHAR(100) NOT NULL,
        senha VARCHAR(150) NOT NULL,
-      /* nome VARCHAR(100) NOT NULL,
-       cpf VARCHAR(11) NOT NULL,
-       data_nascimento DATE NOT NULL,
-       telefone VARCHAR(14) NOT NULL,
-       email VARCHAR(100) NOT NULL,
-       usuario_master BOOLEAN,*/
-		nome VARCHAR(100) NOT NULL,
+       nome VARCHAR(100) NOT NULL,
        cpf VARCHAR(11) NOT NULL,
        data_nascimento DATE NOT NULL,
        telefone VARCHAR(14) NOT NULL,
@@ -78,6 +83,11 @@ CREATE TABLE usuarios (
        FOREIGN KEY(id_empresa) REFERENCES empresas(id),
        FOREIGN KEY (id_funcao) REFERENCES funcoes(id)
 );
+
+INSERT INTO usuarios (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, usuario_master) VALUES 
+(1, 'francisco', '123', 'Francisco Sens', '154.695.321-84', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', false),
+(1, 'lucas', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
+(1, 'gabriel', '123', 'Gabriel Ferreira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
 CREATE TABLE tickets_criticidade (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -128,6 +138,11 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
 
+INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
+("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
+("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
+;
+
 INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
 	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, data_ativacao, data_expiracao, 
 	validade_certificado) VALUES
@@ -171,15 +186,3 @@ INSERT INTO tags (titulo) values
 ("Periféricos"),
 ("Comercial"),
 ("Cadastral");
-
-INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao) VALUES 
-("2","Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
-("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
-;
-
-INSERT INTO funcoes (nome, setor) VALUES 
-("Estagiário", "Suporte");
-
-INSERT INTO usuarios (usuario, senha, email, data_nascimento) VALUES 
-('francisco','godinho@gmail.com', '123', '1994-06-04');
-

@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/tema/assets/css/layout-2.css">
+        <link rel="stylesheet" href="/css/layout-2.css">
 
 
         <!-- Fonts -->

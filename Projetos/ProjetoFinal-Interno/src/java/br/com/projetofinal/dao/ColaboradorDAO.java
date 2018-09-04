@@ -119,7 +119,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "uf, "
                     + "data_admissao, "
                     + "ctps, "
-                    + "pis FROM alunos;";
+                    + "pis FROM colaboradores;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -176,10 +176,10 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "uf, "
                     + "data_admissao, "
                     + "ctps, "
-                    + "pis +"
-                    + "\nFROM usuarios u "
-                    + "\nJOIN funcoes f ON(u.id_funcao = f.id)"
-"                   + "\nWHERE u.id = ?;";
+                    + "pis "
+                    + "\nFROM colaboradores c "
+                    + "\nJOIN funcoes f ON(c.id_funcao = f.id)"
+                    + "\nWHERE c.id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -213,7 +213,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return null;
     }
-    
+
     public boolean isContainsColaborador(String nomeColaborador) {
         List<ColaboradorBean> colaboradores = obterColaboradores();
         boolean is = false;
@@ -224,7 +224,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return false;
     }
-    
+
     public ColaboradorBean validarLoginSenha(String usuario, String senha) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -248,7 +248,5 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return null;
     }
-    
-    
 
 }

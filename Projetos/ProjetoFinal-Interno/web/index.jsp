@@ -23,7 +23,8 @@
         <link rel="stylesheet" href="/tema/global/vendor/intro-js/introjs.css">
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="/tema/assets/css/layout-2.css">
+        <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/css/layout-2.css">
 
 
         <!-- Fonts -->
@@ -115,6 +116,7 @@
         <script src="/tema/global/js/Plugin/switchery.js"></script>
         <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
         <script src="/tema/global/js/Plugin/material.js"></script>
+        <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
 
         <script src="/js/login.js"></script>
 
