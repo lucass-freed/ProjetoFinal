@@ -4,12 +4,17 @@
     Author     : User
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="br.com.projetofinal.dao.UsuarioDAO"%>
+<%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@include file="../master.jsp" %>
+<%@include file="/padrao-externo-master/master.jsp" %>
 
 </div>
 </div>
+    <% UsuarioBean usuarios = (UsuarioBean) request.getAttribute("usuarios"); %> 
+    List<UsuarioBean> usuarios = new UsuarioDAO().obterTodos();
+        
     <div class="example table-responsive col-md-12">
         <table class="table table-bordered">
             <thead>
@@ -19,20 +24,31 @@
                     <th class="text-nowrap col-md-4">Ação</th>
                 </tr>				
             </thead>
+            
+            
             <tbody>
-                <tr class="row">
-                    <td class="col-md-5">Thiago Avancini</td>
-                    <td class="col-md-3">Gerente</td>
-                    <td class="text-nowrap col-md-4">
-                        <button type="button" class="btn btn-outline btn-success col-md-6">
-                            <i class="icon wb-pencil" aria-hidden="true"></i> Editar
-                        </button>
-                        <button type="button" class="btn btn-outline btn-danger col-md-6">
-                            <i class="icon wb-close" aria-hidden="true"></i> Excluir
-                        </button>
-                        
-                    </td>      
-                </tr>
+                
+                <% for(UsuarioBean usuarios: usuarios){
+                
+                    <tr class="row">
+                        <td class="col-md-5"><%= usuario></td>
+                        <td class="col-md-3">Gerente</td>
+                        <td class="text-nowrap col-md-4">
+                            <button type="button" class="btn btn-outline btn-success col-md-6">
+                                <i class="icon wb-pencil" aria-hidden="true"></i> Editar
+                            </button>
+                            <button type="button" class="btn btn-outline btn-danger col-md-6">
+                                <i class="icon wb-close" aria-hidden="true"></i> Excluir
+                            </button>
+
+                        </td>      
+                    </tr>
+                } %>
+                
+                
+                
+                
+                
             </tbody>
         </table>
     </div>
