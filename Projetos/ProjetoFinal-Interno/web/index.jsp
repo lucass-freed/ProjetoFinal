@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">
-        <title>FlowDesk | Entrar</title>
+        <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
 
         <link rel="apple-touch-icon" href="/tema/assets/images/apple-touch-icon.png">
         <link rel="shortcut icon" href="/tema/assets/images/favicon.png">
@@ -52,7 +52,7 @@
                     <form method="post" onsubmit="validarLogin()">
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
-                            <label class="floating-label">Usu√°rio</label>
+                            <label class="floating-label">Usu·rio</label>
                         </div>
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
@@ -84,7 +84,6 @@
         <script src="/tema/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
         <script src="/tema/global/vendor/asscrollable/jquery-asScrollable.js"></script>
         <script src="/tema/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
-        <script src="/tema/global/js/login.js"></script>
 
         <!-- Plugins -->
         <script src="/tema/global/vendor/switchery/switchery.js"></script>
@@ -116,6 +115,9 @@
         <script src="/tema/global/js/Plugin/switchery.js"></script>
         <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
         <script src="/tema/global/js/Plugin/material.js"></script>
+
+        <script src="/js/login.js"></script>
+
 
         <script>
                         (function (document, window, $) {

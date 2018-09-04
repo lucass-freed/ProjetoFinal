@@ -1,11 +1,6 @@
 function validarLogin() {
     event.preventDefault();
-    if (isLoginInvalido()) {
-        event.preventDefault();
-    }
-}
 
-function isLoginInvalido() {
     var usuario = document.getElementById("campo-usuario").value;
     var password = document.getElementById("campo-senha").value;
     $.ajax({
@@ -14,18 +9,17 @@ function isLoginInvalido() {
         data: {
             login: usuario,
             senha: password
-            
+
         },
         success: function (data, textStatus, jqXHR) {
             alert(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            
+
         }
     });
-
-
 }
+
 
 function apagarClasse(id, classeCor) {
     document.getElementById(id).classList.remove(classeCor);
