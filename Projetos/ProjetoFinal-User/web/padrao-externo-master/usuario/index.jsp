@@ -21,13 +21,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Thiago Avancini</td>
-                    <td>Gerente</td>
-                    <td class="text-nowrap">
-                        <button type="button" class="btn btn-outline btn-success">
+                    <td class="col-md-3">Thiago Avancini</td>
+                    <td class="col-md-3">Gerente</td>
+                    <td class="text-nowrap col-md-6">
+                        <button type="button" class="btn btn-outline btn-success col-md-6">
                             <i class="icon wb-pencil" aria-hidden="true"></i> Editar
                         </button>
-                        <button type="button" class="btn btn-outline btn-danger">
+                        <button type="button" class="btn btn-outline btn-danger col-md-6">
                             <i class="icon wb-close" aria-hidden="true"></i> Excluir
                         </button>
                         
