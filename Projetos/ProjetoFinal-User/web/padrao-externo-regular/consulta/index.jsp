@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file="/padrao-externo-regular/usuario/master.jsp"%>
+<%@page import="/br.com.projetofinal.bean.TicketBean"%>
 
  <div class="page-center">
       <div class="page-content">
