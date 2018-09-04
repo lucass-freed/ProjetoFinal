@@ -52,9 +52,9 @@ public class EmpresaDAO {
                 ps.setString(quantidade++, empresa.getCep());
                 ps.setString(quantidade++, empresa.getCidade());
                 ps.setString(quantidade++, empresa.getUf());
-                ps.setString(quantidade++, empresa.getDataAtivacao());
-                ps.setString(quantidade++, empresa.getDataExpiracao());
-                ps.setString(quantidade++, empresa.getValidadeCertificado());
+                ps.setDate(quantidade++, empresa.getDataAtivacao());
+                ps.setDate(quantidade++, empresa.getDataExpiracao());
+                ps.setDate(quantidade++, empresa.getValidadeCertificado());
                 ps.execute();
                 
                 ResultSet resultSet = ps.getGeneratedKeys();
@@ -119,9 +119,9 @@ public class EmpresaDAO {
             ps.setString(quantidade++, empresa.getCep());
             ps.setString(quantidade++, empresa.getCidade());
             ps.setString(quantidade++, empresa.getUf());
-            ps.setString(quantidade++, empresa.getDataAtivacao());
-            ps.setString(quantidade++, empresa.getDataExpiracao());
-            ps.setString(quantidade++, empresa.getValidadeCertificado());
+            ps.setDate(quantidade++, empresa.getDataAtivacao());
+            ps.setDate(quantidade++, empresa.getDataExpiracao());
+            ps.setDate(quantidade++, empresa.getValidadeCertificado());
             ps.setInt(quantidade++, empresa.getId());
             return ps.executeUpdate() == 1;
         }catch(SQLException e){
@@ -155,9 +155,9 @@ public class EmpresaDAO {
                 empresa.setCep(resultSet.getString("cep"));
                 empresa.setCidade(resultSet.getString("cidade"));
                 empresa.setUf(resultSet.getString("uf"));
-                empresa.setDataAtivacao(resultSet.getString("data_ativacao"));
-                empresa.setDataExpiracao(resultSet.getString("data_expiracao"));
-                empresa.setValidadeCertificado(resultSet.getString("validade_certificado"));
+                empresa.setDataAtivacao(resultSet.getDate("data_ativacao"));
+                empresa.setDataExpiracao(resultSet.getDate("data_expiracao"));
+                empresa.setValidadeCertificado(resultSet.getDate("validade_certificado"));
                 return empresa;
             }
         }catch(SQLException e){
@@ -191,9 +191,9 @@ public class EmpresaDAO {
                 empresa.setCep(resultSet.getString("cep"));
                 empresa.setCidade(resultSet.getString("cidade"));
                 empresa.setUf(resultSet.getString("uf"));
-                empresa.setDataAtivacao(resultSet.getString("data_ativacao"));
-                empresa.setDataExpiracao(resultSet.getString("data_expiracao"));
-                empresa.setValidadeCertificado(resultSet.getString("validade_certificado"));
+                empresa.setDataAtivacao(resultSet.getDate("data_ativacao"));
+                empresa.setDataExpiracao(resultSet.getDate("data_expiracao"));
+                empresa.setValidadeCertificado(resultSet.getDate("validade_certificado"));
                 empresas.add(empresa);
             }
         }catch(SQLException e){
