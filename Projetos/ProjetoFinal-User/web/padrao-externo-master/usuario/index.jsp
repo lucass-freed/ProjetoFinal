@@ -10,24 +10,24 @@
 
 </div>
 </div>
-    <div class="example table-responsive">
+    <div class="example table-responsive col-md-12">
         <table class="table table-bordered">
             <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Cargo</th>
-                    <th class="text-nowrap">Ação</th>
+                <tr class="row">
+                    <th class="col-md-5">Nome</th>
+                    <th class="col-md-3">Cargo</th>
+                    <th class="text-nowrap col-md-4">Ação</th>
                 </tr>				
             </thead>
             <tbody>
-                <tr>
-                    <td>Thiago Avancini</td>
-                    <td>Gerente</td>
-                    <td class="text-nowrap">
-                        <button type="button" class="btn btn-outline btn-success">
+                <tr class="row">
+                    <td class="col-md-5">Thiago Avancini</td>
+                    <td class="col-md-3">Gerente</td>
+                    <td class="text-nowrap col-md-4">
+                        <button type="button" class="btn btn-outline btn-success col-md-6">
                             <i class="icon wb-pencil" aria-hidden="true"></i> Editar
                         </button>
-                        <button type="button" class="btn btn-outline btn-danger">
+                        <button type="button" class="btn btn-outline btn-danger col-md-6">
                             <i class="icon wb-close" aria-hidden="true"></i> Excluir
                         </button>
                         
