@@ -69,11 +69,11 @@ CREATE TABLE usuarios (
        telefone VARCHAR(14) NOT NULL,
        email VARCHAR(100) NOT NULL,
        usuario_master BOOLEAN,*/
-		nome VARCHAR(100) NOT NULL,
-       cpf VARCHAR(11) NOT NULL,
-       data_nascimento DATE NOT NULL,
-       telefone VARCHAR(14) NOT NULL,
+	   #nome VARCHAR(100) NOT NULL,
+       #cpf VARCHAR(11) NOT NULL,
+       #telefone VARCHAR(14) NOT NULL,
        email VARCHAR(100) NOT NULL,
+	   data_nascimento DATE NOT NULL,
        usuario_master BOOLEAN,
        FOREIGN KEY(id_empresa) REFERENCES empresas(id),
        FOREIGN KEY (id_funcao) REFERENCES funcoes(id)

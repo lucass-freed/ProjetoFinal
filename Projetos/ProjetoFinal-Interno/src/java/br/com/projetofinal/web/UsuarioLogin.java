@@ -14,26 +14,26 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = {"/usuario/login"})
 public class UsuarioLogin extends HttpServlet {
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         UsuarioBean usuario = new UsuarioDAO().validarLoginSenha(login, senha);
+        HashMap<String, String> resultado = new HashMap<>();
+        HttpSession sessao = request.getSession();
+
         if (usuario == null) {
-            response.getWriter().write("Deu ruim");
+            sessao.removeAttribute("usuario");
+            resultado.put("status", "falhou");
         } else {
-            HttpSession sessao = request.getSession();
-            
-            sessao.setAttribute("usuario-" + usuario.getId(), usuario);
-            
-            HashMap<String, String> resultado = new HashMap<>();
+            sessao.setAttribute("usuario", usuario);
+
+            resultado.put("status", "sucesso");
             resultado.put("id", String.valueOf(usuario.getId()));
-            resultado.put("tipo", usuario.getFuncao().getNome());
-            Gson gson = new Gson();
-            response.getWriter().write(gson.toJson(resultado));
         }
+        response.getWriter().write(new Gson().toJson(resultado));
     }
-    
+
 }
