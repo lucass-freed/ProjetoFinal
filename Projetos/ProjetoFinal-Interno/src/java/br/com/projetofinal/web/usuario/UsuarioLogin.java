@@ -1,7 +1,8 @@
-package br.com.projetofinal.web;
+package br.com.projetofinal.web.usuario;
 
+import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.bean.UsuarioBean;
-import br.com.projetofinal.dao.UsuarioDAO;
+import br.com.projetofinal.dao.ColaboradorDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ public class UsuarioLogin extends HttpServlet {
             throws ServletException, IOException {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-        UsuarioBean usuario = new UsuarioDAO().validarLoginSenha(login, senha);
+        ColaboradorBean usuario = new ColaboradorDAO().validarLoginSenha(login, senha);
         HashMap<String, String> resultado = new HashMap<>();
         HttpSession sessao = request.getSession();
 

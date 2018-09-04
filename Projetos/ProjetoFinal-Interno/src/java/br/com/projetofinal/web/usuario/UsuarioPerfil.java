@@ -1,4 +1,4 @@
-package br.com.projetofinal.web;
+package br.com.projetofinal.web.usuario;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 @WebServlet("/interno/perfil")
-public class Perfil extends HttpServlet {
+public class UsuarioPerfil extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

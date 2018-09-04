@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.projetofinal.web;
+package br.com.projetofinal.web.interno;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -17,12 +17,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author Alunos
  */
 @WebServlet("/interno")
-public class Interno extends HttpServlet {
+public class HomeInterno extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.getSession().getAttribute("usuario") == null){
-            resp.sendRedirect("/index");
+            resp.sendRedirect("/");
         }
         
         resp.setContentType("text/html;charset=UTF-8");

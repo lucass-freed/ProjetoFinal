@@ -15,6 +15,10 @@ public class Index extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        if (request.getSession().getAttribute("usuario") != null) {
+            response.sendRedirect("/interno");
+        }
+
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("title", "Entrar");
         request.getRequestDispatcher("/index.jsp").include(request, response);

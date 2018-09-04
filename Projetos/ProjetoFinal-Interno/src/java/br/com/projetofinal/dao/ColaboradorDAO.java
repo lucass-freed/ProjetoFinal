@@ -2,6 +2,7 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.Util.SHA512Metodos;
 import br.com.projetofinal.bean.ColaboradorBean;
+import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.database.Conexao;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -175,7 +176,10 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "uf, "
                     + "data_admissao, "
                     + "ctps, "
-                    + "pis FROM alunos WHERE id = ?;";
+                    + "pis +"
+                    + "\nFROM usuarios u "
+                    + "\nJOIN funcoes f ON(u.id_funcao = f.id)"
+"                   + "\nWHERE u.id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -210,7 +214,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         return null;
     }
     
-    public boolean isContainsAluno(String nomeColaborador) {
+    public boolean isContainsColaborador(String nomeColaborador) {
         List<ColaboradorBean> colaboradores = obterColaboradores();
         boolean is = false;
         for (ColaboradorBean colaborador : colaboradores) {
@@ -219,6 +223,30 @@ public class ColaboradorDAO extends SHA512Metodos {
             }
         }
         return false;
+    }
+    
+    public ColaboradorBean validarLoginSenha(String usuario, String senha) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT id FROM colaboradores WHERE (usuario = ? OR email = ?) AND senha = ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setString(1, usuario);
+                ps.setString(2, usuario);
+                ps.setString(3, senha);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    return obterColaboradorPorID(id);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return null;
     }
     
     
