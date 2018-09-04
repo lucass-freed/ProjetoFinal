@@ -98,9 +98,9 @@ CREATE TABLE tickets_sazonalidade (
 
 CREATE TABLE tickets (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	/*id_empresa INT NOT NULL,
-	FOREIGN KEY (id_empresa) references empresas(id),
-	id_colaborador INT NOT NULL,
+	idEmpresa INT NOT NULL,
+	FOREIGN KEY (idEmpresa) references empresas(id),
+	/*id_colaborador INT NOT NULL,
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_ticket_sazonalidade INT NOT NULL,
 	FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
@@ -127,11 +127,6 @@ CREATE TABLE ticket_tags(
 	id_tags INT NOT NULL,
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
-
-INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
-("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
-("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
-;
 
 INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
 	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, data_ativacao, data_expiracao, 
@@ -171,14 +166,20 @@ INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, ema
 "2019-05-24",
 "2019-03-01");
 
+INSERT INTO tags (titulo) values
+("Banco de Dados"),
+("Periféricos"),
+("Comercial"),
+("Cadastral");
+
+INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao) VALUES 
+("2","Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
+("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
+;
+
 INSERT INTO funcoes (nome, setor) VALUES 
 ("Estagiário", "Suporte");
 
 INSERT INTO usuarios (usuario, senha, email, data_nascimento) VALUES 
 ('francisco','godinho@gmail.com', '123', '1994-06-04');
 
-INSERT INTO tags (titulo) values
-("Banco de Dados"),
-("Periféricos"),
-("Comercial"),
-("Cadastral");

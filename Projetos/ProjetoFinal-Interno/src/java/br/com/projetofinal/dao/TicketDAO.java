@@ -25,8 +25,8 @@ public class TicketDAO {
             String sql = "SELECT "
                     + "id, "
                     + "titulo, "
-                    /*  + "id_empresa, "
-                    + "id_colaborador, "
+                    + "idEmpresa, "
+                    /*+ "id_colaborador, "
                     + "id_ticket_sazonalidade, "*/
                     + "situacao, "
                     + "criticidade, "
@@ -46,8 +46,8 @@ public class TicketDAO {
                     TicketBean ticket = new TicketBean();
                     ticket.setId(rs.getInt("id"));
                     ticket.setTitulo(rs.getString("titulo"));
-                    /* ticket.setIdEmpresa(rs.getInt("empresa"));
-                    ticket.setIdColaborador(rs.getInt("colaborador"));
+                    ticket.setIdEmpresa(rs.getInt("idEmpresa"));
+                    /*ticket.setIdColaborador(rs.getInt("colaborador"));
                     ticket.setIdSazonalidade(rs.getInt("sazonalidade"));*/
                     ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("criticidade")));
                     ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
@@ -75,7 +75,7 @@ public class TicketDAO {
         if (conexao != null) {
             String sql = "SELECT "
                     + "id, "
-                    + "id_empresa, "
+                    + "idEmpresa, "
                     + "id_colaborador, "
                     + "id_ticket_sazonalidade, "
                     + "situacao, "
