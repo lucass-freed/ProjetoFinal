@@ -1,5 +1,7 @@
 package br.com.projetofinal.bean;
 
+import java.sql.Date;
+
 /**
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
@@ -13,7 +15,7 @@ public class ColaboradorBean {
     private String senha;
     private String nome;
     private String cpf;
-    private String data_nascimento;
+    private Date dataNascimento;
     private int telefone;
     private String email;
     private String logradouro;
@@ -23,7 +25,7 @@ public class ColaboradorBean {
     private String cep;
     private String cidade;
     private String uf;
-    private String data_admissao;
+    private Date dataAdmissao;
     private String ctps;
     private String pis;
 
@@ -75,12 +77,12 @@ public class ColaboradorBean {
         this.cpf = cpf;
     }
 
-    public String getData_nascimento() {
-        return data_nascimento;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public int getTelefone() {
@@ -155,12 +157,12 @@ public class ColaboradorBean {
         this.uf = uf;
     }
 
-    public String getData_admissao() {
-        return data_admissao;
+    public Date getDataAdmissao() {
+        return dataAdmissao;
     }
 
-    public void setData_admissao(String data_admissao) {
-        this.data_admissao = data_admissao;
+    public void setDataAdmissao(Date dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
     }
 
     public String getCtps() {

@@ -85,9 +85,9 @@ CREATE TABLE usuarios (
 );
 
 INSERT INTO usuarios (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, usuario_master) VALUES 
-(1, 'francisco', '123', 'Francisco Sens', '154.695.321-84', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', false),
-(1, 'lucas', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
-(1, 'gabriel', '123', 'Gabriel Ferreira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
+(1, 'francisco', '123', 'Francisco Sens', '15469532184', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', false),
+(1, 'lucas', '123', 'Lucas Rodrigo', '15469532184', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
+(1, 'gabriel', '123', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
 CREATE TABLE tickets_criticidade (
 	id INT AUTO_INCREMENT PRIMARY KEY,

@@ -2,7 +2,6 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.Util.SHA512Metodos;
 import br.com.projetofinal.bean.ColaboradorBean;
-import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.database.Conexao;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -52,7 +51,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 ps.setString(quantidade++, senhaCriptografada);
                 ps.setString(quantidade++, colaborador.getNome());
                 ps.setString(quantidade++, colaborador.getCpf());
-                ps.setString(quantidade++, colaborador.getData_nascimento());
+                ps.setDate(quantidade++, colaborador.getDataNascimento());
                 ps.setInt(quantidade++, colaborador.getTelefone());
                 ps.setString(quantidade++, colaborador.getLogradouro());
                 ps.setInt(quantidade++, colaborador.getNumero());
@@ -61,7 +60,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 ps.setString(quantidade++, colaborador.getCep());
                 ps.setString(quantidade++, colaborador.getCidade());
                 ps.setString(quantidade++, colaborador.getUf());
-                ps.setString(quantidade++, colaborador.getData_admissao());
+                ps.setDate(quantidade++, colaborador.getDataAdmissao());
                 ps.setString(quantidade++, colaborador.getCtps());
                 ps.setString(quantidade++, colaborador.getPis());
                 ps.execute();
@@ -130,7 +129,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setIdFuncao(rs.getInt("id_funcao"));
                     colaborador.setNome(rs.getString("usuario"));
                     colaborador.setCpf(rs.getString("cpf"));
-                    colaborador.setData_nascimento(rs.getString("data_nascimento"));
+                    colaborador.setDataNascimento(rs.getDate("data_nascimento"));
                     colaborador.setTelefone(rs.getInt("telefone"));
                     colaborador.setEmail(rs.getString("email"));
                     colaborador.setLogradouro(rs.getString("logradouro"));
@@ -140,7 +139,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setCep(rs.getString("cep"));
                     colaborador.setCidade(rs.getString("cidade"));
                     colaborador.setUf(rs.getString("uf"));
-                    colaborador.setData_admissao(rs.getString("data_admissao"));
+                    colaborador.setDataAdmissao(rs.getDate("data_admissao"));
                     colaborador.setCtps(rs.getString("ctps"));
                     colaborador.setPis(rs.getString("pis"));
                     colaboradores.add(colaborador);
@@ -190,7 +189,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setIdFuncao(rs.getInt("id_funcao"));
                     colaborador.setNome(rs.getString("usuario"));
                     colaborador.setCpf(rs.getString("cpf"));
-                    colaborador.setData_nascimento(rs.getString("data_nascimento"));
+                    colaborador.setDataNascimento(rs.getDate("data_nascimento"));
                     colaborador.setTelefone(rs.getInt("telefone"));
                     colaborador.setEmail(rs.getString("email"));
                     colaborador.setLogradouro(rs.getString("logradouro"));
@@ -200,7 +199,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setCep(rs.getString("cep"));
                     colaborador.setCidade(rs.getString("cidade"));
                     colaborador.setUf(rs.getString("uf"));
-                    colaborador.setData_admissao(rs.getString("data_admissao"));
+                    colaborador.setDataAdmissao(rs.getDate("data_admissao"));
                     colaborador.setCtps(rs.getString("ctps"));
                     colaborador.setPis(rs.getString("pis"));
                     return colaborador;
@@ -212,17 +211,6 @@ public class ColaboradorDAO extends SHA512Metodos {
             }
         }
         return null;
-    }
-
-    public boolean isContainsColaborador(String nomeColaborador) {
-        List<ColaboradorBean> colaboradores = obterColaboradores();
-        boolean is = false;
-        for (ColaboradorBean colaborador : colaboradores) {
-            if (!is) {
-                is = colaborador.getNome().equalsIgnoreCase(nomeColaborador);
-            }
-        }
-        return false;
     }
 
     public ColaboradorBean validarLoginSenha(String usuario, String senha) {

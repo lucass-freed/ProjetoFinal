@@ -1,7 +1,6 @@
 package br.com.projetofinal.web.usuario;
 
 import br.com.projetofinal.bean.ColaboradorBean;
-import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.ColaboradorDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -21,18 +20,18 @@ public class UsuarioLogin extends HttpServlet {
             throws ServletException, IOException {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-        ColaboradorBean usuario = new ColaboradorDAO().validarLoginSenha(login, senha);
+        ColaboradorBean colaborador = new ColaboradorDAO().validarLoginSenha(login, senha);
         HashMap<String, String> resultado = new HashMap<>();
         HttpSession sessao = request.getSession();
 
-        if (usuario == null) {
+        if (colaborador == null) {
             sessao.removeAttribute("usuario");
             resultado.put("status", "falhou");
         } else {
-            sessao.setAttribute("usuario", usuario);
+            sessao.setAttribute("usuario", colaborador);
 
             resultado.put("status", "sucesso");
-            resultado.put("id", String.valueOf(usuario.getId()));
+            resultado.put("id", String.valueOf(colaborador.getId()));
         }
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(new Gson().toJson(resultado));

@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario;
+package br.com.projetofinal.web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "UsuarioLogout", urlPatterns = {"/usuario/logout"})
-public class UsuarioLogout extends HttpServlet {
+@WebServlet(name = "Index", urlPatterns = {""})
+public class Index extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.getSession().removeAttribute("usuario");
-        response.sendRedirect("/");
-    }
 
+        if (request.getSession().getAttribute("usuario") != null) {
+            response.sendRedirect("/interno");
+        }
+
+        response.setContentType("text/html;charset=UTF-8");
+        request.setAttribute("title", "Entrar");
+        request.getRequestDispatcher("/index.jsp").include(request, response);
+    }
 
 }
