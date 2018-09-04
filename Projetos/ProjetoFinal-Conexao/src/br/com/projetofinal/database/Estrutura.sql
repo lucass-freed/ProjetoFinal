@@ -172,5 +172,5 @@ INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, ema
 INSERT INTO funcoes (nome, setor) VALUES 
 ("Estagiário", "Suporte");
 
-INSERT INTO usuarios (usuario, senha, email, data_nascimento) VALUES 
+INSERT INTO usuarios (usuario, email, senha, data_nascimento) VALUES 
 ('francisco','godinho@gmail.com', '123', '1994-06-04');

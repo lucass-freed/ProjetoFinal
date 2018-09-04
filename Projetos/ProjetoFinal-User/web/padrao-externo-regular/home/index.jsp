@@ -13,7 +13,7 @@
         <div class="panel">
           <div class="panel-body container-fluid">
             <div class="text-center">
-              <img src="/ProjetoFinal-User/tema/assets//images/logo-colored@2x.png" alt="..." />
+              <img src="/tema/assets//images/logo-colored@2x.png" alt="..." />
               <h4 class="blue-grey-400 font-weight-400">FlowDesk</h4>
             </div>
               <div class="card welcome-content">

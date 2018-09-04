@@ -12,17 +12,17 @@
                         </a>
                         <ul class="site-menu-sub">
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="/ProjetoFinal-User/chamado">
+                                <a class="animsition-link" href="/chamado">
                                     <span class="site-menu-title">Abrir Chamado</span>
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="/ProjetoFinal-User/pendente">
+                                <a class="animsition-link" href="/pendente">
                                     <span class="site-menu-title">Chamados Pendentes</span>
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="/ProjetoFinal-User/consulta">
+                                <a class="animsition-link" href="/consulta">
                                     <span class="site-menu-title">Consultar</span>
                                 </a>
                             </li>

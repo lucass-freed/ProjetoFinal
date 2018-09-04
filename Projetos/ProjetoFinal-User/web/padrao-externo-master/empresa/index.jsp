@@ -4,6 +4,7 @@
     Author     : Thiago
 --%>
 
+<%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
 <%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
@@ -19,13 +20,16 @@
             <div class="row row-lg">
               <div class="col-md-12">
                 <div class="example-wrap">
-                <div class="col-md-12">
-                    <button type="button" class="btn btn-outline-primary col-md-4 float-right" id="botao-alterar">Alterar</button>
-                    <h3 class="example-title col-md-4 float-left">Cadastro de Empresa</h3>
-                </div>
                     <% EmpresaBean empresa = (EmpresaBean) request.getAttribute("empresa"); %>
                   <div class="example">
                     <form method="get" action="#" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar">Alterar</button>
+                                <h3 class="example-title col-md-4 float-left">Cadastro de Empresa</h3>
+                            </div>
+
+                        </div>
                       <div class="row">
 	                      <div class="form-group col-md-12">
                                   <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= empresa.getCnpj() %>"/>
@@ -116,10 +120,10 @@
                       </div>
                       <div class="row">
 	                      <div class="form-group col-md-6">                  
-	                        <input type="text" class="form-control minha-classe" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled" value="<%= empresa.getDataAtivacao()%>"/>
+                                  <input type="text" class="form-control minha-classe" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataAtivacao()) %>"/>
 	                      </div>
 	                      <div class="form-group col-md-6">                   
-	                        <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= empresa.getDataExpiracao()%>"/>
+                                  <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataExpiracao())%>"/>
 	                      </div>
                       </div>
                      <div class="row">
@@ -140,15 +144,15 @@
     <!-- End Page -->
 
 
-       <script src="/ProjetoFinal-User/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-    <script src="/ProjetoFinal-User/tema/global/vendor/jquery/jquery.js"></script>
+       <script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
+    <script src="/tema/global/vendor/jquery/jquery.js"></script>
 
-    <script src="/ProjetoFinal-User/tema/global/js/Plugin.js"></script>
-    <script src="/ProjetoFinal-User/tema/global/vendor/breakpoints/breakpoints.js"></script>
+    <script src="/tema/global/js/Plugin.js"></script>
+    <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
 
-    <script src="/ProjetoFinal-User/tema/global/vendor/formatter/jquery.formatter.js"></script>
+    <script src="/tema/global/vendor/formatter/jquery.formatter.js"></script>
 
-    <script src="/ProjetoFinal-User/tema/global/js/Plugin/formatter.js"></script>
+    <script src="/tema/global/js/Plugin/formatter.js"></script>
 
     <script>
       Breakpoints();

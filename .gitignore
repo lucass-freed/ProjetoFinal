@@ -21,3 +21,4 @@
 *.xml
 
 *.properties
+!/Projetos/ProjetoFinal-Interno/web/tema/assets/css/layout-2.css
