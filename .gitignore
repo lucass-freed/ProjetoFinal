@@ -23,3 +23,4 @@
 *.properties
 !/Projetos/ProjetoFinal-Interno/web/tema/assets/css/layout-2.css
 Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/database/Estrutura.sql
+/Projetos/ProjetoFinal-Interno/dist/
