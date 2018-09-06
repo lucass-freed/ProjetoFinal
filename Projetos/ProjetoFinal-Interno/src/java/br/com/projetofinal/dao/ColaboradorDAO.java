@@ -52,7 +52,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 ps.setString(quantidade++, colaborador.getNome());
                 ps.setString(quantidade++, colaborador.getCpf());
                 ps.setDate(quantidade++, colaborador.getDataNascimento());
-                ps.setInt(quantidade++, colaborador.getTelefone());
+                ps.setString(quantidade++, colaborador.getTelefone());
                 ps.setString(quantidade++, colaborador.getLogradouro());
                 ps.setInt(quantidade++, colaborador.getNumero());
                 ps.setString(quantidade++, colaborador.getComplemento());
@@ -130,7 +130,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setNome(rs.getString("usuario"));
                     colaborador.setCpf(rs.getString("cpf"));
                     colaborador.setDataNascimento(rs.getDate("data_nascimento"));
-                    colaborador.setTelefone(rs.getInt("telefone"));
+                    colaborador.setTelefone(rs.getString("telefone"));
                     colaborador.setEmail(rs.getString("email"));
                     colaborador.setLogradouro(rs.getString("logradouro"));
                     colaborador.setNumero(rs.getInt("numero"));
@@ -157,32 +157,33 @@ public class ColaboradorDAO extends SHA512Metodos {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "SELECT "
-                    + "id,"
-                    + "id_funcao, "
-                    + "usuario, "
-                    + "senha, "
-                    + "nome, "
-                    + "cpf, "
-                    + "data_nascimento, "
-                    + "telefone, "
-                    + "email, "
-                    + "logradouro, "
-                    + "numero, "
-                    + "complemento, "
-                    + "bairro, "
-                    + "cep, "
-                    + "cidade, "
-                    + "uf, "
-                    + "data_admissao, "
-                    + "ctps, "
-                    + "pis "
+                    + "c.id,"
+                    + "c.id_funcao, "
+                    + "c.usuario, "
+                    + "c.senha, "
+                    + "c.nome, "
+                    + "c.cpf, "
+                    + "c.data_nascimento, "
+                    + "c.telefone, "
+                    + "c.email, "
+                    + "c.logradouro, "
+                    + "c.numero, "
+                    + "c.complemento, "
+                    + "c.bairro, "
+                    + "c.cep, "
+                    + "c.cidade, "
+                    + "c.uf, "
+                    + "c.data_admissao, "
+                    + "c.ctps, "
+                    + "c.pis "
                     + "\nFROM colaboradores c "
                     + "\nJOIN funcoes f ON(c.id_funcao = f.id)"
                     + "\nWHERE c.id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
-                ResultSet rs = ps.getGeneratedKeys();
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
                     ColaboradorBean colaborador = new ColaboradorBean();
                     colaborador.setId(rs.getInt("id"));
@@ -190,7 +191,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setNome(rs.getString("usuario"));
                     colaborador.setCpf(rs.getString("cpf"));
                     colaborador.setDataNascimento(rs.getDate("data_nascimento"));
-                    colaborador.setTelefone(rs.getInt("telefone"));
+                    colaborador.setTelefone(rs.getString("telefone"));
                     colaborador.setEmail(rs.getString("email"));
                     colaborador.setLogradouro(rs.getString("logradouro"));
                     colaborador.setNumero(rs.getInt("numero"));
@@ -236,5 +237,4 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return null;
     }
-
 }

@@ -16,7 +16,12 @@ public class CadastroInterno extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("usuario") == null) {
+            resp.sendRedirect("/");
+        }
+
         resp.setContentType("text/html;charset=UTF-8");
+        req.setAttribute("title", "Cadastro");
         req.getRequestDispatcher("/cadastro/index.jsp").include(req, resp);
     }
 

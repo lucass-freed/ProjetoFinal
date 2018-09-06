@@ -16,7 +16,7 @@ public class ColaboradorBean {
     private String nome;
     private String cpf;
     private Date dataNascimento;
-    private int telefone;
+    private String telefone;
     private String email;
     private String logradouro;
     private int numero;
@@ -85,11 +85,11 @@ public class ColaboradorBean {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

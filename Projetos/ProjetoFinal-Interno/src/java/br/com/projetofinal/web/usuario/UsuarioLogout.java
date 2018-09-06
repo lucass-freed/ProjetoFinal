@@ -16,6 +16,4 @@ public class UsuarioLogout extends HttpServlet {
         request.getSession().removeAttribute("usuario");
         response.sendRedirect("/");
     }
-
-
 }
