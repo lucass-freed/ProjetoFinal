@@ -22,7 +22,7 @@ public class UsuarioIndex extends HttpServlet{
 
     List<UsuarioBean> usuarios = new UsuarioDAO().obterUsuarios();
     req.setAttribute("usuarios", usuarios);
-    req.getRequestDispatcher("padrao-externo-master/usuario/index.jsp").include(req, resp); 
+    req.getRequestDispatcher("padrao-externo-master/usuarios/usuarios-index.jsp").include(req, resp); 
     }
     
 }
