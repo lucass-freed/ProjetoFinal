@@ -181,7 +181,7 @@
           </li>
           <li class="site-menu-item has-sub">
             <a href="/usuario-master-externo">
-              <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+              <i class="site-menu-icon wb-users" aria-hidden="true"></i>
               <span class="site-menu-title">Usuários</span>
             </a>
           </li>
