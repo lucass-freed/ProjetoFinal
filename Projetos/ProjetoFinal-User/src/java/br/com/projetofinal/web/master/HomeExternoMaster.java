@@ -17,7 +17,7 @@ public class HomeExternoMaster extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("/home/home-externo-master").include(req, resp);
+        req.getRequestDispatcher("/home/home-externo-master.jsp").include(req, resp);
     }
     
     

@@ -4,7 +4,9 @@
     Author     : Thiago
 --%>
 
+<%@page import="org.hibernate.validator.constraints.br.CNPJ"%>
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
+<%@page import="br.com.projetofinal.Util.CpfCnpjFormatador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
 <%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
@@ -32,7 +34,7 @@
                         </div>
                       <div class="row">
 	                      <div class="form-group col-md-12">
-                                  <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= empresa.getCnpj() %>"/>
+                                  <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= CpfCnpjFormatador.formatoCnpj(empresa.getCnpj()) %>"/>
 	                      </div>
                       </div>
                       <div class="row">
