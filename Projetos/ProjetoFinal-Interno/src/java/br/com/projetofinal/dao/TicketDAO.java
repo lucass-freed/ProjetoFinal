@@ -2,6 +2,7 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketLogBean;
+import br.com.projetofinal.bean.TicketsTagsBean;
 import br.com.projetofinal.database.Conexao;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
@@ -65,6 +66,35 @@ public class TicketDAO {
             } finally {
                 Conexao.closeConnection();
             }
+        }
+        return null;
+    }
+
+    public TicketsTagsBean obterRelacaoTicketsTags(int idTt) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT"
+                    + "\nidTickets,"
+                    + "\nidTags"
+                    + "\nFROM ticket_tags";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(1, idTt);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    TicketsTagsBean ticketsTags = new TicketsTagsBean();
+                    ticketsTags.setIdTickets(rs.getInt("idTickets"));
+                    ticketsTags.setIdTags(rs.getInt("idTags"));
+                    return ticketsTags;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+
         }
         return null;
     }
@@ -142,4 +172,5 @@ public class TicketDAO {
         }
         return 0;
     }
+
 }
