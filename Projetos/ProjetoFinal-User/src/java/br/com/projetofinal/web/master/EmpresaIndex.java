@@ -26,7 +26,7 @@ public class EmpresaIndex extends HttpServlet {
 
         req.setAttribute("empresa", empresa);
 
-        req.getRequestDispatcher("/padrao-externo-master/empresa/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/padrao-externo-master/empresa/empresa-index.jsp").include(req, resp);
         
     }
 
