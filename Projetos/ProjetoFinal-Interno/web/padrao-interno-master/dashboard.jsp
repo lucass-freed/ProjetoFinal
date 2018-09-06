@@ -11,7 +11,7 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
-        <link rel="stylesheet" href="/tema/assets/css/site.min.css">
+        <link rel="stylesheet" href="/css/site.min.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">
@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/intro-js/introjs.css">
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="/tema/assets/css/layouts.css">
+        <link rel="stylesheet" href="/css/layouts.css">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="/tema/global/fonts/web-icons/web-icons.min.css">
