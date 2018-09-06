@@ -5,11 +5,11 @@ package br.com.projetofinal.bean;
  * @author Michelle de Jesus Rogério
  * @date 2018-09-06
  */
-public class TicketsTagsBean {
+public class TicketTagBean {
 
     private int idTickets;
     private int idTags;
-    private String tags;
+    private TagBean tag;
 
     public int getIdTickets() {
         return idTickets;
@@ -27,12 +27,12 @@ public class TicketsTagsBean {
         this.idTags = idTags;
     }
 
-    public String getTags() {
-        return tags;
+    public TagBean getTag() {
+        return tag;
     }
 
-    public void setTags(String tags) {
-        this.tags = tags;
+    public void setTag(TagBean tag) {
+        this.tag = tag;
     }
 
 }

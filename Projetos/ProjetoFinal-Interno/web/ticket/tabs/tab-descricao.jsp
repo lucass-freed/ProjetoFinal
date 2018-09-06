@@ -4,9 +4,11 @@
     Author     : Michelle de Jesus Rogério
 --%>
 
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.projetofinal.enumTypes.CriticidadeTypes"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
+<%@page import="br.com.projetofinal.bean.TicketTagBean"%>
 <% TicketBean ticket1 = (TicketBean) request.getAttribute("ticket1");%>
 
 <div class="tab-pane active" id="tab-descricao" role="tabpanel">
@@ -45,11 +47,11 @@
     </div>
     <div class="example-wrap">
         <div class="tags" style="text-align: right;">
+            <% List<TicketTagBean> ticketsTags = (List<TicketTagBean>) request.getAttribute("ticketsTags");%>
+            <% for(TicketTagBean ticketTag : ticketsTags){ %>
             <!--Implementar retorno tags-->
-            <span class="badge badge-outline badge-dark">ExemploTag</span>
-            <span class="badge badge-outline badge-dark">Banco de Dados</span>
-            <span class="badge badge-outline badge-dark">Rede e Internet</span>
-            <span class="badge badge-outline badge-dark">Periféricos</span>
+            <span class="badge badge-outline badge-dark"><%= ticketTag.getTag().getTitulo() %></span>
+            <% } %>
         </div>
     </div>
 </div>

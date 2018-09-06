@@ -1,8 +1,9 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketLogBean;
-import br.com.projetofinal.bean.TicketsTagsBean;
+import br.com.projetofinal.bean.TicketTagBean;
 import br.com.projetofinal.database.Conexao;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
@@ -70,23 +71,29 @@ public class TicketDAO {
         return null;
     }
 
-    public TicketsTagsBean obterRelacaoTicketsTags(int idTt) {
+    public List<TicketTagBean> obterTagsPorTicket(int idTt) {
         Connection conexao = Conexao.getConnection();
+        List<TicketTagBean> ticketsTags = new ArrayList<TicketTagBean>();
         if (conexao != null) {
             String sql = "SELECT"
-                    + "\nidTickets,"
-                    + "\nidTags"
-                    + "\nFROM ticket_tags";
+                    + "\nticket_tags.idTag,"
+                    + "\ntags.titulo"
+                    + "\nFROM ticket_tags "
+                    + "\nJOIN tags ON (ticket_tags.idTag = tags.id)"
+                    + "\nWHERE ticket_tags.idTicket = ? ";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, idTt);
                 ps.execute();
                 ResultSet rs = ps.getResultSet();
-                if (rs.next()) {
-                    TicketsTagsBean ticketsTags = new TicketsTagsBean();
-                    ticketsTags.setIdTickets(rs.getInt("idTickets"));
-                    ticketsTags.setIdTags(rs.getInt("idTags"));
-                    return ticketsTags;
+                while (rs.next()) {
+                    TicketTagBean ticketTag = new TicketTagBean();
+                    ticketTag.setIdTags(rs.getInt("ticket_tags.idTag"));
+                    TagBean tag = new TagBean();
+                    tag.setId(rs.getInt("ticket_tags.idTag"));
+                    tag.setTitulo(rs.getString("tags.titulo"));
+                    ticketTag.setTag(tag);
+                    ticketsTags.add(ticketTag);
                 }
 
             } catch (SQLException e) {
@@ -96,7 +103,7 @@ public class TicketDAO {
             }
 
         }
-        return null;
+        return ticketsTags;
     }
 
     public List<TicketBean> listarTickets() {

@@ -4,7 +4,7 @@ package br.com.projetofinal.bean;
  *
  * @author Matheus Werner
  */
-public class TagsBean {
+public class TagBean {
     
     private int id;
     private String titulo;
