@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp"%>
-<%@include file="/padrao-externo-master/sidebar.jsp"%>
 
 <div class="page-center">
       <div class="page-content">
