@@ -138,10 +138,6 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (id_tags) REFERENCES tags(id)
 );
 
-INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
-("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
-("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
-;
 
 INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
 	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, data_ativacao, data_expiracao, 
@@ -180,6 +176,12 @@ INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, ema
 "2018-05-24",
 "2019-05-24",
 "2019-03-01");
+
+INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao) VALUES 
+(1,"Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
+(1,"Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
+;
+
 
 INSERT INTO tags (titulo) values
 ("Banco de Dados"),
