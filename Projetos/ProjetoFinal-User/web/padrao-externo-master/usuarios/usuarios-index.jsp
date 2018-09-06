@@ -12,7 +12,7 @@
 
 </div>
 </div>
-    <% UsuarioBean usuarios = (UsuarioBean) request.getAttribute("usuarios"); %> 
+    <% List<UsuarioBean> usuarios = (List<UsuarioBean>) request.getAttribute("usuarios"); %> 
     List<UsuarioBean> usuarios = new UsuarioDAO().obterTodos();
         
     <div class="example table-responsive col-md-12">
@@ -28,22 +28,22 @@
             
             <tbody>
                 
-                <% for(UsuarioBean usuarios: usuarios){
+                <% for(UsuarioBean usuarios: usuarios){ %>
                 
                     <tr class="row">
-                        <td class="col-md-5"><%= usuario></td>
-                        <td class="col-md-3">Gerente</td>
+                        <td class="col-md-5"><%= usuario></td> 
+                       <td class="col-md-3">Gerente</td>
                         <td class="text-nowrap col-md-4">
                             <button type="button" class="btn btn-outline btn-success col-md-6">
                                 <i class="icon wb-pencil" aria-hidden="true"></i> Editar
-                            </button>
-                            <button type="button" class="btn btn-outline btn-danger col-md-6">
-                                <i class="icon wb-close" aria-hidden="true"></i> Excluir
-                            </button>
+                           </button>
+                           <button type="button" class="btn btn-outline btn-danger col-md-6">
+                               <i class="icon wb-close" aria-hidden="true"></i> Excluir
+                           </button>
 
-                        </td>      
-                    </tr>
-                } %>
+                        </td>
+                   </tr>
+                <% } %>
                 
                 
                 
