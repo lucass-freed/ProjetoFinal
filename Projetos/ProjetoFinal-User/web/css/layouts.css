@@ -1,0 +1,12 @@
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .form-inline .form-control-label {
+    display: block; }
+  .form-inline .form-group {
+    margin-bottom: 20px;
+    vertical-align: baseline; }
+}
+ .box-shadow {
+    webkit-box-shadow: 0px 3px 12px -3px rgba(0, 0, 0, 0.5);
+    moz-box-shadow: 0px 3px 12px -3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 3px 12px -3px rgba(0, 0, 0, 0.5);
+}
