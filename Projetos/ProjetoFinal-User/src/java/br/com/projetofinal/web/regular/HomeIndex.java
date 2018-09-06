@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Alunos
  */
-@WebServlet("/home")
+@WebServlet("/home-externo-regular")
 public class HomeIndex extends HttpServlet {
 
     @Override
