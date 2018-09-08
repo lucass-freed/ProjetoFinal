@@ -36,23 +36,13 @@ CREATE TABLE colaboradores (
 	FOREIGN KEY(id_funcao) REFERENCES funcoes(id)
 );
 
-INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 
-data_admissao, ctps, pis, usuario_master) VALUES 
-(1, 'thiago', '123', 'Thiago Oliveira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', 
-'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
-(1, 'michele', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', 
-'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
-(1, 'matheus', '123', 'Gabriel Ferreira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com',
-'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true);
-
-
 
 CREATE TABLE empresas (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	cnpj VARCHAR(20) NOT NULL,
-	razao_social VARCHAR(200) NOT NULL,
-	nome_fantasia VARCHAR(200) NOT NULL,
-	inscricao_estadual VARCHAR(30) NOT NULL,
+	razaoSocial VARCHAR(200) NOT NULL,
+	nomeFantasia VARCHAR(200) NOT NULL,
+	inscricaoEstadual VARCHAR(30) NOT NULL,
 	email VARCHAR(100) NOT NULL,
 	telefone VARCHAR(50) NOT NULL,
 	logradouro VARCHAR(100) NOT NULL,
@@ -63,9 +53,9 @@ CREATE TABLE empresas (
 	cidade VARCHAR(100) NOT NULL,
 	uf VARCHAR(2) NOT NULL,
 	sistema VARCHAR(100) NOT NULL,
-	data_ativacao DATE NOT NULL,
-	data_expiracao DATE NOT NULL,
-	validade_certificado DATE
+	dataAtivacao DATE NOT NULL,
+	dataExpiracao DATE NOT NULL,
+	validadeCertificado DATE
 );
 
 CREATE TABLE usuarios (
@@ -83,11 +73,6 @@ CREATE TABLE usuarios (
        FOREIGN KEY(id_empresa) REFERENCES empresas(id),
        FOREIGN KEY (id_funcao) REFERENCES funcoes(id)
 );
-
-INSERT INTO usuarios (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, usuario_master) VALUES 
-(1, 'francisco', '123', 'Francisco Sens', '15469532184', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', false),
-(1, 'lucas', '123', 'Lucas Rodrigo', '15469532184', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
-(1, 'gabriel', '123', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
 CREATE TABLE tickets_criticidade (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -138,9 +123,9 @@ CREATE TABLE ticket_tags(
 	FOREIGN KEY (idTags) REFERENCES tags(id)
 );
 
-INSERT INTO empresas (cnpj, razao_social, nome_fantasia, inscricao_estadual, email, telefone, 
-	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, data_ativacao, data_expiracao, 
-	validade_certificado) VALUES
+INSERT INTO empresas (cnpj, razaoSocial, nomeFantasia, inscricaoEstadual, email, telefone, 
+	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, dataAtivacao, dataExpiracao, 
+	validadeCertificado) VALUES
 ("50525544000145",
 "Laís e Alessandra Corretores Associados Ltda",
 "Alfa Corretora",
@@ -186,14 +171,28 @@ INSERT INTO tags (titulo) values
 ("Cadastral");
 
 
-INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
-("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
-("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
-;
-
 INSERT INTO ticket_tags (idTickets, idTags) values
 ("1", "4"),
 ("1", "5"),
 ("2", "1"),
 ("2", "6")
+;
+
+INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 
+data_admissao, ctps, pis, usuario_master) VALUES 
+(1, 'thiago', '123', 'Thiago Oliveira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', 
+'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
+(1, 'michele', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', 
+'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
+(1, 'matheus', '123', 'Gabriel Ferreira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com',
+'23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true);
+
+INSERT INTO usuarios (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, usuario_master) VALUES 
+(1, 'francisco', '123', 'Francisco Sens', '15469532184', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', false),
+(1, 'lucas', '123', 'Lucas Rodrigo', '15469532184', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
+(1, 'gabriel', '123', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
+
+INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
+("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
+("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
 ;

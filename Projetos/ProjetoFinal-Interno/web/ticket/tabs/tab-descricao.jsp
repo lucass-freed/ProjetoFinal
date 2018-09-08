@@ -49,7 +49,6 @@
         <div class="tags" style="text-align: right;">
             <% List<TicketTagBean> ticketsTags = (List<TicketTagBean>) request.getAttribute("ticketsTags");%>
             <% for(TicketTagBean ticketTag : ticketsTags){ %>
-            <!--Implementar retorno tags-->
             <span class="badge badge-outline badge-dark"><%= ticketTag.getTag().getTitulo() %></span>
             <% } %>
         </div>

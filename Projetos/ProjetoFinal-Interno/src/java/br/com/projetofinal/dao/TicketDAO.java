@@ -1,5 +1,6 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketLogBean;
@@ -178,6 +179,51 @@ public class TicketDAO {
             }
         }
         return 0;
+    }
+
+    public EmpresaBean obterEmpresaPorTicket(int emp) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT"
+                    + "\ntickets.idEmpresa,"
+                    + "\nempresas.razaoSocial,"
+                    + "\nempresas.nomeFantasia,"
+                    + "\nempresas.inscricaoEstadual,"
+                    + "\nempresas.email,"
+                    + "\nempresas.telefone,"
+                    + "\nempresas.dataAtivacao,"
+                    + "\nempresas.dataExpiracao,"
+                    + "\nempresas.validadeCertificado"
+                    + "\nFROM tickets"
+                    + "\nJOIN empresas ON (tickets.idEmpresa = empresas.id)"
+                    + "\nWHERE tickets.id = ? ";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(1, emp);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                while (rs.next()) {
+                    EmpresaBean infoEmpresa = new EmpresaBean();
+                    infoEmpresa.setId(rs.getInt("empresas.id"));
+                    infoEmpresa.setCnpj(rs.getString("empresas.cnpj"));
+                    infoEmpresa.setNomeFantasia(rs.getString("empresas.nomeFantasia"));
+                    infoEmpresa.setInscricaoEstadual(rs.getString("empresas.inscricaoEstadual"));
+                    infoEmpresa.setEmail(rs.getString("empresas.email"));
+                    infoEmpresa.setTelefone(rs.getString("empresas.telefone"));
+                    infoEmpresa.setDataAtivacao(rs.getDate("empresas.dataAtivacao"));
+                    infoEmpresa.setDataExpiracao(rs.getDate("empresas.dataExpiracao"));
+                    infoEmpresa.setValidadeCertificado(rs.getDate("empresas.validadeCertificado"));
+                    return infoEmpresa;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+
+        }
+        return null;
     }
 
 }
