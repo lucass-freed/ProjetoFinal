@@ -104,11 +104,11 @@ CREATE TABLE tickets (
 	criticidade VARCHAR (50),
 	situacao VARCHAR (100),
 	descricao TEXT	/*,
-	data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	sistema_operacional VARCHAR (50),
-	versao_banco VARCHAR (10),
-	data_encerramento DATE,
-	procedimento_resolucao TEXT NOT NULL*/
+	versaoBanco VARCHAR (10),
+	dataEncerramento DATE,
+	procedimentoResolucao TEXT NOT NULL*/
 );
 
 CREATE TABLE tags(
@@ -171,12 +171,7 @@ INSERT INTO tags (titulo) values
 ("Cadastral");
 
 
-INSERT INTO ticket_tags (idTickets, idTags) values
-("1", "4"),
-("1", "5"),
-("2", "1"),
-("2", "6")
-;
+
 
 INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 
 data_admissao, ctps, pis, usuario_master) VALUES 
@@ -195,4 +190,11 @@ INSERT INTO usuarios (id_funcao, usuario, senha, nome, cpf, data_nascimento, tel
 INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
 ("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
 ("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
+;
+
+INSERT INTO ticket_tags (idTickets, idTags) values
+("1", "4"),
+("1", "5"),
+("2", "1"),
+("2", "6")
 ;

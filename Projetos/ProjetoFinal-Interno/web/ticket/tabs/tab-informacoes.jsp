@@ -57,6 +57,9 @@
                                     <div class="form-group col-md-6">                   
                                         <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= empresa.getDataExpiracao()%>"/>
                                     </div>
+                                    <div class="form-group col-md-6">                   
+                                        <input type="text" class="form-control minha-classe" id="inputBasicValidadeCertificado" name="inputValidadoCertificado" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= empresa.getValidadeCertificado()%>"/>
+                                    </div>
                                 </div>
 
                             </form>
