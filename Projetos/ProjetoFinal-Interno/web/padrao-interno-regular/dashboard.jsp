@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
+        <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
         <meta charset="utf-8">
-        <title><%= request.getAttribute("title") %></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
         <link rel="stylesheet" href="/css/site.min.css">
-        <link rel="stylesheet" href="tema/assets/examples/css/dashboard\team.css">
+        <link rel="stylesheet" href="/css/ticket.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">
@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/intro-js/introjs.css">
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="/tema/assets/examples/css/forms/layouts.css">
+        <link rel="stylesheet" href="/css/layouts.css">
 
 
         <!-- Fonts -->

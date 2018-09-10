@@ -132,7 +132,7 @@ public class EmpresaDAO {
         return false;
     }
     
-    public EmpresaBean obterPeloId(int id){
+    public EmpresaBean obterPeloID(int id){
         String sql = "SELECT * FROM empresas WHERE id = ?";
         try{
             PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
@@ -143,9 +143,9 @@ public class EmpresaDAO {
                 EmpresaBean empresa = new EmpresaBean();
                 empresa.setId(id);
                 empresa.setCnpj(resultSet.getString("cnpj"));
-                empresa.setRazaoSocial(resultSet.getString("razao_social"));
-                empresa.setNomeFantasia(resultSet.getString("nome_fantasia"));
-                empresa.setInscricaoEstadual(resultSet.getString("inscricao_estadual"));
+                empresa.setRazaoSocial(resultSet.getString("razaoSocial"));
+                empresa.setNomeFantasia(resultSet.getString("nomeFantasia"));
+                empresa.setInscricaoEstadual(resultSet.getString("inscricaoEstadual"));
                 empresa.setEmail(resultSet.getString("email"));
                 empresa.setTelefone(resultSet.getString("telefone"));
                 empresa.setLogradouro(resultSet.getString("logradouro"));
@@ -155,9 +155,9 @@ public class EmpresaDAO {
                 empresa.setCep(resultSet.getString("cep"));
                 empresa.setCidade(resultSet.getString("cidade"));
                 empresa.setUf(resultSet.getString("uf"));
-                empresa.setDataAtivacao(resultSet.getDate("data_ativacao"));
-                empresa.setDataExpiracao(resultSet.getDate("data_expiracao"));
-                empresa.setValidadeCertificado(resultSet.getDate("validade_certificado"));
+                empresa.setDataAtivacao(resultSet.getDate("dataAtivacao"));
+                empresa.setDataExpiracao(resultSet.getDate("dataExpiracao"));
+                empresa.setValidadeCertificado(resultSet.getDate("validadeCertificado"));
                 return empresa;
             }
         }catch(SQLException e){

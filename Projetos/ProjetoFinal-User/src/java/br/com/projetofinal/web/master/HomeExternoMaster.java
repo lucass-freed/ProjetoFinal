@@ -16,7 +16,13 @@ public class HomeExternoMaster extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        if (req.getSession().getAttribute("usuario") == null) {
+            resp.sendRedirect("/");
+        }
+        
+        req.setAttribute("title", "Página inicial");
+        
+        resp.setContentType("text/html;charset=UTF-8");
         req.getRequestDispatcher("/home/home-externo-master.jsp").include(req, resp);
     }
     

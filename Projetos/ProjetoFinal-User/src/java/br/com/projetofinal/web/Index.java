@@ -15,11 +15,13 @@ public class Index extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        UsuarioBean usuario = (UsuarioBean) request.getSession().getAttribute("usuario") ;
-        if (usuario != null && usuario.isUsuarioMaster()) {
-            response.sendRedirect("/home-externo-master");
-        }else if(usuario != null && !usuario.isUsuarioMaster()){
-            response.sendRedirect("/home-externo-regular");
+        if (request.getSession().getAttribute("usuario") != null) {
+            UsuarioBean usuario = (UsuarioBean) request.getSession().getAttribute("usuario");
+            if (usuario != null && usuario.isUsuarioMaster()) {
+                response.sendRedirect("/home-externo-master");
+            } else if (usuario != null && !usuario.isUsuarioMaster()) {
+                response.sendRedirect("/home-externo-regular");
+            }
         }
 
         response.setContentType("text/html;charset=UTF-8");

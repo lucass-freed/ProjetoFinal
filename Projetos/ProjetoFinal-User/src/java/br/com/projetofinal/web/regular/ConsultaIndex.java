@@ -20,22 +20,23 @@ import javax.servlet.http.HttpServletResponse;
  * @author Alunos
  */
 @WebServlet("/index")
-public class ConsultaIndex extends HttpServlet{
+public class ConsultaIndex extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-    throws ServletException, IOException {
-       
-       String pesquisa = req.getParameter("search");    
-       List<TicketBean> tickets = new TicketDAO().obterResultado(pesquisa);
-       
-       req.setAttribute("tickets", tickets);
-       
+            throws ServletException, IOException {
+        if (req.getSession().getAttribute("usuario") == null) {
+            resp.sendRedirect("/");
+        }
+
+        String pesquisa = req.getParameter("search");
+        List<TicketBean> tickets = new TicketDAO().obterResultado(pesquisa);
+
+        req.setAttribute("tickets", tickets);
+        req.setAttribute("title", "Perfil");
         
-       resp.setContentType("text/html;charset=UTF-8");
-       req.getRequestDispatcher("/padrao-externo-regular/consulta/index.jsp").include(req, resp);
+        resp.setContentType("text/html;charset=UTF-8");
+        req.getRequestDispatcher("/padrao-externo-regular/consulta/index.jsp").include(req, resp);
     }
-    
-    
-    
+
 }

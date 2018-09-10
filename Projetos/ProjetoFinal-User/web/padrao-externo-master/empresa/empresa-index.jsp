@@ -12,7 +12,6 @@
 <%@include file="/padrao-externo-master/master.jsp" %>
 
 
-
 <!-- Page -->
 <div class="panel">
     <div class="panel-body container-fluid">

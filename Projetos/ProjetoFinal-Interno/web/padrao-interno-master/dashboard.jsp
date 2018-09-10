@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
+        <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
         <meta charset="utf-8">
-        <title><%= request.getAttribute("title") %></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">
+        <link rel="apple-touch-icon" href="/tema/assets/images/apple-touch-icon.png">
+        <link rel="shortcut icon" href="/tema/assets/images/favicon.png">
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">

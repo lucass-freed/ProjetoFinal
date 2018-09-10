@@ -18,19 +18,19 @@ public class UsuarioBean {
     private String nome;
     private String cpf;
     private Date dataNascimento;
-    private int telefone;
+    private String telefone;
     private String email;
     private boolean usuarioMaster;
-    
-      public int getIdFuncao() {
+
+    public int getIdFuncao() {
         return idFuncao;
     }
 
     public void setIdFuncao(int idFuncao) {
         this.idFuncao = idFuncao;
     }
-    
-     public int getIdEmpresa() {
+
+    public int getIdEmpresa() {
         return idEmpresa;
     }
 
@@ -102,11 +102,11 @@ public class UsuarioBean {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

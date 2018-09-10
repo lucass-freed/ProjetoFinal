@@ -77,11 +77,11 @@ public class TicketDAO {
         List<TicketTagBean> ticketsTags = new ArrayList<TicketTagBean>();
         if (conexao != null) {
             String sql = "SELECT"
-                    + "\nticket_tags.idTag,"
+                    + "\nticket_tags.idTags,"
                     + "\ntags.titulo"
                     + "\nFROM ticket_tags "
-                    + "\nJOIN tags ON (ticket_tags.idTag = tags.id)"
-                    + "\nWHERE ticket_tags.idTicket = ? ";
+                    + "\nJOIN tags ON (ticket_tags.idTags = tags.id)"
+                    + "\nWHERE ticket_tags.idTickets = ? ";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, idTt);
@@ -89,9 +89,9 @@ public class TicketDAO {
                 ResultSet rs = ps.getResultSet();
                 while (rs.next()) {
                     TicketTagBean ticketTag = new TicketTagBean();
-                    ticketTag.setIdTags(rs.getInt("ticket_tags.idTag"));
+                    ticketTag.setIdTags(rs.getInt("ticket_tags.idTags"));
                     TagBean tag = new TagBean();
-                    tag.setId(rs.getInt("ticket_tags.idTag"));
+                    tag.setId(rs.getInt("ticket_tags.idTags"));
                     tag.setTitulo(rs.getString("tags.titulo"));
                     ticketTag.setTag(tag);
                     ticketsTags.add(ticketTag);

@@ -69,7 +69,6 @@
             </div>
         </div>
     </div>
-
     <!--informações restantes-->
     <div class="panel">
         <div class="panel-body container-fluid">
@@ -87,6 +86,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

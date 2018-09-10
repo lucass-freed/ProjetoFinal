@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thiago
  */
-@WebServlet("/empresa")
+@WebServlet("/interno/empresas")
 public class EmpresaIndex extends HttpServlet {
 
     @Override
@@ -19,8 +19,8 @@ public class EmpresaIndex extends HttpServlet {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
-        
+        resp.setContentType("text/html;charset=UTF-8");
+        req.setAttribute("title", "Empresas");
         req.getRequestDispatcher("/empresa/index.jsp").include(req, resp);
     }
-
 }

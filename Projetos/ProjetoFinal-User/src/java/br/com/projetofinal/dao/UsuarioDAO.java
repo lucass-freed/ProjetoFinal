@@ -1,6 +1,5 @@
 package br.com.projetofinal.dao;
 
-import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.FuncaoBean;
 import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.database.Conexao;
@@ -11,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -40,7 +38,7 @@ public class UsuarioDAO {
                 ps.setString(quantidade++, usuario.getNome());
                 ps.setString(quantidade++, usuario.getCpf());
                 ps.setDate(quantidade++, usuario.getDataNascimento());
-                ps.setInt(quantidade++, usuario.getTelefone());
+                ps.setString(quantidade++, usuario.getTelefone());
                 ps.setString(quantidade++, usuario.getEmail());
                 ps.setBoolean(quantidade++, usuario.isUsuarioMaster());
                 ps.execute();
@@ -92,10 +90,11 @@ public class UsuarioDAO {
                     usuario.setIdEmpresa(rs.getInt("id_empresa"));
                     usuario.setIdFuncao(rs.getInt("id_funcao"));
                     usuario.setUsuario(rs.getString("usuario"));
+                    usuario.setSenha(rs.getString("senha"));
                     usuario.setNome(rs.getString("nome"));
                     usuario.setCpf(rs.getString("cpf"));
                     usuario.setDataNascimento(rs.getDate("data_nascimento"));
-                    usuario.setTelefone(rs.getInt("telefone"));
+                    usuario.setTelefone(rs.getString("telefone"));
                     usuario.setEmail(rs.getString("email"));
                     usuario.setUsuarioMaster(rs.getBoolean("usuario_master"));
                     usuarios.add(usuario);
@@ -113,7 +112,19 @@ public class UsuarioDAO {
     public UsuarioBean obterUsuarioPorID(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT u.id, u.id_empresa, u.id_funcao, u.usuario, u.senha, u.nome, u.cpf, u.data_nascimento, u.telefone, u.email, u.usuario_master, f.nome"
+            String sql = "SELECT "
+                    + "u.id, "
+                    + "u.id_empresa, "
+                    + "u.id_funcao, "
+                    + "u.usuario, "
+                    + "u.senha, "
+                    + "u.nome, "
+                    + "u.cpf, "
+                    + "u.data_nascimento, "
+                    + "u.telefone, "
+                    + "u.email, "
+                    + "u.usuario_master, "
+                    + "f.nome"
                     + "\nFROM usuarios u "
                     + "\nJOIN funcoes f ON(u.id_funcao = f.id)"
                     + "\nWHERE u.id = ?;";
@@ -128,19 +139,19 @@ public class UsuarioDAO {
                     usuario.setIdEmpresa(rs.getInt("u.id_empresa"));
                     usuario.setIdFuncao(rs.getInt("u.id_funcao"));
                     usuario.setUsuario(rs.getString("u.usuario"));
+                    usuario.setSenha(rs.getString("u.senha"));
                     usuario.setNome(rs.getString("u.nome"));
                     usuario.setCpf(rs.getString("u.cpf"));
                     usuario.setDataNascimento(rs.getDate("u.data_nascimento"));
-                    usuario.setTelefone(rs.getInt("u.telefone"));
+                    usuario.setTelefone(rs.getString("u.telefone"));
                     usuario.setEmail(rs.getString("u.email"));
                     usuario.setUsuarioMaster(rs.getBoolean("u.usuario_master"));
-                    
+
                     FuncaoBean funcao = new FuncaoBean();
                     funcao.setId(rs.getInt("u.id_funcao"));
-                    funcao.setNome(rs.getString("u.nome"));
-                    
+                    funcao.setNome(rs.getString("f.nome"));
                     usuario.setFuncao(funcao);
-                    
+
                     return usuario;
                 }
             } catch (SQLException e) {

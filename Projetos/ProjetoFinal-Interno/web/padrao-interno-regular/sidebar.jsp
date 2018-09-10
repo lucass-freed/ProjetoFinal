@@ -3,7 +3,7 @@
         <div>
             <div>
                 <ul class="site-menu" data-plugin="menu">
-                    <li class="site-menu-category">General</li>
+                    <li class="site-menu-category">Interno</li>
                     <li class="site-menu-item has-sub">
                         <a href="javascript:void(0)">
                             <i class="site-menu-icon wb-layout" aria-hidden="true"></i>

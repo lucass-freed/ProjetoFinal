@@ -23,9 +23,12 @@ public class Ticket extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req,
             HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("usuario") == null) {
+            resp.sendRedirect("/");
+        }
         int id = Integer.parseInt(req.getParameter("id"));
         int idEmpresa = Integer.parseInt(req.getParameter("id"));
-        EmpresaBean empresa = new EmpresaDAO().obterPeloId(idEmpresa);
+        EmpresaBean empresa = new EmpresaDAO().obterPeloID(idEmpresa);
         TicketBean ticket = new TicketDAO().obterTicketPorID(id);
         List<TicketTagBean> ticketsTags = new TicketDAO().obterTagsPorTicket(ticket.getId());
 
@@ -37,6 +40,7 @@ public class Ticket extends HttpServlet {
         //atributo usado na tab informações
         req.setAttribute("empresa", empresa);
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
+        req.setAttribute("title", "Tickets");
         resp.setContentType("text/html;charset=UTF-8");
         req.getRequestDispatcher("/ticket/index.jsp").include(req, resp);
     }

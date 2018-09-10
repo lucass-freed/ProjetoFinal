@@ -1,3 +1,4 @@
+<title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
 <%@include file="/padrao-interno-regular/dashboard.jsp"%>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">

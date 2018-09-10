@@ -52,7 +52,7 @@
 <script src="/tema/global/js/Plugin/formatter.js"></script>
 
 <script>
-Breakpoints();
+    Breakpoints();
 </script>
 
 <script>
@@ -64,23 +64,6 @@ Breakpoints();
             Site.run();
         });
     })(document, window, jQuery);
-
-    $('#inputBasicTelefone').formatter({
-        'pattern': '({{99}}){{99999}}-{{9999}}',
-        'persistent': false
-    });
-    $('#inputBasicCPF').formatter({
-        'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
-        'persistent': false
-    });
-    $('#inputBasicDataNascimento').formatter({
-        'pattern': '{{99}}/{{99}}/{{9999}}',
-        'persistent': false
-    });
-    $('#inputBasicCEP').formatter({
-        'pattern': '{{99999}}-{{999}}',
-        'persistent': false
-    });
 </script>
 <script>
     (function (document, window, $) {

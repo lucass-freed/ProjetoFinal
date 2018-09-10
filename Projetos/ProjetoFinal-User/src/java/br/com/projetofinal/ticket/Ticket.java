@@ -1,8 +1,6 @@
 package br.com.projetofinal.ticket;
 
-import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TicketBean;
-import br.com.projetofinal.dao.EmpresaDAO;
 import br.com.projetofinal.dao.TicketDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;

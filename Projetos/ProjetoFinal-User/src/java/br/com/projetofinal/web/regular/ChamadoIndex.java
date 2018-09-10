@@ -20,12 +20,15 @@ import javax.servlet.http.HttpServletResponse;
 public class ChamadoIndex extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
-    throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        if (req.getSession().getAttribute("usuario") == null) {
+            resp.sendRedirect("/");
+        }
+        
+        req.setAttribute("title", "Perfil");
         resp.setContentType("text/html;charset=UTF-8");
         req.getRequestDispatcher("/padrao-externo-regular/chamado/index.jsp").include(req, resp);
     }
-    
-    
-    
+
 }

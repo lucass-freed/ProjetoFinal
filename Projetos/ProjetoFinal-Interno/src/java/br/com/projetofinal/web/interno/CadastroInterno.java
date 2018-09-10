@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet("/cadastro")
+@WebServlet("/interno/cadastro")
 public class CadastroInterno extends HttpServlet {
 
     @Override
