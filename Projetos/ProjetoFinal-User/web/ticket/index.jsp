@@ -13,11 +13,11 @@
 
         <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
         <%@page import="br.com.projetofinal.bean.TicketBean"%>
-        <%@page contentType="text/html" pageEncoding="UTF-8"%>
+        <%@page contentType="text/html" pageEncoding="UTF-8"%> 
         <% if (request.getAttribute("tipo").toString().equals("master")) { %>
-        <%@include file="../padrao-externo-master/usuario/master.jsp" %>
+        <%@include file="/padrao-externo-master/master.jsp" %>
         <% } else { %>
-        <%@include file="../padrao-externo-regular/usuario/master.jsp" %>
+        <%@include file="/padrao-externo-regular/usuario/master.jsp" %>
         <% } %>
         <% TicketBean ticket = (TicketBean) request.getAttribute("ticket");%>
     <div class="page">
@@ -59,7 +59,7 @@
             </div>
             <!-- End Page -->
             <% if (request.getAttribute("tipo").toString().equals("master")) { %>
-            <%@include file="../padrao-externo-master/rodape.jsp" %>
+            <%@include file="/padrao-externo-master/rodape.jsp" %>
             <% } else { %>
-            <%@include file="../padrao-externo-regular/rodape.jsp" %>
+            <%@include file="/padrao-externo-regular/usuario/rodape.jsp" %>
             <% }%>

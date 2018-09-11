@@ -17,9 +17,9 @@ public class HomeIndex extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException {
-        if (req.getSession().getAttribute("usuario") == null) {
+       /* if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
-        }
+    }*/
         req.getRequestDispatcher("/padrao-externo-regular/home/index.jsp").include(req, resp);
     }
     

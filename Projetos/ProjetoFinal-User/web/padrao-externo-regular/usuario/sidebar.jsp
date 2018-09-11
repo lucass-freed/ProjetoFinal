@@ -22,7 +22,7 @@
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="/consulta">
+                                <a class="animsition-link" href="/index">
                                     <span class="site-menu-title">Consultar</span>
                                 </a>
                             </li>
