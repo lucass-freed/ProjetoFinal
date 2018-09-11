@@ -32,6 +32,7 @@ public class UsuarioLogin extends HttpServlet {
 
             resultado.put("status", "sucesso");
             resultado.put("id", String.valueOf(usuario.getId()));
+            resultado.put("master", String.valueOf(usuario.isUsuarioMaster()));
         }
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(new Gson().toJson(resultado));
