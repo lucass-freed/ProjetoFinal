@@ -13,7 +13,12 @@ function validarLogin() {
         success: function (data, textStatus, jqXHR) {
             var resultado = JSON.parse(data);
             if (resultado.status === 'sucesso') {
-                window.location.replace("/interno");
+                if(resultado.master === 'false'){
+                    window.location.replace("/home-externo-regular")
+                }else{
+                    window.location.replace("/home-externo-master");
+                }
+                
             } else {
                 $(function () {
                     new PNotify({
