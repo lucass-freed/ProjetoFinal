@@ -28,7 +28,7 @@
             <tbody>
                 
                 <% for(UsuarioBean usuario: usuarios){ %>
-                
+                <div>
                     <tr class="row">
                         <td class="col-md-5"><%= usuario.getNome() %></td> 
                         <td class="col-md-3"><%= usuario.getFuncao() %></td>
@@ -42,6 +42,7 @@
 
                         </td>
                    </tr>
+                </div>
                 <% } %>
                 
                 
