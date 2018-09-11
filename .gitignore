@@ -33,3 +33,7 @@ Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/database/Estrutura.sql
 !/Projetos/ProjetoFinal-Interno/web/css/perfil.min.css
 !/Projetos/ProjetoFinal-Interno/web/css/pnotify.custom.min.css
 *.xml
+/Projetos/ProjetoFinal-User/dist/
+!/Projetos/ProjetoFinal-Interno/web/css/ticket.css
+!/Projetos/ProjetoFinal-Interno/web/css/ticket.min.css
+!/Projetos/ProjetoFinal-Interno/web/css/login.css

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">
+        <meta name="google-signin-client_id" content="460600231135-dlvff56etr329n2kdlrtbon4c4beb81t.apps.googleusercontent.com">
         <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
 
         <link rel="apple-touch-icon" href="/tema/assets/images/apple-touch-icon.png">
@@ -15,6 +16,7 @@
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
         <link rel="stylesheet" href="/css/site.min.css">
+        <link rel="stylesheet" href="/css/login.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">
@@ -50,6 +52,15 @@
                         <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
                         <h2 class="brand-text font-size-30">FlowDesk</h2>
                     </div>
+                    <div class="text-center">
+                        <div id="gSignInWrapper">
+                            <div id="customBtn" class="customGPlusSignIn">
+                                <span class="icon"></span>
+                                <span class="buttonText">Entrar com o Google</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="name"></div>
                     <form method="post" onsubmit="validarLogin()">
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
@@ -108,6 +119,10 @@
         <script src="/tema/global/js/config/colors.js"></script>
         <script src="/tema/assets/js/config/tour.js"></script>
         <script>Config.set('assets', '/tema/assets');</script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <script src="https://apis.google.com/js/api:client.js"></script>
 
         <!-- Page -->
         <script src="/tema/assets/js/Site.js"></script>
@@ -131,5 +146,6 @@
                             });
                         })(document, window, jQuery);
         </script>
+        <script>startApp();</script>
     </body>
 </html>

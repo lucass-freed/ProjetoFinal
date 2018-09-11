@@ -9,9 +9,6 @@ CREATE TABLE funcoes (
 	descricao TEXT
 );
 
-INSERT INTO funcoes (nome, setor) VALUES 
-("Estagiário", "Suporte");
-
 CREATE TABLE colaboradores (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	id_funcao INT NOT NULL,
@@ -171,13 +168,15 @@ INSERT INTO tags (titulo) values
 ("Cadastral");
 
 
+INSERT INTO funcoes (nome, setor) VALUES 
+("Estagiário", "Suporte");
 
 
 INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 
 data_admissao, ctps, pis, usuario_master) VALUES 
 (1, 'thiago', '123', 'Thiago Oliveira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', 
 '23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', false),
-(1, 'michele', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', 
+(1, 'mica', '123', 'Lucas Rodrigo', '154.695.321-84', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', 
 '23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true),
 (1, 'matheus', '123', 'Gabriel Ferreira', '154.695.321-84', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com',
 '23423432423', '10', 'Casa', 'Bela Vista', '515346', 'Blumenau', 'SC', '1994-06-12', 'adsadasdsa', 'sadasdas', true);

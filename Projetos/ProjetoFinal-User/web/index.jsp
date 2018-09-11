@@ -67,6 +67,14 @@
                             <a class="float-right" href="/forgot-password/index.jsp">Esqueceu a senha?</a>
                         </div>
                         <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
+                        <div class="brand text-center">
+                        <a href="/interno">
+                            <img class="brand-img" src="/tema/assets/images/google-icone.png">
+                        </a>
+                        <a href="/interno" class="col-5">
+                            <img class="brand-img" src="/tema/assets/images/linkedin-icone.png">
+                        </a>
+                    </div>
                     </form>
                 </div>
             </div>

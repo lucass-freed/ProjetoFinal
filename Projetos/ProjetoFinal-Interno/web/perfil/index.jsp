@@ -5,6 +5,14 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-interno-master/dashboard.jsp"%>
+<%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
+<%@page import="br.com.projetofinal.Util.DateFormatador"%>
+<%@page import="br.com.projetofinal.Util.Formatador"%>
+<%@page import="javax.servlet.http.HttpServletRequest;"%>
+<%@page import="javax.servlet.http.HttpServletResponse;"%>
+<%@page import="javax.servlet.http.HttpSession;"%>
+<% HttpSession sessao = request.getSession();%>
+<% ColaboradorBean colaborador = (ColaboradorBean) sessao.getAttribute("usuario");%>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3">
@@ -19,10 +27,10 @@
                 </div>
                 <div class="p-30" style="height: 230px;">
                     <div style="padding-top: 16px">
-                        <h4>Lucas Nunes</h4>
-                        <h5>Programador Master</h6>
-                            <p>nunes@gmail.com</p>
-                            <p>Entrou em 20/12/2001</p>
+                        <h4><%= colaborador.getNome()%></h4>
+                        <h5><%= colaborador.getFuncao()%></h6>
+                            <p><%= colaborador.getEmail()%></p>
+                            <p>Entrou em <%= DateFormatador.formatoBr(colaborador.getDataAdmissao())%></p>
                     </div>
                 </div>
 
@@ -48,7 +56,7 @@
                                         <div class="pr-20">
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
                                                 <i class="icon wb-user mr-10"></i>
-                                                <span class="text-break">Usuário: nunes123
+                                                <span class="text-break">Usuário: <%= colaborador.getUsuario()%>
                                                 </span>
                                             </p>
 
@@ -57,7 +65,7 @@
                                     </div>
                                     <div class="text-right">
                                         <button type="button" class="btn btn-success btn-sm">
-                                            <i class="icon wb-pencil" aria-hidden="true"></i>MudarSenha
+                                            <i class="icon wb-pencil" aria-hidden="true"></i>Mudar Senha
                                         </button>
                                     </div>
                                 </li>
@@ -70,39 +78,39 @@
                                     <div class="media">
                                         <div class="pr-20">
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Nome: Lucas Nunes
+                                                <span class="text-break">• Nome: <%= colaborador.getNome()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Função: Programador Master
+                                                <span class="text-break">• Função: <%= colaborador.getFuncao()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Data de Nascimento: 10/03/2002
+                                                <span class="text-break">• Data de Nascimento: <%= DateFormatador.formatoBr(colaborador.getDataNascimento())%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CPF: 118.665.224-98
+                                                <span class="text-break">• CPF: <%= colaborador.getCpf()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Telefone: +55 (47) 99962-4571
+                                                <span class="text-break">• Telefone: <%= colaborador.getTelefone()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• E-mail: nunes@gmail.com
+                                                <span class="text-break">• E-mail: <%= colaborador.getEmail()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CTPS: 324324324323
+                                                <span class="text-break">• CTPS: <%= colaborador.getCtps()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• PIS: 324324324323
+                                                <span class="text-break">• PIS: <%= colaborador.getPis()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Data de Admissão: 10/03/2002
+                                                <span class="text-break">• Data de Admissão: <%= DateFormatador.formatoBr(colaborador.getDataAdmissao())%>
                                                 </span>
                                             </p>
                                         </div>
@@ -117,27 +125,31 @@
                                     <div class="media">
                                         <div class="pr-20">
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Cidade: Blumenau
+                                                <span class="text-break">• Cidade: <%= colaborador.getCidade()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Estado: SC
+                                                <span class="text-break">• Estado: <%= colaborador.getUf()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Bairro: Fortaleza
+                                                <span class="text-break">• Bairro: <%= colaborador.getBairro()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CEP: 66023-452
+                                                <span class="text-break">• CEP: <%= colaborador.getCep()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Logradouro: dsfdsfdsfdsfds
+                                                <span class="text-break">• Logradouro: <%= colaborador.getLogradouro()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Complemento: Apartamento
+                                                <span class="text-break">• Número <%= colaborador.getNumero()%>
+                                                </span>
+                                            </p>
+                                            <p data-info-type="phone" class="mb-10 text-nowrap">
+                                                <span class="text-break">• Complemento: <%= colaborador.getComplemento()%>
                                                 </span>
                                             </p>
                                         </div>

@@ -1,0 +1,32 @@
+#customBtn {
+    display: inline-block;
+    background: #3e8ef7;
+    color: #444;
+    width: 290px;
+    border-radius: 5px;
+    border: thin solid #888;
+    white-space: nowrap;
+}
+#customBtn:hover {
+    cursor: pointer;
+}
+span.label {
+    font-family: serif;
+    font-weight: normal;
+}
+span.icon {
+    background: url('/tema/assets/images/google-icone.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 14px;
+    color: white;
+    /* Use the Roboto font that is loaded in the <head> */
+}

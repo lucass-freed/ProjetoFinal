@@ -37,6 +37,14 @@ public class ColaboradorBean {
         this.id = id;
     }
 
+    public int getIdFuncao() {
+        return idFuncao;
+    }
+
+    public void setIdFuncao(int idFuncao) {
+        this.idFuncao = idFuncao;
+    }
+
     public FuncaoBean getFuncao() {
         return funcao;
     }
@@ -181,11 +189,6 @@ public class ColaboradorBean {
         this.pis = pis;
     }
     
-    public int getIdFuncao() {
-        return idFuncao;
-    }
+    
 
-    public void setIdFuncao(int idFuncao) {
-        this.idFuncao = idFuncao;
-    }
 }

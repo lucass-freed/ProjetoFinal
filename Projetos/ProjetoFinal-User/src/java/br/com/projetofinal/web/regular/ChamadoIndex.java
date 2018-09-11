@@ -27,6 +27,7 @@ public class ChamadoIndex extends HttpServlet {
         }
         
         req.setAttribute("title", "Perfil");
+        
         resp.setContentType("text/html;charset=UTF-8");
         req.getRequestDispatcher("/padrao-externo-regular/chamado/index.jsp").include(req, resp);
     }
