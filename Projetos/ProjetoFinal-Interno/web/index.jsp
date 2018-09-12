@@ -46,40 +46,57 @@
         </style>
         <!-- Page -->
         <div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
-            <div class="page-content">
-                <div class="page-login-main animation-slide-right animation-duration-1">
-                    <div class="brand text-center">
-                        <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
-                        <h2 class="brand-text font-size-30">FlowDesk</h2>
-                    </div>
-                    <div class="text-center">
-                        <div id="gSignInWrapper">
-                            <div id="customBtn" class="customGPlusSignIn">
-                                <span class="icon"></span>
-                                <span class="buttonText">Entrar com o Google</span>
-                            </div>
+            <div id="div-fundo-login">
+                <div class="carousel slide" id="exampleCarouselCaptions" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
+<!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
+                                <h2>First Slide Label</h2>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>-->
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-full" src="/tema/assets//images/fundo2.jpg" alt="..." />
+<!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
+                                <h3>Second Slide Label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit.</p>
+                            </div>-->
                         </div>
                     </div>
-                    <div id="name"></div>
-                    <form method="post" onsubmit="validarLogin()">
-                        <div class="form-group form-material floating" data-plugin="formMaterial">
-                            <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
-                            <label class="floating-label">Usuário</label>
-                        </div>
-                        <div class="form-group form-material floating" data-plugin="formMaterial">
-                            <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
-                            <label class="floating-label">Senha</label>
-                        </div>
-                        <div class="form-group clearfix">
-                            <div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg float-left">
-                                <input type="checkbox" id="inputCheckbox" name="remember">
-                                <label for="inputCheckbox">Lembrar senha</label>
-                            </div>
-                            <a class="float-right" href="/forgot-password/index.jsp">Esqueceu a senha?</a>
-                        </div>
-                        <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
-                    </form>
                 </div>
+            </div>
+            <!--                <img src="/tema/assets//images/fundo.jpg">-->
+            <div class="page-login-main animation-slide-right animation-duration-1 text-shadow">
+                <div class="brand text-center">
+                    <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
+                    <h2 class="brand-text font-size-30">FlowDesk</h2>
+                </div>
+                <form method="post" onsubmit="validarLogin()">
+                    <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
+                        <label class="floating-label">Usuário</label>
+                    </div>
+                    <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
+                        <label class="floating-label">Senha</label>
+                    </div>
+                    <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
+                    </br>
+                    <div class="form-group clearfix">
+                        <div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg float-left">
+                            <input type="checkbox" id="inputCheckbox" name="remember">
+                            <label for="inputCheckbox">Lembrar senha</label>
+                        </div>
+                        <a class="float-right" href="/forgot-password/index.jsp">Esqueceu a senha?</a>
+                    </div>
+                    <div class="form-group text-center">
+                        <div id="botao-logar">
+                            <button type="button" class="btn btn-icon social-google-plus"><i class="icon bd-google-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -137,14 +154,14 @@
 
 
         <script>
-                        (function (document, window, $) {
-                            'use strict';
+                    (function (document, window, $) {
+                        'use strict';
 
-                            var Site = window.Site;
-                            $(document).ready(function () {
-                                Site.run();
-                            });
-                        })(document, window, jQuery);
+                        var Site = window.Site;
+                        $(document).ready(function () {
+                            Site.run();
+                        });
+                    })(document, window, jQuery);
         </script>
         <script>startApp();</script>
     </body>
