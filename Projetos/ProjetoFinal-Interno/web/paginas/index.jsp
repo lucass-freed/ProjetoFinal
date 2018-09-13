@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/css/layout-2.css">
+        <link rel="stylesheet" href="/tema/assets/examples/css/pages/gallery-grid.css">
 
 
         <!-- Fonts -->
@@ -51,18 +52,18 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
-<!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
-                                <h2>First Slide Label</h2>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </div>-->
+                            <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
+                                                            <h2>First Slide Label</h2>
+                                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                        </div>-->
                         </div>
                         <div class="carousel-item">
                             <img class="w-full" src="/tema/assets//images/fundo2.jpg" alt="..." />
-<!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
-                                <h3>Second Slide Label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit.</p>
-                            </div>-->
+                            <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
+                                                            <h3>Second Slide Label</h3>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                elit.</p>
+                                                        </div>-->
                         </div>
                     </div>
                 </div>
@@ -73,6 +74,7 @@
                     <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
                     <h2 class="brand-text font-size-30">FlowDesk</h2>
                 </div>
+                <h3 class="card-title mb-20 text-center">Login Interno</h3>
                 <form method="post" onsubmit="validarLogin()">
                     <div class="form-group form-material floating" data-plugin="formMaterial">
                         <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
