@@ -1,11 +1,14 @@
 package br.com.projetofinal.web.master;
 
 import br.com.projetofinal.bean.EmpresaBean;
+import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.EmpresaDAO;
+import br.com.projetofinal.dao.UsuarioDAO;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +27,14 @@ public class EmpresaIndex extends HttpServlet {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
-
+        
+        int idEmpresa = 0;
+        
+        List<UsuarioBean> usuarios = new UsuarioDAO().obterUsuarios();
+        for (int i = 0; i < usuarios.size(); i++) {
+            if(idEmpresa )
+            
+        }
         int id = Integer.parseInt(req.getParameter("id"));
         EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(id);
 
