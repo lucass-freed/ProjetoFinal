@@ -79,7 +79,7 @@ public class UsuarioDAO {
         if (conexao != null) {
             String sql = "SELECT id, id_empresa, id_funcao, usuario,"
                     + "senha, nome, cpf, data_nascimento, telefone, email, usuario_master"
-                    + "FROM usuarios;";
+                    + "\nFROM usuarios;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);

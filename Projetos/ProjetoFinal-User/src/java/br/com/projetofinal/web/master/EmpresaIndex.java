@@ -32,7 +32,7 @@ public class EmpresaIndex extends HttpServlet {
         
         List<UsuarioBean> usuarios = new UsuarioDAO().obterUsuarios();
         for (int i = 0; i < usuarios.size(); i++) {
-            if(idEmpresa )
+            //if(idEmpresa )
             
         }
         int id = Integer.parseInt(req.getParameter("id"));

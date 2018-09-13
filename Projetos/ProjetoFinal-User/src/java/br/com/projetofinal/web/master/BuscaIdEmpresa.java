@@ -26,7 +26,7 @@ public class BuscaIdEmpresa extends HttpServlet {
             throws ServletException, IOException {
         
         
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
 }
