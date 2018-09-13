@@ -213,7 +213,6 @@
 <!-- Page -->
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">Exemplo Padrão Externo</h1>
 
 
 
