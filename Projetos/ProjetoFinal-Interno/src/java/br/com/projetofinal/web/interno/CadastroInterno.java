@@ -22,7 +22,7 @@ public class CadastroInterno extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Cadastro");
-        req.getRequestDispatcher("/cadastro/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/cadastro/index.jsp").include(req, resp);
     }
 
 }

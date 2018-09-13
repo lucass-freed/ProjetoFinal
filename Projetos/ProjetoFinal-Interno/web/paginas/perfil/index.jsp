@@ -1,10 +1,10 @@
-<%-- 
+-<%-- 
     Document   : index
     Created on : 28/08/2018, 08:54:16
     Author     : Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/padrao-interno-master/dashboard.jsp"%>
+<%@include file="/padroes/padrao-interno-master/dashboard.jsp"%>
 <%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page import="br.com.projetofinal.Util.Formatador"%>
@@ -59,14 +59,13 @@
                                                 <span class="text-break">Usuário: <%= colaborador.getUsuario()%>
                                                 </span>
                                             </p>
-
                                         </div>
 
                                     </div>
                                     <div class="text-right">
-                                        <button type="button" class="btn btn-success btn-sm">
+                                        <a href="/interno/trocar-senha" style="color: white" class="btn btn-success btn-sm">
                                             <i class="icon wb-pencil" aria-hidden="true"></i>Mudar Senha
-                                        </button>
+                                        </a>
                                     </div>
                                 </li>
                             </ul>
@@ -165,4 +164,4 @@
     </div>
 </div>
 
-<%@include file="/padrao-interno-master/rodape.jsp"%>
+<%@include file="/padroes/padrao-interno-master/rodape.jsp"%>

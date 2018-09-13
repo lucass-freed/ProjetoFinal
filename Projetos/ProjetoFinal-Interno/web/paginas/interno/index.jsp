@@ -1,5 +1,5 @@
 <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
-<%@include file="/padrao-interno-regular/dashboard.jsp"%>
+<%@include file="/padroes/padrao-interno-regular/dashboard.jsp"%>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
@@ -273,4 +273,4 @@
         <!-- End Panel Tickets -->
     </div>
 
-    <%@include file="/padrao-interno-regular/rodape.jsp"%>
+    <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>

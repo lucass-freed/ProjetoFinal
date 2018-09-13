@@ -21,6 +21,6 @@ public class EmpresaIndex extends HttpServlet {
         }
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Empresas");
-        req.getRequestDispatcher("/empresa/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/empresa/index.jsp").include(req, resp);
     }
 }

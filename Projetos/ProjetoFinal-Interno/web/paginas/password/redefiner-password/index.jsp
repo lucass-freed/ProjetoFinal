@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 27/08/2018, 11:02:05
-    Author     : Lucas Rodrigo
---%>
-
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
@@ -13,7 +7,7 @@
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">
 
-        <title>FlowDesk Interno | Esquecer Senha</title>
+        <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
 
         <link rel="apple-touch-icon" href="/tema/assets/images/apple-touch-icon.png">
         <link rel="shortcut icon" href="/tema/assets/images/favicon.png">
@@ -30,7 +24,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/intro-js/introjs.css">
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="/css/forgot-password.css">
+        <link rel="stylesheet" href="/css/redefiner-password.min.css">
 
 
         <!-- Fonts -->
@@ -45,30 +39,32 @@
         </script>
     </head>
     <body class="animsition page-forgot-password layout-full">
-
+        
         <!-- Page -->
         <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
-            <div class="page-content vertical-align-middle animation-slide-top animation-duration-1 text-shadow">
+            <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
                 <div class="panel">
                     <div class="panel-body">
                         <div class="brand">
                             <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
                             <h2 class="brand-text font-size-22">FlowDesk</h2>
-                            <h4>Esqueceu sua senha ?</h4>
+                            <h4>Redefinição de senha</h4>
                         </div>
                         <form method="post" role="form">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Insira o seu e-mail">
+                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Insira a sua nova senha">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Redefinir senha</button>
+                                <input type="password" class="form-control" id="inputPassword2" name="password2" placeholder="Confirme a sua nova senha">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Salvar nova senha</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- End Page -->
-
 
             <!-- Core  -->
             <script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
@@ -110,15 +106,14 @@
             <script src="/tema/global/js/Plugin/switchery.js"></script>
 
             <script>
-            (function (document, window, $) {
-                'use strict';
+                (function (document, window, $) {
+                    'use strict';
 
-                var Site = window.Site;
-                $(document).ready(function () {
-                    Site.run();
-                });
-            })(document, window, jQuery);
+                    var Site = window.Site;
+                    $(document).ready(function () {
+                        Site.run();
+                    });
+                })(document, window, jQuery);
             </script>
     </body>
 </html>
-

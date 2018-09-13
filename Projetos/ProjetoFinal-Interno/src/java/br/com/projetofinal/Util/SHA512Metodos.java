@@ -2,7 +2,7 @@ package br.com.projetofinal.Util;
 
 /**
  *
- * @author Lucas Rodrigo
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 
 import java.math.BigInteger;

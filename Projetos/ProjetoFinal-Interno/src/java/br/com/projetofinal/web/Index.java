@@ -20,7 +20,7 @@ public class Index extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("title", "Entrar");
-        request.getRequestDispatcher("/index.jsp").include(request, response);
+        request.getRequestDispatcher("/paginas/index.jsp").include(request, response);
     }
 
 }

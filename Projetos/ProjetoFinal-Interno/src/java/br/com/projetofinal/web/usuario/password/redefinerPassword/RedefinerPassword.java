@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario;
+package br.com.projetofinal.web.usuario.password.redefinerPassword;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,18 +11,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet("/interno/perfil")
-public class UsuarioPerfil extends HttpServlet {
-
+@WebServlet(urlPatterns = {"/interno/redefinir-senha"})
+public class RedefinerPassword extends HttpServlet {
+    
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (req.getSession().getAttribute("usuario") == null) {
-            resp.sendRedirect("/");
-        }
 
         resp.setContentType("text/html;charset=UTF-8");
-        req.setAttribute("title", "Perfil");
-        req.getRequestDispatcher("/paginas/perfil/index.jsp").include(req, resp);
+        req.setAttribute("title", "Redefinir Senha");
+        req.getRequestDispatcher("/paginas/password/redefiner-password/index.jsp").include(req, resp);
     }
+
 }

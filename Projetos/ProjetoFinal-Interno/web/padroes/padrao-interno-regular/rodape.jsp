@@ -41,30 +41,7 @@
 <script src="/tema/global/js/Plugin/slidepanel.js"></script>
 <script src="/tema/global/js/Plugin/switchery.js"></script>
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
-<script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-<script src="/tema/global/vendor/jquery/jquery.js"></script>
 
-<script src="/tema/global/js/Plugin.js"></script>
-<script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
-
-<script src="/tema/global/vendor/formatter/jquery.formatter.js"></script>
-
-<script src="/tema/global/js/Plugin/formatter.js"></script>
-
-<script>
-    Breakpoints();
-</script>
-
-<script>
-    (function (document, window, $) {
-        'use strict';
-
-        var Site = window.Site;
-        $(document).ready(function () {
-            Site.run();
-        });
-    })(document, window, jQuery);
-</script>
 <script>
     (function (document, window, $) {
         'use strict';

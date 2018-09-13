@@ -3,7 +3,7 @@
     Created on : 26/08/2018, 16:00:28
     Author     : Lucas Rodrigo
 --%>
-<%@include file="/padrao-interno-master/dashboard.jsp" %>
+<%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
@@ -171,4 +171,4 @@
     });
 </script>
 
-<%@include file="/padrao-interno-master/rodape.jsp" %>
+<%@include file="/padroes/padrao-interno-master/rodape.jsp" %>

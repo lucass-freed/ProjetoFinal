@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 public class HomeInterno extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if(req.getSession().getAttribute("usuario") == null){
+        if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
-        
+
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Página inicial");
-        req.getRequestDispatcher("/interno/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/interno/index.jsp").include(req, resp);
     }
 
 }

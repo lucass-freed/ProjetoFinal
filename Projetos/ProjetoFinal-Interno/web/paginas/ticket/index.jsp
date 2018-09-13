@@ -4,9 +4,9 @@
     Author     : Michelle de Jesus Rogério
 --%>
 <% if (request.getAttribute("tipo").toString().equals("master")) { %>
-<%@include file="../padrao-interno-master/dashboard.jsp" %>
+<%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
-<%@include file="../padrao-interno-regular/dashboard.jsp" %>
+<%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
 <% } %>
 <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
@@ -45,7 +45,7 @@
     </div>
 </div>
 <% if (request.getAttribute("tipo").toString().equals("master")) { %>
-<%@include file= "../padrao-interno-master/rodape.jsp"%>
+<%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
 <% } else { %>
-<%@include file="../padrao-interno-regular/rodape.jsp"%>
+<%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>
 <% }%>
