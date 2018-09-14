@@ -10,7 +10,7 @@
                 data-toggle="collapse">
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
-        <a href="/home">
+        <a href="/home-externo-regular">
         <div class="navbar-brand navbar-brand-center">
             <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
             <span class="navbar-brand-text hidden-xs-down">FlowDesk</span>         
