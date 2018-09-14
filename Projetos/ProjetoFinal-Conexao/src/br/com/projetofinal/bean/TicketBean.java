@@ -24,6 +24,7 @@ public class TicketBean {
     private String procedimentoResolucao;
     private EnumTicketStatusType status;
     private CriticidadeTypes criticidade;
+    private EmpresaBean empresa;
 
     public CriticidadeTypes getCriticidade() {
         return criticidade;
@@ -32,7 +33,6 @@ public class TicketBean {
     public void setCriticidade(CriticidadeTypes criticidade) {
         this.criticidade = criticidade;
     }
-     
 
     public EnumTicketStatusType getStatus() {
         return status;
@@ -128,6 +128,14 @@ public class TicketBean {
 
     public void setProcedimentoResolucao(String procedimentoResolucao) {
         this.procedimentoResolucao = procedimentoResolucao;
+    }
+
+    public EmpresaBean getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(EmpresaBean empresa) {
+        this.empresa = empresa;
     }
 
 }

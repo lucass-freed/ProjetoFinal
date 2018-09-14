@@ -26,20 +26,34 @@ public class TicketDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "SELECT "
-                    + "id, "
-                    + "titulo, "
-                    + "idEmpresa, "
-                    /*+ "id_colaborador, "
-                    + "id_ticket_sazonalidade, "*/
-                    + "situacao, "
-                    + "criticidade, "
-                    /* "data_abertura, "
-                    + "sistema_operacional, "
-                    + "versao_banco, " */
-                    + "descricao "
-                    /*+ "data_encerramento, "
-                    + "procedimento_resolucao"*/
-                    + " FROM tickets WHERE id = ?";
+                    + "tck.id, "
+                    + "tck.titulo, "
+                    + "tck.idEmpresa, "
+                    /*+ "tck.id_colaborador, "
+                    + "tck.id_ticket_sazonalidade, "*/
+                    + "tck.situacao, "
+                    + "tck.criticidade, "
+                    /* "tck.data_abertura, "
+                    + "tck.sistema_operacional, "
+                    + "tck.versao_banco, " */
+                    + "tck.descricao, "
+                    /*+ "\ntck.data_encerramento, "
+                    + "\ntck.procedimento_resolucao,"*/
+                    + "\ntck.idEmpresa,"
+                    + "\nemp.id,"
+                    + "\nemp.razaoSocial,"
+                    + "\nemp.nomeFantasia,"
+                    + "\nemp.inscricaoEstadual,"
+                    + "\nemp.email,"
+                    + "\nemp.cnpj,"
+                    + "\nemp.telefone,"
+                    + "\nemp.dataAtivacao,"
+                    + "\nemp.dataExpiracao,"
+                    + "\nemp.validadeCertificado"
+                    + "\nFROM tickets tck"
+                    + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id)"
+                    + "\nWHERE tck.id = ? ";
+            System.out.println(sql);
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -47,20 +61,34 @@ public class TicketDAO {
                 ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
                     TicketBean ticket = new TicketBean();
-                    ticket.setId(rs.getInt("id"));
-                    ticket.setTitulo(rs.getString("titulo"));
-                    ticket.setIdEmpresa(rs.getInt("idEmpresa"));
-                    /*ticket.setIdColaborador(rs.getInt("colaborador"));
-                    ticket.setIdSazonalidade(rs.getInt("sazonalidade"));*/
-                    ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("criticidade")));
-                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
-                    /* ticket.setTitulo(rs.getString("titulo"));
-                    ticket.setDataAbertura(rs.getInt("dataAbertura"));
-                    ticket.setSistemaOperacional(rs.getString("sistema_operacional"));
-                    ticket.setVersaoBanco(rs.getString("versaoBanco"));*/
-                    ticket.setDescricao(rs.getString("descricao"));/*
-                    ticket.setDataEncerramento(rs.getInt("dataEncerramento"));
-                    ticket.setProcedimentoResolucao(rs.getString("procedimentoResolucao"));*/
+                    ticket.setId(rs.getInt("tck.id"));
+                    ticket.setTitulo(rs.getString("tck.titulo"));
+                    ticket.setIdEmpresa(rs.getInt("tck.idEmpresa"));
+                    /*ticket.setIdColaborador(rs.getInt("tck.colaborador"));
+                    ticket.setIdSazonalidade(rs.getInt("tck.sazonalidade"));*/
+                    ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("tck.criticidade")));
+                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("tck.situacao")));
+                    /* ticket.setTitulo(rs.getString("tck.titulo"));
+                    ticket.setDataAbertura(rs.getInt("tck.dataAbertura"));
+                    ticket.setSistemaOperacional(rs.getString("tck.sistema_operacional"));
+                    ticket.setVersaoBanco(rs.getString("tck.versaoBanco"));*/
+                    ticket.setDescricao(rs.getString("tck.descricao"));/*
+                    ticket.setDataEncerramento(rs.getInt("tck.dataEncerramento"));
+                    ticket.setProcedimentoResolucao(rs.getString("tck.procedimentoResolucao"));*/
+
+                    EmpresaBean empresa = new EmpresaBean();
+                    empresa.setId(rs.getInt("emp.id"));
+                    empresa.setCnpj(rs.getString("emp.cnpj"));
+                    empresa.setNomeFantasia(rs.getString("emp.nomeFantasia"));
+                    empresa.setInscricaoEstadual(rs.getString("emp.inscricaoEstadual"));
+                    empresa.setEmail(rs.getString("emp.email"));
+                    empresa.setTelefone(rs.getString("emp.telefone"));
+                    empresa.setDataAtivacao(rs.getDate("emp.dataAtivacao"));
+                    empresa.setDataExpiracao(rs.getDate("emp.dataExpiracao"));
+                    empresa.setValidadeCertificado(rs.getDate("emp.validadeCertificado"));
+
+                    ticket.setEmpresa(empresa);
+
                     return ticket;
                 }
             } catch (SQLException e) {
@@ -181,49 +209,5 @@ public class TicketDAO {
         return 0;
     }
 
-    public EmpresaBean obterEmpresaPorTicket(int emp) {
-        Connection conexao = Conexao.getConnection();
-        if (conexao != null) {
-            String sql = "SELECT"
-                    + "\ntickets.idEmpresa,"
-                    + "\nempresas.razaoSocial,"
-                    + "\nempresas.nomeFantasia,"
-                    + "\nempresas.inscricaoEstadual,"
-                    + "\nempresas.email,"
-                    + "\nempresas.telefone,"
-                    + "\nempresas.dataAtivacao,"
-                    + "\nempresas.dataExpiracao,"
-                    + "\nempresas.validadeCertificado"
-                    + "\nFROM tickets"
-                    + "\nJOIN empresas ON (tickets.idEmpresa = empresas.id)"
-                    + "\nWHERE tickets.id = ? ";
-            try {
-                PreparedStatement ps = conexao.prepareStatement(sql);
-                ps.setInt(1, emp);
-                ps.execute();
-                ResultSet rs = ps.getResultSet();
-                while (rs.next()) {
-                    EmpresaBean infoEmpresa = new EmpresaBean();
-                    infoEmpresa.setId(rs.getInt("empresas.id"));
-                    infoEmpresa.setCnpj(rs.getString("empresas.cnpj"));
-                    infoEmpresa.setNomeFantasia(rs.getString("empresas.nomeFantasia"));
-                    infoEmpresa.setInscricaoEstadual(rs.getString("empresas.inscricaoEstadual"));
-                    infoEmpresa.setEmail(rs.getString("empresas.email"));
-                    infoEmpresa.setTelefone(rs.getString("empresas.telefone"));
-                    infoEmpresa.setDataAtivacao(rs.getDate("empresas.dataAtivacao"));
-                    infoEmpresa.setDataExpiracao(rs.getDate("empresas.dataExpiracao"));
-                    infoEmpresa.setValidadeCertificado(rs.getDate("empresas.validadeCertificado"));
-                    return infoEmpresa;
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                Conexao.closeConnection();
-            }
-
-        }
-        return null;
-    }
-
+    // Métodos direcionados à tab-movimentacoes.jsp
 }

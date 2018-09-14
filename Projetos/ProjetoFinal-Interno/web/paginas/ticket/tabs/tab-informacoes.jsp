@@ -6,84 +6,63 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.projetofinal.bean.EmpresaBean"%>
-<% EmpresaBean empresa = (EmpresaBean) request.getAttribute("empresa");%>
-<div class="tab-pane" id="tab-informacoes" role="tabpanel">
-    <!--informações da empresa -->
-    <div class="panel">
-        <div class="panel-body container-fluid">
-            <div class="row row-lg">
-                <div class="col-md-12">
-                    <div class="example-wrap">
-                        <div class="col-md-12">
-                            <h3 class="example-title col-md-4 float-left">Informações da Empresa</h3>
-                        </div>
-                        <div class="example">
-                            <form method="get" action="#" autocomplete="off">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= empresa.getCnpj()%>"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-12">                  
-                                        <input type="text" class="form-control minha-classe" id="inputBasicRazaoSocial" name="inputRazaoSocial"
-                                               autocomplete="off" placeholder="Razão Social" disabled="disabled" value="<%= empresa.getRazaoSocial()%>"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-12">                  
-                                        <input type="text" class="form-control minha-classe" id="inputBasicNomeFantasia" name="inputNomeFantasia" autocomplete="off" placeholder="Nome Fantasia" disabled="disabled" value="<%= empresa.getNomeFantasia()%>"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-12">                  
-                                        <input type="text" class="form-control minha-classe" id="inputBasicIE" name="inputIE" autocomplete="off" placeholder="Inscrição Estadual" disabled="disabled" value="<%= empresa.getInscricaoEstadual()%>"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6"> 
-                                        <input type="email" class="form-control minha-classe" id="inputBasicEmail" name="inputEmail"
-                                               autocomplete="off" placeholder="E-mail" disabled="disabled" value="<%= empresa.getEmail()%>"/>
-                                    </div>
-                                    <div class="form-group col-md-6"> 
-                                        <input type="text" class="form-control minha-classe" id="inputPhone" placeholder="Telefone  Ex:(00)0000-0000" disabled="disabled" value="<%= empresa.getTelefone()%>"/>
-                                    </div>
-                                </div>
+<%@page import="br.com.projetofinal.bean.TicketBean"%>
+<% TicketBean ticket2 = (TicketBean) request.getAttribute("ticket2");%>
 
-                                <div class="row">
-                                    <div class="form-group col-md-6">                  
-                                        <input type="text" class="form-control minha-classe" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled" value="<%= empresa.getDataAtivacao()%>"/>
-                                    </div>
-                                    <div class="form-group col-md-6">                   
-                                        <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= empresa.getDataExpiracao()%>"/>
-                                    </div>
-                                    <div class="form-group col-md-6">                   
-                                        <input type="text" class="form-control minha-classe" id="inputBasicValidadeCertificado" name="inputValidadoCertificado" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= empresa.getValidadeCertificado()%>"/>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
+<div class="example-wrap">
+    <h4 class="example-title">Basic Form (Form row)</h4>
+    <div class="example">
+        <form autocomplete="off">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeCNPJ">CNPJ</label>
+                    <input type="text" class="form-control" id="storeCNPJ" name="storeCNPJ"
+                           disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getCnpj()%>"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeRazaoSocial">Razão Social</label>
+                    <input type="text" class="form-control" id="storeRazaoSocial" name="storeRazaoSocial"
+                           disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getRazaoSocial()%>"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeNomeFantasia">Nome Fantasia</label>
+                    <input type="text" class="form-control" id="storeNomeFantasia" name="storeNomeFantasia"
+                           disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getNomeFantasia()%>"/>
                 </div>
             </div>
-        </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" for="storeInscricaoEstadual">Inscrição Estadual</label>
+                <input type="text" class="form-control" id="storeInscricaoEstadual" name="storeInscricaoEstadual"
+                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getInscricaoEstadual()%>"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" for="storeDataAtivacao">Data de Ativação</label>
+                <input type="text" class="form-control" id="storeDataAtivacao" name="storeDataAtivacao"
+                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getDataAtivacao()%>"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" for="storeDataExpiração">Data de Expiração</label>
+                <input type="text" class="form-control" id="storeDataExpiração" name="storeDataExpiração"
+                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getDataExpiracao()%>"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" for="storeValidadeCertificado">Validade do Certificado</label>
+                <input type="text" class="form-control" id="storeValidadeCertificado" name="storeValidadeCertificado"
+                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getValidadeCertificado()%>"/>
+            </div>
+        </form>
     </div>
-    <!--informações restantes-->
-    <div class="panel">
-        <div class="panel-body container-fluid">
-            <div class="row row-lg">
-                <div class="col-md-12">
-                    <div class="example-wrap">
-                        <div class="col-md-12">
-                            <h3 class="example-title col-md-4 float-left">Informações Gerais</h3>
-                        </div>
-                        <div class="example">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="form-group contatos">
+        <div class="form-group col-md-6">
+            <label class="form-control-label" for="storeEmail">Email</label>
+            <input type="text" class="form-control" id="storeEmail" name="storeEmail"
+                   disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getEmail()%>"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="form-control-label" for="storeTelefone">Telefone</label>
+            <input type="text" class="form-control" id="storeTelefone" name="storeTelefone"
+                   disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getTelefone()%>"/>
         </div>
     </div>
 </div>
+

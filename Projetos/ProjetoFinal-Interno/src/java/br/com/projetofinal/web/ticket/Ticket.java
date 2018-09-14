@@ -27,8 +27,6 @@ public class Ticket extends HttpServlet {
             resp.sendRedirect("/");
         }
         int id = Integer.parseInt(req.getParameter("id"));
-        int idEmpresa = Integer.parseInt(req.getParameter("id"));
-        EmpresaBean empresa = new EmpresaDAO().obterPeloID(idEmpresa);
         TicketBean ticket = new TicketDAO().obterTicketPorID(id);
         List<TicketTagBean> ticketsTags = new TicketDAO().obterTagsPorTicket(ticket.getId());
 
@@ -36,9 +34,9 @@ public class Ticket extends HttpServlet {
         req.setAttribute("ticket", ticket);
         //atributo usado na tab descrição
         req.setAttribute("ticket1", ticket);
+        req.setAttribute("ticket2", ticket);
         req.setAttribute("ticketsTags", ticketsTags);
         //atributo usado na tab informações
-        req.setAttribute("empresa", empresa);
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
         req.setAttribute("title", "Tickets");
         resp.setContentType("text/html;charset=UTF-8");

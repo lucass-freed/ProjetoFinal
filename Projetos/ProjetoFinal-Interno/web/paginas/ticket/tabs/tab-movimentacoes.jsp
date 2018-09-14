@@ -8,8 +8,10 @@
     - dataEncerramento table tickets (if not closed then dataEncerramento is empty)
     - Button movimentar
                 - Alterar Status (if "concluído" ticket é finalizado)
+                - Atribuir a (somente para usuario MASTER)
                 - Encaminhar (abre um "FROM/TO" onde o FROM já vem autopreenchido com o colaborador logado e o TO é search)
                 - Alterar Prioridade
+                - + List 3 últimas movimentações
     
     OBS.: Todas as movimentações serão enviadas para registro no log através do
             TicketLogBean log =  new TicketDAO().atualizarLog();
