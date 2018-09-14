@@ -90,8 +90,8 @@ CREATE TABLE tickets_sazonalidade (
 
 CREATE TABLE tickets (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	idEmpresa INT /*NOT NULL*/,
-	/*FOREIGN KEY (idEmpresa) references empresas(id),
+	idEmpresa INT NOT NULL,
+	FOREIGN KEY (idEmpresa) references empresas(id),
 	/*id_colaborador INT NOT NULL,
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_ticket_sazonalidade INT NOT NULL,
@@ -100,11 +100,12 @@ CREATE TABLE tickets (
 	titulo VARCHAR (150),	
 	criticidade VARCHAR (50),
 	situacao VARCHAR (100),
-	descricao TEXT	/*,
-	dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	sistema_operacional VARCHAR (50),
+	descricao TEXT	,
+	sistemaOperacional VARCHAR (50),
 	versaoBanco VARCHAR (10),
-	dataEncerramento DATE,
+	dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	dataEncerramento DATE
+	/*,
 	procedimentoResolucao TEXT NOT NULL*/
 );
 
@@ -186,9 +187,14 @@ INSERT INTO usuarios (id_empresa, id_funcao, usuario, senha, nome, cpf, data_nas
 (1, 1, 'lucas', '123', 'Lucas Rodrigo', '15469532184', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
 (1, 1, 'gabriel', '123', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
-INSERT INTO tickets (titulo, criticidade, situacao, descricao) VALUES 
-("Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor"),
-("Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema")
+INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
+sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
+("2","Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor", "Win10", "9.4","2018-09-01 00:00", "2018-09-05 00:00")
+;
+
+INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
+sistemaOperacional, versaoBanco, dataAbertura) VALUES 
+("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-14")
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values
