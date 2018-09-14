@@ -3,14 +3,14 @@
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
-        <div class="row h-full" data-plugin="matchHeight">
+        <div class="row" data-plugin="matchHeight">
             <div class="col-xxl-12 col-lg-4 col-sm-4">
-                <div class="card card-shadow card-completed-options">
+                <div class="card card-shadow">
                     <div class="card-block p-30">
                         <div class="row">
                             <div class="col-6">
                                 <div class="counter text-left blue-grey-700">
-                                    <div class="counter-label mt-10">Tasks Completed
+                                    <div class="counter-label mt-10">Tickets Concluidos
                                     </div>
                                     <div class="counter-number font-size-40 mt-10">
                                         1,234
@@ -31,12 +31,12 @@
                 </div>
             </div>
             <div class="col-xxl-12 col-lg-4 col-sm-4">
-                <div class="card card-shadow card-completed-options">
+                <div class="card card-shadow">
                     <div class="card-block p-30">
                         <div class="row">
                             <div class="col-6">
                                 <div class="counter text-left blue-grey-700">
-                                    <div class="counter-label mt-10">Points Completed
+                                    <div class="counter-label mt-10">Tickets Em Andamento
                                     </div>
                                     <div class="counter-number font-size-40 mt-10">
                                         698
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="col-xxl-12 col-lg-4 col-sm-4">
-                <div class="card card-shadow card-completed-options">
+                <div class="card card-shadow">
                     <div class="card-block p-30">
                         <div class="row">
                             <div class="col-6">
@@ -272,5 +272,6 @@
         </div>
         <!-- End Panel Tickets -->
     </div>
+</div>
 
-    <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>
+<%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>

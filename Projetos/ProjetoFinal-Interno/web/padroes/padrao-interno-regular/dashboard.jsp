@@ -13,8 +13,8 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
+        <link rel="stylesheet" href="/css/ticket.min.css">
         <link rel="stylesheet" href="/css/site.min.css">
-        <link rel="stylesheet" href="/css/ticket.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">
@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link rel="stylesheet" href="/css/layouts.css">
+        <link rel="stylesheet" href="/css/ticket.css">
 
 
         <!-- Fonts -->
