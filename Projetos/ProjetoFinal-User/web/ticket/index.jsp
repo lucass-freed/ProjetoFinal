@@ -1,24 +1,22 @@
 <%-- 
     Document   : index
     Created on : 06/09/2018, 10:42:06
-    Author     : Matheus
+    Author     : Matheus Werner
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+  <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
 
         <title>Tickets | FlowDesk</title>
-
-        <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
-        <%@page import="br.com.projetofinal.bean.TicketBean"%>
-        <%@page contentType="text/html" pageEncoding="UTF-8"%> 
+      
         <% if (request.getAttribute("tipo").toString().equals("master")) { %>
         <%@include file="/padrao-externo-master/master.jsp" %>
         <% } else { %>
         <%@include file="/padrao-externo-regular/usuario/master.jsp" %>
         <% } %>
+        <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
+        <%@page import="br.com.projetofinal.bean.TicketBean"%>
         <% TicketBean ticket = (TicketBean) request.getAttribute("ticket");%>
     <div class="page">
         <div class="page-content container-fluid">
@@ -56,7 +54,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div
+ 
             <!-- End Page -->
             <% if (request.getAttribute("tipo").toString().equals("master")) { %>
             <%@include file="/padrao-externo-master/rodape.jsp" %>

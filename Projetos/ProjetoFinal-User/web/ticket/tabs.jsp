@@ -14,7 +14,7 @@
     <div class="tab-content pt-20">
      
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.projetofinal.enumTypes.CriticidadeTypes"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
 <% TicketBean ticket1 = (TicketBean) request.getAttribute("ticket1");%>

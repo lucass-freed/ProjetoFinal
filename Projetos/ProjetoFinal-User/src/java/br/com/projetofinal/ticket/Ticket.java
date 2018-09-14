@@ -24,7 +24,10 @@ public class Ticket extends HttpServlet {
 
         req.setAttribute("ticket", ticket);
         req.setAttribute("ticket1", ticket);
-        /*req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
-        req.getRequestDispatcher("index.jsp").include(req, resp);*/
+        req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
+        req.setAttribute("title", "Tickets");
+        resp.setContentType("text/html;charset=UTF-8");
+        req.getRequestDispatcher("/ticket/index.jsp").include(req, resp);
+        
     }
 }
