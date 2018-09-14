@@ -17,15 +17,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                                     data-barcolor="#57c7d4" data-size="100" data-barsize="10"
-                                     data-goal="86" aria-valuenow="86" role="progressbar">
-                                    <span class="pie-progress-number blue-grey-700 font-size-20">
-                                        86%
-                                    </span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,15 +34,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                                     data-barcolor="#62a8ea" data-size="100" data-barsize="10"
-                                     data-goal="62" aria-valuenow="62" role="progressbar">
-                                    <span class="pie-progress-number blue-grey-700 font-size-20">
-                                        62%
-                                    </span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,22 +44,14 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="counter text-left blue-grey-700">
-                                    <div class="counter-label mt-10">Cards Completed
+                                    <div class="counter-label mt-10">Tickets Em Andamento
                                     </div>
                                     <div class="counter-number font-size-40 mt-10">
                                         1,358
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="pie-progress pie-progress-sm" data-plugin="pieProgress" data-valuemax="100"
-                                     data-barcolor="#926dde" data-size="100" data-barsize="10"
-                                     data-goal="56" aria-valuenow="56" role="progressbar">
-                                    <span class="pie-progress-number blue-grey-700 font-size-20">
-                                        56%
-                                    </span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
