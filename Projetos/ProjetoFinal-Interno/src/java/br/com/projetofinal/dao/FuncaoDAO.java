@@ -5,6 +5,7 @@ import br.com.projetofinal.database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class FuncaoDAO {
-    
+
     public int inserir(FuncaoBean funcao) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -37,7 +38,7 @@ public class FuncaoDAO {
         }
         return 0;
     }
-    
+
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -54,7 +55,27 @@ public class FuncaoDAO {
         }
         return false;
     }
-    
+
+    public boolean alterar(FuncaoBean funcao) {
+        String sql = "UPDATE funcoes SET "
+                + "nome = ?, "
+                + "setor = ?, "
+                + "descricao = ? "
+                + "WHERE id = ?";
+        try {
+            PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+            ps.setString(1, funcao.getNome());
+            ps.setString(2, funcao.getSetor());
+            ps.setString(3, funcao.getDescricao());
+            return ps.executeUpdate() == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Conexao.closeConnection();
+        }
+        return false;
+    }
+
     public List<FuncaoBean> obterFuncoes() {
         List<FuncaoBean> funcoes = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
@@ -80,7 +101,7 @@ public class FuncaoDAO {
         }
         return funcoes;
     }
-    
+
     public FuncaoBean obterFuncaoPeloID(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -105,18 +126,5 @@ public class FuncaoDAO {
         }
         return null;
     }
-    
-    public boolean isContainsFuncao(String nomeFuncao) {
-        List<FuncaoBean> funcoes = obterFuncoes();
-        boolean is = false;
-        for (FuncaoBean funcao : funcoes) {
-            if (!is) {
-                is = funcao.getNome().equalsIgnoreCase(nomeFuncao);
-            }
-        }
-        return false;
-    }
-    
-    
-    
+
 }

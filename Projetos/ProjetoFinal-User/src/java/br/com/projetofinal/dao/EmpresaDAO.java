@@ -1,4 +1,3 @@
-
 package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.EmpresaBean;
@@ -13,15 +12,15 @@ import java.sql.SQLException;
  * @author Thiago
  */
 public class EmpresaDAO {
-    
-    public EmpresaBean obterDadosEmpresa(int id){
+
+    public EmpresaBean obterDadosEmpresa(int id) {
         String sql = "SELECT * FROM empresas WHERE id = ?";
-        try{
+        try {
             PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
             ps.setInt(1, id);
             ps.execute();
             ResultSet resultSet = ps.getResultSet();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 EmpresaBean empresa = new EmpresaBean();
                 empresa.setId(id);
                 empresa.setCnpj(resultSet.getString("cnpj"));
@@ -42,12 +41,12 @@ public class EmpresaDAO {
                 empresa.setValidadeCertificado(resultSet.getDate("validadeCertificado"));
                 return empresa;
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             Conexao.closeConnection();
         }
         return null;
     }
-    
+
 }
