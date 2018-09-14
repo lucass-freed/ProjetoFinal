@@ -64,7 +64,7 @@
                                                         </div>-->
                         </div>
                         <div class="carousel-item">
-                            <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
+                            <img class="w-full" src="/tema/assets//images/fundo2.jpeg" alt="..." />
                             <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
                                                             <h3>Second Slide Label</h3>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -79,6 +79,8 @@
                     <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
                     <h2 class="brand-text font-size-30">FlowDesk</h2>
                 </div>
+                <h3 class="card-title mb-20 text-center">Login Externo</h3>
+                <hr>
                 <form method="post" onsubmit="validarLogin()">
                     <div class="form-group form-material floating" data-plugin="formMaterial">
                         <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
@@ -95,7 +97,7 @@
                             <input type="checkbox" id="inputCheckbox" name="remember">
                             <label for="inputCheckbox">Lembrar senha</label>
                         </div>
-                        <a class="float-right" href="/forgot-password/index.jsp">Esqueceu a senha?</a>
+                        <a class="float-right" href="/interno/esquecer-senha">Esqueceu a senha?</a>
                     </div>
                     <div class="form-group text-center">
                         <div id="botao-logar">

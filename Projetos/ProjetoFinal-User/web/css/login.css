@@ -2,3 +2,11 @@
     width: 1920px;
     height: 754px;
 }
+
+hr {
+    border: 0;
+    width: 85%;
+    color: #f00;
+    background-color: #3e8ef7;
+    height: 3px;
+}

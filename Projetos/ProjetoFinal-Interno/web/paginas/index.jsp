@@ -75,6 +75,7 @@
                     <h2 class="brand-text font-size-30">FlowDesk</h2>
                 </div>
                 <h3 class="card-title mb-20 text-center">Login Interno</h3>
+                <hr>
                 <form method="post" onsubmit="validarLogin()">
                     <div class="form-group form-material floating" data-plugin="formMaterial">
                         <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>

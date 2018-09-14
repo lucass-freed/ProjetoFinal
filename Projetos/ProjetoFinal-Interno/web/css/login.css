@@ -17,3 +17,16 @@ span.icon {
     width: 1920px;
     height: 754px;
 }
+
+.ng-scope {
+    height: 100%;
+    color: red;
+}
+
+hr {
+    border: 0;
+    width: 85%;
+    color: #f00;
+    background-color: #eb6709;
+    height: 3px;
+}
