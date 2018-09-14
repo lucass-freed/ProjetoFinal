@@ -92,11 +92,10 @@ CREATE TABLE tickets (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	idEmpresa INT NOT NULL,
 	FOREIGN KEY (idEmpresa) references empresas(id),
-	/*id_colaborador INT NOT NULL,
+	id_colaborador INT,
 	FOREIGN KEY (id_colaborador) references colaboradores(id),
-	id_ticket_sazonalidade INT NOT NULL,
+	id_ticket_sazonalidade INT,
 	FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
-	*/
 	titulo VARCHAR (150),	
 	criticidade VARCHAR (50),
 	situacao VARCHAR (100),
@@ -104,9 +103,8 @@ CREATE TABLE tickets (
 	sistemaOperacional VARCHAR (50),
 	versaoBanco VARCHAR (10),
 	dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	dataEncerramento DATE
-	/*,
-	procedimentoResolucao TEXT NOT NULL*/
+	dataEncerramento DATE,
+	procedimentoResolucao TEXT
 );
 
 CREATE TABLE tags(
