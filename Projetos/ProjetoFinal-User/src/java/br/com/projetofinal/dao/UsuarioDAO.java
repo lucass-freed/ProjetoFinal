@@ -22,7 +22,7 @@ public class UsuarioDAO {
     public int inserir(UsuarioBean usuario) throws NoSuchAlgorithmException {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "INSERT INTO usuario (id_empresa, id_funcao, usuario,"
+            String sql = "INSERT INTO usuarios (id_empresa, id_funcao, usuario,"
                     + "senha, nome, cpf, data_nascimento, telefone, email, usuario_master)"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?) ";
             try {
@@ -32,9 +32,7 @@ public class UsuarioDAO {
                 ps.setInt(quantidade++, usuario.getIdEmpresa());
                 ps.setInt(quantidade++, usuario.getIdFuncao());
                 ps.setString(quantidade++, usuario.getUsuario());
-                String senhaCriptografada = new br.com.projetofinal.Util.SHA512Metodos()
-                        .criptografarSenha(usuario.getSenha());
-                ps.setString(quantidade++, senhaCriptografada);
+                ps.setString(quantidade++, new br.com.projetofinal.Util.SHA512Metodos().criptografarSenha(usuario.getSenha()));
                 ps.setString(quantidade++, usuario.getNome());
                 ps.setString(quantidade++, usuario.getCpf());
                 ps.setDate(quantidade++, usuario.getDataNascimento());
@@ -54,6 +52,45 @@ public class UsuarioDAO {
             }
         }
         return 0;
+    }
+    
+    public boolean alterar(UsuarioBean usuario) throws NoSuchAlgorithmException {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "UPDATE usuarios SET "
+                    + "id_empresa = ?, "
+                    + "id_funcao = ?, "
+                    + "usuario = ?, "
+                    + "senha = ?, "
+                    + "nome = ?, "
+                    + "cpf = ?, "
+                    + "data_nascimento = ?, "
+                    + "telefone = ?, "
+                    + "email = ?, "
+                    + "usuario_master = ? "
+                    + "WHERE id = ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+                int quantidade = 1;
+                ps.setInt(quantidade++, usuario.getIdEmpresa());
+                ps.setInt(quantidade++, usuario.getIdFuncao());
+                ps.setString(quantidade++, usuario.getUsuario());
+                ps.setString(quantidade++, new br.com.projetofinal.Util.SHA512Metodos().criptografarSenha(usuario.getSenha()));
+                ps.setString(quantidade++, usuario.getNome());
+                ps.setString(quantidade++, usuario.getCpf());
+                ps.setDate(quantidade++, usuario.getDataNascimento());
+                ps.setString(quantidade++, usuario.getTelefone());
+                ps.setString(quantidade++, usuario.getEmail());
+                ps.setBoolean(quantidade++, usuario.isUsuarioMaster());
+                ps.setInt(quantidade++, usuario.getId());
+                return ps.executeUpdate() == 1;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return false;
     }
 
     public boolean apagar(int id) {
