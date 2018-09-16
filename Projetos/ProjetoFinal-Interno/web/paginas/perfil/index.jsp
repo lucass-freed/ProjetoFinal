@@ -28,9 +28,9 @@
                 <div class="p-30" style="height: 230px;">
                     <div style="padding-top: 16px">
                         <h4><%= colaborador.getNome()%></h4>
-                        <h5><%= colaborador.getFuncao()%></h6>
-                            <p><%= colaborador.getEmail()%></p>
-                            <p>Entrou em <%= DateFormatador.formatoBr(colaborador.getDataAdmissao())%></p>
+                        <h5><%= colaborador.getFuncao().getNome()%></h5>
+                        <p><%= colaborador.getEmail()%></p>
+                        <p>Entrou em <%= DateFormatador.formatoBr(colaborador.getDataAdmissao())%></p>
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Função: <%= colaborador.getFuncao()%>
+                                                <span class="text-break">• Função: <%= colaborador.getFuncao().getNome()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">

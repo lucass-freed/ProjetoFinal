@@ -197,6 +197,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setCtps(rs.getString("ctps"));
                     colaborador.setPis(rs.getString("pis"));
                     colaboradores.add(colaborador);
+                    colaborador.setFuncao(new FuncaoDAO().obterFuncaoPeloID(colaborador.getIdFuncao()));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -259,6 +260,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setDataAdmissao(rs.getDate("data_admissao"));
                     colaborador.setCtps(rs.getString("ctps"));
                     colaborador.setPis(rs.getString("pis"));
+                    colaborador.setFuncao(new FuncaoDAO().obterFuncaoPeloID(rs.getInt("id_funcao")));
                     return colaborador;
                 }
             } catch (SQLException e) {
