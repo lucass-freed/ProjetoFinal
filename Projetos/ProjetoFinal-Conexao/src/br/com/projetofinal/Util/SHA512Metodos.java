@@ -8,13 +8,11 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class SHA512Metodos{
-    
-    public String criptografarSenha(String senha) throws NoSuchAlgorithmException {
-        String input = senha;
+public class SHA512Metodos {
 
+    public String criptografarSenha(String senha) throws NoSuchAlgorithmException {
         MessageDigest objSHA = MessageDigest.getInstance("SHA-512");
-        byte[] bytSHA = objSHA.digest(input.getBytes());
+        byte[] bytSHA = objSHA.digest(senha.getBytes());
         BigInteger intNumber = new BigInteger(1, bytSHA);
         String strHashCode = intNumber.toString(16);
 
@@ -23,9 +21,9 @@ public class SHA512Metodos{
         }
         return strHashCode;
     }
-    
+
     public boolean compararSenha(String senhaCriptografada, String senhaInformar) throws NoSuchAlgorithmException {
         return senhaCriptografada.equals(criptografarSenha(senhaInformar));
     }
-    
+
 }

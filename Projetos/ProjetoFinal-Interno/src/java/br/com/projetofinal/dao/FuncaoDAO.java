@@ -19,7 +19,7 @@ public class FuncaoDAO {
     public int inserir(FuncaoBean funcao) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "INSERT INTO funcoes(id, nome, setor, descricao) VALUES(?,?,?,?);";
+            String sql = "INSERT INTO funcoes(nome, setor, descricao) VALUES(?,?,?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 ps.setString(1, funcao.getNome());
@@ -57,21 +57,25 @@ public class FuncaoDAO {
     }
 
     public boolean alterar(FuncaoBean funcao) {
-        String sql = "UPDATE funcoes SET "
-                + "nome = ?, "
-                + "setor = ?, "
-                + "descricao = ? "
-                + "WHERE id = ?";
-        try {
-            PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
-            ps.setString(1, funcao.getNome());
-            ps.setString(2, funcao.getSetor());
-            ps.setString(3, funcao.getDescricao());
-            return ps.executeUpdate() == 1;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            Conexao.closeConnection();
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            try {
+                String sql = "UPDATE funcoes SET "
+                        + "nome = ?, "
+                        + "setor = ?, "
+                        + "descricao = ? "
+                        + "WHERE id = ?";
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setString(1, funcao.getNome());
+                ps.setString(2, funcao.getSetor());
+                ps.setString(3, funcao.getDescricao());
+                ps.setInt(4, funcao.getId());
+                return ps.executeUpdate() == 1;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
         }
         return false;
     }
@@ -105,11 +109,12 @@ public class FuncaoDAO {
     public FuncaoBean obterFuncaoPeloID(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "";
+            String sql = "SELECT * FROM funcoes WHERE id = ?";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
-                ResultSet rs = ps.getGeneratedKeys();
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
                     FuncaoBean funcao = new FuncaoBean();
                     funcao.setId(rs.getInt("id"));

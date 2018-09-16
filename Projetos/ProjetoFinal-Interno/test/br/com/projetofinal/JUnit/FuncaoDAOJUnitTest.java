@@ -4,7 +4,6 @@ import br.com.projetofinal.bean.FuncaoBean;
 import br.com.projetofinal.dao.FuncaoDAO;
 import br.com.projetofinal.database.Conexao;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
@@ -17,7 +16,7 @@ public class FuncaoDAOJUnitTest {
     
     @Test
     public void inserir() throws NoSuchAlgorithmException {
-        Conexao.truncate();
+        //Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");
@@ -27,13 +26,13 @@ public class FuncaoDAOJUnitTest {
         int cod = new FuncaoDAO().inserir(f);
         f.setId(cod);
 
-        assertEquals(cod, 1);
+        //assertEquals(cod, 1);
         validarIgual(f, new FuncaoDAO().obterFuncaoPeloID(cod));
     }
 
     @Test
     public void excluir() throws NoSuchAlgorithmException {
-        Conexao.truncate();
+        //Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");
@@ -48,34 +47,33 @@ public class FuncaoDAOJUnitTest {
 
     @Test
     public void alterar() throws NoSuchAlgorithmException {
-        Conexao.truncate();
+        //Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
-        int cod = new FuncaoDAO().inserir(f);
-        f.setId(cod);
         f.setNome("sadas");
         f.setSetor("as");
         f.setDescricao("as");
+        
+        int cod = new FuncaoDAO().inserir(f);
+        f.setId(cod);
 
         new FuncaoDAO().alterar(f);
-        FuncaoBean func = new FuncaoDAO().obterFuncaoPeloID(cod);
-        validarIgual(f, func);
+        validarIgual(f, new FuncaoDAO().obterFuncaoPeloID(cod));
     }
 
     @Test
     public void buscarPorID() {
-        Conexao.truncate();
+        //Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");
         f.setSetor("as");
         f.setDescricao("as");
 
-        int cod = new FuncaoDAO().obterFuncaoPeloID(f);
+        int cod = new FuncaoDAO().inserir(f);
         f.setId(cod);
 
-        FuncaoBean f2 = new FuncaoDAO().obterFuncaoPeloID(cod);
-        validarIgual(f, f2);
+        validarIgual(f, new FuncaoDAO().obterFuncaoPeloID(cod));
     }
 
     public void validarIgual(FuncaoBean f1, FuncaoBean f2) {

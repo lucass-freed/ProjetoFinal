@@ -9,18 +9,20 @@ import java.sql.Date;
 public class EmpresaBean {
     
     private int id;
-    private String cnpj;
-    private String razaoSocial;
-    private String nomeFantasia;
-    private String email;
-    private String telefone;
-    private String logradouro;
-    private String numero;
-    private String complemento;
-    private String bairro;
-    private String cep;
-    private String cidade;
-    private String uf, inscricaoEstadual;
+    private String cnpj,
+            razaoSocial,
+            nomeFantasia,
+            email,
+            telefone,
+            logradouro,
+            numero,
+            complemento,
+            bairro,
+            cep,
+            cidade,
+            uf, 
+            inscricaoEstadual,
+            sistema;
     private Date dataAtivacao, dataExpiracao, validadeCertificado;       
 
     public String getInscricaoEstadual() {
@@ -133,6 +135,14 @@ public class EmpresaBean {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+    
+    public String getSistema() {
+        return sistema;
+    }
+
+    public void setSistema(String sistema) {
+        this.sistema = sistema;
     }
 
     public Date getDataAtivacao() {

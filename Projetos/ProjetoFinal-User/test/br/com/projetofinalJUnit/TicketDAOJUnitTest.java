@@ -1,6 +1,4 @@
-package br.com.projetofinal.JUnit;
-
-import br.com.projetofinal.JUnit.*;
+package br.com.projetofinalJUnit;
 
 /**
  *

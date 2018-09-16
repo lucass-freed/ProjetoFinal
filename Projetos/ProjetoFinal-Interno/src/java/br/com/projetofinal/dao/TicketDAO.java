@@ -19,8 +19,55 @@ import java.util.List;
 /**
  * @author Michelle de Jesus Rogério Created on: 2018-08-27, 11:24:00 Updated
  * on: 2018-08-28, 09:52:00
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class TicketDAO {
+
+    public int inserir(TicketBean ticket) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "INSERT INTO tickets("
+                    + "idEmpresa, "
+                    + "id_colaborador, "
+                    + "id_ticket_sazonalidade, "
+                    + "titulo, "
+                    + "criticidade, "
+                    + "situacao, "
+                    + "descricao, "
+                    + "sistemaOperacional, "
+                    + "versaoBanco, "
+                    + "dataAbertura, "
+                    + "dataEncerramento, "
+                    + "procedimentoResolucao"
+                    + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+                int quantidade = 1;
+                ps.setInt(quantidade++, ticket.getIdEmpresa());
+                ps.setInt(quantidade++, ticket.getIdColaborador());
+                ps.setInt(quantidade++, ticket.getIdSazonalidade());
+                ps.setString(quantidade++, ticket.getTitulo());
+                ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
+                ps.setString(quantidade++, String.valueOf(ticket.getStatus()));
+                ps.setString(quantidade++, ticket.getDescricao());
+                ps.setString(quantidade++, ticket.getSistemaOperacional());
+                ps.setString(quantidade++, ticket.getVersaoBanco());
+                ps.setDate(quantidade++, ticket.getDataAbertura());
+                ps.setDate(quantidade++, ticket.getDataEncerramento());
+                ps.setString(quantidade++, ticket.getProcedimentoResolucao());
+                ps.execute();
+                ResultSet rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
+    }
 
     public TicketBean obterTicketPorID(int id) {
         Connection conexao = Conexao.getConnection();
@@ -29,16 +76,16 @@ public class TicketDAO {
                     + "tck.id, "
                     + "tck.titulo, "
                     + "tck.idEmpresa, "
-                    /*+ "tck.id_colaborador, "
-                    + "tck.id_ticket_sazonalidade, "*/
+                    + "tck.id_colaborador, "
+                    + "tck.id_ticket_sazonalidade, "
                     + "tck.situacao, "
                     + "tck.criticidade, "
-                    /* "tck.data_abertura, "
-                    + "tck.sistema_operacional, "
-                    + "tck.versao_banco, " */
+                    + "tck.dataAbertura, "
+                    + "tck.sistemaOperacional, "
+                    + "tck.versaoBanco, "
                     + "tck.descricao, "
-                    /*+ "\ntck.data_encerramento, "
-                    + "\ntck.procedimento_resolucao,"*/
+                    + "\ntck.dataEncerramento, "
+                    + "\ntck.procedimentoResolucao,"
                     + "\ntck.idEmpresa,"
                     + "\nemp.id,"
                     + "\nemp.razaoSocial,"
@@ -53,7 +100,6 @@ public class TicketDAO {
                     + "\nFROM tickets tck"
                     + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id)"
                     + "\nWHERE tck.id = ? ";
-            System.out.println(sql);
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -64,17 +110,17 @@ public class TicketDAO {
                     ticket.setId(rs.getInt("tck.id"));
                     ticket.setTitulo(rs.getString("tck.titulo"));
                     ticket.setIdEmpresa(rs.getInt("tck.idEmpresa"));
-                    /*ticket.setIdColaborador(rs.getInt("tck.colaborador"));
-                    ticket.setIdSazonalidade(rs.getInt("tck.sazonalidade"));*/
+                    ticket.setIdColaborador(rs.getInt("tck.id_colaborador"));
+                    ticket.setIdSazonalidade(rs.getInt("tck.id_ticket_sazonalidade"));
                     ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("tck.criticidade")));
                     ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("tck.situacao")));
-                    /* ticket.setTitulo(rs.getString("tck.titulo"));
-                    ticket.setDataAbertura(rs.getInt("tck.dataAbertura"));
-                    ticket.setSistemaOperacional(rs.getString("tck.sistema_operacional"));
-                    ticket.setVersaoBanco(rs.getString("tck.versaoBanco"));*/
-                    ticket.setDescricao(rs.getString("tck.descricao"));/*
-                    ticket.setDataEncerramento(rs.getInt("tck.dataEncerramento"));
-                    ticket.setProcedimentoResolucao(rs.getString("tck.procedimentoResolucao"));*/
+                    ticket.setTitulo(rs.getString("tck.titulo"));
+                    ticket.setDataAbertura(rs.getDate("tck.dataAbertura"));
+                    ticket.setSistemaOperacional(rs.getString("tck.sistemaOperacional"));
+                    ticket.setVersaoBanco(rs.getString("tck.versaoBanco"));
+                    ticket.setDescricao(rs.getString("tck.descricao"));
+                    ticket.setDataEncerramento(rs.getDate("tck.dataEncerramento"));
+                    ticket.setProcedimentoResolucao(rs.getString("tck.procedimentoResolucao"));
 
                     EmpresaBean empresa = new EmpresaBean();
                     empresa.setId(rs.getInt("emp.id"));
@@ -88,7 +134,6 @@ public class TicketDAO {
                     empresa.setValidadeCertificado(rs.getDate("emp.validadeCertificado"));
 
                     ticket.setEmpresa(empresa);
-
                     return ticket;
                 }
             } catch (SQLException e) {
@@ -98,6 +143,63 @@ public class TicketDAO {
             }
         }
         return null;
+    }
+
+    public boolean apagar(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "DELETE FROM tickets WHERE id = ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(1, id);
+                return ps.executeUpdate() == 1;
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return false;
+    }
+
+    public boolean alterar(TicketBean ticket) {
+        String sql = "UPDATE tickets SET "
+                + "idEmpresa = ?, "
+                + "id_colaborador = ?, "
+                + "id_ticket_sazonalidade = ?, "
+                + "titulo = ?, "
+                + "criticidade = ?, "
+                + "situacao = ?, "
+                + "descricao = ?, "
+                + "sistemaOperacional = ?, "
+                + "versaoBanco = ?, "
+                + "dataAbertura = ?, "
+                + "dataEncerramento = ?, "
+                + "procedimentoResolucao = ? "
+                + "WHERE id = ?";
+        try {
+            PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+            int quantidade = 1;
+            ps.setInt(quantidade++, ticket.getIdEmpresa());
+            ps.setInt(quantidade++, ticket.getIdColaborador());
+            ps.setInt(quantidade++, ticket.getIdSazonalidade());
+            ps.setString(quantidade++, ticket.getTitulo());
+            ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
+            ps.setString(quantidade++, String.valueOf(ticket.getStatus()));
+            ps.setString(quantidade++, ticket.getDescricao());
+            ps.setString(quantidade++, ticket.getSistemaOperacional());
+            ps.setString(quantidade++, ticket.getVersaoBanco());
+            ps.setDate(quantidade++, ticket.getDataAbertura());
+            ps.setDate(quantidade++, ticket.getDataEncerramento());
+            ps.setString(quantidade++, ticket.getProcedimentoResolucao());
+            ps.setInt(quantidade++, ticket.getId());
+            return ps.executeUpdate() == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Conexao.closeConnection();
+        }
+        return false;
     }
 
     public List<TicketTagBean> obterTagsPorTicket(int idTt) {
@@ -146,7 +248,7 @@ public class TicketDAO {
                     + "id_ticket_sazonalidade, "
                     + "situacao, "
                     + "titulo, "
-                    + "data_abertura, "
+                    + "dataAbertura, "
                     + "sistema_operacional, "
                     + "versao_banco, "
                     + "descricao, "
@@ -164,11 +266,11 @@ public class TicketDAO {
                     ticket.setIdSazonalidade(rs.getInt("sazonalidade"));
                     ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
                     ticket.setTitulo(rs.getString("titulo"));
-                    ticket.setDataAbertura(rs.getInt("dataAbertura"));
+                    ticket.setDataAbertura(rs.getDate("dataAbertura"));
                     ticket.setSistemaOperacional(rs.getString("sistemaOperacional"));
                     ticket.setVersaoBanco(rs.getString("versaoBanco"));
                     ticket.setDescricao(rs.getString("descricao"));
-                    ticket.setDataEncerramento(rs.getInt("dataEncerramento"));
+                    ticket.setDataEncerramento(rs.getDate("dataEncerramento"));
                     ticket.setProcedimentoResolucao(rs.getString("procedimentoResolucao"));
                 }
             } catch (Exception e) {
@@ -190,7 +292,7 @@ public class TicketDAO {
 
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-                int quantidade = 0;
+                int quantidade = 1;
                 ps.setInt(quantidade++, ticketLog.getId());
                 ps.setString(quantidade++, ticketLog.getDataHoraMovto());
                 ps.setString(quantidade++, ticketLog.getObservacao());

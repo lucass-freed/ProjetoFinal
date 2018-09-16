@@ -22,7 +22,6 @@ public class ColaboradorDAO extends SHA512Metodos {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "INSERT INTO colaboradores("
-                    + "id, "
                     + "id_funcao, "
                     + "usuario,"
                     + "senha,"
@@ -41,14 +40,13 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "data_admissao,"
                     + "ctps,"
                     + "pis)"
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-                int quantidade = 0;
+                int quantidade = 1;
                 ps.setInt(quantidade++, colaborador.getIdFuncao());
                 ps.setString(quantidade++, colaborador.getUsuario());
-                String senhaCriptografada = new SHA512Metodos().criptografarSenha(colaborador.getSenha());
-                ps.setString(quantidade++, senhaCriptografada);
+                ps.setString(quantidade++, new SHA512Metodos().criptografarSenha(colaborador.getSenha()));
                 ps.setString(quantidade++, colaborador.getNome());
                 ps.setString(quantidade++, colaborador.getCpf());
                 ps.setDate(quantidade++, colaborador.getDataNascimento());
@@ -100,7 +98,6 @@ public class ColaboradorDAO extends SHA512Metodos {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "UPDATE colaboradores SET "
-                    + "id = ?, "
                     + "id_funcao = ?, "
                     + "usuario = ?, "
                     + "senha = ?, "
@@ -122,15 +119,15 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "WHERE id = ?";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-                int quantidade = 0;
+                int quantidade = 1;
                 ps.setInt(quantidade++, colaborador.getIdFuncao());
                 ps.setString(quantidade++, colaborador.getUsuario());
-                String senhaCriptografada = new SHA512Metodos().criptografarSenha(colaborador.getSenha());
-                ps.setString(quantidade++, senhaCriptografada);
+                ps.setString(quantidade++, new SHA512Metodos().criptografarSenha(colaborador.getSenha()));
                 ps.setString(quantidade++, colaborador.getNome());
                 ps.setString(quantidade++, colaborador.getCpf());
                 ps.setDate(quantidade++, colaborador.getDataNascimento());
                 ps.setString(quantidade++, colaborador.getTelefone());
+                ps.setString(quantidade++, colaborador.getEmail());
                 ps.setString(quantidade++, colaborador.getLogradouro());
                 ps.setString(quantidade++, colaborador.getNumero());
                 ps.setString(quantidade++, colaborador.getComplemento());
@@ -141,6 +138,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 ps.setDate(quantidade++, colaborador.getDataAdmissao());
                 ps.setString(quantidade++, colaborador.getCtps());
                 ps.setString(quantidade++, colaborador.getPis());
+                ps.setInt(quantidade++, colaborador.getId());
                 return ps.executeUpdate() == 1;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -244,7 +242,9 @@ public class ColaboradorDAO extends SHA512Metodos {
                     ColaboradorBean colaborador = new ColaboradorBean();
                     colaborador.setId(rs.getInt("id"));
                     colaborador.setIdFuncao(rs.getInt("id_funcao"));
-                    colaborador.setNome(rs.getString("usuario"));
+                    colaborador.setUsuario(rs.getString("usuario"));
+                    colaborador.setSenha(rs.getString("senha"));
+                    colaborador.setNome(rs.getString("nome"));
                     colaborador.setCpf(rs.getString("cpf"));
                     colaborador.setDataNascimento(rs.getDate("data_nascimento"));
                     colaborador.setTelefone(rs.getString("telefone"));
@@ -292,9 +292,5 @@ public class ColaboradorDAO extends SHA512Metodos {
             }
         }
         return null;
-    }
-
-    public int obterColaboradorPorID(ColaboradorBean c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

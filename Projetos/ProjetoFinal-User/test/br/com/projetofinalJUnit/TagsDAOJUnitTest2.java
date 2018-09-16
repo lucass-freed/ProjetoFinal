@@ -1,9 +1,9 @@
-package br.com.projetofinal.JUnit;
+package br.com.projetofinalJUnit;
 
 /**
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-public class EmpresaDAOJUnitTest {
+public class TagsDAOJUnitTest2 {
     
 }

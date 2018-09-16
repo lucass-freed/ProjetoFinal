@@ -1,8 +1,8 @@
 package br.com.projetofinal.JUnit;
 
-import br.com.projetofinal.bean.ColaboradorBean;
-import br.com.projetofinal.dao.ColaboradorDAO;
-import br.com.projetofinal.database.Conexao;
+import br.com.projetofinal.Util.SHA512Metodos;
+import br.com.projetofinal.bean.EmpresaBean;
+import br.com.projetofinal.dao.EmpresaDAO;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import org.junit.Test;
@@ -16,146 +16,141 @@ public class EmpresaDAOJUnitTest {
 
     @Test
     public void inserir() throws NoSuchAlgorithmException {
-        Conexao.truncate();
+        //Conexao.truncate();
 
-        ColaboradorBean c = new ColaboradorBean();
-        c.setIdFuncao(1);
-        c.setUsuario("as");
-        c.setSenha("as");
-        c.setNome("as");
-        c.setCpf("as");
-        c.setDataNascimento(new Date(0));
-        c.setTelefone("as");
-        c.setEmail("as");
-        c.setLogradouro("as");
-        c.setNumero("232");
-        c.setComplemento("as");
-        c.setBairro("as");
-        c.setCep("as");
-        c.setCidade("as");
-        c.setUf("as");
-        c.setDataAdmissao(new Date(0));
-        c.setCtps("as");
-        c.setPis("as");
+        EmpresaBean e = new EmpresaBean();
+        e.setCnpj("dsadsa");
+        e.setRazaoSocial("dsadsa");
+        e.setNomeFantasia("dsadsa");
+        e.setInscricaoEstadual("dsadsa");
+        e.setEmail("dsadsa");
+        e.setTelefone("dsadsa");
+        e.setLogradouro("dsadsa");
+        e.setNumero("dsadsa");
+        e.setComplemento("dsadsa");
+        e.setBairro("dsadsa");
+        e.setCep("dsadsa");
+        e.setCidade("dsadsa");
+        e.setUf("as");
+        e.setSistema("dsadsa");
+        e.setDataAtivacao(Date.valueOf("1993-12-30"));
+        e.setDataExpiracao(Date.valueOf("1993-12-30"));
+        e.setValidadeCertificado(Date.valueOf("1993-12-30"));
 
-        int cod = new ColaboradorDAO().inserir(c);
-        c.setId(cod);
+        int cod = new EmpresaDAO().inserir(e);
+        e.setId(cod);
 
-        assertEquals(cod, 1);
-        validarIgual(c, new ColaboradorDAO().obterColaboradorPorID(cod));
+        //assertEquals(cod, 1);
+        validarIgual(e, new EmpresaDAO().obterPeloID(cod));
     }
 
     @Test
     public void excluir() throws NoSuchAlgorithmException {
-        Conexao.truncate();
+        //Conexao.truncate();
 
-        ColaboradorBean c = new ColaboradorBean();
-        c.setIdFuncao(1);
-        c.setUsuario("as");
-        c.setSenha("as");
-        c.setNome("as");
-        c.setCpf("as");
-        c.setDataNascimento(new Date(0));
-        c.setTelefone("as");
-        c.setEmail("as");
-        c.setLogradouro("as");
-        c.setNumero("232");
-        c.setComplemento("as");
-        c.setBairro("as");
-        c.setCep("as");
-        c.setCidade("as");
-        c.setUf("as");
-        c.setDataAdmissao(new Date(0));
-        c.setCtps("as");
-        c.setPis("as");
+        EmpresaBean e = new EmpresaBean();
+        e.setCnpj("dsadsa");
+        e.setRazaoSocial("dsadsa");
+        e.setNomeFantasia("dsadsa");
+        e.setInscricaoEstadual("dsadsa");
+        e.setEmail("dsadsa");
+        e.setTelefone("dsadsa");
+        e.setLogradouro("dsadsa");
+        e.setNumero("dsadsa");
+        e.setComplemento("dsadsa");
+        e.setBairro("dsadsa");
+        e.setCep("dsadsa");
+        e.setCidade("dsadsa");
+        e.setUf("as");
+        e.setSistema("dsadsa");
+        e.setDataAtivacao(Date.valueOf("1993-12-30"));
+        e.setDataExpiracao(Date.valueOf("1993-12-30"));
+        e.setValidadeCertificado(Date.valueOf("1993-12-30"));
 
-        int cod = new ColaboradorDAO().inserir(c);
-        new ColaboradorDAO().apagar(cod);
+        int cod = new EmpresaDAO().inserir(e);
+        new EmpresaDAO().excluir(cod);
 
-        assertNull(new ColaboradorDAO().obterColaboradorPorID(cod));
+        assertNull(new EmpresaDAO().obterPeloID(cod));
     }
 
     @Test
     public void alterar() throws NoSuchAlgorithmException {
-        Conexao.truncate();
+        //Conexao.truncate();
 
-        ColaboradorBean c = new ColaboradorBean();
-        int cod = new ColaboradorDAO().inserir(c);
-        c.setId(cod);
-        c.setIdFuncao(1);
-        c.setUsuario("as");
-        c.setSenha("as");
-        c.setNome("as");
-        c.setCpf("as");
-        c.setDataNascimento(new Date(0));
-        c.setTelefone("as");
-        c.setEmail("as");
-        c.setLogradouro("as");
-        c.setNumero("232");
-        c.setComplemento("as");
-        c.setBairro("as");
-        c.setCep("as");
-        c.setCidade("as");
-        c.setUf("as");
-        c.setDataAdmissao(new Date(0));
-        c.setCtps("as");
-        c.setPis("as");
+        EmpresaBean e = new EmpresaBean();
+        e.setCnpj("dsadsa");
+        e.setRazaoSocial("dsadsa");
+        e.setNomeFantasia("dsadsa");
+        e.setInscricaoEstadual("dsadsa");
+        e.setEmail("dsadsa");
+        e.setTelefone("dsadsa");
+        e.setLogradouro("dsadsa");
+        e.setNumero("dsadsa");
+        e.setComplemento("dsadsa");
+        e.setBairro("dsadsa");
+        e.setCep("dsadsa");
+        e.setCidade("dsadsa");
+        e.setUf("as");
+        e.setSistema("dsadsa");
+        e.setDataAtivacao(Date.valueOf("1993-12-30"));
+        e.setDataExpiracao(Date.valueOf("1993-12-30"));
+        e.setValidadeCertificado(Date.valueOf("1993-12-30"));
 
-        new ColaboradorDAO().alterar(c);
-        ColaboradorBean col = new ColaboradorDAO().obterColaboradorPorID(cod);
-        validarIgual(c, col);
+        int cod = new EmpresaDAO().inserir(e);
+        e.setId(cod);
+
+        new EmpresaDAO().alterar(e);
+        validarIgual(e, new EmpresaDAO().obterPeloID(cod));
     }
 
     @Test
-    public void buscarPorID() {
-        Conexao.truncate();
+    public void buscarPorID() throws NoSuchAlgorithmException {
+       //Conexao.truncate();
 
-        ColaboradorBean c = new ColaboradorBean();
-        c.setIdFuncao(1);
-        c.setUsuario("as");
-        c.setSenha("as");
-        c.setNome("as");
-        c.setCpf("as");
-        c.setDataNascimento(new Date(0));
-        c.setTelefone("as");
-        c.setEmail("as");
-        c.setLogradouro("as");
-        c.setNumero("232");
-        c.setComplemento("as");
-        c.setBairro("as");
-        c.setCep("as");
-        c.setCidade("as");
-        c.setUf("as");
-        c.setDataAdmissao(new Date(0));
-        c.setCtps("as");
-        c.setPis("as");
+        EmpresaBean e = new EmpresaBean();
+        e.setCnpj("dsadsa");
+        e.setRazaoSocial("dsadsa");
+        e.setNomeFantasia("dsadsa");
+        e.setInscricaoEstadual("dsadsa");
+        e.setEmail("dsadsa");
+        e.setTelefone("dsadsa");
+        e.setLogradouro("dsadsa");
+        e.setNumero("dsadsa");
+        e.setComplemento("dsadsa");
+        e.setBairro("dsadsa");
+        e.setCep("dsadsa");
+        e.setCidade("dsadsa");
+        e.setUf("as");
+        e.setSistema("dsadsa");
+        e.setDataAtivacao(Date.valueOf("1993-12-30"));
+        e.setDataExpiracao(Date.valueOf("1993-12-30"));
+        e.setValidadeCertificado(Date.valueOf("1993-12-30"));
 
-        int cod = new ColaboradorDAO().obterColaboradorPorID(c);
-        c.setId(cod);
+        int cod = new EmpresaDAO().inserir(e);
+        e.setId(cod);
 
-        ColaboradorBean c2 = new ColaboradorDAO().obterColaboradorPorID(cod);
-        validarIgual(c, c2);
+        validarIgual(e, new EmpresaDAO().obterPeloID(cod));
     }
 
-    public void validarIgual(ColaboradorBean c1, ColaboradorBean c2) {
-        assertEquals(c1.getId(), c2.getId());
-        assertEquals(c1.getIdFuncao(), c2.getIdFuncao());
-        assertEquals(c1.getUsuario(), c2.getUsuario());
-        assertEquals(c1.getSenha(), c2.getSenha());
-        assertEquals(c1.getCpf(), c2.getCpf());
-        assertEquals(c1.getDataNascimento(), c2.getDataNascimento());
-        assertEquals(c1.getTelefone(), c2.getTelefone());
-        assertEquals(c1.getEmail(), c2.getEmail());
-        assertEquals(c1.getLogradouro(), c2.getLogradouro());
-        assertEquals(c1.getNumero(), c2.getNumero());
-        assertEquals(c1.getComplemento(), c2.getComplemento());
-        assertEquals(c1.getBairro(), c2.getBairro());
-        assertEquals(c1.getCep(), c2.getCep());
-        assertEquals(c1.getCidade(), c2.getCidade());
-        assertEquals(c1.getUf(), c2.getUf());
-        assertEquals(c1.getDataAdmissao(), c2.getDataAdmissao());
-        assertEquals(c1.getCtps(), c2.getCtps());
-        assertEquals(c1.getPis(), c2.getPis());
+    public void validarIgual(EmpresaBean e1, EmpresaBean e2) {
+        assertEquals(e1.getId(), e2.getId());
+        assertEquals(e1.getCnpj(), e2.getCnpj());
+        assertEquals(e1.getRazaoSocial(), e2.getRazaoSocial());
+        assertEquals(e1.getNomeFantasia(), e2.getNomeFantasia());
+        assertEquals(e1.getInscricaoEstadual(), e2.getInscricaoEstadual());
+        assertEquals(e1.getEmail(), e2.getEmail());
+        assertEquals(e1.getTelefone(), e2.getTelefone());
+        assertEquals(e1.getLogradouro(), e2.getLogradouro());
+        assertEquals(e1.getNumero(), e2.getNumero());
+        assertEquals(e1.getComplemento(), e2.getComplemento());
+        assertEquals(e1.getBairro(), e2.getBairro());
+        assertEquals(e1.getCep(), e2.getCep());
+        assertEquals(e1.getCidade(), e2.getCidade());
+        assertEquals(e1.getUf(), e2.getUf());
+        assertEquals(e1.getSistema(), e2.getSistema());
+        assertEquals(e1.getDataAtivacao(), e2.getDataAtivacao());
+        assertEquals(e1.getDataExpiracao(), e2.getDataExpiracao());
+        assertEquals(e1.getValidadeCertificado(), e2.getValidadeCertificado());
     }
 
 }

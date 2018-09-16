@@ -2,6 +2,7 @@ package br.com.projetofinal.bean;
 
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
+import java.sql.Date;
 
 /**
  *
@@ -16,11 +17,11 @@ public class TicketBean {
     private int idColaborador;
     private int idSazonalidade;
     private String titulo;
-    private int dataAbertura;
+    private Date dataAbertura;
     private String sistemaOperacional;
     private String versaoBanco;
     private String descricao;
-    private int dataEncerramento;
+    private Date dataEncerramento;
     private String procedimentoResolucao;
     private EnumTicketStatusType status;
     private CriticidadeTypes criticidade;
@@ -82,11 +83,11 @@ public class TicketBean {
         this.titulo = titulo;
     }
 
-    public int getDataAbertura() {
+    public Date getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(int dataAbertura) {
+    public void setDataAbertura(Date dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
@@ -114,11 +115,11 @@ public class TicketBean {
         this.descricao = descricao;
     }
 
-    public int getDataEncerramento() {
+    public Date getDataEncerramento() {
         return dataEncerramento;
     }
 
-    public void setDataEncerramento(int dataEncerramento) {
+    public void setDataEncerramento(Date dataEncerramento) {
         this.dataEncerramento = dataEncerramento;
     }
 
