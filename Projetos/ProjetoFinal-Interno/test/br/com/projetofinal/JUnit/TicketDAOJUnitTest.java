@@ -114,6 +114,27 @@ public class TicketDAOJUnitTest {
 
         validarIgual(t, new TicketDAO().obterTicketPorID(cod));
     }
+    
+    @Test
+    public void getQuantidadeTicketsConcluidos() {
+        //Conexao.truncate();
+        
+        new TicketDAO().getQuantidadeTicketsConcluidos();
+    }
+    
+    @Test
+    public void getQuantidadeTicketsEmAndamento() {
+        //Conexao.truncate();
+        
+        new TicketDAO().getQuantidadeTicketsEmAndamento();
+    }
+    
+    @Test
+    public void getQuantidadeTicketsPendentes() {
+        //Conexao.truncate();
+        
+        new TicketDAO().getQuantidadeTicketsPendentes();
+    }
 
     public void validarIgual(TicketBean t1, TicketBean t2) {
         assertEquals(t1.getId(), t2.getId());

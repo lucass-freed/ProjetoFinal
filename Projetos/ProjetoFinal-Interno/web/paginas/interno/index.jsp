@@ -1,4 +1,6 @@
-<title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
+<%@page import="br.com.projetofinal.Util.NumberFormato"%>
+<%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
+<%@page import="br.com.projetofinal.dao.TicketDAO"%>
 <%@include file="/padroes/padrao-interno-regular/dashboard.jsp"%>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
@@ -6,15 +8,15 @@
         <div class="row" data-plugin="matchHeight">
             <div class="col-xxl-12 col-lg-4 col-sm-4">
                 <div class="card card-shadow">
-                    <div class="card-block p-30">
+                    <div class="card-block p-30 box-shadow">
                         <div class="row">
-                            <div class="col-6">
-                                <div class="counter text-left blue-grey-700">
-                                    <div class="counter-label mt-10">Tickets Concluidos
-                                    </div>
-                                    <div class="counter-number font-size-40 mt-10">
-                                        1,234
-                                    </div>
+                            <div class="counter text-left blue-grey-700">
+                                <div class="col-xxl-3">
+                                    <button type="button" class="btn btn-floating btn-sm btn-success">
+                                        <i class="icon wb-check"></i>
+                                    </button>
+                                    <span class="ml-15 font-weight-700">TICKETS CONCLUÍDOS</span>
+                                    <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new TicketDAO().getQuantidadeTicketsConcluidos())%></div>
                                 </div>
                             </div>
                         </div>
@@ -23,15 +25,15 @@
             </div>
             <div class="col-xxl-12 col-lg-4 col-sm-4">
                 <div class="card card-shadow">
-                    <div class="card-block p-30">
+                    <div class="card-block p-30 box-shadow">
                         <div class="row">
-                            <div class="col-6">
-                                <div class="counter text-left blue-grey-700">
-                                    <div class="counter-label mt-10">Tickets Em Andamento
-                                    </div>
-                                    <div class="counter-number font-size-40 mt-10">
-                                        698
-                                    </div>
+                            <div class="counter text-left blue-grey-700">
+                                <div class="col-xxl-3">
+                                    <button type="button" class="btn btn-floating btn-sm btn-primary">
+                                        <i class="icon wb-info"></i>
+                                    </button>
+                                    <span class="ml-15 font-weight-700">TICKETS EM ANDAMENTO</span>
+                                    <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new TicketDAO().getQuantidadeTicketsEmAndamento())%></div>
                                 </div>
                             </div>
                         </div>
@@ -40,18 +42,17 @@
             </div>
             <div class="col-xxl-12 col-lg-4 col-sm-4">
                 <div class="card card-shadow">
-                    <div class="card-block p-30">
+                    <div class="card-block p-30 box-shadow">
                         <div class="row">
-                            <div class="col-6">
-                                <div class="counter text-left blue-grey-700">
-                                    <div class="counter-label mt-10">Tickets Em Andamento
-                                    </div>
-                                    <div class="counter-number font-size-40 mt-10">
-                                        1,358
-                                    </div>
+                            <div class="counter text-left blue-grey-700">
+                                <div class="col-xxl-3">
+                                    <button type="button" class="btn btn-floating btn-sm btn-warning">
+                                        <i class="icon wb-alert"></i>
+                                    </button>
+                                    <span class="ml-15 font-weight-700">TICKETS PENDENTES</span>
+                                    <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new TicketDAO().getQuantidadeTicketsPendentes())%></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -60,52 +61,39 @@
     </div>
     <!-- End Completed Options Pie Widgets -->
     <!-- Team Total Completed -->
-    <div class="col-xxl-9">
-        <div id="teamCompletedWidget" class="card card-shadow example-responsive">
-            <div class="card-block p-20 pb-25">
-                <div class="row pb-40" data-plugin="matchHeight">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="counter text-left pl-10">
-                            <div class="counter-label">Team Total Completed</div>
-                            <div class="counter-number-group text-truncate">
-                                <span>1,439</span>
-                                <span>86%</span>
+    <!--    <div class="col-xxl-9">
+            <div id="teamCompletedWidget" class="card card-shadow example-responsive">
+                <div class="card-block p-20 pb-25">
+                    <div class="row pb-40" data-plugin="matchHeight">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="counter text-left pl-10">
+                                <div class="counter-label">Team Total Completed</div>
+                                <div class="counter-number-group text-truncate">
+                                    <span>1,439</span>
+                                    <span>86%</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <ul class="list-inline mr-50">
-                            <li class="list-inline-item">
-                                Task Completed
-                            </li>
-                            <li class="list-inline-item">
-                                Cards Completed
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ct-chart"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-12 col-lg-10">
-        <!-- Panel Tickets -->
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title">Tickets</h3>
-                <div class="panel-actions panel-actions-keep">
-                    <div class="dropdown">
-                        <a class="panel-action" id="examplePanelDropdown" data-toggle="dropdown" href="#"
-                           aria-expanded="false" role="button"><i class="icon wb-more-vertical" aria-hidden="true"></i></a>
-                        <div class="dropdown-menu dropdown-menu-bullet dropdown-menu-right" aria-labelledby="examplePanelDropdown"
-                             role="menu">
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-flag" aria-hidden="true"></i> Action</a>
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-print" aria-hidden="true"></i> Another action</a>
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-heart" aria-hidden="true"></i> Something else here</a>
-                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i> Separated link</a>
+                        <div class="col-md-6 col-sm-12">
+                            <ul class="list-inline mr-50">
+                                <li class="list-inline-item">
+                                    Task Completed
+                                </li>
+                                <li class="list-inline-item">
+                                    Cards Completed
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="ct-chart"></div>
                 </div>
+            </div>
+        </div>-->
+    <div class="col-xl-12 col-lg-10">
+        <!-- Panel Tickets -->
+        <div class="panel box-shadow">
+            <div class="panel-heading">
+                <h3 class="panel-title">Lista de Tickets</h3>
             </div>
             <div class="panel-body">
                 <ul class="list-group list-group-dividered list-group-full h-300" data-plugin="scrollable">
@@ -117,7 +105,7 @@
                                     <span>Server unavaible</span>
                                     <span>[13060]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/1.jpg" alt="">
@@ -133,7 +121,7 @@
                                     <span>Mobile App Problem</span>
                                     <span>[13061]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/2.jpg" alt="">
@@ -149,7 +137,7 @@
                                     <span>IE8 problem</span>
                                     <span>[13062]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/3.jpg" alt="">
@@ -165,7 +153,7 @@
                                     <span>Respoonsive problem</span>
                                     <span>[13063]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/4.jpg" alt="">
@@ -181,7 +169,7 @@
                                     <span>Server unavaible</span>
                                     <span>[13060]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/5.jpg" alt="">
@@ -197,7 +185,7 @@
                                     <span>Mobile App Problem</span>
                                     <span>[13061]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/6.jpg" alt="">
@@ -213,7 +201,7 @@
                                     <span>IE8 problem</span>
                                     <span>[13062]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/7.jpg" alt="">
@@ -229,7 +217,7 @@
                                     <span>Respoonsive problem</span>
                                     <span>[13063]</span>
                                 </p>
-                                <small>Opened by
+                                <small>Aberto por
                                     <a class="hightlight" href="javascript:void(0)">
                                         <span class="avatar avatar-xs">
                                             <img src="tema/global/portraits/8.jpg" alt="">
