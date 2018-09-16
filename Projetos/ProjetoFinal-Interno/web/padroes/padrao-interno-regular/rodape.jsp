@@ -41,6 +41,13 @@
 <script src="/tema/global/js/Plugin/slidepanel.js"></script>
 <script src="/tema/global/js/Plugin/switchery.js"></script>
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
+<script src="/js/exportar-tabela.js"></script>
+<script src="/js/interno/interno.js"></script>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/datatable/jquery.dataTables.min.js"></script>
+<script src="/js/datatable/jquery.table2excel.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
 
 <script>
     (function (document, window, $) {

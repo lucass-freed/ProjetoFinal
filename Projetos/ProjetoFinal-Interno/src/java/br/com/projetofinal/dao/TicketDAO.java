@@ -14,7 +14,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Michelle de Jesus Rogério Created on: 2018-08-27, 11:24:00 Updated
@@ -242,36 +245,66 @@ public class TicketDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "SELECT "
-                    + "id, "
-                    + "idEmpresa, "
-                    + "id_colaborador, "
-                    + "id_ticket_sazonalidade, "
-                    + "situacao, "
-                    + "titulo, "
-                    + "dataAbertura, "
-                    + "sistema_operacional, "
-                    + "versao_banco, "
-                    + "descricao, "
-                    + "data_encerramento, "
-                    + "procedimento_resolucao FROM tickets";
+                    + "tck.id, "
+                    + "tck.titulo, "
+                    + "tck.idEmpresa, "
+                    + "tck.id_colaborador, "
+                    + "tck.id_ticket_sazonalidade, "
+                    + "tck.situacao, "
+                    + "tck.criticidade, "
+                    + "tck.dataAbertura, "
+                    + "tck.sistemaOperacional, "
+                    + "tck.versaoBanco, "
+                    + "tck.descricao, "
+                    + "\ntck.dataEncerramento, "
+                    + "\ntck.procedimentoResolucao,"
+                    + "\ntck.idEmpresa,"
+                    + "\nemp.id,"
+                    + "\nemp.razaoSocial,"
+                    + "\nemp.nomeFantasia,"
+                    + "\nemp.inscricaoEstadual,"
+                    + "\nemp.email,"
+                    + "\nemp.cnpj,"
+                    + "\nemp.telefone,"
+                    + "\nemp.dataAtivacao,"
+                    + "\nemp.dataExpiracao,"
+                    + "\nemp.validadeCertificado"
+                    + "\nFROM tickets tck"
+                    + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id)";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
                 ResultSet rs = st.getResultSet();
                 while (rs.next()) {
                     TicketBean ticket = new TicketBean();
-                    ticket.setId(rs.getInt("id"));
-                    ticket.setIdEmpresa(rs.getInt("empresa"));
-                    ticket.setIdColaborador(rs.getInt("colaborador"));
-                    ticket.setIdSazonalidade(rs.getInt("sazonalidade"));
-                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
-                    ticket.setTitulo(rs.getString("titulo"));
-                    ticket.setDataAbertura(rs.getDate("dataAbertura"));
-                    ticket.setSistemaOperacional(rs.getString("sistemaOperacional"));
-                    ticket.setVersaoBanco(rs.getString("versaoBanco"));
-                    ticket.setDescricao(rs.getString("descricao"));
-                    ticket.setDataEncerramento(rs.getDate("dataEncerramento"));
-                    ticket.setProcedimentoResolucao(rs.getString("procedimentoResolucao"));
+                    ticket.setId(rs.getInt("tck.id"));
+                    ticket.setTitulo(rs.getString("tck.titulo"));
+                    ticket.setIdEmpresa(rs.getInt("tck.idEmpresa"));
+                    ticket.setIdColaborador(rs.getInt("tck.id_colaborador"));
+                    ticket.setIdSazonalidade(rs.getInt("tck.id_ticket_sazonalidade"));
+                    ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("tck.criticidade")));
+                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("tck.situacao")));
+                    ticket.setTitulo(rs.getString("tck.titulo"));
+                    ticket.setDataAbertura(rs.getDate("tck.dataAbertura"));
+                    ticket.setSistemaOperacional(rs.getString("tck.sistemaOperacional"));
+                    ticket.setVersaoBanco(rs.getString("tck.versaoBanco"));
+                    ticket.setDescricao(rs.getString("tck.descricao"));
+                    ticket.setDataEncerramento(rs.getDate("tck.dataEncerramento"));
+                    ticket.setProcedimentoResolucao(rs.getString("tck.procedimentoResolucao"));
+
+                    EmpresaBean empresa = new EmpresaBean();
+                    empresa.setId(rs.getInt("emp.id"));
+                    empresa.setCnpj(rs.getString("emp.cnpj"));
+                    empresa.setNomeFantasia(rs.getString("emp.nomeFantasia"));
+                    empresa.setInscricaoEstadual(rs.getString("emp.inscricaoEstadual"));
+                    empresa.setEmail(rs.getString("emp.email"));
+                    empresa.setTelefone(rs.getString("emp.telefone"));
+                    empresa.setDataAtivacao(rs.getDate("emp.dataAtivacao"));
+                    empresa.setDataExpiracao(rs.getDate("emp.dataExpiracao"));
+                    empresa.setValidadeCertificado(rs.getDate("emp.validadeCertificado"));
+
+                    ticket.setEmpresa(empresa);
+                    tickets.add(ticket);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -330,7 +363,7 @@ public class TicketDAO {
         }
         return 0;
     }
-    
+
     public int getQuantidadeTicketsEmAndamento() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -350,7 +383,7 @@ public class TicketDAO {
         }
         return 0;
     }
-    
+
     public int getQuantidadeTicketsPendentes() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -371,5 +404,38 @@ public class TicketDAO {
         return 0;
     }
 
+    public List<HashMap<String, Object>> obterTodosParaDataTable() {
+        List<HashMap<String, Object>> tickets = new ArrayList<>();
+        String sql = "SELECT * FROM tickets";
+        if (Conexao.getConnection() != null) {
+            try {
+                Statement statement = Conexao.getConnection().createStatement();
+                statement.execute(sql);
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next()) {
+                    HashMap<String, Object> ticket = new HashMap<>();
+                    ticket.put("id", resultSet.getInt("id"));
+                    ticket.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("idEmpresa")).getNomeFantasia());
+                    ticket.put("titulo", resultSet.getString("titulo"));
+                    ticket.put("dataAbertura", resultSet.getInt("dataAbertura"));
+                    ticket.put("dataEncerramento", resultSet.getInt("dataEncerramento"));
+                    ticket.put("situacao", resultSet.getString("situacao"));
+                    ticket.put("criticidade", resultSet.getString("criticidade"));
+                    tickets.add(ticket);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TicketDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return tickets;
+    }
+    
+    
     // Métodos direcionados à tab-movimentacoes.jsp
+    
+    
+    
 }
+

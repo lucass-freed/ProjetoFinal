@@ -52,23 +52,13 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
-                            <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
-                                                            <h2>First Slide Label</h2>
-                                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                                        </div>-->
                         </div>
                         <div class="carousel-item">
                             <img class="w-full" src="/tema/assets//images/fundo2.jpg" alt="..." />
-                            <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
-                                                            <h3>Second Slide Label</h3>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                                elit.</p>
-                                                        </div>-->
                         </div>
                     </div>
                 </div>
             </div>
-            <!--                <img src="/tema/assets//images/fundo.jpg">-->
             <div class="page-login-main animation-slide-right animation-duration-1 text-shadow">
                 <div class="brand text-center">
                     <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">

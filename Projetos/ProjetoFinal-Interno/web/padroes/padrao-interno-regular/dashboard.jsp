@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
         <link rel="stylesheet" href="/css/ticket.min.css">
         <link rel="stylesheet" href="/css/site.min.css">
+        <link rel="stylesheet" href="/css/datatable/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="/css/datatable/dataTables.bootstrap4.min.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">
