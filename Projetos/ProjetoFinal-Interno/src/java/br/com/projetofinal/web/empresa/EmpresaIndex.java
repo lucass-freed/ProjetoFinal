@@ -1,6 +1,9 @@
 package br.com.projetofinal.web.empresa;
 
+import br.com.projetofinal.bean.EmpresaBean;
+import br.com.projetofinal.dao.EmpresaDAO;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +22,11 @@ public class EmpresaIndex extends HttpServlet {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
+        List<EmpresaBean> empresas = new EmpresaDAO().obterTodos();
+        req.setAttribute("empresas", empresas);
+        
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Empresas");
-        req.getRequestDispatcher("/paginas/empresa/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/empresas/index.jsp").include(req, resp);
     }
 }

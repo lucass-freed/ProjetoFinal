@@ -123,10 +123,10 @@ INSERT INTO empresas (cnpj, razaoSocial, nomeFantasia, inscricaoEstadual, email,
 	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, dataAtivacao, dataExpiracao, 
 	validadeCertificado) VALUES
 ("50525544000145",
-"Laís e Alessandra Corretores Associados Ltda",
+"Laís Associados Ltda",
 "Alfa Corretora",
 "601497732",
-"posvenda@laisealessandracorretoresassociadosltda.com.br",
+"posvenda@ltda.com.br",
 "4828208738",
 "Rua Graça Aranha",
 "423",
@@ -140,10 +140,10 @@ INSERT INTO empresas (cnpj, razaoSocial, nomeFantasia, inscricaoEstadual, email,
 "2019-01-08",
 "2018-11-20"),
 ("35392425000178",
-"Miguel e Cauê Casa Noturna Ltda",
+"Miguel Ltda",
 "Gueto RapBox",
 "689.707.177",
-"fabricacao@miguelecauecasanoturnaltda.com.br",
+"fabricacao@ltda.com.br",
 "1129371397",
 "Nestor Pestana",
 "777",
@@ -187,12 +187,12 @@ INSERT INTO usuarios (id_empresa, id_funcao, usuario, senha, nome, cpf, data_nas
 
 INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
 sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("2","Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor", "Win10", "9.4","2018-09-01 00:00", "2018-09-05 00:00")
+("2","Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor", "Win10", "9.4","2018-09-01", "2018-09-05")
 ;
 
 INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura) VALUES 
-("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-14")
+sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
+("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values

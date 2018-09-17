@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link rel="stylesheet" href="/css/change-password.min.css">
+        <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
 
 
         <!-- Fonts -->
@@ -56,7 +57,7 @@
                             <h2 class="brand-text font-size-22">FlowDesk</h2>
                             <h4>Alteração de Senha</h4>
                         </div>
-                        <form method="post" role="form">
+                        <form action="/usuario/update" method="post">
                             <div class="form-group">
                                 <input type="password" class="form-control" id="inputOldPassword" name="oldPassword" placeholder="Senha Atual" required="true"/>
                             </div>
@@ -114,6 +115,7 @@
             <script src="/tema/global/js/Plugin/asscrollable.js"></script>
             <script src="/tema/global/js/Plugin/slidepanel.js"></script>
             <script src="/tema/global/js/Plugin/switchery.js"></script>
+            <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
 
             <script>
             (function (document, window, $) {

@@ -295,4 +295,26 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return null;
     }
+    
+    public ColaboradorBean validarSenha(String senha) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT id FROM colaboradores WHERE senha = ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setString(1, senha);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    return obterColaboradorPorID(id);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return null;
+    }
 }

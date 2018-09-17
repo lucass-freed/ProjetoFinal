@@ -41,13 +41,34 @@ $(function () {
             {"data": "titulo"},
             {"data": "dataAbertura"},
             {"data": "dataEncerramento"},
-            {"data": "situacao"},
-            {"data": "criticidade"},
-            {
-                "data": null,
+            {"data": "criticidade",
+                "render": function (data, type, row) {
+                    if (row.criticidade === 'Baixa') {
+                        return "<span class='badge badge-success font-size-14'>Baixa<span>";
+                    } else if (row.criticidade === 'Média') {
+                        return "<span class='badge badge-primary font-size-14'>Média<span>";
+                    } else if (row.criticidade === 'Alta') {
+                        return "<span class='badge badge-warning font-size-14'>Alta<span>";
+                    } else {
+                        return "<span class='badge badge-danger font-size-14'>Altíssima<span>";
+                    }
+                }
+            },
+            {"data": "situacao",
+                "render": function (data, type, row) {
+
+                    if (row.situacao === 'Aberto') {
+                        return "<span class='badge badge-danger font-size-14'>Aberto<span>";
+                    } else if (row.situacao === 'Em Andamento') {
+                        return "<span class='badge badge-primary font-size-14'>Em Andamento<span>";
+                    } else {
+                        return "<span class='badge badge-success font-size-14'>Concluído<span>";
+                    }
+                }
+            },
+            {"data": null,
                 "render": function (data) {
-                    return "<a class='btn btn-info'  href='/funcionario/editar?id=" + data.id + "'><i class='fas fa-edit'></i> Editar</a>\
-                    <a class='btn btn-danger' href='/funcionario/excluir?id=" + data.id + "'><i class='fas fa-trash-alt'></i> Excluir</a>";
+                    return "<a class='btn btn-info' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-info-circle'></i> Consultar</a>";
                 }
             }
         ]

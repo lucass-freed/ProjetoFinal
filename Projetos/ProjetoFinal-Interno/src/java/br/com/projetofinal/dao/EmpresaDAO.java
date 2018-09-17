@@ -1,5 +1,6 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.Util.Formatador;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.database.Conexao;
 import java.sql.Connection;
@@ -8,7 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Thiago
@@ -215,6 +219,55 @@ public class EmpresaDAO {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return empresas;
+    }
+    
+    public int getQuantidadeEmpresasCadastradas() {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM empresas;";
+            try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
+    }
+    
+    public List<HashMap<String, Object>> obterTodosParaDataTable() {
+        List<HashMap<String, Object>> empresas = new ArrayList<>();
+        String sql = "SELECT * FROM empresas";
+        if (Conexao.getConnection() != null) {
+            try {
+                Statement statement = Conexao.getConnection().createStatement();
+                statement.execute(sql);
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next()) {
+                    HashMap<String, Object> empresa = new HashMap<>();
+                    empresa.put("id", resultSet.getInt("id"));
+                    empresa.put("nomeFantasia", resultSet.getString("nomeFantasia"));
+                    empresa.put("razaoSocial", resultSet.getString("razaoSocial"));
+                    empresa.put("cnpj", Formatador.formatoCnpj(resultSet.getString("cnpj")));
+                    empresa.put("inscricaoEstadual", resultSet.getString("inscricaoEstadual"));
+                    empresa.put("email", resultSet.getString("email"));
+                    empresa.put("telefone", resultSet.getString("telefone"));
+                    empresa.put("cidade", resultSet.getString("cidade"));
+                    empresas.add(empresa);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TicketDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 Conexao.closeConnection();
             }

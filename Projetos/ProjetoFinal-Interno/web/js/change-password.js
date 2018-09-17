@@ -1,6 +1,4 @@
 function validarLogin() {
-    event.preventDefault();
-
     var oldPassword = document.getElementById("inputOldPassword").value;
     var password = document.getElementById("inputPassword").value;
     var password2 = document.getElementById("inputPassword2").value;
@@ -20,43 +18,52 @@ function validarLogin() {
                         type: 'error'
                     });
                 });
+                event.preventDefault();
             } else if (isSenhaInvalida(password) === true) {
-                new PNotify({
-                    title: 'Ocorreu um erro!',
-                    text: 'A senha informada é inválida!\n\
-                        A mesma deve conter os seguintes requisitos:\n\
+                $(function () {
+                    new PNotify({
+                        title: 'Ocorreu um erro!',
+                        text: 'A nova senha é inválida!\n\
+                        Ela conter os seguintes requisitos:\n\
                          • Mínimo de 8 caracteres;\n\
                          • Máximo de 50 caracteres;\n\
                          • Conter letras.',
-                    type: 'error'
+                        type: 'error'
+                    });
                 });
+                event.preventDefault();
             } else if (password.toString() !== password2.toString()) {
-                new PNotify({
-                    title: 'Ocorreu um erro!',
-                    text: 'Os campos da nova senha são diferentes!',
-                    type: 'error'
+                $(function () {
+                    new PNotify({
+                        title: 'Ocorreu um erro!',
+                        text: 'Os campos da nova senha são diferentes!',
+                        type: 'error'
+                    });
                 });
+                event.preventDefault();
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-
         }
     });
 }
 
 function isSenhaInvalida(senha) {
-    if (senha.length < 8 || senha.length > 50 || isContainsLetterSenha() === false) {
+    if (senha.length < 8 || senha.length > 50 || isContainsLetterSenha(senha) === false) {
         return true;
     }
     return false;
 }
 
 function isContainsLetterSenha(senha) {
-    var i;
+    senha = senha.toLowerCase();
+    var letras = "abcdefghyjklmnopqrstuvwxyz";
+
     for (i = 0; i < senha.length; i++) {
-        if (Chart.isDigit(senha.charAt(i)) === true) {
+        if (letras.indexOf(senha.charAt(i), 0) != -1) {
             return true;
         }
-        return false;
     }
+    return false;
 }
+

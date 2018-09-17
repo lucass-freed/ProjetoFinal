@@ -1,5 +1,6 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
@@ -417,8 +418,8 @@ public class TicketDAO {
                     ticket.put("id", resultSet.getInt("id"));
                     ticket.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("idEmpresa")).getNomeFantasia());
                     ticket.put("titulo", resultSet.getString("titulo"));
-                    ticket.put("dataAbertura", resultSet.getInt("dataAbertura"));
-                    ticket.put("dataEncerramento", resultSet.getInt("dataEncerramento"));
+                    ticket.put("dataAbertura", DateFormatador.formatoBr(resultSet.getDate("dataAbertura")));
+                    ticket.put("dataEncerramento", DateFormatador.formatoBr(resultSet.getDate("dataEncerramento")));
                     ticket.put("situacao", resultSet.getString("situacao"));
                     ticket.put("criticidade", resultSet.getString("criticidade"));
                     tickets.add(ticket);
