@@ -166,7 +166,7 @@
         'persistent': false
     });
     $('#inputBasicCEP').formatter({
-        'pattern': '{{99999}}-{{999}}',
+        'pattern': '{{99}}.{{999}}-{{999}}',
         'persistent': false
     });
 </script>
