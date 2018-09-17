@@ -28,14 +28,9 @@ public class EmpresaIndex extends HttpServlet {
             resp.sendRedirect("/");
         }
         
-        int idEmpresa = 0;
+        UsuarioBean usuario = (UsuarioBean) req.getSession().getAttribute("usuario");
         
-        List<UsuarioBean> usuarios = new UsuarioDAO().obterUsuarios();
-        for (int i = 0; i < usuarios.size(); i++) {
-            //if(idEmpresa )
-            
-        }
-        int id = Integer.parseInt(req.getParameter("id"));
+        int id = usuario.getIdEmpresa();
         EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(id);
 
         req.setAttribute("empresa", empresa);
