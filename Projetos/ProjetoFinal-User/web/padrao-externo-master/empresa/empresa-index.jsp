@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar">Alterar</button>
-                                    <h3 class="example-title col-md-4 float-left">Cadastro de Empresa</h3>
+                                    <h3 class="example-title col-md-5 float-left">Cadastro de Empresa</h3>
                                 </div>
 
                             </div>
