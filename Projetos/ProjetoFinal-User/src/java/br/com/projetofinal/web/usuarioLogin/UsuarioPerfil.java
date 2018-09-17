@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario;
+package br.com.projetofinal.web.usuarioLogin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -1,7 +1,9 @@
-function validarLogin() {
+$('#form-change-password').on('submit', function (e) {
+    debugger;
     var oldPassword = document.getElementById("inputOldPassword").value;
     var password = document.getElementById("inputPassword").value;
     var password2 = document.getElementById("inputPassword2").value;
+    e.preventDefault();
     $.ajax({
         url: "/usuario/change-password",
         method: "post",
@@ -18,7 +20,8 @@ function validarLogin() {
                         type: 'error'
                     });
                 });
-                event.preventDefault();
+
+                e.preventDefault();
             } else if (isSenhaInvalida(password) === true) {
                 $(function () {
                     new PNotify({
@@ -31,8 +34,8 @@ function validarLogin() {
                         type: 'error'
                     });
                 });
-                event.preventDefault();
-            } else if (password.toString() !== password2.toString()) {
+                e.preventDefault();
+            } else if (password != password2.toString()) {
                 $(function () {
                     new PNotify({
                         title: 'Ocorreu um erro!',
@@ -40,30 +43,35 @@ function validarLogin() {
                         type: 'error'
                     });
                 });
-                event.preventDefault();
+                e.preventDefault();
+            } else {
+                $('#form-change-password').unbind('submit').submit();
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            e.preventDefault();
         }
     });
-}
 
-function isSenhaInvalida(senha) {
-    if (senha.length < 8 || senha.length > 50 || isContainsLetterSenha(senha) === false) {
-        return true;
-    }
-    return false;
-}
 
-function isContainsLetterSenha(senha) {
-    senha = senha.toLowerCase();
-    var letras = "abcdefghyjklmnopqrstuvwxyz";
+    function isSenhaInvalida(senha) {
+        if (senha.length < 8 || senha.length > 50 || isContainsLetterSenha(senha) === false) {
 
-    for (i = 0; i < senha.length; i++) {
-        if (letras.indexOf(senha.charAt(i), 0) != -1) {
             return true;
         }
+        return false;
     }
-    return false;
-}
 
+    function isContainsLetterSenha(senha) {
+        senha = senha.toLowerCase();
+        var letras = "abcdefghyjklmnopqrstuvwxyz";
+
+        for (i = 0; i < senha.length; i++) {
+            if (letras.indexOf(senha.charAt(i), 0) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+});

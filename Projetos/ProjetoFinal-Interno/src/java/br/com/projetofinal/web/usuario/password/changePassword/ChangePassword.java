@@ -24,22 +24,6 @@ public class ChangePassword extends HttpServlet {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
-        HttpSession sessao = req.getSession();
-        String senha = req.getParameter("senha");
-        ColaboradorBean c = (ColaboradorBean) sessao.getAttribute("usuario");
-        ColaboradorBean colaborador = new ColaboradorDAO().validarLoginSenha(c.getUsuario(), senha);
-        HashMap<String, String> resultado = new HashMap<>();
-
-        if (colaborador == null) {
-            sessao.removeAttribute("usuario");
-            resultado.put("status", "falhou");
-        } else {
-            sessao.setAttribute("usuario", colaborador);
-
-            resultado.put("status", "sucesso");
-            resultado.put("id", String.valueOf(colaborador.getId()));
-        }
-
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Mudar Senha");
         req.getRequestDispatcher("/paginas/password/change-password/index.jsp").include(req, resp);

@@ -10,7 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -222,5 +225,33 @@ public class UsuarioDAO {
             }
         }
         return null;
+    }
+    
+    public List<HashMap<String, Object>> obterTodosParaDataTable() {
+        List<HashMap<String, Object>> tickets = new ArrayList<>();
+        String sql = "SELECT * FROM usuarios";
+        if (Conexao.getConnection() != null) {
+            try {
+                Statement statement = Conexao.getConnection().createStatement();
+                statement.execute(sql);
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next()) {
+                    HashMap<String, Object> ticket = new HashMap<>();
+                    ticket.put("id", resultSet.getInt("id"));
+                    ticket.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("idEmpresa")).getNomeFantasia());
+                    ticket.put("titulo", resultSet.getString("titulo"));
+                    ticket.put("dataAbertura", DateFormatador.formatoBr(resultSet.getDate("dataAbertura")));
+                    ticket.put("dataEncerramento", DateFormatador.formatoBr(resultSet.getDate("dataEncerramento")));
+                    ticket.put("situacao", resultSet.getString("situacao"));
+                    ticket.put("criticidade", resultSet.getString("criticidade"));
+                    tickets.add(ticket);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TicketDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return tickets;
     }
 }

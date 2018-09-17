@@ -57,7 +57,7 @@
                             <h2 class="brand-text font-size-22">FlowDesk</h2>
                             <h4>Alteração de Senha</h4>
                         </div>
-                        <form action="/usuario/update" method="post">
+                        <form action="/usuario/update" method="post" id="form-change-password">
                             <div class="form-group">
                                 <input type="password" class="form-control" id="inputOldPassword" name="oldPassword" placeholder="Senha Atual" required="true"/>
                             </div>
@@ -68,7 +68,7 @@
                                 <input type="password" class="form-control" id="inputPassword2" name="password2" placeholder="Confirme a Nova Senha" required="true"/>
                             </div>
                             <div class="form-group">
-                                <button onclick="validarLogin();" type="submit" class="btn btn-primary btn-block">Salvar nova Senha</button>
+                                <button type="submit" class="btn btn-primary btn-block">Salvar nova Senha</button>
                             </div>
                         </form>
                     </div>

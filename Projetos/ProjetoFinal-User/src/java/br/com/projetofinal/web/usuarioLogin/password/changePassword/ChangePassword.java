@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario.password.changePassword;
+package br.com.projetofinal.web.usuarioLogin.password.changePassword;
 
 import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.UsuarioDAO;

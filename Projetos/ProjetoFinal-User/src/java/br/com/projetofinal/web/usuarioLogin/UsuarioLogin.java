@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario;
+package br.com.projetofinal.web.usuarioLogin;
 
 import br.com.projetofinal.Util.SHA512Metodos;
 import br.com.projetofinal.bean.UsuarioBean;

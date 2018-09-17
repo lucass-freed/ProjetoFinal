@@ -122,7 +122,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 int quantidade = 1;
                 ps.setInt(quantidade++, colaborador.getIdFuncao());
                 ps.setString(quantidade++, colaborador.getUsuario());
-                ps.setString(quantidade++, new SHA512Metodos().criptografarSenha(colaborador.getSenha()));
+                ps.setString(quantidade++, new SHA512Metodos().criptografarSenha(colaborador.getSenha()).toUpperCase());
                 ps.setString(quantidade++, colaborador.getNome());
                 ps.setString(quantidade++, colaborador.getCpf());
                 ps.setDate(quantidade++, colaborador.getDataNascimento());
@@ -296,17 +296,17 @@ public class ColaboradorDAO extends SHA512Metodos {
         return null;
     }
     
-    public ColaboradorBean validarSenha(String senha) {
+    public ColaboradorBean validarSenha(int id, String senha) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id FROM colaboradores WHERE senha = ?";
+            String sql = "SELECT id FROM colaboradores WHERE id = ? AND senha = ?";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(2, id);
                 ps.setString(1, senha);
                 ps.execute();
                 ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
-                    int id = rs.getInt("id");
                     return obterColaboradorPorID(id);
                 }
             } catch (SQLException e) {

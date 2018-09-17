@@ -76,3 +76,5 @@ Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/database/Estrutura.sql
 !/Projetos/ProjetoFinal-Interno/web/libs/datatable/bootstrap.css
 !/Projetos/ProjetoFinal-Interno/web/libs/datatable/dataTables.bootstrap4.min.css
 !/Projetos/ProjetoFinal-Interno/web/css/datatable/dataTables.bootstrap4.min.css
+!/Projetos/ProjetoFinal-User/web/css/datatable/jquery.dataTables.min.css
+!/Projetos/ProjetoFinal-User/web/css/datatable/dataTables.bootstrap4.min.css

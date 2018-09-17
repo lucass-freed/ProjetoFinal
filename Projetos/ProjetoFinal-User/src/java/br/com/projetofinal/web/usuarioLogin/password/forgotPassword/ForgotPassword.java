@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario.password.forgotPassword;
+package br.com.projetofinal.web.usuarioLogin.password.forgotPassword;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -19,7 +19,7 @@ public class SHA512Metodos {
         while (strHashCode.length() < 128) {
             strHashCode = "0" + strHashCode;
         }
-        return strHashCode;
+        return strHashCode.toUpperCase();
     }
 
     public boolean compararSenha(String senhaCriptografada, String senhaInformar) throws NoSuchAlgorithmException {

@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.usuario.password.redefinerPassword;
+package br.com.projetofinal.web.usuarioLogin.password.redefinerPassword;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

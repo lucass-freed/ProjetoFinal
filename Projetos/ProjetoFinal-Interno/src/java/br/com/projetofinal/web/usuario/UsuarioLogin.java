@@ -25,7 +25,7 @@ public class UsuarioLogin extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         try {
-            senha = new SHA512Metodos().criptografarSenha(senha);
+            senha = new SHA512Metodos().criptografarSenha(senha).toUpperCase();
         } catch (Exception e) {
             e.printStackTrace();
         }
