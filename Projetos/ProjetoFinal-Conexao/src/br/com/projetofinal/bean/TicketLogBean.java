@@ -5,10 +5,19 @@ package br.com.projetofinal.bean;
  */
 public class TicketLogBean {
     
-    private int id ;
+    private int id, idColaborador;
     private String dataHoraMovto;
     private String observacao;
 
+    public int getIdColaborador() {
+        return idColaborador;
+    }
+
+    public void setIdColaborador(int idColaborador) {
+        this.idColaborador = idColaborador;
+    }
+
+    
     public int getId() {
         return id;
     }

@@ -79,7 +79,9 @@ CREATE TABLE tickets_criticidade (
 
 CREATE TABLE tickets_log (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    data_hora_mvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    idColaborador INT NOT NULL,
+    FOREIGN KEY (idColaborador) references colaboradores(id),
+    dataHoraMvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     observacao TEXT
 );
 

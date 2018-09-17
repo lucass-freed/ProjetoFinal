@@ -316,35 +316,6 @@ public class TicketDAO {
         return tickets;
     }
 
-    public int atualizarLog(TicketLogBean ticketLog) {
-        Connection conexao = Conexao.getConnection();
-        if (conexao != null) {
-            String sql = "INSERT INTO tickets_log("
-                    + "\nid, "
-                    + "\nobservacao"
-                    + "\nVALUES (?,?)";
-
-            try {
-                PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-                int quantidade = 1;
-                ps.setInt(quantidade++, ticketLog.getId());
-                ps.setString(quantidade++, ticketLog.getDataHoraMovto());
-                ps.setString(quantidade++, ticketLog.getObservacao());
-                ps.execute();
-
-                ResultSet rs = ps.getGeneratedKeys();
-                if (rs.next()) {
-                    return rs.getInt(1);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                Conexao.closeConnection();
-            }
-        }
-        return 0;
-    }
-
     public int getQuantidadeTicketsConcluidos() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -432,10 +403,6 @@ public class TicketDAO {
         }
         return tickets;
     }
-    
-    
-    // Métodos direcionados à tab-movimentacoes.jsp
-    
     
     
 }

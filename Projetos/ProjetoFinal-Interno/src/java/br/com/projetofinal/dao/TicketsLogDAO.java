@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Michelle de Jesus Rogério Created on: 2018-09-17, 10:25:00
+ *
  */
 package br.com.projetofinal.dao;
 
@@ -19,10 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * @author Michelle de Jesus Rogério Created on: 2018-09-17, 10:25:00
- *
- */
+
 public class TicketsLogDAO {
 
 // Métodos direcionados à tab-movimentacoes.jsp
@@ -31,13 +27,16 @@ public class TicketsLogDAO {
         if (conexao != null) {
             String sql = "INSERT INTO tickets_log("
                     + "\nid, "
+                    + "\nidColaborador"
+                    + "\nDataHoraMovto"
                     + "\nobservacao"
-                    + "\nVALUES (?,?)";
+                    + "\nVALUES (?,?,?,?)";
 
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
                 ps.setInt(quantidade++, ticketLog.getId());
+                ps.setInt(quantidade++, ticketLog.getIdColaborador());
                 ps.setString(quantidade++, ticketLog.getDataHoraMovto());
                 ps.setString(quantidade++, ticketLog.getObservacao());
                 ps.execute();
@@ -57,7 +56,7 @@ public class TicketsLogDAO {
     
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> ticketsLog = new ArrayList<>();
-        String sql = "SELECT * FROM tickets_log";
+        String sql = "SELECT * FROM tickets_log DESC limit 3";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();
@@ -66,10 +65,9 @@ public class TicketsLogDAO {
                 while (resultSet.next()) {
                     HashMap<String, Object> ticketLog = new HashMap<>();
                     ticketLog.put("id", resultSet.getInt("id"));
-                    ticketLog.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("idEmpresa")).getNomeFantasia());
-                    ticketLog.put("titulo", resultSet.getString("titulo"));
-                    ticketLog.put("dataAbertura", DateFormatador.formatoBr(resultSet.getDate("dataAbertura")));
-               
+                    ticketLog.put("idColaborador", resultSet.getInt ("idColaborador"));
+                    ticketLog.put("dataHoraMovto", resultSet.getString("dataHoraMovto"));
+                    ticketLog.put("observacao", resultSet.getString("observacao"));
                     ticketsLog.add(ticketLog);
                 }
             } catch (SQLException ex) {
