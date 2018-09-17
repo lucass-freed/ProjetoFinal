@@ -1,9 +1,7 @@
 package br.com.projetofinal.web.ticket;
 
-import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketTagBean;
-import br.com.projetofinal.dao.EmpresaDAO;
 import br.com.projetofinal.dao.TicketDAO;
 import java.io.IOException;
 import java.util.List;
