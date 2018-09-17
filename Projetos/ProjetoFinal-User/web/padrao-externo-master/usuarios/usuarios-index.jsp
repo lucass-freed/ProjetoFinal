@@ -54,4 +54,4 @@
             </tbody>
         </table>
     </div>
-<%@include file="../rodape.jsp" %>
+<%@include file="/padrao-externo-master/rodape.jsp" %>

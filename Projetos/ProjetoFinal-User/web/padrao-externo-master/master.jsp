@@ -40,8 +40,8 @@
     </head>
 
 
-    <%@include file="sidebar.jsp" %>
-    <%@include file="header.jsp" %> 
+    <%@include file="/padrao-externo-master/sidebar.jsp" %>
+    <%@include file="/padrao-externo-master/header.jsp" %> 
 
     <!-- Page -->
     <div class="page">
