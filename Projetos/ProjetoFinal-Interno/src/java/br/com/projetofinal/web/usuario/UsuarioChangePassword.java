@@ -1,5 +1,6 @@
 package br.com.projetofinal.web.usuario;
 
+import br.com.projetofinal.Util.SHA512Metodos;
 import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.dao.ColaboradorDAO;
 import com.google.gson.Gson;
@@ -19,6 +20,11 @@ public class UsuarioChangePassword extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String senha = request.getParameter("senha");
+        try {
+            senha = new SHA512Metodos().criptografarSenha(senha);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ColaboradorBean colaborador = new ColaboradorDAO().validarSenha(senha);
         HashMap<String, String> resultado = new HashMap<>();
         HttpSession sessao = request.getSession();
