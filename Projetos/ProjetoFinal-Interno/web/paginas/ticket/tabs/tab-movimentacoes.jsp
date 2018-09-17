@@ -17,7 +17,7 @@
             TicketLogBean log =  new TicketDAO().atualizarLog();
 -->
 
-<div class="tab-pane" id="tab-movimentacoes" role="tabpanel">
+<div class="tab-pane" id="tab-movimentacoes" role="#tab-movimentacoes">
     Benivole horrent tantalo fuisset adamare fugiendam tractatos indicaverunt animis
     chaere, brevi minuendas, ubi angoribus iisque deorsum audita
     haec dedocendi utilitas. Panaetium erimus platonem varias

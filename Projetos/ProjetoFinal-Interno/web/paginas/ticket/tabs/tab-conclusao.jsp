@@ -12,7 +12,7 @@
     - Procedimento Resolução
 
 -->
-<div class="tab-pane" id="tab-conclusao" role="tabpanel">
+<div class="tab-pane" id="tab-conclusao" role="#tab-conclusao">
     Metus subtilius texit consilio fugiendam, opinionum levius amici inertissimae pecuniae
     tribus ordiamur, alienus artes solitudo, minime praesidia
     proficiscuntur reiciat detracta involuta veterum. Rutilius
