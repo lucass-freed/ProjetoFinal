@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet(urlPatterns = {"/interno/redefinir-senha"})
+@WebServlet(urlPatterns = {"/externo/redefinir-senha"})
 public class RedefinerPassword extends HttpServlet {
     
     @Override
