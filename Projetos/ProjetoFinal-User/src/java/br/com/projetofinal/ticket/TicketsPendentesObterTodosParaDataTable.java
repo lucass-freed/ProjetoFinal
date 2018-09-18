@@ -25,8 +25,9 @@ public class TicketsPendentesObterTodosParaDataTable extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HashMap<String, Object> resultado = new HashMap<>();
+        
         List<HashMap<String, Object>> registros;
-        registros = new TicketDAO().obterTodosPendentesParaDataTableUsuario(((UsuarioBean) request.getSession()).getId());
+        registros = new TicketDAO().obterTodosPendentesParaDataTableUsuario(((UsuarioBean) request.getSession().getAttribute("usuario")).getId());
         resultado.put("data", registros);
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().print(new Gson().toJson(resultado));
