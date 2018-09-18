@@ -58,7 +58,7 @@ $(function () {
             {"data": null,
                 "render": function (data) {
                     return "<a class='btn btn-info' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                            "<a class='btn btn-danger' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-trash'></i></a>";
+                            "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
