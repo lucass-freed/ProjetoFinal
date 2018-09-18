@@ -4,15 +4,16 @@
     Author     : Thiago Avancini
 --%>
 
+<%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/padroes/padrao-interno-master/dashboard.jsp"%>
+<%@include file="/padrao-externo-master/master.jsp"%>
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page import="br.com.projetofinal.Util.Formatador"%>
 <%@page import="javax.servlet.http.HttpServletRequest;"%>
 <%@page import="javax.servlet.http.HttpServletResponse;"%>
 <%@page import="javax.servlet.http.HttpSession;"%>
 <% HttpSession sessao = request.getSession();%>
-<% ColaboradorBean colaborador = (ColaboradorBean) sessao.getAttribute("usuario");%>
+<% UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");%>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3">
@@ -26,11 +27,10 @@
                     </div>
                 </div>
                 <div class="p-30" style="height: 230px;">
-                    <div style="padding-top: 16px">
-                        <h4><%= colaborador.getNome()%></h4>
-                        <h5><%= colaborador.getFuncao().getNome()%></h5>
-                        <p><%= colaborador.getEmail()%></p>
-                        <p>Entrou em <%= DateFormatador.formatoBr(colaborador.getDataAdmissao())%></p>
+                    <div style="padding-top: 20px">
+                        <h4><%= usuario.getNome()%></h4>
+                        <h5><%= usuario.getFuncao().getNome()%></h5>
+                        <p><%= usuario.getEmail()%></p>
                     </div>
                 </div>
 
@@ -56,14 +56,14 @@
                                         <div class="pr-20">
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
                                                 <i class="icon wb-user mr-10"></i>
-                                                <span class="text-break">Usuário: <%= colaborador.getUsuario()%>
+                                                <span class="text-break">Usuário: <%= usuario.getUsuario()%>
                                                 </span>
                                             </p>
                                         </div>
 
                                     </div>
                                     <div class="text-right">
-                                        <a href="/interno/trocar-senha" style="color: white" class="btn btn-success btn-sm">
+                                        <a href="/externo/trocar-senha" style="color: white" class="btn btn-success btn-sm">
                                             <i class="icon wb-pencil" aria-hidden="true"></i>Mudar Senha
                                         </a>
                                     </div>
@@ -77,39 +77,27 @@
                                     <div class="media">
                                         <div class="pr-20">
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Nome: <%= colaborador.getNome()%>
+                                                <span class="text-break">• Nome: <%= usuario.getNome()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Função: <%= colaborador.getFuncao().getNome()%>
+                                                <span class="text-break">• Função: <%= usuario.getFuncao().getNome()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Data de Nascimento: <%= DateFormatador.formatoBr(colaborador.getDataNascimento())%>
+                                                <span class="text-break">• Data de Nascimento: <%= DateFormatador.formatoBr(usuario.getDataNascimento())%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CPF: <%= colaborador.getCpf()%>
+                                                <span class="text-break">• CPF: <%= usuario.getCpf()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Telefone: <%= colaborador.getTelefone()%>
+                                                <span class="text-break">• Telefone: <%= usuario.getTelefone()%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• E-mail: <%= colaborador.getEmail()%>
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CTPS: <%= colaborador.getCtps()%>
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• PIS: <%= colaborador.getPis()%>
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Data de Admissão: <%= DateFormatador.formatoBr(colaborador.getDataAdmissao())%>
+                                                <span class="text-break">• E-mail: <%= usuario.getEmail()%>
                                                 </span>
                                             </p>
                                         </div>
@@ -118,44 +106,40 @@
                             </ul>
                         </div>
 
-                        <div class="tab-pane animation-slide-left" id="messages" role="tabpanel">
+                    <!--    <div class="tab-pane animation-slide-left" id="messages" role="tabpanel">
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <div class="media">
                                         <div class="pr-20">
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Cidade: <%= colaborador.getCidade()%>
+                                                <span class="text-break">• Estado: 
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Estado: <%= colaborador.getUf()%>
+                                                <span class="text-break">• Bairro: 
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Bairro: <%= colaborador.getBairro()%>
+                                                <span class="text-break">• CEP: 
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CEP: <%= colaborador.getCep()%>
+                                                <span class="text-break">• Logradouro: 
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Logradouro: <%= colaborador.getLogradouro()%>
+                                                <span class="text-break">• Número 
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Número <%= colaborador.getNumero()%>
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Complemento: <%= colaborador.getComplemento()%>
+                                                <span class="text-break">• Complemento: 
                                                 </span>
                                             </p>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -164,4 +148,4 @@
     </div>
 </div>
 
-<%@include file="/padroes/padrao-interno-master/rodape.jsp"%>
+<%@include file="/padrao-externo-master/rodape.jsp"%>

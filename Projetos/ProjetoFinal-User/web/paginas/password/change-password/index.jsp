@@ -52,7 +52,7 @@
                 <div class="panel">
                     <div class="panel-body">
                         <div class="brand">
-                            <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
+                            <img class="brand-img" src="/tema/assets/images/logo-colored@2x.png" alt="...">
                             <h2 class="brand-text font-size-22">FlowDesk</h2>
                             <h4>Alteração de Senha</h4>
                         </div>
