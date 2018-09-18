@@ -45,7 +45,6 @@
                     <ul class="nav nav-tabs nav-tabs-line" role="tablist">
                         <li class="nav-item" role="presentation"><a class="active nav-link" data-toggle="tab" href="#activities" aria-controls="activities" role="tab">Conta</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#profile" aria-controls="profile" role="tab">Pessoal</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#messages" aria-controls="messages" role="tab">Endereço</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -93,7 +92,7 @@
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Telefone: <%= usuario.getTelefone()%>
+                                                <span class="text-break">• Telefone: <%= Formatador.formatoTelefone(usuario.getTelefone())%>
                                                 </span>
                                             </p>
                                             <p data-info-type="phone" class="mb-10 text-nowrap">
@@ -105,41 +104,6 @@
                                 </li>
                             </ul>
                         </div>
-
-                    <!--    <div class="tab-pane animation-slide-left" id="messages" role="tabpanel">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <div class="media">
-                                        <div class="pr-20">
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Estado: 
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Bairro: 
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• CEP: 
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Logradouro: 
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Número 
-                                                </span>
-                                            </p>
-                                            <p data-info-type="phone" class="mb-10 text-nowrap">
-                                                <span class="text-break">• Complemento: 
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> -->
                     </div>
                 </div>
             </div>
