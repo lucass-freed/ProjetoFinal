@@ -1,5 +1,6 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.bean.FuncaoBean;
 import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.database.Conexao;
@@ -228,7 +229,7 @@ public class UsuarioDAO {
     }
     
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
-        List<HashMap<String, Object>> tickets = new ArrayList<>();
+        List<HashMap<String, Object>> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuarios";
         if (Conexao.getConnection() != null) {
             try {
@@ -236,15 +237,16 @@ public class UsuarioDAO {
                 statement.execute(sql);
                 ResultSet resultSet = statement.getResultSet();
                 while (resultSet.next()) {
-                    HashMap<String, Object> ticket = new HashMap<>();
-                    ticket.put("id", resultSet.getInt("id"));
-                    ticket.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("idEmpresa")).getNomeFantasia());
-                    ticket.put("titulo", resultSet.getString("titulo"));
-                    ticket.put("dataAbertura", DateFormatador.formatoBr(resultSet.getDate("dataAbertura")));
-                    ticket.put("dataEncerramento", DateFormatador.formatoBr(resultSet.getDate("dataEncerramento")));
-                    ticket.put("situacao", resultSet.getString("situacao"));
-                    ticket.put("criticidade", resultSet.getString("criticidade"));
-                    tickets.add(ticket);
+                    HashMap<String, Object> usuario = new HashMap<>();
+                    usuario.put("id", resultSet.getInt("id"));
+                    usuario.put("usuario", resultSet.getString("usuario"));
+                    usuario.put("funcao", new FuncaoDAO().obterFuncaoPeloID(resultSet.getInt("id_funcao")).getNome());
+                    usuario.put("email", resultSet.getString("email"));
+                    usuario.put("data_nascimento", DateFormatador.formatoBr(resultSet.getDate("data_nascimento")));
+                    usuario.put("telefone", resultSet.getString("telefone"));
+                    usuario.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("id_empresa")).getNomeFantasia());
+                    usuario.put("usuario_master", resultSet.getBoolean("usuario_master"));
+                    usuarios.add(usuario);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(TicketDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -252,6 +254,26 @@ public class UsuarioDAO {
                 Conexao.closeConnection();
             }
         }
-        return tickets;
+        return usuarios;
+    }
+    
+    public int getQuantidadeUsuariosCadastradas() {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM usuarios;";
+            try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
     }
 }

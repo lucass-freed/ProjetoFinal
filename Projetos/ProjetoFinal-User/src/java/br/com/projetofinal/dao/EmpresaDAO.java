@@ -110,5 +110,45 @@ public class EmpresaDAO {
         }
         return null;
     }
+    
+    public EmpresaBean obterPeloID(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            try {
+                String sql = "SELECT * FROM empresas WHERE id = ?";
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet resultSet = ps.getResultSet();
+                if (resultSet.next()) {
+                    EmpresaBean empresa = new EmpresaBean();
+                    empresa.setId(id);
+                    empresa.setCnpj(resultSet.getString("cnpj"));
+                    empresa.setRazaoSocial(resultSet.getString("razaoSocial"));
+                    empresa.setNomeFantasia(resultSet.getString("nomeFantasia"));
+                    empresa.setInscricaoEstadual(resultSet.getString("inscricaoEstadual"));
+                    empresa.setEmail(resultSet.getString("email"));
+                    empresa.setTelefone(resultSet.getString("telefone"));
+                    empresa.setLogradouro(resultSet.getString("logradouro"));
+                    empresa.setNumero(resultSet.getString("numero"));
+                    empresa.setComplemento(resultSet.getString("complemento"));
+                    empresa.setBairro(resultSet.getString("bairro"));
+                    empresa.setCep(resultSet.getString("cep"));
+                    empresa.setCidade(resultSet.getString("cidade"));
+                    empresa.setUf(resultSet.getString("uf"));
+                    empresa.setSistema(resultSet.getString("sistema"));
+                    empresa.setDataAtivacao(resultSet.getDate("dataAtivacao"));
+                    empresa.setDataExpiracao(resultSet.getDate("dataExpiracao"));
+                    empresa.setValidadeCertificado(resultSet.getDate("validadeCertificado"));
+                    return empresa;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return null;
+    }
 
 }

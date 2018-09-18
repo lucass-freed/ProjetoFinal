@@ -23,5 +23,4 @@ public class UsuarioObterTodosParaDataTable extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().print(new Gson().toJson(resultado));
     }
-
 }
