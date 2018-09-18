@@ -44,4 +44,13 @@ public class Formatador {
         }
         return cep;
     }
+    
+    public static String formatoCelular(String celular){
+        Pattern patternCep = Pattern.compile("(\\d{2})(\\d{5})(\\d{4})");
+        Matcher matcher = patternCep.matcher(celular);
+        if(matcher.matches()){
+            celular = matcher.replaceAll("($1)$2-$3");
+        }
+        return celular;
+    }
 }
