@@ -51,7 +51,7 @@ $(function () {
                     if (row.tipo === 'Master') {
                         return "<span class='badge badge-warning font-size-14'>Master<span>";
                     } else {
-                        return "<span class='badge badge-primary font-size-14'>Normal<span>";
+                        return "<span class='badge badge-primary font-size-14'>Regular<span>";
                     }
                 }
             },

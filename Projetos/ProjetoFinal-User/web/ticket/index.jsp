@@ -3,13 +3,13 @@
     Created on : 06/09/2018, 10:42:06
     Author     : Matheus Werner
 --%>
-  <%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
 
         <title>Tickets | FlowDesk</title>
-      
+
         <% if (request.getAttribute("tipo").toString().equals("master")) { %>
         <%@include file="/padrao-externo-master/master.jsp" %>
         <% } else { %>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div
- 
+
             <!-- End Page -->
             <% if (request.getAttribute("tipo").toString().equals("master")) { %>
             <%@include file="/padrao-externo-master/rodape.jsp" %>

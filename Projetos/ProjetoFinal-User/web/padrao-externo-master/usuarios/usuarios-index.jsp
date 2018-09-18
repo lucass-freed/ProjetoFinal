@@ -9,6 +9,7 @@
 <%@page import="br.com.projetofinal.dao.UsuarioDAO"%>
 <%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
+<% UsuarioBean usuario = (UsuarioBean) request.getAttribute("usuario");%>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
@@ -71,9 +72,9 @@
                                     <p>Esta ação não poderá ser desfeita!</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <div class="text-center">
-                                        <button type="button" style="text-align: left" class="btn btn-primary btn-danger">Excluir usuário</button>
-                                        <button type="button" style="text-align: right" class="btn btn-default btn-danger">Cancelar</button>
+                                    <div class="col-lg-12">
+                                        <a href="/usuario/excluir?id=<%usuario.getId();%>"><button type="button" class="btn btn-danger">Excluir usuário</button></a>
+                                        <button type="button" class="btn btn-default" aria-label="Close" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
                             </div>
