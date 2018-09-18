@@ -32,6 +32,10 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
         <!-- Scripts -->
+        <!-- Inclusão do JQuery -->
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <!-- Inclusão do Plugin JQuery Validation -->
+        <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
         <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
         <script>
             Breakpoints();
