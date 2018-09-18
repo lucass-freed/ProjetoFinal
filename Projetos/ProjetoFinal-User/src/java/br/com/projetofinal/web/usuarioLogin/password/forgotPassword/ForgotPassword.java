@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet(urlPatterns = {"/interno/esquecer-senha"})
+@WebServlet(urlPatterns = {"/externo/esquecer-senha"})
 public class ForgotPassword extends HttpServlet {
     
     @Override
