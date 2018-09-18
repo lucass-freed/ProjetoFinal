@@ -33,8 +33,8 @@ public class Ticket extends HttpServlet {
         //atributo usado na tab descrição
         req.setAttribute("ticket1", ticket);
         req.setAttribute("ticket2", ticket);
+        req.setAttribute("ticket3", ticket);
         req.setAttribute("ticketsTags", ticketsTags);
-        //atributo usado na tab informações
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
         req.setAttribute("title", "Tickets");
         resp.setContentType("text/html;charset=UTF-8");

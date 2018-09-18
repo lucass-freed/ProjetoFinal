@@ -6,6 +6,7 @@
 <!-- TODO:
     - Button movimentar
                 ATENÇÃO: SE O CHAMADO ESTIVER CONCLUÍDO, BOTÕES MOV NÃO SERÃO HABILITADOS
+                INSERIR MENSAGEM DE SUCESSO QUANDO SALVAR
                 - Alterar Status (if "concluído" ticket é finalizado)
                 - Encaminhar (abre um "FROM/TO" onde o FROM já vem autopreenchido com o colaborador logado e o TO é search)
                 - Alterar Prioridade
@@ -16,7 +17,6 @@
 
 <div class="tab-pane" id="tab-movimentacoes" role="#tab-movimentacoes">
 
-    <div>
 
         <div class="col-xl-12 col-xl-12">
             <div class="example-wrap">
@@ -24,21 +24,43 @@
                     <div class="btn-group btn-group-center-align">
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-primary"data-target="#exampleNifty3dRotateInLeft"
-                      data-toggle="modal">
+                                    data-toggle="modal">
                                 <i class="icon wb-star" aria-hidden="true"></i>
                                 <br>
                                 <span class="text-uppercase hidden-sm-down">Alterar Status</span>
-                            
-                            
-                            
                             </button>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade modal-rotate-from-left" id="exampleNifty3dRotateInLeft"
+                             aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog"
+                             tabindex="-1">
+                            <div class="modal-dialog modal-simple">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title">Alterar Status</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Em Desenvolvimento</p>
+                                        <p>Aguardando Informação Externa</p>
+                                        <p>Blábláblá</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-primary">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
 
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-info" data-target=".example-modal-sm" data-toggle="modal">
                                 <i class="icon wb-time" aria-hidden="true"></i>
                                 <br>
-                                <span class="text-uppercase hidden-sm-down">Alterar Criticidade</span>
+                                <span class="text-uppercase hidden-sm-down">Alterar Prioridade</span>
                             </button>
                             <!-- Modal -->
                             <div class="modal fade example-modal-sm" aria-hidden="true" aria-labelledby="exampleOptionalSmall"
@@ -49,10 +71,15 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
-                                            <h4 class="modal-title" id="exampleOptionalSmall">Alterar Criticidade</h4>
+                                            <h4 class="modal-title" id="exampleOptionalSmall">Alterar Prioridade</h4>
                                         </div>
                                         <div class="modal-body">
-                                            Opções de Criticidade
+                                            Opções de Criticidade 
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                <button type="button" class="btn btn-primary">Salvar</button>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -60,17 +87,42 @@
                             </div>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success">
-                                <i class="icon wb-user" aria-hidden="true"></i>
+                            
+                            
+                            <button type="button" class="btn btn-success" data-target="#exampleNiftySlideFromRight"
+                                    data-toggle="modal">
+                                <i class="icon wb-star" aria-hidden="true"></i>
                                 <br>
                                 <span class="text-uppercase hidden-sm-down">Encaminhar</span>
                             </button>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade modal-slide-in-right" id="exampleNiftySlideFromRight" aria-hidden="true"
+                             aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+                            <div class="modal-dialog modal-simple">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title">Movimentar Ticket</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>De... Para</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
 
     <div class="panel box-shadow">
         <div class="panel-heading">

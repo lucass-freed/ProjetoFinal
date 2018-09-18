@@ -195,13 +195,13 @@ sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES
 ;
 
 INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("1", 2, "Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
+sistemaOperacional, versaoBanco, dataAbertura) VALUES 
+("1", 2, "Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-05-24")
 ;
 
 INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("1", 1, "Problemão urgente", "Altíssima", "Pendente","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
+sistemaOperacional, versaoBanco, dataAbertura) VALUES 
+("1", 1, "Problema Top", "Media", "Pendente","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values
