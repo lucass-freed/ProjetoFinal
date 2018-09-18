@@ -5,6 +5,7 @@
 --%>
 <!-- TODO:
     - Button movimentar
+                ATENÇÃO: SE O CHAMADO ESTIVER CONCLUÍDO, BOTÕES MOV NÃO SERÃO HABILITADOS
                 - Alterar Status (if "concluído" ticket é finalizado)
                 - Encaminhar (abre um "FROM/TO" onde o FROM já vem autopreenchido com o colaborador logado e o TO é search)
                 - Alterar Prioridade
@@ -14,50 +15,61 @@
 -->
 
 <div class="tab-pane" id="tab-movimentacoes" role="#tab-movimentacoes">
-    
+
     <div>
-        
-         <div class="col-xl-12 col-xl-12">
-                <div class="example-wrap">
-                  <div class="example example-buttons">
+
+        <div class="col-xl-12 col-xl-12">
+            <div class="example-wrap">
+                <div class="example example-buttons">
                     <div class="btn-group btn-group-center-align">
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary">
-                          <i class="icon wb-star" aria-hidden="true"></i>
-                          <br>
-                          <span class="text-uppercase hidden-sm-down">Alterar Status</span>
-                        </button>
-                      </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary"data-target="#exampleNifty3dRotateInLeft"
+                      data-toggle="modal">
+                                <i class="icon wb-star" aria-hidden="true"></i>
+                                <br>
+                                <span class="text-uppercase hidden-sm-down">Alterar Status</span>
+                            
+                            
+                            
+                            </button>
+                        </div>
 
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-info">
-                          <i class="icon wb-time" aria-hidden="true"></i>
-                          <br>
-                          <span class="text-uppercase hidden-sm-down">Alterar Criticidade</span>
-                           <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-primary dropdown-toggle" id="exampleIconDropdown1"
-                        data-toggle="dropdown" aria-expanded="false">
-                        <i class="icon wb-grid-9" aria-hidden="true"></i>
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="exampleIconDropdown1" role="menu">
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">Dropdown link</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">Dropdown link</a>
-                      </div>
-                   
-                        </button>
-                      </div>
-
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-success">
-                          <i class="icon wb-user" aria-hidden="true"></i>
-                          <br>
-                          <span class="text-uppercase hidden-sm-down">Encaminhar</span>
-                        </button>
-                      </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info" data-target=".example-modal-sm" data-toggle="modal">
+                                <i class="icon wb-time" aria-hidden="true"></i>
+                                <br>
+                                <span class="text-uppercase hidden-sm-down">Alterar Criticidade</span>
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade example-modal-sm" aria-hidden="true" aria-labelledby="exampleOptionalSmall"
+                                 role="dialog" tabindex="-1">
+                                <div class="modal-dialog modal-simple modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="exampleOptionalSmall">Alterar Criticidade</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            Opções de Criticidade
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal -->
+                            </div>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-success">
+                                <i class="icon wb-user" aria-hidden="true"></i>
+                                <br>
+                                <span class="text-uppercase hidden-sm-down">Encaminhar</span>
+                            </button>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+        </div>
     </div>
 
     <div class="panel box-shadow">
