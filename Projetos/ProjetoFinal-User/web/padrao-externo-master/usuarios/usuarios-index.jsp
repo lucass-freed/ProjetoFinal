@@ -22,9 +22,9 @@
                             <div class="counter text-left blue-grey-700">
                                 <div class="col-xxl-3">
                                     <span class="ml-15 font-weight-700">USUARIOS CADASTRADOS</span>
-                                        <button type="button" class="ml-15 btn btn-floating btn-sm btn-success">
-                                            <i class="icon wb-users"></i>
-                                        </button>
+                                    <button type="button" class="ml-15 btn btn-floating btn-sm btn-success">
+                                        <i class="icon wb-users"></i>
+                                    </button>
                                     <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new UsuarioDAO().getQuantidadeUsuariosCadastradas())%></div>
                                 </div>
                             </div>
@@ -58,7 +58,28 @@
                     <tbody>
 
 
-
+                        <!-- Modal -->
+                    <div class="modal fade" id="examplePositionSidebar" aria-hidden="true" aria-labelledby="examplePositionSidebar"
+                         role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-simple modal-sidebar modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title">Modal Title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-block">Save changes</button>
+                                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal --> 
                     </tbody>
                 </table>
             </div>
