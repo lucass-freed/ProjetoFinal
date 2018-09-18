@@ -2,7 +2,7 @@
 
     <div class="navbar-header">
         <div class="navbar-brand navbar-brand-center">
-            <a href="/home-externo-regular">
+            <a href="/home-externo-master">
                 <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
                 <span class="navbar-brand-text hidden-xs-down">FlowDesk</span>         
             </a>
@@ -35,7 +35,7 @@
                         </span>
                     </a>
                     <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" href="/usuario/logout"  role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Perfil</a>
+                        <a class="dropdown-item" href="/usuario/perfil"  role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Perfil</a>
                         <div class="dropdown-divider" role="presentation"></div>
                         <a class="dropdown-item" href="/usuario/logout" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Sair</a>
                     </div>
