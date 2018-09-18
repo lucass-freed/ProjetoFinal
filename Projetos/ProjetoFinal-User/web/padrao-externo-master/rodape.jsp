@@ -8,7 +8,7 @@
 
 </div>
 </div>
-</body>
+
 <!-- Core  -->
 <script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
 <script src="/tema/global/vendor/jquery/jquery.js"></script>
@@ -67,5 +67,5 @@
     })(document, window, jQuery);
 
 </script>
-
+</body>
 </html>

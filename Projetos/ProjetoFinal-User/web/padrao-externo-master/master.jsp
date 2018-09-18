@@ -40,12 +40,12 @@
             Breakpoints();
         </script>
     </head>
+    <body class="animsition">
 
+        <%@include file="/padrao-externo-master/sidebar.jsp" %>
+        <%@include file="/padrao-externo-master/header.jsp" %> 
 
-    <%@include file="/padrao-externo-master/sidebar.jsp" %>
-    <%@include file="/padrao-externo-master/header.jsp" %> 
-
-    <!-- Page -->
-    <div class="page">
-        <div class="page-content container-fluid">
+        <!-- Page -->
+        <div class="page">
+            <div class="page-content container-fluid">
 

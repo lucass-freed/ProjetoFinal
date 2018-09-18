@@ -10,8 +10,6 @@
 <%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
 
-</div>
-</div>
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
         <div class="row" data-plugin="matchHeight">
@@ -22,9 +20,9 @@
                             <div class="counter text-left blue-grey-700">
                                 <div class="col-xxl-3">
                                     <span class="ml-15 font-weight-700">USUARIOS CADASTRADOS</span>
-                                        <button type="button" class="ml-15 btn btn-floating btn-sm btn-success">
-                                            <i class="icon wb-users"></i>
-                                        </button>
+                                    <button type="button" class="ml-15 btn btn-floating btn-sm btn-success">
+                                        <i class="icon wb-users"></i>
+                                    </button>
                                     <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new UsuarioDAO().getQuantidadeUsuariosCadastradas())%></div>
                                 </div>
                             </div>
@@ -34,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-12 col-lg-10">
+    <div class="col-xl-12 col-lg-12">
         <!-- Panel Tickets -->
         <div class="panel box-shadow">
             <div class="panel-heading">
@@ -63,5 +61,7 @@
                 </table>
             </div>
         </div>
-        <!-- End Panel Tickets -->
-        <%@include file="/padrao-externo-master/rodape.jsp" %>
+    </div>
+</div>
+<!-- End Panel Tickets -->
+<%@include file="/padrao-externo-master/rodape.jsp" %>
