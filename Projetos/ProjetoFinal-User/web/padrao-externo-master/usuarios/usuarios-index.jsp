@@ -67,19 +67,21 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
-                                    <h4 class="modal-title">Modal Title</h4>
+                                    <h4 class="modal-title">Tem certeza?</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>One fine body?</p>
+                                    <p>Esta ação não poderá ser desfeita!</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary btn-block">Save changes</button>
-                                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
+                                    <div class="text-center">
+                                        <button type="button" style="text-align: left" class="btn btn-primary btn-danger">Excluir usuário</button>
+                                        <button type="button" style="text-align: right" class="btn btn-default btn-danger">Cancelar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- End Modal --> 
+                    <!-- End Modal -->
                     </tbody>
                 </table>
             </div>
