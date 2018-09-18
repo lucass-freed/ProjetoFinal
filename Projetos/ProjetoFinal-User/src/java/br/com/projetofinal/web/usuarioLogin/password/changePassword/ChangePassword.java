@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet(urlPatterns = {"/interno/trocar-senha"})
+@WebServlet(urlPatterns = {"/externo/trocar-senha"})
 public class ChangePassword extends HttpServlet {
     
     @Override
