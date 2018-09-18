@@ -17,14 +17,14 @@
         <div class="row" data-plugin="matchHeight">
             <div class="col-xxl-12 col-lg-4 col-sm-4">
                 <div class="card card-shadow">
-                    <div class="card-block p-30 box-shadow">
+                    <div class="card-block p-30 text-shadow">
                         <div class="row">
                             <div class="counter text-left blue-grey-700">
                                 <div class="col-xxl-3">
-                                    <button type="button" class="btn btn-floating btn-sm btn-success">
-                                        <i class="icon wb-users"></i>
-                                    </button>
                                     <span class="ml-15 font-weight-700">USUARIOS CADASTRADOS</span>
+                                        <button type="button" class="ml-15 btn btn-floating btn-sm btn-success">
+                                            <i class="icon wb-users"></i>
+                                        </button>
                                     <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new UsuarioDAO().getQuantidadeUsuariosCadastradas())%></div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                 <h3 class="panel-title">Lista de Usuários</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-usuarios">
+                <table class="table table-striped responsive table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-usuarios">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">ID</th>
@@ -57,7 +57,7 @@
                     </thead>
                     <tbody>
 
-                        
+
 
                     </tbody>
                 </table>

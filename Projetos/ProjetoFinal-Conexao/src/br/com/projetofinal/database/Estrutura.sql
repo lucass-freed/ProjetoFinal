@@ -96,6 +96,8 @@ CREATE TABLE tickets (
     FOREIGN KEY (idEmpresa) references empresas(id),
     id_colaborador INT,
     FOREIGN KEY (id_colaborador) references colaboradores(id),
+	id_usuario INT NOT NULL,
+	FOREIGN KEY (id_usuario) references usuarios(id),
     id_ticket_sazonalidade INT,
     FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
     titulo VARCHAR (150),	
@@ -185,21 +187,21 @@ data_admissao, ctps, pis, usuario_master) VALUES
 INSERT INTO usuarios (id_empresa, id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, usuario_master) VALUES 
 (1, 1, 'francisco', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'Francisco Sens', '15469532184', '1994-06-04', '(47) 997036820', 'godinho@gmail.com', false),
 (1, 1, 'lucas', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'Lucas Rodrigo', '15469532184', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
-(1, 1, 'gabriel', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2m', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
+(1, 1, 'gabriel', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
-INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
 sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("2","Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor", "Win10", "9.4","2018-09-01", "2018-09-05")
+("2", 3, "Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor", "Win10", "9.4","2018-09-01", "2018-09-05")
 ;
 
-INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
 sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
+("1", 2, "Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
 ;
 
-INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
 sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("1","Problemão urgente", "Altíssima", "Pendente","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
+("1", 1, "Problemão urgente", "Altíssima", "Pendente","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values
