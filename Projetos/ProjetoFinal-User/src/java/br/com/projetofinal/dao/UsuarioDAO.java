@@ -245,7 +245,11 @@ public class UsuarioDAO {
                     usuario.put("data_nascimento", DateFormatador.formatoBr(resultSet.getDate("data_nascimento")));
                     usuario.put("telefone", resultSet.getString("telefone"));
                     usuario.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("id_empresa")).getNomeFantasia());
-                    usuario.put("usuario_master", resultSet.getBoolean("usuario_master"));
+                    if (resultSet.getBoolean("usuario_master") == true) {
+                        usuario.put("tipo", "Master");
+                    } else {
+                        usuario.put("tipo", "Normal");
+                    }
                     usuarios.add(usuario);
                 }
             } catch (SQLException ex) {

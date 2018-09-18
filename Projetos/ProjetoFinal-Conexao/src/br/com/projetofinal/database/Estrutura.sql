@@ -197,6 +197,11 @@ sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES
 ("1","Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
 ;
 
+INSERT INTO tickets (idEmpresa, titulo, criticidade, situacao, descricao,
+sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
+("1","Problemão urgente", "Altíssima", "Pendente","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-09-01", "2018-09-05")
+;
+
 INSERT INTO ticket_tags (idTickets, idTags) values
 ("1", "4"),
 ("1", "5"),

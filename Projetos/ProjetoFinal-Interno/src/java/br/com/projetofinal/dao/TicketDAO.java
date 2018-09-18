@@ -339,7 +339,7 @@ public class TicketDAO {
     public int getQuantidadeTicketsEmAndamento() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Em Andmento';";
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Em Andamento';";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -359,7 +359,7 @@ public class TicketDAO {
     public int getQuantidadeTicketsPendentes() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Aberto';";
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Pendente';";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);

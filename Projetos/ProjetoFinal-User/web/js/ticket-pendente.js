@@ -1,6 +1,6 @@
 $(function () {
-    $("#tabela-usuarios").DataTable({
-        "ajax": "/usuarios/obtertodosparadatatable",
+    $("#tabela-ticket_pendente").DataTable({
+        "ajax": "/ticketsPendentes/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -37,25 +37,20 @@ $(function () {
          },*/
         "columns": [
             {"data": "id"},
-            {"data": "usuario"},
-            {"data": "funcao"},
-            {"data": "email"},
-            {"data": "data_nascimento"},
-            {"data": "telefone"},
-            {"data": "empresa"},
-            {"data": "tipo",
+            {"data": "titulo"},
+            {"data": "dataAbertura"},
+            {"data": "dataEncerramento"},
+            {"data": "criticidade",
                 "render": function (data, type, row) {
-                    if (row.tipo === 'Master') {
-                        return "<span class='badge badge-warning font-size-14'>Master<span>";
+                    if (row.criticidade === 'Baixa') {
+                        return "<span class='badge badge-success font-size-14'>Baixa<span>";
+                    } else if (row.criticidade === 'Média') {
+                        return "<span class='badge badge-primary font-size-14'>Média<span>";
+                    } else if (row.criticidade === 'Alta') {
+                        return "<span class='badge badge-warning font-size-14'>Alta<span>";
                     } else {
-                        return "<span class='badge badge-primary font-size-14'>Normal<span>";
+                        return "<span class='badge badge-danger font-size-14'>Altíssima<span>";
                     }
-                }
-            },
-            {"data": null,
-                "render": function (data) {
-                    return "<a class='btn btn-info' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                    "<a class='btn btn-danger' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]

@@ -5,6 +5,7 @@
  */
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.database.Conexao;
@@ -14,8 +15,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -173,5 +178,52 @@ public class TicketDAO {
             }
         }
         return null;
+    }
+    
+    public List<HashMap<String, Object>> obterTodosPendentesParaDataTableUsuario(int id) {
+        List<HashMap<String, Object>> ticketsPendentes = new ArrayList<>();
+        String sql = "SELECT * FROM tickets WHERE idEmpresa = ? AND situacao = 'Pendente'";
+        if (Conexao.getConnection() != null) {
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    HashMap<String, Object> ticketPendentes = new HashMap<>();
+                    ticketPendentes.put("id", rs.getInt("id"));
+                    ticketPendentes.put("titulo", rs.getString("titulo"));
+                    ticketPendentes.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
+                    ticketPendentes.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
+                    ticketPendentes.put("criticidade", rs.getString("criticidade"));
+                    ticketsPendentes.add(ticketPendentes);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return ticketsPendentes;
+    }
+    
+    public int getQuantidadeTicketsPendentes() {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Pendente';";
+            try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
     }
 }

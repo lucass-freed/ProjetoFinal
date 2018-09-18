@@ -4,54 +4,64 @@
     Author     : User
 --%>
 
+<%@page import="br.com.projetofinal.Util.NumberFormato"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.projetofinal.dao.UsuarioDAO"%>
 <%@page import="br.com.projetofinal.bean.UsuarioBean"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-master/master.jsp" %>
-<% List<UsuarioBean> usuarios = (List<UsuarioBean>) request.getAttribute("usuarios"); %> 
 
 </div>
 </div>
-        
-    <div class="example table-responsive col-md-12">
-        <table class="table table-bordered">
-            <thead>
-                <tr class="row">
-                    <th class="col-md-1">ID</th>
-                    <th class="col-md-4">Nome</th>
-                    <th class="col-md-3">Cargo</th>
-                    <th class="text-nowrap col-md-4">AÃ§Ã£o</th>
-                </tr>				
-            </thead>
-            
-            
-            <tbody>
-                
-                <% for(UsuarioBean usuario: usuarios){ %>
-                <div>
-                    <tr class="row">
-                        <td class="col-md-1"><%= usuario.getId()%></td> 
-                        <td class="col-md-4"><%= usuario.getNome() %></td> 
-                        <td class="col-md-3"><%= usuario.getFuncao() %></td>
-                        <td class="text-nowrap col-md-4">
-                            <a href="/usuario-externo-master/editar?id=<%= usuario.getId()%>" class="btn btn-outline btn-success col-md-6">
-                                <i class="icon wb-pencil" aria-hidden="true"></i> Editar
-                           </a>
-                           <a href="/usuario-externo-master/excluir?id=<%= usuario.getId()%>" class="btn btn-outline btn-danger col-md-6">
-                               <i class="icon wb-close" aria-hidden="true"></i> Excluir
-                           </a>
-
-                        </td>
-                   </tr>
+<div class="row" data-plugin="matchHeight" data-by-row="true">
+    <div class="col-xxl-3">
+        <div class="row" data-plugin="matchHeight">
+            <div class="col-xxl-12 col-lg-4 col-sm-4">
+                <div class="card card-shadow">
+                    <div class="card-block p-30 box-shadow">
+                        <div class="row">
+                            <div class="counter text-left blue-grey-700">
+                                <div class="col-xxl-3">
+                                    <button type="button" class="btn btn-floating btn-sm btn-success">
+                                        <i class="icon wb-users"></i>
+                                    </button>
+                                    <span class="ml-15 font-weight-700">USUARIOS CADASTRADOS</span>
+                                    <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new UsuarioDAO().getQuantidadeUsuariosCadastradas())%></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <% } %>
-                
-                
-                
-                
-                
-            </tbody>
-        </table>
+            </div>
+        </div>
     </div>
-<%@include file="/padrao-externo-master/rodape.jsp" %>
+    <div class="col-xl-12 col-lg-10">
+        <!-- Panel Tickets -->
+        <div class="panel box-shadow">
+            <div class="panel-heading">
+                <h3 class="panel-title">Lista de Usuários</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-usuarios">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Usuário</th>
+                            <th scope="col">Função</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Data de Nascimento</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Opção</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- End Panel Tickets -->
+        <%@include file="/padrao-externo-master/rodape.jsp" %>
