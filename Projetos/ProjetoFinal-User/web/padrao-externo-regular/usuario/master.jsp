@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link rel="stylesheet" href="/tema/assets/examples/css/forms/layouts.css">
         <link rel="stylesheet" href="/tema/assets/examples/css/pages/search-result.css">
+        <link rel="stylesheet" href="/css/chamado.css">
 
 
 
