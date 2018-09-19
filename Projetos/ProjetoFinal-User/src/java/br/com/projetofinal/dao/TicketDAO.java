@@ -207,6 +207,34 @@ public class TicketDAO {
         return ticketsPendentes;
     }
     
+    public List<HashMap<String, Object>> obterTodosParaDataTableUsuario(int id) {
+        List<HashMap<String, Object>> tickets = new ArrayList<>();
+        String sql = "SELECT * FROM tickets WHERE id_usuario = ?";
+        if (Conexao.getConnection() != null) {
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    HashMap<String, Object> ticket = new HashMap<>();
+                    ticket.put("id", rs.getInt("id"));
+                    ticket.put("titulo", rs.getString("titulo"));
+                    ticket.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
+                    ticket.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
+                    ticket.put("criticidade", rs.getString("criticidade"));
+                    ticket.put("situacao", rs.getString("situacao"));
+                    tickets.add(ticket);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return tickets;
+    }
+    
     public int getQuantidadeTicketsPendentes() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {

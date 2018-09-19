@@ -23,11 +23,7 @@ public class UsuarioExcluir extends HttpServlet{
         }
         
         boolean apagou = new UsuarioDAO().apagar(Integer.parseInt(req.getParameter("id")));
-        if (apagou) {
-            resp.getWriter().print("Apagou");
-        } else {
-            resp.getWriter().print("Não apagou");
-        }
+        resp.sendRedirect("/usuario-master-externo");
 
     }
     

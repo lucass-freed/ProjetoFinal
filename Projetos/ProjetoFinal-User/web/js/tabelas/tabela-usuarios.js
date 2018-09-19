@@ -1,5 +1,7 @@
+var id;
+
 $(function () {
-    $("#tabela-usuarios").DataTable({
+    var table = $("#tabela-usuarios").DataTable({
         responsive: {
             details: false
         },
@@ -35,9 +37,6 @@ $(function () {
             }
         },
 
-        /*"language": {
-         "url": "/libs/datatable/Portuguese-Brasil.lang"
-         },*/
         "columns": [
             {"data": "id"},
             {"data": "usuario"},
@@ -57,11 +56,22 @@ $(function () {
             },
             {"data": null,
                 "render": function (data) {
-                    return "<a class='btn btn-info' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
+                    return "<a class='btn btn-info' href='/usuario/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
                             "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
     });
 
+    $('#tabela-usuarios').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        id = data["id"];
+
+        $('#idDaTabela').text(id);
+    });
+
 });
+
+excluir = function() {
+    window.location.replace("/usuario/excluir?id=" + id);
+}

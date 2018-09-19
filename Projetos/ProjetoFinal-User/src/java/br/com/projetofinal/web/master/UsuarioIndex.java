@@ -26,6 +26,7 @@ public class UsuarioIndex extends HttpServlet {
         List<UsuarioBean> usuarios = new UsuarioDAO().obterUsuarios();
         req.setAttribute("usuarios", usuarios);
         req.setAttribute("title", "Perfil");
+        req.setAttribute("usuario", req.getSession().getAttribute("usuario"));
         
         resp.setContentType("text/html;charset=UTF-8");
         req.getRequestDispatcher("padrao-externo-master/usuarios/usuarios-index.jsp").include(req, resp);
