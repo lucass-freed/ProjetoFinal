@@ -39,7 +39,7 @@
 
             <div class="col-xxl-6 col-xl-8">
                 <!-- Panel Traffic -->
-                <div class="card card-shadow example-responsive" id="widgetLinearea">
+                <div class="card card-shadow responsive" id="widgetLinearea">
                     <div class="card-block p-30" style="min-width:480px;">
                         <div class="row pb-20" style="height:calc(100% - 322px);">
                             <div class="col-md-7">

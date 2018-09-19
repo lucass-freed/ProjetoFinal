@@ -11,22 +11,22 @@ import java.sql.Statement;
  */
 public class Conexao {
 
+    /*
     private static String HOST = "jdbc:mysql://aaw557cbc0p3ns.c0cukv5mwu0b.us-east-2.rds.amazonaws.com:3306/ebdb";
     private static String USER = "administrador";
     private static String PASSWORD = "Tes123te";
+    */
 
-    /*
     private static final String HOST = "jdbc:mysql://localhost/projeto_final_banco";
     private static String USER = "root";
     private static String PASSWORD = "";
-     */
+    
     private static final String CLASS = "com.mysql.jdbc.Driver";
     private static Connection conexao;
 
     public static Connection getConnection() {
         try {
             Class.forName(CLASS);
-
             conexao = DriverManager.getConnection(HOST, USER, PASSWORD);
             return conexao;
         } catch (Exception e) {

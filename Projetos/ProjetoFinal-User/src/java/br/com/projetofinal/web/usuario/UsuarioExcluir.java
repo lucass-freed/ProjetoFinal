@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thiago Avancini
+ * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 @WebServlet("/usuario/excluir")
 public class UsuarioExcluir extends HttpServlet{

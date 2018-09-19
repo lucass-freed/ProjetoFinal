@@ -390,7 +390,12 @@ public class TicketDAO {
                     ticket.put("empresa", new EmpresaDAO().obterPeloID(resultSet.getInt("idEmpresa")).getNomeFantasia());
                     ticket.put("titulo", resultSet.getString("titulo"));
                     ticket.put("dataAbertura", DateFormatador.formatoBr(resultSet.getDate("dataAbertura")));
-                    ticket.put("dataEncerramento", DateFormatador.formatoBr(resultSet.getDate("dataEncerramento")));
+                    ticket.put("dataAbertura", DateFormatador.formatoBr(resultSet.getDate("dataAbertura")));
+                    try {
+                        ticket.put("dataEncerramento", DateFormatador.formatoBr(resultSet.getDate("dataEncerramento")));
+                    } catch (Exception e) {
+                        ticket.put("dataEncerramento", "xx/xx/xxxx");
+                    }
                     ticket.put("situacao", resultSet.getString("situacao"));
                     ticket.put("criticidade", resultSet.getString("criticidade"));
                     tickets.add(ticket);

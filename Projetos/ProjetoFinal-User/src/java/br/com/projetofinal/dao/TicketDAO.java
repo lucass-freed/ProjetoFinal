@@ -220,8 +220,11 @@ public class TicketDAO {
                     HashMap<String, Object> ticket = new HashMap<>();
                     ticket.put("id", rs.getInt("id"));
                     ticket.put("titulo", rs.getString("titulo"));
-                    ticket.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
-                    ticket.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
+                    try {
+                        ticket.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
+                    } catch (Exception e) {
+                        ticket.put("dataEncerramento", "xx/xx/xxxx");
+                    }
                     ticket.put("criticidade", rs.getString("criticidade"));
                     ticket.put("situacao", rs.getString("situacao"));
                     tickets.add(ticket);

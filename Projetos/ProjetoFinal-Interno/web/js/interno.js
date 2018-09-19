@@ -31,7 +31,6 @@ $(function () {
                 }
             }
         },
-
         /*"language": {
          "url": "/libs/datatable/Portuguese-Brasil.lang"
          },*/
