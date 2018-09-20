@@ -5,9 +5,9 @@ $(document).ready(function () {
             url: "/empresa-externo/buscaempresa?id=1",
             success: function (result) {
                 $("#inputBasicCNPJ").val(result.cnpj);
-                $("#inputBasicRazaoSocial").val(result.razao_social);
-                $("#inputBasicNomeFantasia").val(result.nome_fantasia);
-                $("#inputBasicIE").val(result.inscrcao_estadual);
+                $("#inputBasicRazaoSocial").val(result.razaoSocial);
+                $("#inputBasicNomeFantasia").val(result.nomeFantasia);
+                $("#inputBasicIE").val(result.inscricaoEstadual);
                 $("#inputBasicEmail").val(result.email);
                 $("#inputPhone").val(result.telefone);
                 $("#inputBasicLogradouro").val(result.logradouro);
