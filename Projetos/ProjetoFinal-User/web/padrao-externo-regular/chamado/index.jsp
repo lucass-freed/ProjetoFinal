@@ -68,7 +68,8 @@
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"
                                     data-target="#exampleModalSuccess"  data-toggle="modal">Sim</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                     data-target="#exampleModalSuccess"  data-toggle="modal">Não</button>
                           </div>
                         </div>
                       </div>
@@ -93,7 +94,8 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal"
                                     data-target="#exampleModalDanger"  data-toggle="modal" >Sim</button>
                             
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                     data-target="#exampleModalDanger"  data-toggle="modal">Não</button>
                           </div>
                         </div>
                       </div>
@@ -117,7 +119,8 @@
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"
                                   data-target="#exampleFormModal"  data-toggle="modal"   >Sim</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    data-target="#exampleFormModal"  data-toggle="modal" >Não</button>
                           </div>
                         </div>
                       </div>
@@ -146,23 +149,25 @@
                           <div class="modal-body">
                             <div class="row">
                               <div class="col-xl-4 form-group">
-                                <input type="text" class="form-control" name="firstName" placeholder="First Name">
+                                <input type="text" class="form-control" name="firstName" placeholder="Assunto">
                               </div>
                               <div class="col-xl-4 form-group">
-                                <input type="email" class="form-control" name="lastName" placeholder="Last Name">
+                                <input type="email" class="form-control" name="lastName" placeholder="Telefone">
                               </div>
                               <div class="col-xl-4 form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Your Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
                               </div>
                               <div class="col-xl-12 form-group">
-                                <textarea class="form-control" rows="5" placeholder="Type your message"></textarea>
+                                <textarea class="form-control" rows="5" placeholder="Insira uma Descrição"></textarea>
                               </div>
                               <div class="col-md-12 float-right">
-                                <button class="btn btn-primary btn-outline" data-dismiss="modal" type="button">Add Comment</button>
+                                <button class="btn btn-primary btn-outline" data-dismiss="modal" type="button"
+                                         data-target="#exampleModalSend"  data-toggle="modal">Enviar Chamado</button>
                               </div>
-                            </div>
+                               
                           </div>
                         </form>
+                          
                       </div>
                     </div>
                     <!-- End Modal -->
@@ -170,6 +175,17 @@
                 </div>
                 <!-- End Example Form Modal -->
               </div>
+              <div class="modal fade modal-success" id="exampleModalSend" aria-hidden="true"
+                      aria-labelledby="exampleModalSuccess" role="dialog" tabindex="-1">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title">Chamado Enviado com Sucesso</h4>
+                          </div>
+               
 
 
 <%@include file="/padrao-externo-regular/usuario/rodape.jsp"%>
