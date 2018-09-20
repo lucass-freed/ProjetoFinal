@@ -81,3 +81,4 @@ Projetos/ProjetoFinal-Conexao/src/br/com/projetofinal/database/Estrutura.sql
 Projetos/ProjetoFinal-Conexao/nbproject/private/private.properties
 Projetos/ProjetoFinal-Conexao/nbproject/private/private.properties
 !/Projetos/ProjetoFinal-User/web/css/material.min.css
+!/Projetos/ProjetoFinal-User/web/css/select2/select2.min.css

@@ -43,10 +43,12 @@
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
 <script src="/js/tabelas/tabela-ticket-pendente.js"></script>
 <script src="/js/tabelas/tabela-home-tickets.js"></script>
+<script src="/js/consulta.js"></script>
 <script src="/js/datatable/jquery.min.js"></script>
 <script src="/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/js/datatable/jquery.table2excel.min.js"></script>
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="/js/select2/select2.min.js"></script>
 
 <script>
     (function (document, window, $) {
