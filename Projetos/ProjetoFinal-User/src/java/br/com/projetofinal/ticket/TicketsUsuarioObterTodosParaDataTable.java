@@ -28,7 +28,7 @@ public class TicketsUsuarioObterTodosParaDataTable extends HttpServlet {
         HttpSession sessao = request.getSession();
         
         UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");
-        List<HashMap<String, Object>> registros = new TicketDAO().obterTodosParaDataTableUsuario(1);
+        List<HashMap<String, Object>> registros = new TicketDAO().obterTodosParaDataTableUsuario(usuario.getId());
         resultado.put("data", registros);
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().print(new Gson().toJson(resultado));

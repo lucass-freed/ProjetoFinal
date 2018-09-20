@@ -39,7 +39,6 @@ $(function () {
             {"data": "id"},
             {"data": "titulo"},
             {"data": "dataAbertura"},
-            {"data": "dataEncerramento"},
             {"data": "criticidade",
                 "render": function (data, type, row) {
                     if (row.criticidade === 'Baixa') {

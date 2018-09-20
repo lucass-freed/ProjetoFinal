@@ -4,9 +4,14 @@
     Author     : Matheus Ruan Werner
 --%>
 
+<%@page import="br.com.projetofinal.bean.UsuarioBean"%>
+<%@page import="br.com.projetofinal.dao.TicketDAO"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/padrao-externo-regular/usuario/master.jsp"%>
 
+<% HttpSession sessao = request.getSession();%>
+<% UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");%>
 <!-- Page -->
 <div class="page-header h-300 mb-30">
     <div class="text-center blue-grey-800 m-0 mt-50">
@@ -31,7 +36,7 @@
                         </div>
                         <p class="font-size-20 blue-grey-700">Breno Bitencourt</p>
                         <p class="blue-grey-400 mb-20">Web Designer</p>
-                        <button type="button" class="btn btn-primary px-40">Ir para o Perfil</button>
+                        <a href="?=1"><button type="button" class="btn btn-primary px-40">Ir para o Perfil</button></a>
                     </div>
                 </div>
                 <!-- End Panel Web Designer -->
@@ -43,14 +48,14 @@
                     <div class="card-block p-30" style="min-width:480px;">
                         <div class="row pb-20" style="height:calc(100% - 322px);">
                             <div class="col-md-7">
-                                <div class="blue-grey-700 font-size-20">Seus Tickets</div>
+                                <div class="blue-grey-700 font-size-18">Seus Tickets</div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="row">
                                     <div style="text-align: left" class="col-sm-4">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number">0</span>
+                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsConcluidosIDUsuario(usuario.getId());%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Concluídos</div>
                                         </div>
@@ -58,7 +63,7 @@
                                     <div style="text-align: right" class="">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number">0</span>
+                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsEmAndamentoIDUsuario(usuario.getId());%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Em Andamento</div>
                                         </div>
@@ -66,17 +71,17 @@
                                     <div style="text-align: top" class="col-sm-4">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number">0</span>
+                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsPendentesIDUsuario(usuario.getId());%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Pendentes</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="panel box-shadow">
-                                <div class="panel-body">
-                                    <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:100%" id="tabela-home-tickets">
+                                </br>
+                                <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:102.5%" id="tabela-home-tickets">
+                                    <div class="fixed-table-toolbar">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th scope="col">ID</th>
@@ -92,16 +97,17 @@
 
 
                                         </tbody>
-                                    </table>
-                                </div>
+                                    </div>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End Panel Traffic -->
             </div>
+            <!-- End Panel Traffic -->
         </div>
     </div>
+</div>
 </div>
 <!-- End Page -->
 

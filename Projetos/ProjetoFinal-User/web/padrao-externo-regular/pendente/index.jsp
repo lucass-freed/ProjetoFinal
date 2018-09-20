@@ -39,13 +39,12 @@
                 <h3 class="panel-title">Seus Tickets Pendentes</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-ticket_pendente">
+                <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:100%" id="tabela-ticket_pendente">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Título</th>
                             <th scope="col">Data de Abertura</th>
-                            <th scope="col">Data de Encerramento</th>
                             <th scope="col">Criticidade</th>
                         </tr>
                     </thead>

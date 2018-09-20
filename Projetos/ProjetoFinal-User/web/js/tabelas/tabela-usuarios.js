@@ -66,12 +66,34 @@ $(function () {
     $('#tabela-usuarios').on('click', 'tr', function () {
         var data = table.row(this).data();
         id = data["id"];
+        $.ajax({
+            url: "/usuario/id",
+            method: "post",
+            data: null,
+            success: function (data, textStatus, jqXHR) {
+                var resultado = JSON.parse(data);
+                if (id != resultado)
+                    $('#idDaTabela').text(id);
+                else {
+                    $(function () {
+                    new PNotify({
+                        title: 'Ocorreu um erro!',
+                        text: 'Você não pode excluir o seu usuário.',
+                        type: 'error'
+                    });
+                });
+                }
+                    
 
-        $('#idDaTabela').text(id);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            }
+        });
     });
 
 });
 
-excluir = function() {
+excluir = function () {
     window.location.replace("/usuario/excluir?id=" + id);
 }

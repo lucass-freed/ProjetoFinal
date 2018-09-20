@@ -63,7 +63,7 @@ $(function () {
                         return "<span class='badge badge-success font-size-14'>Concluído<span>";
                     }
                 }
-            },
+            }
         ]
     });
 });

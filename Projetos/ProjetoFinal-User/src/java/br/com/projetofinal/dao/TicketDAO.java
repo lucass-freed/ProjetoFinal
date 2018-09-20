@@ -194,7 +194,6 @@ public class TicketDAO {
                     ticketPendentes.put("id", rs.getInt("id"));
                     ticketPendentes.put("titulo", rs.getString("titulo"));
                     ticketPendentes.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
-                    ticketPendentes.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
                     ticketPendentes.put("criticidade", rs.getString("criticidade"));
                     ticketsPendentes.add(ticketPendentes);
                 }
@@ -220,6 +219,7 @@ public class TicketDAO {
                     HashMap<String, Object> ticket = new HashMap<>();
                     ticket.put("id", rs.getInt("id"));
                     ticket.put("titulo", rs.getString("titulo"));
+                    ticket.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
                     try {
                         ticket.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
                     } catch (Exception e) {
@@ -246,6 +246,69 @@ public class TicketDAO {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
                 ResultSet rs = st.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
+    }
+    
+    public int getQuantidadeTicketsPendentesIDUsuario(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM tickets WHERE id_usuario = ? AND situacao = 'Pendente';";
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
+    }
+    
+    public int getQuantidadeTicketsConcluidosIDUsuario(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM tickets WHERE id_usuario = ? AND situacao = 'Concluído';";
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
+    }
+    
+    public int getQuantidadeTicketsEmAndamentoIDUsuario(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM tickets WHERE id_usuario = ? AND situacao = 'Em Andamento';";
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
                 if (rs.next()) {
                     return rs.getInt("COUNT(id)");
                 }
