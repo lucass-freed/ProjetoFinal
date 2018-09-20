@@ -26,7 +26,8 @@ public class EmpresaIndex extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
-        }
+            return;
+        } 
         
         UsuarioBean usuario = (UsuarioBean) req.getSession().getAttribute("usuario");
         
