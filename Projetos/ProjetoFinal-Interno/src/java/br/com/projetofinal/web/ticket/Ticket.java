@@ -34,6 +34,7 @@ public class Ticket extends HttpServlet {
         req.setAttribute("ticket1", ticket);
         req.setAttribute("ticket2", ticket);
         req.setAttribute("ticket3", ticket);
+        req.setAttribute("ticket4", ticket);
         req.setAttribute("ticketsTags", ticketsTags);
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
         req.setAttribute("title", "Tickets");
