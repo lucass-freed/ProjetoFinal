@@ -6,6 +6,7 @@
 package br.com.projetofinal.web.regular;
 
 import br.com.projetofinal.bean.TicketBean;
+import br.com.projetofinal.dao.TicketDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +28,7 @@ public class ChamadoIndex extends HttpServlet {
             resp.sendRedirect("/");
         }
         int id = Integer.parseInt(req.getParameter("id"));
-        TicketBean ticket = new TickeDAO.inserir()
+        //TicketBean ticket = new TicketDAO.inserir(id);
                 
 
         req.setAttribute("title", "Perfil");
