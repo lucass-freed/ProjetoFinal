@@ -4,7 +4,6 @@ import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
-import br.com.projetofinal.bean.TicketLogBean;
 import br.com.projetofinal.bean.TicketTagBean;
 import br.com.projetofinal.database.Conexao;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
@@ -408,7 +407,8 @@ public class TicketDAO {
         }
         return tickets;
     }
-    
+ 
+   
     
 }
 

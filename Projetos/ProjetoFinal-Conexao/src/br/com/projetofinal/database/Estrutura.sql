@@ -159,7 +159,24 @@ INSERT INTO empresas (cnpj, razaoSocial, nomeFantasia, inscricaoEstadual, email,
 "SellerNight",
 "2018-05-24",
 "2019-05-24",
-"2019-03-01");
+"2019-03-01"),
+("41198708000186",
+"Gustavo e Amanda Consultoria Financeira ME",
+"Investimentos Avanço 777",
+"96007572713",
+"orcamento@veraegabrielfinanceiraltda.com.br",
+"66998127194",
+"Travessa Santa Isa",
+"809",
+"Sala 4",
+"Conjunto Habitacional Cidade de Deus",
+"78734206",
+"Rondonópolis",
+"MT",
+"FinInvest",
+"2011-02-24",
+"2019-12-05",
+"2019-09-28");
 
 INSERT INTO tags (titulo) values
 ("Banco de Dados"),
@@ -201,7 +218,7 @@ sistemaOperacional, versaoBanco, dataAbertura) VALUES
 
 INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
 sistemaOperacional, versaoBanco, dataAbertura) VALUES 
-("1", 1, "Problema Top", "Media", "Pendente","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
+("3", 1, "Problema Top", "Média", "Em Andamento","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values
