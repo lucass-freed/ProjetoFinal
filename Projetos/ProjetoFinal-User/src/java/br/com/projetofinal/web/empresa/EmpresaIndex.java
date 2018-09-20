@@ -1,4 +1,4 @@
-package br.com.projetofinal.web.master;
+package br.com.projetofinal.web.empresa;
 
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.UsuarioBean;
