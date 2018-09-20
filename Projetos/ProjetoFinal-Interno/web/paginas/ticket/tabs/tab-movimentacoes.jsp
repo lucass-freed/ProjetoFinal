@@ -14,7 +14,7 @@
 -->
 
 <div class="tab-pane" id="tab-movimentacoes" role="#tab-movimentacoes">
-<% if (ticket4.getDataEncerramento() == null) {%>
+    <% if (ticket4.getDataEncerramento() == null) {%>
     <div class="col-xl-12 col-xl-12">
         <div class="example-wrap">
             <div class="example example-buttons">
@@ -66,15 +66,16 @@
                     <% if (ticket4.getCriticidade() == CriticidadeTypes.ALTISSIMA) {%>
                     <% } else {%>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-info" data-target=".example-modal-sm" data-toggle="modal">
+                        <button type="button" class="btn btn-info" data-target="#alterarCriticidade" data-toggle="modal">
                             <i class="icon wb-time" aria-hidden="true"></i>
                             <br>
                             <span class="text-uppercase hidden-sm-down">Alterar Prioridade</span>
                         </button>
+
                         <!-- Modal -->
-                        <div class="modal fade example-modal-sm" aria-hidden="true" aria-labelledby="exampleOptionalSmall"
+                        <div class="modal fade" id="alterarCriticidade" aria-hidden="true" aria-labelledby="alterarCriticidade" 
                              role="dialog" tabindex="-1">
-                            <div class="modal-dialog modal-simple modal-sm">
+                            <div class="modal-dialog modal-simple modal-top">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -84,6 +85,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="modal-body col-md-6">
+
                                             <!-- Opções Alteração de Criticidade -->
                                             <div class="example-wrap">
                                                 <% if (ticket4.getCriticidade() == CriticidadeTypes.BAIXA) {%>
@@ -121,6 +123,7 @@
                 </div>
                 <%}%>
 
+
                 <div class="btn-group" role="group">
 
 
@@ -157,7 +160,7 @@
         </div>
     </div>
 </div>
- <%}%>
+<%}%>
 
 <div class="panel box-shadow">
     <div class="panel-heading">
