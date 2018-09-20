@@ -84,7 +84,7 @@
                                 <input type="text" class="form-control minha-classe" id="inputBasicCidade" name="inputCidade"autocomplete="off" placeholder="Cidade" disabled="disabled" value="<%= empresa.getCidade()%>"/>
                             </div>                               
                             <div class="form-group col-md-6"> 
-                                <select class="form-control minha-classe" disabled="disabled">
+                                <select class="form-control minha-classe" disabled="disabled" id="selectBasicUf">
                                     <option selected="selected"><%= empresa.getUf()%></option>
                                     <option value="ac">AC</option>
                                     <option value="al">AL</option>
