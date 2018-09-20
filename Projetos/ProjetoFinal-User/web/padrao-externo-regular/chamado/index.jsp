@@ -51,7 +51,7 @@
                 
 
 
-                    <!-- Modal -->
+                    <!-- Primeira Pergunta -->
                     <div class="modal fade modal-primary" id="exampleModalPrimary" aria-hidden="true"
                       aria-labelledby="exampleModalPrimary" role="dialog" tabindex="-1">
                       <div class="modal-dialog">
@@ -63,11 +63,12 @@
                             <h4 class="modal-title">Chamado</h4>
                           </div>
                           <div class="modal-body">
-                              <p><h3>Problemas com o Banco de Dados?</h3></p>
+                              <p><h3>Problema 1</h3></p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sim</button>
-                            <button type="button" class="btn btn-primary">Não</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    data-target="#exampleModalSuccess"  data-toggle="modal">Sim</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
                           </div>
                         </div>
                       </div>
@@ -89,7 +90,9 @@
                             <p>One fine body…</p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sim</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    >Sim</button>
+                            
                             <button type="button" class="btn btn-primary">Não</button>
                           </div>
                         </div>
