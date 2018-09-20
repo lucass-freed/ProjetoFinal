@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
         <link rel="stylesheet" href="/tema/assets/css/site.min.css">
+        <link href="/css/select2/select2.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="/css/datatable/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/css/datatable/dataTables.bootstrap4.min.css">
 
