@@ -1,5 +1,6 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.Util.Formatador;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.database.Conexao;
 import java.sql.Connection;
@@ -123,17 +124,17 @@ public class EmpresaDAO {
                 if (resultSet.next()) {
                     EmpresaBean empresa = new EmpresaBean();
                     empresa.setId(id);
-                    empresa.setCnpj(resultSet.getString("cnpj"));
+                    empresa.setCnpj(Formatador.formatoCnpj(resultSet.getString("cnpj")));
                     empresa.setRazaoSocial(resultSet.getString("razaoSocial"));
                     empresa.setNomeFantasia(resultSet.getString("nomeFantasia"));
                     empresa.setInscricaoEstadual(resultSet.getString("inscricaoEstadual"));
                     empresa.setEmail(resultSet.getString("email"));
-                    empresa.setTelefone(resultSet.getString("telefone"));
+                    empresa.setTelefone(Formatador.formatoTelefone(resultSet.getString("telefone")));
                     empresa.setLogradouro(resultSet.getString("logradouro"));
                     empresa.setNumero(resultSet.getString("numero"));
                     empresa.setComplemento(resultSet.getString("complemento"));
                     empresa.setBairro(resultSet.getString("bairro"));
-                    empresa.setCep(resultSet.getString("cep"));
+                    empresa.setCep(Formatador.formatoCep(resultSet.getString("cep")));
                     empresa.setCidade(resultSet.getString("cidade"));
                     empresa.setUf(resultSet.getString("uf"));
                     empresa.setSistema(resultSet.getString("sistema"));
