@@ -5,6 +5,7 @@
  */
 package br.com.projetofinal.web.regular;
 
+import br.com.projetofinal.bean.TicketBean;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +26,10 @@ public class ChamadoIndex extends HttpServlet {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
-        
+        int id = Integer.parseInt(req.getParameter("id"));
+        TicketBean ticket = new TickeDAO.inserir()
+                
+
         req.setAttribute("title", "Perfil");
         
         resp.setContentType("text/html;charset=UTF-8");

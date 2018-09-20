@@ -72,7 +72,7 @@
                 <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="tabela-ticket">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">Protocolo</th>
                             <th scope="col">Empresa</th>
                             <th scope="col">Título</th>
                             <th scope="col">Data de Abertura</th>

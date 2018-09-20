@@ -29,6 +29,7 @@ public class TicketObterTodosParaSelect2 extends HttpServlet {
         List<HashMap<String, String>> categorias = new TicketDAO().obterTodosParaSelect2(termo);
         HashMap<String, Object> resultado = new HashMap<>();
         resultado.put("results", categorias);
+        resp.setContentType("text/html;charset=UTF-8");
         resp.getWriter().print(new Gson().toJson(resultado));
     }
 
