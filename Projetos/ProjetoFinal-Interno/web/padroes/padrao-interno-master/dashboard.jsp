@@ -33,9 +33,9 @@
 
         <!-- Scripts -->
         <!-- Inclusão do JQuery -->
-        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/js/datatable/jquery.min.js"></script>
         <!-- Inclusão do Plugin JQuery Validation -->
-        <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+        <script src="/js/jquery.validate.min.js"></script>
         <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
         <script>
             Breakpoints();

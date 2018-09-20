@@ -13,16 +13,16 @@
                 <div class="example-wrap">
                     <h4 class="example-title">Informações Pessoais</h4>
                     <div class="example">
-                        <form autocomplete="off">
+                        <form id="cadastro" autocomplete="off">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="form-control-label" for="inputBasicNome">Usuário</label>
-                                    <input type="text" class="form-control" id="inputBasicNome" name="inputNome"
+                                    <label class="form-control-label" for="inputBasicUsuario">Usuário</label>
+                                    <input type="text" class="form-control" id="inputBasicUsuario" name="inputUsuario"
                                            placeholder="Usuário" autocomplete="off"/>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="form-control-label" for="inputBasicSobrenome">Senha</label>
-                                    <input type="text" class="form-control" id="inputBasicSobrenome" name="inputSobrenome"
+                                    <label class="form-control-label" for="inputBasicSenha">Senha</label>
+                                    <input type="text" class="form-control" id="inputBasicSenha" name="inputSenha"
                                            placeholder="Senha" autocomplete="off"/>
                                 </div>
                             </div>
@@ -148,6 +148,7 @@
 
 <script src="/tema/global/js/Plugin/formatter.js"></script>
 
+
 <script>
     Breakpoints();
 </script>
@@ -170,5 +171,7 @@
         'persistent': false
     });
 </script>
+
+<script src="/js/cadastro.js"></script>
 
 <%@include file="/padroes/padrao-interno-master/rodape.jsp" %>
