@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $("#botao-cancelar").click(function () {
         $.ajax({
-            url: "/empresa-externo/buscaempresa?id=1",
+            url: "/empresa-externo/buscaempresa",
             success: function (result) {
                 $("#inputBasicCNPJ").val(result.cnpj);
                 $("#inputBasicRazaoSocial").val(result.razaoSocial);
