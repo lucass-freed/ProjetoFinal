@@ -32,10 +32,6 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
         <!-- Scripts -->
-        <!-- Inclusão do JQuery -->
-        <script src="/js/datatable/jquery.min.js"></script>
-        <!-- Inclusão do Plugin JQuery Validation -->
-        <script src="/js/jquery.validate.min.js"></script>
         <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
         <script>
             Breakpoints();

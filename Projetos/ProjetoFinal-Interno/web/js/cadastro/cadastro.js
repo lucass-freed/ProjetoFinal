@@ -1,10 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 $(function () {
-//Validação com o jQuery Validator
     $("#cadastro").validate({
         errorClass: "text-danger border-danger",
         errorElementClass: 'text-danger border-danger',
@@ -33,6 +28,7 @@ $(function () {
             },
             inputCPF: {
                 required: true,
+                minlength: 14,
                 maxlength: 14
             },
             inputCTPS: {
@@ -53,24 +49,28 @@ $(function () {
         },
         messages: {
             inputUsuario: {
-                required: "Nome é obrigatório",
-                minlength: "Usuario deve conter no mínimo {0} caracteres",
+                required: "Este campo é obrigatório",
+                minlength: "Usuario deve conter no mínimo {4} caracteres",
                 maxlength: "Usuario deve conter no máximo {50} caracteres"
             },
             inputSenha: {
-                required: "Idade é obrigatório",
+                required: "Este campo é obrigatório",
                 minlength: "Senha deve conter no mínimo {8} caracteres",
                 maxlength: "Senha deve conter no máximo {50} caracteres"
             },
             email: {
-                required: "E-mail é obrigatório",
+                required: "Este campo é obrigatório",
                 email: "Insira um e-mail válido"
+            },
+            inputCPF: {
+               required: "Este campo é obrigatório",
+               minlength: "Insira um CPF válido"
             }
         }
     });
     $("#cadastro").on('submit', function (e) {
 
-        if ($("#cadastro").valid() == false) {
+        if ($("#cadastro").valid() === false) {
             e.preventDefault();
         } else {
             alert('asdaspdas');
@@ -99,5 +99,3 @@ $(function () {
         });
     }
 });
-
-

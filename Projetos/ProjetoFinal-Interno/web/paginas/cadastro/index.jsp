@@ -158,20 +158,13 @@
         'pattern': '({{99}}){{99999}}-{{9999}}',
         'persistent': false
     });
-    $('#inputBasicCPF').formatter({
-        'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
-        'persistent': false
-    });
     $('#inputBasicDataNascimento').formatter({
         'pattern': '{{99}}/{{99}}/{{9999}}',
         'persistent': false
     });
-    $('#inputBasicCEP').formatter({
-        'pattern': '{{99}}.{{999}}-{{999}}',
-        'persistent': false
-    });
 </script>
 
-<script src="/js/cadastro.js"></script>
+<script src="/js/cadastro/cadastro.js"></script>
+<script src="/js/cadastro/mascara.js"></script>
 
 <%@include file="/padroes/padrao-interno-master/rodape.jsp" %>
