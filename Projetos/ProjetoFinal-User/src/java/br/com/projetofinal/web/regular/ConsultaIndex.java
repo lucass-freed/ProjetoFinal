@@ -25,9 +25,10 @@ public class ConsultaIndex extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-       /* if (req.getSession().getAttribute("usuario") == null) {
+        if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
-        }*/
+            return;
+        }
 
         String pesquisa = req.getParameter("search");
         List<TicketBean> tickets = new TicketDAO().obterResultado(pesquisa);

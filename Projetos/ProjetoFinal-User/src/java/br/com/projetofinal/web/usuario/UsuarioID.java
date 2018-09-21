@@ -23,6 +23,7 @@ public class UsuarioID extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
 
         HashMap<String, String> resultado = new HashMap<>();

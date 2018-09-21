@@ -29,6 +29,7 @@ public class ChamadoIndex extends HttpServlet {
             throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         //int id = Integer.parseInt(req.getParameter("id"));
         //TicketBean ticket = new TicketDAO.inserir(id);

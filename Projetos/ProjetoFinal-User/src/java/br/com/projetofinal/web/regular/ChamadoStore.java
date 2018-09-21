@@ -22,6 +22,10 @@ public class ChamadoStore extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("usuario") == null) {
+            resp.sendRedirect("/");
+            return;
+        }
         String[] tags = req.getParameterValues("tags[]");
         System.out.println(Arrays.toString(tags));
     }
