@@ -5,9 +5,12 @@
  */
 package br.com.projetofinal.web.regular;
 
+import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
+import br.com.projetofinal.dao.TagsDAO;
 import br.com.projetofinal.dao.TicketDAO;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +30,10 @@ public class ChamadoIndex extends HttpServlet {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
         }
-        int id = Integer.parseInt(req.getParameter("id"));
+        //int id = Integer.parseInt(req.getParameter("id"));
         //TicketBean ticket = new TicketDAO.inserir(id);
-                
+        List<TagBean> tags = new TagsDAO().listarTags();
+        req.setAttribute("tags", tags);        
 
         req.setAttribute("title", "Perfil");
         

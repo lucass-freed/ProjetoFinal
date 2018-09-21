@@ -15,7 +15,7 @@ $(function () {
         }
     });
     $("#campo-ticket").change(function () {
-        var ticketID = $('#campo-ticket').select2('data').assign(ticketId);
+        var ticketID = $('#campo-ticket').select2('da   ta').assign(ticketId);
         var ticketTitulo = $('#campo-ticket').find(':selected').text();
         alert("Título do Ticket: " + ticketTitulo + 
                 "\nID do Ticket: " + ticketID);

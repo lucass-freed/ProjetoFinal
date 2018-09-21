@@ -29,6 +29,8 @@
         <link rel="stylesheet" href="/tema/assets/examples/css/forms/layouts.css">
         <link rel="stylesheet" href="/tema/assets/examples/css/pages/search-result.css">
         <link rel="stylesheet" href="/css/chamado.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
 
 
 

@@ -50,6 +50,8 @@
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
 <script src="/js/select2/select2.min.js"></script>
 
+<script src="/js/select2/selectChamado.js"></script>
+
 <script>
     (function (document, window, $) {
         'use strict';
