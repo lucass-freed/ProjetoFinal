@@ -3,7 +3,11 @@
     Created on : 26/08/2018, 16:00:28
     Author     : Lucas Rodrigo
 --%>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
+<% } %>
 
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
@@ -174,4 +178,8 @@
 
 <script src="/js/cadastro.js"></script>
 
-<%@include file="/padroes/padrao-interno-master/rodape.jsp" %>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>
+<% }%>

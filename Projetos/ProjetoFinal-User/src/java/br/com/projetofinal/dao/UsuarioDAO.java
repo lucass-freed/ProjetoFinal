@@ -42,7 +42,7 @@ public class UsuarioDAO {
                 ps.setDate(quantidade++, usuario.getDataNascimento());
                 ps.setString(quantidade++, usuario.getTelefone());
                 ps.setString(quantidade++, usuario.getEmail());
-                ps.setBoolean(quantidade++, usuario.isUsuarioMaster());
+                ps.setBoolean(quantidade++, usuario.isMaster());
                 ps.execute();
 
                 ResultSet rs = ps.getGeneratedKeys();
@@ -85,7 +85,7 @@ public class UsuarioDAO {
                 ps.setDate(quantidade++, usuario.getDataNascimento());
                 ps.setString(quantidade++, usuario.getTelefone());
                 ps.setString(quantidade++, usuario.getEmail());
-                ps.setBoolean(quantidade++, usuario.isUsuarioMaster());
+                ps.setBoolean(quantidade++, usuario.isMaster());
                 ps.setInt(quantidade++, usuario.getId());
                 return ps.executeUpdate() == 1;
             } catch (SQLException e) {
@@ -137,7 +137,7 @@ public class UsuarioDAO {
                     usuario.setDataNascimento(rs.getDate("data_nascimento"));
                     usuario.setTelefone(rs.getString("telefone"));
                     usuario.setEmail(rs.getString("email"));
-                    usuario.setUsuarioMaster(rs.getBoolean("usuario_master"));
+                    usuario.setMaster(rs.getBoolean("usuario_master"));
                     usuarios.add(usuario);
                 }
             } catch (Exception e) {
@@ -186,7 +186,7 @@ public class UsuarioDAO {
                     usuario.setDataNascimento(rs.getDate("u.data_nascimento"));
                     usuario.setTelefone(rs.getString("u.telefone"));
                     usuario.setEmail(rs.getString("u.email"));
-                    usuario.setUsuarioMaster(rs.getBoolean("u.usuario_master"));
+                    usuario.setMaster(rs.getBoolean("u.usuario_master"));
 
                     FuncaoBean funcao = new FuncaoBean();
                     funcao.setId(rs.getInt("u.id_funcao"));

@@ -29,7 +29,7 @@ public class UsuarioDAOJUnitTest {
         u.setDataNascimento(Date.valueOf("1993-12-30"));
         u.setTelefone("dsadsa");
         u.setEmail("dsasa");
-        u.setUsuarioMaster(true);
+        u.setMaster(true);
 
         int cod = new UsuarioDAO().inserir(u);
         u.setId(cod);
@@ -52,7 +52,7 @@ public class UsuarioDAOJUnitTest {
         u.setDataNascimento(Date.valueOf("1993-12-30"));
         u.setTelefone("dsadsa");
         u.setEmail("dsasa");
-        u.setUsuarioMaster(true);
+        u.setMaster(true);
 
         int cod = new UsuarioDAO().inserir(u);
         new UsuarioDAO().apagar(cod);
@@ -74,7 +74,7 @@ public class UsuarioDAOJUnitTest {
         u.setDataNascimento(Date.valueOf("1993-12-30"));
         u.setTelefone("dsadsa");
         u.setEmail("dsasa");
-        u.setUsuarioMaster(true);
+        u.setMaster(true);
 
         int cod = new UsuarioDAO().inserir(u);
         u.setId(cod);
@@ -97,7 +97,7 @@ public class UsuarioDAOJUnitTest {
         u.setDataNascimento(Date.valueOf("1993-12-30"));
         u.setTelefone("dsadsa");
         u.setEmail("dsasa");
-        u.setUsuarioMaster(true);
+        u.setMaster(true);
 
         int cod = new UsuarioDAO().inserir(u);
         u.setId(cod);

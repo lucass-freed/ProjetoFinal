@@ -1,6 +1,10 @@
 <%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
 <%@page import="br.com.projetofinal.Util.NumberFormato"%>
-<%@include file="/padroes/padrao-interno-master/dashboard.jsp"%>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
+<% } %>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
@@ -56,4 +60,8 @@
     </div>
 </div>
 
-<%@include file="/padroes/padrao-interno-master/rodape.jsp"%>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>
+<% }%>

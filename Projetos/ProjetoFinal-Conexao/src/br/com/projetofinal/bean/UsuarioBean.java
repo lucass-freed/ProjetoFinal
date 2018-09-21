@@ -20,7 +20,7 @@ public class UsuarioBean {
     private Date dataNascimento;
     private String telefone;
     private String email;
-    private boolean usuarioMaster;
+    private boolean master;
 
     public int getIdFuncao() {
         return idFuncao;
@@ -118,11 +118,11 @@ public class UsuarioBean {
         this.email = email;
     }
 
-    public boolean isUsuarioMaster() {
-        return usuarioMaster;
+    public boolean isMaster() {
+        return master;
     }
 
-    public void setUsuarioMaster(boolean usuarioMaster) {
-        this.usuarioMaster = usuarioMaster;
+    public void setMaster(boolean master) {
+        this.master = master;
     }
 }

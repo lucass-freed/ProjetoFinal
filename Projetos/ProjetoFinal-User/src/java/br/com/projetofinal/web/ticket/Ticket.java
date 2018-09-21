@@ -1,4 +1,4 @@
-package br.com.projetofinal.ticket;
+package br.com.projetofinal.web.ticket;
 
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.dao.TicketDAO;

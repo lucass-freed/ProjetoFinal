@@ -4,7 +4,11 @@
     Author     : Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/padroes/padrao-interno-master/dashboard.jsp"%>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
+<% } %>
 <%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page import="br.com.projetofinal.Util.Formatador"%>
@@ -164,4 +168,8 @@
     </div>
 </div>
 
-<%@include file="/padroes/padrao-interno-master/rodape.jsp"%>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>
+<% }%>
