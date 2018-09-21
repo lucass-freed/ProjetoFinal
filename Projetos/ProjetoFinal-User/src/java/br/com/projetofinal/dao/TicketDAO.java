@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  * @author Alunos
  */
 public class TicketDAO {
-    
+
     public int inserir(TicketBean ticket) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -179,7 +179,7 @@ public class TicketDAO {
         }
         return null;
     }
-    
+
     public List<HashMap<String, Object>> obterTodosPendentesParaDataTableUsuario(int id) {
         List<HashMap<String, Object>> ticketsPendentes = new ArrayList<>();
         String sql = "SELECT * FROM tickets WHERE id_usuario = ? AND situacao = 'Pendente'";
@@ -205,7 +205,7 @@ public class TicketDAO {
         }
         return ticketsPendentes;
     }
-    
+
     public List<HashMap<String, Object>> obterTodosParaDataTableUsuario(int id) {
         List<HashMap<String, Object>> tickets = new ArrayList<>();
         String sql = "SELECT * FROM tickets WHERE id_usuario = ?";
@@ -237,7 +237,7 @@ public class TicketDAO {
         }
         return tickets;
     }
-    
+
     public int getQuantidadeTicketsPendentes() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -257,7 +257,7 @@ public class TicketDAO {
         }
         return 0;
     }
-    
+
     public int getQuantidadeTicketsPendentesIDUsuario(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -278,7 +278,7 @@ public class TicketDAO {
         }
         return 0;
     }
-    
+
     public int getQuantidadeTicketsConcluidosIDUsuario(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -299,7 +299,7 @@ public class TicketDAO {
         }
         return 0;
     }
-    
+
     public int getQuantidadeTicketsEmAndamentoIDUsuario(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -320,7 +320,7 @@ public class TicketDAO {
         }
         return 0;
     }
-    
+
     public List<HashMap<String, String>> obterTodosParaSelect2(int id, String termo) {
         List<HashMap<String, String>> categorias = new ArrayList<HashMap<String, String>>();
         String sql = "SELECT * FROM tickets WHERE id_usuario = ? AND titulo LIKE ? ORDER BY titulo";
