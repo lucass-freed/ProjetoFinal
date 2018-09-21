@@ -4,19 +4,34 @@ $(function () {
         ajax: {
             url: "/ticket/obtertodosparaselect2",
             dataType: "json",
+            type: 'GET',
             data: function (params) {
-                return {
-                    q: params.term // search term
-                };
+                ticketTitulo = params.term,
+                ticketId = params.id;
             },
+            results: function (data, page) {
+                return {results: data.Results};
+            }
         }
     });
     $("#campo-ticket").change(function () {
-        
-        var e = document.getElementById("select2-campo-ticket-results");
-        var strUser = e.options[e.selectedIndex].value;
-        alert(strUser);
-        alert("dsas");
+        var ticketID = $('#campo-ticket').select2('data').assign(ticketId);
+        var ticketTitulo = $('#campo-ticket').find(':selected').text();
+        alert("Título do Ticket: " + ticketTitulo + 
+                "\nID do Ticket: " + ticketID);
+//        $.ajax({
+//            url: "/usuario/login",
+//            method: "post",
+//            data: {
+//                ticket: ticket,
+//                tituloTicket: ticketTitulo
+//            },
+//            success: function (data, textStatus, jqXHR) {
+//            },
+//            error: function (jqXHR, textStatus, errorThrown) {
+//
+//            }
+//        });
 
         //window.location.replace("teste");
 

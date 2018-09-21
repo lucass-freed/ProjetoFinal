@@ -18,13 +18,13 @@
 
         <div class="input-search input-search-dark">
 
-            <div class="panel box shadow" style="padding: 20px"> 
+            <div class="panel" style="padding: 20px"> 
                 <div class="panel-heading">
                     <h3 class="panel-title">Consultar Ticket</h3>
                 </div>
                 <div class="panel-body">
                     <div class = "form-group">
-                        <select class="form-control" type='text' id='campo-ticket' name='ticket' required='required' onfocusout='validarCapoCategoria()'>
+                        <select class="form-control" type='text' id='campo-ticket' name='ticket' required='required'>
                             <option selected = 'selected' disabled='disable'></option>
                         </select>
                     </div>

@@ -1,5 +1,6 @@
 package br.com.projetofinal.web.regular;
 
+import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.TicketDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -25,8 +27,10 @@ public class TicketObterTodosParaSelect2 extends HttpServlet {
             resp.sendRedirect("/");
         }
         String termo = req.getParameter("term") == null ? "" : req.getParameter("term");
-
-        List<HashMap<String, String>> categorias = new TicketDAO().obterTodosParaSelect2(termo);
+        HttpSession sessao = req.getSession();
+        UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");
+        
+        List<HashMap<String, String>> categorias = new TicketDAO().obterTodosParaSelect2(usuario.getId(), termo);
         HashMap<String, Object> resultado = new HashMap<>();
         resultado.put("results", categorias);
         resp.setContentType("text/html;charset=UTF-8");

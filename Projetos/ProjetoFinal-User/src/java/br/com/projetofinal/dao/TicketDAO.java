@@ -321,12 +321,13 @@ public class TicketDAO {
         return 0;
     }
     
-    public List<HashMap<String, String>> obterTodosParaSelect2(String termo) {
+    public List<HashMap<String, String>> obterTodosParaSelect2(int id, String termo) {
         List<HashMap<String, String>> categorias = new ArrayList<HashMap<String, String>>();
-        String sql = "SELECT * FROM tickets WHERE titulo LIKE ? ORDER BY titulo";
+        String sql = "SELECT * FROM tickets WHERE id_usuario = ? AND titulo LIKE ? ORDER BY titulo";
         try {
             PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
-            ps.setString(1, "%" + termo + "%");
+            ps.setInt(1, id);
+            ps.setString(2, "%" + termo + "%");
             ps.execute();
             ResultSet resultSet = ps.getResultSet();
             while (resultSet.next()) {

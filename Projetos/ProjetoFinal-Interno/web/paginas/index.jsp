@@ -68,11 +68,11 @@
                 <hr>
                 <form method="post" onsubmit="validarLogin()">
                     <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="text" class="form-control" id="campo-usuario" value="thiago" name="usuario" required="required"/>
+                        <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
                         <label class="floating-label">Usuário</label>
                     </div>
                     <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="password" class="form-control" id="campo-senha" value="123" name="password" required="required"/>
+                        <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
                         <label class="floating-label">Senha</label>
                     </div>
                     <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
