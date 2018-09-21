@@ -6,6 +6,7 @@
 package br.com.projetofinal.web.empresa;
 
 import br.com.projetofinal.bean.EmpresaBean;
+import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.EmpresaDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -25,8 +26,13 @@ public class BuscaEmpresa extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        int id = Integer.parseInt(req.getParameter("id"));
-        EmpresaBean empresa = new EmpresaDAO().obterPeloID(id);
+        UsuarioBean usuario = (UsuarioBean) req.getSession().getAttribute("usuario");
+        
+        int id = usuario.getIdEmpresa();
+        EmpresaBean empresa = new EmpresaDAO().obterDadosEmpresa(id);
+
+        req.setAttribute("empresa", empresa);
+        req.setAttribute("title", "Cadastro Empresa");
         resp.setContentType("application/json");
         resp.getWriter().write(new Gson().toJson(empresa));
     }   

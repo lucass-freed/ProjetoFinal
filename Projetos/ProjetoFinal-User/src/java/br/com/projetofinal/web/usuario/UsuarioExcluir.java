@@ -20,6 +20,7 @@ public class UsuarioExcluir extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.getSession().getAttribute("usuario") == null){
             resp.sendRedirect("/");
+            return;
         }
         
         boolean apagou = new UsuarioDAO().apagar(Integer.parseInt(req.getParameter("id")));

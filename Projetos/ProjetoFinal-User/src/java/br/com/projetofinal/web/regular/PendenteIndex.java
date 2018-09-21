@@ -19,6 +19,7 @@ public class PendenteIndex extends HttpServlet {
             throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         req.setAttribute("title", "Perfil");
         

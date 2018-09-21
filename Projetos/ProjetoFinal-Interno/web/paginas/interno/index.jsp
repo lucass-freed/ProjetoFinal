@@ -4,7 +4,11 @@
 <%@page import="br.com.projetofinal.dao.TicketDAO"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
 <%@page import="java.util.List"%>
-<%@include file="/padroes/padrao-interno-regular/dashboard.jsp"%>
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
+<% } else { %>
+<%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
+<% } %>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
@@ -94,4 +98,8 @@
     </div>
 </div>
 
+<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
+<% } else { %>
 <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>
+<% }%>

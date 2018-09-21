@@ -29,4 +29,5 @@
                         </select>
                     </div>
                 </div>
-                <%@include file="/padrao-externo-regular/usuario/rodape.jsp"%>
+                
+ <%@include file="/padrao-externo-regular/usuario/rodape.jsp"%>

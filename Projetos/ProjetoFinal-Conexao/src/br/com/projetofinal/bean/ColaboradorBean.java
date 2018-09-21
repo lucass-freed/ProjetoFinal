@@ -28,6 +28,7 @@ public class ColaboradorBean {
     private Date dataAdmissao;
     private String ctps;
     private String pis;
+    private boolean master;
 
     public int getId() {
         return id;
@@ -188,7 +189,12 @@ public class ColaboradorBean {
     public void setPis(String pis) {
         this.pis = pis;
     }
-    
-    
 
+    public boolean isMaster() {
+        return master;
+    }
+
+    public void setMaster(boolean master) {
+        this.master = master;
+    }
 }

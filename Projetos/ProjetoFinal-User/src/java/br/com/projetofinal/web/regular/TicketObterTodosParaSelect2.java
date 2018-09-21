@@ -25,6 +25,7 @@ public class TicketObterTodosParaSelect2 extends HttpServlet {
             throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         String termo = req.getParameter("term") == null ? "" : req.getParameter("term");
         HttpSession sessao = req.getSession();

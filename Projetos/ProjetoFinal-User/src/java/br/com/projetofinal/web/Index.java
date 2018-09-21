@@ -17,9 +17,9 @@ public class Index extends HttpServlet {
 
         if (request.getSession().getAttribute("usuario") != null) {
             UsuarioBean usuario = (UsuarioBean) request.getSession().getAttribute("usuario");
-            if (usuario != null && usuario.isUsuarioMaster()) {
+            if (usuario != null && usuario.isMaster()) {
                 response.sendRedirect("/home-externo-master");
-            } else if (usuario != null && !usuario.isUsuarioMaster()) {
+            } else if (usuario != null && !usuario.isMaster()) {
                 response.sendRedirect("/home-externo-regular");
             }
         }
