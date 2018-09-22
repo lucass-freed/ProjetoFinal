@@ -56,12 +56,12 @@
                 </a>
                 <ul class="site-menu-sub">
                     <li class="site-menu-item has-sub">
-                        <a class="animsition-link" href="/paginas/colaboradores/cadastro/index.jsp">
+                        <a class="animsition-link" href="/interno/cadastro">
                             <span class="site-menu-title">Cadastrar</span>
                         </a>       
                     </li>
                     <li class="site-menu-item has-sub">
-                        <a class="animsition-link" href="/paginas/colaboradores/index.jsp">
+                        <a class="animsition-link" href="/interno/colaboradores">
                             <span class="site-menu-title">Consultar</span>
                         </a>       
                     </li>

@@ -1,3 +1,5 @@
+<%@page import="br.com.projetofinal.Util.NumberFormato"%>
+<%@page import="br.com.projetofinal.dao.TicketDAO"%>
 <div class="site-menubar">
     <div class="site-menubar-body">
         <div>
@@ -8,7 +10,13 @@
                         <a href="javascript:void(0)">
                             <i class="site-menu-icon wb-time" aria-hidden="true"></i>
                             <span class="site-menu-title">Atendimento</span>
+                            <% if (new TicketDAO().getQuantidadeTicketsPendentes() > 1) {%>
+                            <div class="site-menu-badge">
+                                <span class="badge badge-pill badge-danger"><%= new NumberFormato().f(new TicketDAO().getQuantidadeTicketsPendentes())%></span>
+                            </div>
+                            <% } else { %>
                             <span class="site-menu-arrow"></span>
+                            <% }%>
                         </a>
                         <ul class="site-menu-sub">
                             <li class="site-menu-item">
