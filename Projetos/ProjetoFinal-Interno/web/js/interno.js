@@ -43,13 +43,13 @@ $(function () {
             {"data": "criticidade",
                 "render": function (data, type, row) {
                     if (row.criticidade === 'Baixa') {
-                        return "<span class='badge badge-success font-size-14'>Baixa<span>";
+                        return "<span class='badge badge-success font-size-14'><i class='wb-sort-des'> Baixa<span>";
                     } else if (row.criticidade === 'Média') {
-                        return "<span class='badge badge-primary font-size-14'>Média<span>";
+                        return "<span class='badge badge-primary font-size-14'><i class='wb-stats-bars'></i> Média<span>";
                     } else if (row.criticidade === 'Alta') {
-                        return "<span class='badge badge-warning font-size-14'>Alta<span>";
+                        return "<span class='badge badge-warning font-size-14'><i class='wb-dashboard'></i> Alta<span>";
                     } else {
-                        return "<span class='badge badge-danger font-size-14'>Altíssima<span>";
+                        return "<span class='badge badge-danger font-size-14'><i class='wb-warning'></i> Altíssima<span>";
                     }
                 }
             },
@@ -57,17 +57,17 @@ $(function () {
                 "render": function (data, type, row) {
 
                     if (row.situacao === 'Aberto') {
-                        return "<span class='badge badge-danger font-size-14'>Aberto<span>";
+                        return "<span class='badge badge-danger font-size-14'><i class='wb-alert-circle'></i> Pendente<span>";
                     } else if (row.situacao === 'Em Andamento') {
-                        return "<span class='badge badge-primary font-size-14'>Em Andamento<span>";
+                        return "<span class='badge badge-primary font-size-14'><i class='wb-minus-circle'></i> Em Andamento<span>";
                     } else {
-                        return "<span class='badge badge-success font-size-14'>Concluído<span>";
+                        return "<span class='badge badge-success font-size-14'><i class='wb-check'></i> Concluído<span>";
                     }
                 }
             },
             {"data": null,
                 "render": function (data) {
-                    return "<a class='btn btn-info' href='/interno/ticket?id=" + data.id + "'><i class='icon wb-info-circle'></i> Consultar</a>";
+                    return "<a class='btn btn-info' href='/interno/ticket?id=" + data.id + "'><i class='wb-info-circle'></i> Consultar</a>";
                 }
             }
         ]

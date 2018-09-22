@@ -221,6 +221,11 @@ sistemaOperacional, versaoBanco, dataAbertura) VALUES
 ("3", 1, "Problema Top", "Média", "Em Andamento","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
 ;
 
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
+sistemaOperacional, versaoBanco, dataAbertura) VALUES 
+("3", 1, "Problema Top 2", "Alta", "Aberto","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
+;
+
 INSERT INTO ticket_tags (idTickets, idTags) values
 ("1", "4"),
 ("1", "5"),

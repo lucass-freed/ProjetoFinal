@@ -230,7 +230,8 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "c.uf, "
                     + "c.data_admissao, "
                     + "c.ctps, "
-                    + "c.pis "
+                    + "c.pis, "
+                    + "c.usuario_master"
                     + "\nFROM colaboradores c "
                     + "\nJOIN funcoes f ON(c.id_funcao = f.id)"
                     + "\nWHERE c.id = ?;";
@@ -260,6 +261,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     colaborador.setDataAdmissao(rs.getDate("data_admissao"));
                     colaborador.setCtps(rs.getString("ctps"));
                     colaborador.setPis(rs.getString("pis"));
+                    colaborador.setMaster(rs.getBoolean("usuario_master"));
                     colaborador.setFuncao(new FuncaoDAO().obterFuncaoPeloID(rs.getInt("id_funcao")));
                     return colaborador;
                 }
@@ -316,5 +318,25 @@ public class ColaboradorDAO extends SHA512Metodos {
             }
         }
         return null;
+    }
+    
+    public int getQuantidadeColaboradoresCadastrados() {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT COUNT(id) FROM colaboradores;";
+            try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                if (rs.next()) {
+                    return rs.getInt("COUNT(id)");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return 0;
     }
 }

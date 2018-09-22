@@ -3,7 +3,7 @@
     Created on : 26/08/2018, 16:00:28
     Author     : Lucas Rodrigo
 --%>
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
@@ -171,7 +171,7 @@
 <script src="/js/cadastro/cadastro.js"></script>
 <script src="/js/cadastro/mascara.js"></script>
 
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>

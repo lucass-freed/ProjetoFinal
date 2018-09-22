@@ -358,7 +358,7 @@ public class TicketDAO {
     public int getQuantidadeTicketsPendentes() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Pendente';";
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Aberto';";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);

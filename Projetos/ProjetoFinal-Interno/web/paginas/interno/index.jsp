@@ -4,11 +4,11 @@
 <%@page import="br.com.projetofinal.dao.TicketDAO"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
 <%@page import="java.util.List"%>
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
-<% } %>
+<% }%>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
@@ -37,7 +37,7 @@
                             <div class="counter text-left blue-grey-700">
                                 <div class="col-xxl-3">
                                     <button type="button" class="btn btn-floating btn-sm btn-primary">
-                                        <i class="icon wb-info"></i>
+                                        <i class="icon wb-minus-circle"></i>
                                     </button>
                                     <span class="ml-15 font-weight-700">TICKETS EM ANDAMENTO</span>
                                     <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new TicketDAO().getQuantidadeTicketsEmAndamento())%></div>
@@ -87,9 +87,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        
-                        
+
+
+
                     </tbody>
                 </table>
             </div>
@@ -98,7 +98,7 @@
     </div>
 </div>
 
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>

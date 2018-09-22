@@ -6,7 +6,7 @@
                     <li class="site-menu-category">Interno</li>
                     <li class="site-menu-item has-sub">
                         <a href="javascript:void(0)">
-                            <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                            <i class="site-menu-icon wb-time" aria-hidden="true"></i>
                             <span class="site-menu-title">Atendimento</span>
                             <span class="site-menu-arrow"></span>
                         </a>
@@ -25,7 +25,7 @@
                     </li>
                     <li class="site-menu-item has-sub">
                         <a href="javascript:void(0)">
-                            <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                            <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
                             <span class="site-menu-title">Empresas</span>
                             <span class="site-menu-arrow"></span>
                         </a>

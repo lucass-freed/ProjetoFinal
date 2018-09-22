@@ -38,7 +38,8 @@ public class UsuarioLogin extends HttpServlet {
             resultado.put("status", "falhou");
         } else {
             sessao.setAttribute("usuario", colaborador);
-
+            sessao.setAttribute("isMaster", String.valueOf(colaborador.isMaster()));
+            
             resultado.put("status", "sucesso");
             resultado.put("id", String.valueOf(colaborador.getId()));
             resultado.put("master", String.valueOf(colaborador.isMaster()));

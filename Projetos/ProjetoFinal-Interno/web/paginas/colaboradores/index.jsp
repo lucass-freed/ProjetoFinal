@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 22/09/2018, 01:47:50
+    Author     : Lucas Rodrigo Frederico
+--%>
+
+<%@page import="br.com.projetofinal.dao.ColaboradorDAO"%>
 <%@page import="br.com.projetofinal.dao.EmpresaDAO"%>
 <%@page import="br.com.projetofinal.Util.NumberFormato"%>
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
@@ -16,10 +23,10 @@
                             <div class="counter text-left blue-grey-700">
                                 <div class="col-xxl-3">
                                     <button type="button" class="btn btn-floating btn-sm btn-success">
-                                        <i class="icon wb-home"></i>
+                                        <i class="icon wb-users"></i>
                                     </button>
-                                    <span class="ml-15 font-weight-700">EMPRESAS CADASTRADAS</span>
-                                    <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new EmpresaDAO().getQuantidadeEmpresasCadastradas())%></div>
+                                    <span class="ml-15 font-weight-700">COLABORADORES CADASTRADAS</span>
+                                    <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new ColaboradorDAO().getQuantidadeColaboradoresCadastrados())%></div>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +39,7 @@
         <!-- Panel Tickets -->
         <div class="panel box-shadow">
             <div class="panel-heading">
-                <h3 class="panel-title">Lista de Empresas</h3>
+                <h3 class="panel-title">Lista de Colaboradores</h3>
             </div>
             <div class="panel-body">
                 <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-empresas">

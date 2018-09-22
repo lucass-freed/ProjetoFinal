@@ -39,8 +39,8 @@
     </head>
     <body class="animsition">
 
-        <%@include file="header.jsp" %> 
         <%@include file="sidebar.jsp" %>
+        <%@include file="header.jsp" %> 
 
         <!-- Page -->
         <div class="page">

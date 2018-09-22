@@ -3,7 +3,7 @@
     Created on : 27/08/2018, 08:29:23
     Author     : Michelle de Jesus Rogério
 --%>
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
@@ -44,7 +44,7 @@
         </div>
     </div>
 </div>
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>

@@ -7,7 +7,9 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.bean.EmpresaBean;
+import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
+import br.com.projetofinal.bean.TicketTagBean;
 import br.com.projetofinal.database.Conexao;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
@@ -343,5 +345,40 @@ public class TicketDAO {
         }
         return tickets;
 
+    }
+    
+    public List<TicketTagBean> obterTagsPorTicket(int idTt) {
+        Connection conexao = Conexao.getConnection();
+        List<TicketTagBean> ticketsTags = new ArrayList<TicketTagBean>();
+        if (conexao != null) {
+            String sql = "SELECT"
+                    + "\nticket_tags.idTags,"
+                    + "\ntags.titulo"
+                    + "\nFROM ticket_tags "
+                    + "\nJOIN tags ON (ticket_tags.idTags = tags.id)"
+                    + "\nWHERE ticket_tags.idTickets = ? ";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(1, idTt);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                while (rs.next()) {
+                    TicketTagBean ticketTag = new TicketTagBean();
+                    ticketTag.setIdTags(rs.getInt("ticket_tags.idTags"));
+                    TagBean tag = new TagBean();
+                    tag.setId(rs.getInt("ticket_tags.idTags"));
+                    tag.setTitulo(rs.getString("tags.titulo"));
+                    ticketTag.setTag(tag);
+                    ticketsTags.add(ticketTag);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+
+        }
+        return ticketsTags;
     }
 }

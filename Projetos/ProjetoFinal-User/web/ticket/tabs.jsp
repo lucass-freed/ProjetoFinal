@@ -3,6 +3,8 @@
     Created on : 30/08/2018, 09:15:02
     Author     : Matheus Ruan Werner
 --%>
+<%@page import="br.com.projetofinal.bean.TicketTagBean"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="nav-tabs-horizontal" data-plugin="tabs">
     <ul class="nav nav-tabs" role="tablist">
@@ -27,19 +29,19 @@
         <div class="example ticket-criticidade">
             <% if (ticket1.getCriticidade() == CriticidadeTypes.BAIXA) {%>
             <div>
-                <span class="badge badge-success">Baixa</span>  
+                <span class="badge badge-success font-size-14">Baixa</span>  
             </div>
             <% } else if (ticket1.getCriticidade() == CriticidadeTypes.MEDIA) {%>
             <div>
-                <span class="badge badge-primary">Média</span>
+                <span class="badge badge-primary font-size-14">Média</span>
             </div>
             <% } else if (ticket1.getCriticidade() == CriticidadeTypes.ALTA) {%>
             <div>
-                <span class="badge badge-warning">Alta</span>
+                <span class="badge badge-warning font-size-14">Alta</span>
             </div>
             <% } else { %>
-            (<div>
-                <span class="badge badge-danger">Altíssima</span>
+            <div>
+                <span class="badge badge-danger font-size-14">Altíssima</span>
             </div>
             <% }%>
             <h3 class="panel-title">Ticket # <%= ticket1.getId()%>
@@ -56,10 +58,10 @@
     <div class="example-wrap">
         <div class="tags" style="text-align: right;">
             <!--Implementar retorno tags-->
-            <span class="badge badge-outline badge-dark">ExemploTag</span>
-            <span class="badge badge-outline badge-dark">Banco de Dados</span>
-            <span class="badge badge-outline badge-dark">Rede e Internet</span>
-            <span class="badge badge-outline badge-dark">Periféricos</span>
+            <% List<TicketTagBean> ticketsTags = (List<TicketTagBean>) request.getAttribute("ticketsTags");%>
+            <% for (TicketTagBean ticketTag : ticketsTags) {%>
+            <span class="badge badge-outline badge-dark"><%= ticketTag.getTag().getTitulo()%></span>
+            <%}%>
         </div>
     </div>
 </div>

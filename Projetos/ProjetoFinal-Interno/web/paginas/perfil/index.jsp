@@ -4,7 +4,7 @@
     Author     : Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
@@ -168,7 +168,7 @@
     </div>
 </div>
 
-<% if (request.getAttribute("tipo").toString().equals("master")) { %>
+<% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/rodape.jsp"%>

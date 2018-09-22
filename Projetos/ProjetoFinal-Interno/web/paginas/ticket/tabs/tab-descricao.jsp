@@ -17,19 +17,19 @@
         <div class="example ticket-criticidade">
             <% if (ticket1.getCriticidade() == CriticidadeTypes.BAIXA) {%>
             <div>
-                <span class="badge badge-success">Baixa</span>  
+                <span class="badge badge-success font-size-14">Baixa</span>  
             </div>
             <% } else if (ticket1.getCriticidade() == CriticidadeTypes.MEDIA) {%>
             <div>
-                <span class="badge badge-primary">Média</span>
+                <span class="badge badge-primary font-size-14">Média</span>
             </div>
             <% } else if (ticket1.getCriticidade() == CriticidadeTypes.ALTA) {%>
             <div>
-                <span class="badge badge-warning">Alta</span>
+                <span class="badge badge-warning font-size-14">Alta</span>
             </div>
             <% } else { %>
             <div>
-                <span class="badge badge-danger">Altíssima</span>
+                <span class="badge badge-danger font-size-14">Altíssima</span>
             </div>
             <%}%>
             <h3 class="panel-title">Ticket # <%= ticket1.getId()%></h3>
