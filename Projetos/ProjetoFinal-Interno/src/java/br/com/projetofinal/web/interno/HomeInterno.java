@@ -18,6 +18,7 @@ public class HomeInterno extends HttpServlet {
             throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         
         List<TicketBean> tickets = new TicketDAO().listarTickets();

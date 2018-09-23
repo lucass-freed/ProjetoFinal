@@ -16,6 +16,7 @@ public class Index extends HttpServlet {
 
         if (request.getSession().getAttribute("usuario") != null) {
             response.sendRedirect("/interno");
+            return;
         }
 
         response.setContentType("text/html;charset=UTF-8");

@@ -23,6 +23,7 @@ public class Ticket extends HttpServlet {
             HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         int id = Integer.parseInt(req.getParameter("id"));
         TicketBean ticket = new TicketDAO().obterTicketPorID(id);

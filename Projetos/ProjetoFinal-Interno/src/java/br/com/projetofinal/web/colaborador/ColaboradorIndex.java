@@ -23,6 +23,7 @@ public class ColaboradorIndex extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         List<ColaboradorBean> colaboradores = new ColaboradorDAO().obterColaboradores();
         req.setAttribute("empresas", colaboradores);

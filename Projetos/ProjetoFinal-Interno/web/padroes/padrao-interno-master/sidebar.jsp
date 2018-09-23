@@ -37,12 +37,12 @@
                 </a>
                 <ul class="site-menu-sub">
                     <li class="site-menu-item">
-                        <a class="animsition-link" href="../layouts/menu-collapsed.jsp">
+                        <a class="animsition-link" href="/interno/empresa/cadastro">
                             <span class="site-menu-title">Cadastrar</span>
                         </a>
                     </li>
                     <li class="site-menu-item">
-                        <a class="animsition-link" href="../layouts/menu-collapsed.jsp">
+                        <a class="animsition-link" href="/interno/empresas">
                             <span class="site-menu-title">Consultar</span>
                         </a>
                     </li>

@@ -35,7 +35,7 @@ $('#form-change-password').on('submit', function (e) {
                     });
                 });
                 e.preventDefault();
-            } else if (password != password2.toString()) {
+            } else if (password !== password2.toString()) {
                 $(function () {
                     new PNotify({
                         title: 'Ocorreu um erro!',
@@ -53,10 +53,8 @@ $('#form-change-password').on('submit', function (e) {
         }
     });
 
-
     function isSenhaInvalida(senha) {
         if (senha.length < 8 || senha.length > 50 || isContainsLetterSenha(senha) === false) {
-
             return true;
         }
         return false;
@@ -65,9 +63,8 @@ $('#form-change-password').on('submit', function (e) {
     function isContainsLetterSenha(senha) {
         senha = senha.toLowerCase();
         var letras = "abcdefghyjklmnopqrstuvwxyz";
-
         for (i = 0; i < senha.length; i++) {
-            if (letras.indexOf(senha.charAt(i), 0) != -1) {
+            if (letras.indexOf(senha.charAt(i), 0) !== -1) {
                 return true;
             }
         }

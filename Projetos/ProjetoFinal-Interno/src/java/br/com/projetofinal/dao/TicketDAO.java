@@ -407,6 +407,59 @@ public class TicketDAO {
         }
         return tickets;
     }
+    
+    public List<HashMap<String, String>> obterTodosParaSelect2(String termo) {
+        List<HashMap<String, String>> tickets = new ArrayList<HashMap<String, String>>();
+        String sql = "SELECT * FROM tickets WHERE titulo LIKE ? ORDER BY titulo";
+        try {
+            PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+            ps.setString(1, "%" + termo + "%");
+            ps.execute();
+            ResultSet resultSet = ps.getResultSet();
+            while (resultSet.next()) {
+                HashMap<String, String> atual = new HashMap<>();
+                atual.put("id", String.valueOf(resultSet.getInt("id")));
+                atual.put("text", " [" + resultSet.getInt("id") + "] " + resultSet.getString("titulo"));
+                tickets.add(atual);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Conexao.closeConnection();
+        }
+        return tickets;
+
+    }
+    
+    public List<TicketBean> obterResultado(String pesquisa) {
+        pesquisa = '%' + pesquisa + '%';
+        Connection conexao = Conexao.getConnection();
+        List<TicketBean> tickets = new ArrayList<>();
+        if (conexao != null) {
+            String sql = "SELECT id, titulo, criticidade, situacao, descricao FROM tickets"
+                    + "\nWHERE titulo LIKE ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setString(1, pesquisa);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                while (rs.next()) {
+                    TicketBean ticket = new TicketBean();
+                    ticket.setId(rs.getInt("id"));
+                    ticket.setTitulo(rs.getString("titulo"));
+                    ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("criticidade")));
+                    ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("situacao")));
+                    ticket.setDescricao(rs.getString("descricao"));
+                    tickets.add(ticket);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return tickets;
+    }
  
    
     

@@ -1,5 +1,6 @@
 package br.com.projetofinal.dao;
 
+import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.Util.SHA512Metodos;
 import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.database.Conexao;
@@ -10,7 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -297,7 +301,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return null;
     }
-    
+
     public ColaboradorBean validarSenha(int id, String senha) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -319,7 +323,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         }
         return null;
     }
-    
+
     public int getQuantidadeColaboradoresCadastrados() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
@@ -338,5 +342,39 @@ public class ColaboradorDAO extends SHA512Metodos {
             }
         }
         return 0;
+    }
+
+    public List<HashMap<String, Object>> obterTodosParaDataTable() {
+        List<HashMap<String, Object>> colaboradores = new ArrayList<>();
+        String sql = "SELECT * FROM colaboradores";
+        if (Conexao.getConnection() != null) {
+            try {
+                Statement statement = Conexao.getConnection().createStatement();
+                statement.execute(sql);
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next()) {
+                    HashMap<String, Object> colaborador = new HashMap<>();
+                    colaborador.put("id", resultSet.getInt("id"));
+                    colaborador.put("usuario", resultSet.getString("usuario"));
+                    colaborador.put("nome", resultSet.getString("nome"));
+                    colaborador.put("cpf", resultSet.getString("cpf"));
+                    colaborador.put("funcao", new FuncaoDAO().obterFuncaoPeloID(resultSet.getInt("id_funcao")).getNome());
+                    colaborador.put("email", resultSet.getString("email"));
+                    colaborador.put("data_nascimento", DateFormatador.formatoBr(resultSet.getDate("data_nascimento")));
+                    colaborador.put("telefone", resultSet.getString("telefone"));
+                    if (resultSet.getBoolean("usuario_master") == true) {
+                        colaborador.put("tipo", "Master");
+                    } else {
+                        colaborador.put("tipo", "Normal");
+                    }
+                    colaboradores.add(colaborador);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TicketDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return colaboradores;
     }
 }

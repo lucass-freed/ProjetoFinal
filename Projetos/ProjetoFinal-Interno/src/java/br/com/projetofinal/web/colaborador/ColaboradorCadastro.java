@@ -18,6 +18,7 @@ public class ColaboradorCadastro extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
 
         resp.setContentType("text/html;charset=UTF-8");

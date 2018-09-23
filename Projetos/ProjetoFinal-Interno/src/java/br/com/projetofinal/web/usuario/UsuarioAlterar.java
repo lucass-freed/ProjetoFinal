@@ -18,6 +18,7 @@ public class UsuarioAlterar extends HttpServlet {
             throws ServletException, IOException {
         if (request.getSession().getAttribute("usuario") == null) {
             response.sendRedirect("/");
+            return;
         }
         try {
             ColaboradorBean colaborador = (ColaboradorBean) request.getSession().getAttribute("usuario");

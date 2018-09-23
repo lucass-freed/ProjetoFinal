@@ -42,17 +42,19 @@
                 <h3 class="panel-title">Lista de Colaboradores</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-empresas">
+                <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-colaboradores">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Nome Fantasia</th>
-                            <th scope="col">Razão Social</th>
-                            <th scope="col">CNPJ</th>
-                            <th scope="col">Inscrição Estadual</th>
+                            <th scope="col">Usuário</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Função</th>
                             <th scope="col">E-mail</th>
+                            <th scope="col">Data de Nascimento</th>
                             <th scope="col">Telefone</th>
-                            <th scope="col">Cidade</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Opção</th>
                         </tr>
                     </thead>
                     <tbody>

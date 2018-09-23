@@ -49,7 +49,7 @@ CREATE TABLE empresas (
     cep VARCHAR(50) NOT NULL,
     cidade VARCHAR(100) NOT NULL,
     uf VARCHAR(2) NOT NULL,
-    sistema VARCHAR(100) NOT NULL,
+    sistema VARCHAR(100),
     dataAtivacao DATE NOT NULL,
     dataExpiracao DATE NOT NULL,
     validadeCertificado DATE
