@@ -1,5 +1,8 @@
 package br.com.projetofinal.web.ticket.chamado;
 
+import br.com.projetofinal.bean.TicketBean;
+import br.com.projetofinal.bean.TicketTagBean;
+import br.com.projetofinal.web.ticket.Ticket;
 import java.io.IOException;
 import java.util.Arrays;
 import javax.servlet.ServletException;
@@ -21,7 +24,19 @@ public class ChamadoStore extends HttpServlet {
             resp.sendRedirect("/");
             return;
         }
+        
+        TicketBean ticket = new TicketBean();
+        // popular ticket com as info do form
+        // cadastrar ticket 
+        
         String[] tags = req.getParameterValues("tags[]");
+        for (String tag : tags) {
+            TicketTagBean ticketTagBean = new TicketTagBean();
+            ticketTagBean.setIdTags(Integer.parseInt(tag));
+            ticketTagBean.setIdTickets(ticket.getId());
+            new TicketTagDAO().inserir(ticketTagBean);
+        }
+        
         System.out.println(Arrays.toString(tags));
     }
 

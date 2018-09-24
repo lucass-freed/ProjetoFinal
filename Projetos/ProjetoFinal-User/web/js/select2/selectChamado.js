@@ -16,7 +16,7 @@ $(function () {
 
     $("#btn-cadastrar").on("click", function () {
         $.ajax({
-            url: "/cadastro",
+            url: "/externo/chamado/store",
             method: "post",
             data: {
                 tags: $("#tags").val()
