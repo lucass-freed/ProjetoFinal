@@ -26,9 +26,9 @@
                 <div class="card-block">
                     <div class="overlay-panel overlay-background">
                         <div class="avatar avatar-100" id="profile-container">
-                            <image id="profileImage" src="http://lorempixel.com/100/100" />
+                            <image id="profile" src="http://lorempixel.com/100/100" />
                         </div>
-                        <input id="imageUpload" type="file" 
+                        <input id="image" type="file" 
                          name="profile_photo" placeholder="Photo" required="" capture>
                     </div>
                 </div>
@@ -119,20 +119,22 @@
 </div>
                                                 
 <script>
-    $("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
+    $("#image").change(function(){
+        readURL(this);
+        //other uploading proccess [server side by ajax and form-data ]
+    });
 
-function fasterPreview( uploader ) {
-    if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#profile').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-}
-
-$("#imageUpload").change(function(){
-    fasterPreview( this );
-});
 </script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet("/externo/perfil")
+@WebServlet("/externo/usuario/perfil")
 public class UsuarioPerfil extends HttpServlet {
     
     @Override
