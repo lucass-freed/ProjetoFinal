@@ -81,7 +81,7 @@
                             <input type="checkbox" id="inputCheckbox" name="remember">
                             <label for="inputCheckbox">Lembrar senha</label>
                         </div>
-                        <a class="float-right" href="/forgot-password/index.jsp">Esqueceu a senha?</a>
+                        <a class="float-right" href="/paginas/password/forgot-password/index.jsp">Esqueceu a senha?</a>
                     </div>
                 </form>
             </div>

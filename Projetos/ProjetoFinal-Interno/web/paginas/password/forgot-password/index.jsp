@@ -61,7 +61,7 @@
                                 <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Insira o seu e-mail">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Redefinir senha</button>
+                                <button type="submit" class="btn btn-primary btn-block">Enviar e-mail</button>
                             </div>
                         </form>
                     </div>

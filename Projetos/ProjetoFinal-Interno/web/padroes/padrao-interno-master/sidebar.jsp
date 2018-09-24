@@ -5,7 +5,7 @@
         <ul class="site-menu" data-plugin="menu">
             <li class="site-menu-category">Interno</li>
             <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
+                <a href="">
                     <i class="site-menu-icon wb-time" aria-hidden="true"></i>
                     <span class="site-menu-title">Atendimento</span>
                     <% if (new TicketDAO().getQuantidadeTicketsPendentes() > 1) {%>
