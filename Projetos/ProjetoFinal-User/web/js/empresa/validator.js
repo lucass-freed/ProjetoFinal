@@ -132,62 +132,9 @@ $(function () {
 
         }
     });
-    $("#cadastro").on('submit', function (e) {
-        if ($("#cadastro").valid() === false) {
+    $("#alterar-empresa").on('submit', function (e) {
+        if ($("#alterar-empresa").valid() === false) {
             e.preventDefault();
         }
     });
 });
-$(function () {
-    $("#inputBasicCNPJ").on("focusout", function () {
-        processarCep();
-    });
-    function processarCep() {
-        var cnpj = $("#inputBasicCNPJ").val();
-        var i = 0;
-        while ((i = cnpj.indexOf(".", i)) !== -1) {
-            cnpj = cnpj.replace(".", "");
-        }
-        while ((i = cnpj.indexOf("/", i)) !== -1) {
-            cnpj = cnpj.replace("/", "");
-        }
-        while ((i = cnpj.indexOf("-", i)) !== -1) {
-            cnpj = cnpj.replace("-", "");
-        }
-        $cnpj = cnpj;
-
-        $.ajax({
-            url: "https://www.receitaws.com.br/v1/cnpj/" + $cnpj,
-            method: "get",
-            dataType: 'jsonp',
-            complete: function (xhr) {
-                response = xhr.responseJSON;
-                if (response.status === 'OK') {
-                    $("#inputBasicNomeFantasia").val(response.fantasia);
-                    $("#inputBasicEmail").val(response.email);
-                    $("#inputBasicPhone").val(response.telefone);
-                    $("#inputBasicLogradouro").val(response.logradouro);
-                    $("#inputBasicNumero").val(response.numero);
-                    $("#inputBasicComplemento").val(response.complemento);
-                    $("#inputBasicBairro").val(response.bairro);
-                    $("#inputBasicCEP").val(response.cep.replace(".", ""));
-                    $("#inputBasicCidade").val(response.municipio);
-                    $("#selectBasicUf").val(response.uf.toString().toLowerCase());
-                    $("#inputBasicDataAtivacao").val(response.abertura);
-                    validator.form();
-                }
-            }
-        });
-    }
-});
-
-$(document).ready(function () {
-    $("#inputBasicDataAtivacao").mask('00/00/0000');
-    $("#inputBasicDataExpiracao").mask('00/00/0000');
-    $("#inputBasicCNPJ").mask('00.000.000/0000-00');
-    $("#inputBasicCEP").mask('00000-000');
-    $("#inputBasicPhone").mask('(00) 0000-0000');
-    $("#inputBasicIE").mask('000.000.000.000');
-});
-
-
