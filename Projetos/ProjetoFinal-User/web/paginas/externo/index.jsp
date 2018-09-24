@@ -38,9 +38,9 @@
                         <div class="avatar avatar-100 mb-20">
                             <img src="/tema/global/portraits/1.jpg" alt="">
                         </div>
-                        <p class="font-size-20 blue-grey-700">Breno Bitencourt</p>
-                        <p class="blue-grey-400 mb-20">Web Designer</p>
-                        <a href="?=1"><button type="button" class="btn btn-primary px-40">Ir para o Perfil</button></a>
+                        <p class="font-size-20 blue-grey-700"><%= usuario.getNome() %></p>
+                        <p class="blue-grey-400 mb-20"><%= usuario.getFuncao() %></p>
+                        <a href="/externo/usuario/perfil"><button type="button" class="btn btn-primary px-40">Ir para o Perfil</button></a>
                     </div>
                 </div>
                 <!-- End Panel Web Designer -->

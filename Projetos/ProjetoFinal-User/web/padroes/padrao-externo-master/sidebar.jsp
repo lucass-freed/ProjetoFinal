@@ -73,7 +73,7 @@
                     <li class="site-menu-category">Externo</li>
                     <li class="site-menu-item has-sub">
                         <a href="/externo/empresa">
-                            <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                            <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
                             <span class="site-menu-title">Empresa</span>
                         </a>
                     </li>
