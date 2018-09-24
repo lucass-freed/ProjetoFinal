@@ -1,10 +1,6 @@
 <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
 
     <div class="navbar-header">
-        <a href="/externo">
-            <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
-            <span class="navbar-brand-text hidden-xs-down">FlowDesk</span>         
-        </a>
         <div class="navbar-brand navbar-brand-center">
             <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
             <span class="navbar-brand-text hidden-xs-down">FlowDesk</span>         
