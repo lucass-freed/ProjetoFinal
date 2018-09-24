@@ -16,6 +16,8 @@ public class TicketBean {
     private int idEmpresa;
     private int idColaborador;
     private int idSazonalidade;
+    private int idUsuario;
+
     private String titulo;
     private Date dataAbertura;
     private String sistemaOperacional;
@@ -27,6 +29,14 @@ public class TicketBean {
     private CriticidadeTypes criticidade;
     private EmpresaBean empresa;
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
     public CriticidadeTypes getCriticidade() {
         return criticidade;
     }
