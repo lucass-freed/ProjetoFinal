@@ -6,7 +6,7 @@
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div>
-            <a href="/interno" class="navbar-brand navbar-brand-center">
+            <a href="/externo" class="navbar-brand navbar-brand-center">
                 <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
                 <span class="navbar-brand-text hidden-xs-down"> FlowDesk</span>
             </a>
