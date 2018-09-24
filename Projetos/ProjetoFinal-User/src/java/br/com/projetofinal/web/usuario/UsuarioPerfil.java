@@ -1,5 +1,6 @@
 package br.com.projetofinal.web.usuario;
 
+import br.com.projetofinal.bean.UsuarioBean;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,9 +21,13 @@ public class UsuarioPerfil extends HttpServlet {
             resp.sendRedirect("/");
             return;
         }
+        
+        
+        UsuarioBean usuario = (UsuarioBean) req.getSession().getAttribute("usuario");
 
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Perfil");
+        req.setAttribute("usuario", usuario);
         req.getRequestDispatcher("/paginas/usuario/perfil/index.jsp").include(req, resp);
     }
 }

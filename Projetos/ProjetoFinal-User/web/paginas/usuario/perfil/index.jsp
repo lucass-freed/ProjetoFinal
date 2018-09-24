@@ -25,9 +25,11 @@
             <div class="card box-shadow text-center" style="height: 380px;">
                 <div class="card-block">
                     <div class="overlay-panel overlay-background">
-                        <div class="avatar avatar-100">
-                            <img src="/tema/global/portraits/7.jpg" alt="...">
+                        <div class="avatar avatar-100" id="profile-container">
+                            <image id="profileImage" src="http://lorempixel.com/100/100" />
                         </div>
+                        <input id="imageUpload" type="file" 
+                         name="profile_photo" placeholder="Photo" required="" capture>
                     </div>
                 </div>
                 <div class="p-30" style="height: 230px;">
@@ -115,6 +117,23 @@
         </div>
     </div>
 </div>
+                                                
+<script>
+    $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#imageUpload").change(function(){
+    fasterPreview( this );
+});
+</script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>
