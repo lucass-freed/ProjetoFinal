@@ -23,6 +23,6 @@ public class UsuarioPerfil extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Perfil");
-        req.getRequestDispatcher("/perfil/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/usuario/perfil/index.jsp").include(req, resp);
     }
 }
