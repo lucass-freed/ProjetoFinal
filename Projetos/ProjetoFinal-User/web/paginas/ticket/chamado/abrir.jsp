@@ -62,7 +62,6 @@
                         <div class="row">
                             <div class="col-xl-12 form-group">
                                 <label class="form-control-label" for="tags">Tags</label>
-
                                 <select class="from-control" name="tags[]" id="tags" multiple="multiple">
                                     <option selected = 'selected' disabled='disable'></option>
                                 </select>
