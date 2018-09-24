@@ -46,11 +46,12 @@
 <script src="/js/consulta.js"></script>
 <script src="/js/select2/selectChamado.js"></script>
 <script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/select2/select2.min.js"></script>
 <script src="/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/js/datatable/jquery.table2excel.min.js"></script>
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
-<script src="/js/select2/select2.min.js"></script>
+
 
 <script>
     (function (document, window, $) {

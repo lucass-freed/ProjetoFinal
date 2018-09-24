@@ -67,6 +67,7 @@
                                 </select>
                             </div>
                         </div>
+                        
                         <div class="row">
                             <div class="col-xl-12 form-group">
                                 <label class="form-control-label" for="descricao">Descrição</label>
