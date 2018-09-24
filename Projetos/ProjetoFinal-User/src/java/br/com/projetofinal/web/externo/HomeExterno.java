@@ -1,5 +1,7 @@
 package br.com.projetofinal.web.externo;
 
+import br.com.projetofinal.bean.UsuarioBean;
+import br.com.projetofinal.dao.UsuarioDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +23,11 @@ public class HomeExterno extends HttpServlet{
             return;
         }
         
+        UsuarioBean usuario = (UsuarioBean) req.getSession().getAttribute("usuario");
+
+        
         req.setAttribute("title", "Página inicial");
+        req.setAttribute("usuario", usuario);
         resp.setContentType("text/html;charset=UTF-8");
         req.getRequestDispatcher("/paginas/externo/index.jsp").include(req, resp);
     }

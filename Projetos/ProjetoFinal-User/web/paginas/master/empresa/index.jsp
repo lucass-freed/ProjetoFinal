@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <div class="example-wrap">
                     <% EmpresaBean empresa = (EmpresaBean) request.getAttribute("empresa");%>
-                    <div class="example">
+                    <div class="example" id="alterar-empresa">
                         <input type="hidden" id="inputBasicId" value="<%= empresa.getId() %>">
                         <div class="row">
                             <div class="col-md-12">
