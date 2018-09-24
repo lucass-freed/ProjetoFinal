@@ -25,25 +25,17 @@
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="../index.html">
+                                <a class="animsition-link" href="/interno/tickets/pesquisar">
                                     <span class="site-menu-title">Pesquisar Ticket</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="site-menu-item has-sub">
-                        <a href="javascript:void(0)">
+                        <a href="/interno/empresas">
                             <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
                             <span class="site-menu-title">Empresas</span>
-                            <span class="site-menu-arrow"></span>
                         </a>
-                        <ul class="site-menu-sub">
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="/empresa">
-                                    <span class="site-menu-title">Consultar</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>

@@ -39,7 +39,7 @@
                             <img src="/tema/global/portraits/1.jpg" alt="">
                         </div>
                         <p class="font-size-20 blue-grey-700"><%= usuario.getNome() %></p>
-                        <p class="blue-grey-400 mb-20"><%= usuario.getFuncao() %></p>
+                        <p class="blue-grey-400 mb-20"><%= usuario.getFuncao().getNome() %></p>
                         <a href="/externo/usuario/perfil"><button type="button" class="btn btn-primary px-40">Ir para o Perfil</button></a>
                     </div>
                 </div>

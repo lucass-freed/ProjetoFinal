@@ -25,11 +25,9 @@
             <div class="card box-shadow text-center" style="height: 380px;">
                 <div class="card-block">
                     <div class="overlay-panel overlay-background">
-                        <div class="avatar avatar-100" id="profile-container">
-                            <image id="profile" src="http://lorempixel.com/100/100" />
+                        <div class="avatar avatar-100">
+                            <img src="/tema/global/portraits/7.jpg" alt="...">
                         </div>
-                        <input id="image" type="file" 
-                         name="profile_photo" placeholder="Photo" required="" capture>
                     </div>
                 </div>
                 <div class="p-30" style="height: 230px;">
