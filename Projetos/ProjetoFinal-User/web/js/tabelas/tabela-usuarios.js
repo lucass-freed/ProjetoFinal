@@ -1,4 +1,5 @@
-var id;
+var idTable;
+var tipo;
 
 $(function () {
     var table = $("#tabela-usuarios").DataTable({
@@ -56,44 +57,45 @@ $(function () {
             },
             {"data": null,
                 "render": function (data) {
-                    return "<a class='btn btn-info' href='/usuario/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
+                    return "<a class='btn btn-info' href='javascript:verificarEditar()" + data.id + "'><i class='icon wb-edit'></i></a>  " +
                             "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
     });
-
+    
     $('#tabela-usuarios').on('click', 'tr', function () {
         var data = table.row(this).data();
-        id = data["id"];
-        $.ajax({
-            url: "/usuario/id",
-            method: "post",
-            data: null,
-            success: function (data, textStatus, jqXHR) {
-                var resultado = JSON.parse(data);
-                if (id != resultado)
-                    $('#idDaTabela').text(id);
-                else {
-                    $(function () {
-                    new PNotify({
-                        title: 'Ocorreu um erro!',
-                        text: 'Você não pode excluir o seu usuário.',
-                        type: 'error'
-                    });
-                });
-                }
-                    
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
-            }
-        });
+        idTable = data["id"];
+        tipo = data["tipo"];
     });
 
+    verificarEditar = (function () {
+        if (tipo === 'Master') {
+            $(function () {
+                new PNotify({
+                    title: 'Ocorreu um erro!',
+                    text: 'Você não pode alterar os dados deste usuário.',
+                    type: 'error'
+                });
+            });
+        } else {
+            window.location.replace("/usuario/editar?id=" + idTable);
+        }
+    });
 });
 
+
 excluir = function () {
-    window.location.replace("/usuario/excluir?id=" + id);
+    if (tipo === 'Master') {
+        $(function () {
+            new PNotify({
+                title: 'Ocorreu um erro!',
+                text: 'Você não pode excluir este usuário.',
+                type: 'error'
+            });
+        });
+    } else {
+        window.location.replace("/usuario/excluir?id=" + idTable);
+    }
 }

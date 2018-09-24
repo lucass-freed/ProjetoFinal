@@ -3,12 +3,7 @@ package br.com.projetofinal.web.empresa;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.EmpresaDAO;
-import br.com.projetofinal.dao.UsuarioDAO;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thiago
  */
-@WebServlet("/empresa-externo")
+@WebServlet("/externo/empresa")
 public class EmpresaIndex extends HttpServlet {
 
     @Override
@@ -38,7 +33,7 @@ public class EmpresaIndex extends HttpServlet {
         req.setAttribute("title", "Cadastro Empresa");
         
         resp.setContentType("text/html;charset=UTF-8");
-        req.getRequestDispatcher("/padrao-externo-master/empresa/empresa-index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/master/empresa/index.jsp").include(req, resp);
         
     }
 

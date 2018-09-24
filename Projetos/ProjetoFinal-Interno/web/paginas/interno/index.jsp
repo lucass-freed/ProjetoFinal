@@ -97,6 +97,8 @@
         <!-- End Panel Tickets -->
     </div>
 </div>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-home-tickets.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>

@@ -1,5 +1,8 @@
+var idTable;
+var tipo;
+
 $(function () {
-    $("#tabela-colaboradores").DataTable({
+    var table = $("#tabela-colaboradores").DataTable({
         "ajax": "/colaborador/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -54,11 +57,44 @@ $(function () {
                 }
             },
             {"data": null,
-                "render": function (data) {
-                    return "<a class='btn btn-info' href='/usuario/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
+                "render": function (data, type, row) {
+                    return "<a class='btn btn-info' href='javascript:verificarEditar()'><i class='icon wb-edit'></i></a>  " +
                             "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
     });
+    $('#tabela-colaboradores').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        idTable = data["id"];
+        tipo = data["tipo"];
+    });
+
+    verificarEditar = (function () {
+        if (tipo === 'Master') {
+            $(function () {
+                new PNotify({
+                    title: 'Ocorreu um erro!',
+                    text: 'Você não pode alterar os dados deste colaborador.',
+                    type: 'error'
+                });
+            });
+        } else {
+            window.location.replace("/colaborador/editar?id=" + idTable);
+        }
+    })
 });
+
+excluir = function () {
+    if (tipo === 'Master') {
+        $(function () {
+            new PNotify({
+                title: 'Ocorreu um erro!',
+                text: 'Você não pode excluir este colaborador.',
+                type: 'error'
+            });
+        });
+    } else {
+        window.location.replace("/colaborador/excluir?id=" + idTable);
+    }
+}

@@ -248,7 +248,7 @@ public class UsuarioDAO {
                     if (resultSet.getBoolean("usuario_master") == true) {
                         usuario.put("tipo", "Master");
                     } else {
-                        usuario.put("tipo", "Normal");
+                        usuario.put("tipo", "Regular");
                     }
                     usuarios.add(usuario);
                 }

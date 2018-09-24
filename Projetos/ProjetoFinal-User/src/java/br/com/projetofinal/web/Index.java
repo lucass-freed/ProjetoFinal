@@ -16,17 +16,13 @@ public class Index extends HttpServlet {
             throws ServletException, IOException {
 
         if (request.getSession().getAttribute("usuario") != null) {
-            UsuarioBean usuario = (UsuarioBean) request.getSession().getAttribute("usuario");
-            if (usuario != null && usuario.isMaster()) {
-                response.sendRedirect("/home-externo-master");
-            } else if (usuario != null && !usuario.isMaster()) {
-                response.sendRedirect("/home-externo-regular");
-            }
+            response.sendRedirect("/externo");
+            return;
         }
 
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("title", "Entrar");
-        request.getRequestDispatcher("/index.jsp").include(request, response);
+        request.getRequestDispatcher("/paginas/index.jsp").include(request, response);
     }
 
 }

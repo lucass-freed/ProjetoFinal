@@ -35,7 +35,7 @@ public class ColaboradorStore extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        colaborador.setNome(req.getParameter("inputNome") + " " + req.getParameter("inputSobrenome"));
+        colaborador.setNome(req.getParameter("inputNomeCompleto").trim());
         colaborador.setCpf(req.getParameter("inputCPF"));
         
         String dataNascimentoS = req.getParameter("inputDataNascimento").replace("/", "-");

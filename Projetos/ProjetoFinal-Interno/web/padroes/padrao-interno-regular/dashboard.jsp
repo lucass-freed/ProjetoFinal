@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="/css/site.min.css">
         <link rel="stylesheet" href="/css/datatable/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/css/datatable/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="/css/select2/select2.min.css">
+        <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">

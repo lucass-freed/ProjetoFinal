@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet("/index")
+@WebServlet("/interno/tickets/pesquisar")
 public class TicketPesquisar extends HttpServlet {
 
     @Override

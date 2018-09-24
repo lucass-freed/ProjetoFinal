@@ -19,16 +19,14 @@
     <div class="page-content">
         <% List<TicketBean> tickets = (List<TicketBean>) request.getAttribute("tickets");%>
         <!-- Panel -->
-
         <div class="input-search input-search-dark">
-
-            <div class="panel" style="padding: 20px"> 
+            <div class="panel box-shadow" style="padding: 20px"> 
                 <div class="panel-heading">
                     <h3 class="panel-title">Consultar Ticket</h3>
                 </div>
                 <div class="panel-body">
                     <div class = "form-group">
-                        <select class="form-control" type='text' id='campo-ticket' name='ticket' required='required'>
+                        <select class="form-control" type="text" id="pesquisar-ticket" name="ticket" required="required">
                             <option selected = 'selected' disabled='disable'></option>
                         </select>
                     </div>
@@ -37,7 +35,6 @@
         </div>
     </div>
 </div>
-<script src="/js/select/pesquisar-ticket.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>

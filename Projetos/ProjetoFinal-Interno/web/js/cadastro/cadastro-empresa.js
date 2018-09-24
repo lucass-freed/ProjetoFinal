@@ -34,7 +34,7 @@ $(function () {
             },
             inputIE: {
                 required: true,
-                maxlength: 30
+                minlength: 15
             },
             inputNumero: {
                 required: true,
@@ -96,7 +96,7 @@ $(function () {
             },
             inputIE: {
                 required: "Este campo é obrigatório",
-                maxlength: "Inscrição Estadual deve conter no máximo {0} caracteres."
+                minlength: "Inscrição Estadual inválida."
             },
             inputNumero: {
                 required: "Este campo é obrigatório",
@@ -187,4 +187,5 @@ $(document).ready(function () {
     $("#inputBasicCNPJ").mask('00.000.000/0000-00');
     $("#inputBasicCEP").mask('00000-000');
     $("#inputBasicPhone").mask('(00) 0000-0000');
+    $("#inputBasicIE").mask('000.000.000.000');
 });

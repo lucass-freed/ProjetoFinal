@@ -4,6 +4,7 @@
     Author     : Michelle de Jesus Rogério
 --%>
 
+<%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.projetofinal.bean.EmpresaBean"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
@@ -38,12 +39,12 @@
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="storeDataAtivacao">Data de Ativação</label>
                 <input type="text" class="form-control" id="storeDataAtivacao" name="storeDataAtivacao"
-                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getDataAtivacao()%>"/>
+                       disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket2.getEmpresa().getDataAtivacao())%>"/>
             </div>
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="storeDataExpiração">Data de Expiração</label>
                 <input type="text" class="form-control" id="storeDataExpiração" name="storeDataExpiração"
-                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getDataExpiracao()%>"/>
+                       disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket2.getEmpresa().getDataExpiracao())%>"/>
             </div>
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="storeValidadeCertificado">Validade do Certificado</label>

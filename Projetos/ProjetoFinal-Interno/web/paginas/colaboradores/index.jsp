@@ -11,7 +11,7 @@
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
 <%@include file="/padroes/padrao-interno-regular/dashboard.jsp" %>
-<% } %>
+<% }%>
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
@@ -58,9 +58,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        
-                        
+
+
+                        <!-- Modal -->
+                    <div class="modal fade" id="examplePositionSidebar" aria-hidden="true" aria-labelledby="examplePositionSidebar"
+                         role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-simple modal-sidebar modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title">Tem certeza?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Esta ação não poderá ser desfeita!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col-lg-12">
+                                        <a href="javascript:excluir();"><button type="button" class="btn btn-danger">Sim, excluir</button></a>
+                                        <button type="button" class="btn btn-default" aria-label="Fechar" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal -->
                     </tbody>
                 </table>
             </div>
@@ -68,6 +91,8 @@
         <!-- End Panel Tickets -->
     </div>
 </div>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-colaboradores.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>

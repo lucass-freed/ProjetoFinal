@@ -22,7 +22,6 @@ public class UsuarioExcluir extends HttpServlet{
             resp.sendRedirect("/");
             return;
         }
-        
         boolean apagou = new UsuarioDAO().apagar(Integer.parseInt(req.getParameter("id")));
         resp.sendRedirect("/usuario-master-externo");
 

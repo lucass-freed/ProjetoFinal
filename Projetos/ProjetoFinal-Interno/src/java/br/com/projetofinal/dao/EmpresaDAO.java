@@ -114,8 +114,8 @@ public class EmpresaDAO {
                         + "sistema = ?, "
                         + "dataAtivacao = ?, "
                         + "dataExpiracao = ?, "
-                        + "validadeCertificado = ?"
-                        + "WHERE id = ?";
+                        + "validadeCertificado = ? "
+                        + "WHERE id = ?;";
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 int quantidade = 1;
                 ps.setString(quantidade++, empresa.getCnpj());

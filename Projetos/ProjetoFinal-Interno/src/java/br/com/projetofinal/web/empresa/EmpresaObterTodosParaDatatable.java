@@ -21,10 +21,10 @@ public class EmpresaObterTodosParaDatatable extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
         HashMap<String, Object> resultado = new HashMap<>();
         List<HashMap<String, Object>> registros = new EmpresaDAO().obterTodosParaDataTable();
         resultado.put("data", registros);
-        resp.setContentType("text/html;charset=UTF-8");
         resp.getWriter().print(new Gson().toJson(resultado));
     }
 

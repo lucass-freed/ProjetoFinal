@@ -1,5 +1,8 @@
+var idTable;
+var tipo;
+
 $(function () {
-    $("#tabela-empresas").DataTable({
+    var table = $("#tabela-empresas").DataTable({
         "ajax": "/empresas/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -43,7 +46,22 @@ $(function () {
             {"data": "inscricaoEstadual"},
             {"data": "email"},
             {"data": "telefone"},
-            {"data": "cidade"}
+            {"data": "cidade"},
+            {"data": null,
+                "render": function (data, type, row) {
+                    return "<a class='btn btn-info' href='/empresa/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
+                            "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
+                }
+            }
         ]
     });
+    $('#tabela-empresas').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        idTable = data["id"];
+    });
+
 });
+
+excluirEmpresa = function () {
+    window.location.replace("/empresa/excluir?id=" + idTable);
+}

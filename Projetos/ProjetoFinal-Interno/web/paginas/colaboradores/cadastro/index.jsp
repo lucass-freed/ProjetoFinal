@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label class="form-control-label" for="inputBasicSenha">Senha</label>
-                    <input type="text" class="form-control" id="inputBasicSenha" name="inputSenha"
+                    <input type="password" class="form-control" id="inputBasicSenha" name="inputSenha"
                            placeholder="Senha" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
@@ -69,15 +69,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicNome">Nome</label>
-                    <input type="text" class="form-control" id="inputBasicNome" name="inputNome"
-                           placeholder="Nome" autocomplete="off"/>
-                </div>
-                <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicSobrenome">Sobrenome</label>
-                    <input type="text" class="form-control" id="inputBasicSobrenome" name="inputSobrenome"
-                           placeholder="Sobrenome" autocomplete="off"/>
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="inputBasicNomeCompleto">Nome</label>
+                    <input type="text" class="form-control" id="inputBasicNomeCompleto" name="inputNomeCompleto"
+                           placeholder="Nome Completo" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
                     <label class="form-control-label" for="inputBasicCEP">CEP</label>
@@ -180,7 +175,7 @@
 <script>
     Breakpoints();
 </script>
-<script src="/js/cadastro/cadastro.js"></script>
+<script src="/js/cadastro/cadastro-colaborador.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-interno-master/rodape.jsp"%>

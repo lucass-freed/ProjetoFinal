@@ -419,7 +419,7 @@ public class TicketDAO {
             while (resultSet.next()) {
                 HashMap<String, String> atual = new HashMap<>();
                 atual.put("id", String.valueOf(resultSet.getInt("id")));
-                atual.put("text", " [" + resultSet.getInt("id") + "] " + resultSet.getString("titulo"));
+                atual.put("text", "[" + resultSet.getInt("id") + "] " + resultSet.getString("titulo"));
                 tickets.add(atual);
             }
         } catch (SQLException e) {
@@ -428,7 +428,6 @@ public class TicketDAO {
             Conexao.closeConnection();
         }
         return tickets;
-
     }
     
     public List<TicketBean> obterResultado(String pesquisa) {

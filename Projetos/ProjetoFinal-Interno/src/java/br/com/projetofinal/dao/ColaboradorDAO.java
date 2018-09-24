@@ -98,7 +98,7 @@ public class ColaboradorDAO extends SHA512Metodos {
         return false;
     }
 
-    public boolean alterar(ColaboradorBean colaborador) throws NoSuchAlgorithmException {
+    public boolean alterar(ColaboradorBean colaborador) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "UPDATE colaboradores SET "
@@ -126,7 +126,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                 int quantidade = 1;
                 ps.setInt(quantidade++, colaborador.getIdFuncao());
                 ps.setString(quantidade++, colaborador.getUsuario());
-                ps.setString(quantidade++, new SHA512Metodos().criptografarSenha(colaborador.getSenha()).toUpperCase());
+                ps.setString(quantidade++, colaborador.getSenha());
                 ps.setString(quantidade++, colaborador.getNome());
                 ps.setString(quantidade++, colaborador.getCpf());
                 ps.setDate(quantidade++, colaborador.getDataNascimento());
@@ -365,7 +365,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     if (resultSet.getBoolean("usuario_master") == true) {
                         colaborador.put("tipo", "Master");
                     } else {
-                        colaborador.put("tipo", "Normal");
+                        colaborador.put("tipo", "Regular");
                     }
                     colaboradores.add(colaborador);
                 }

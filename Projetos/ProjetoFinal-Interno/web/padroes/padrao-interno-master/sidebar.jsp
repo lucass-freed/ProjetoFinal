@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="site-menu-item">
-                        <a class="animsition-link" href="../index.jsp">
+                        <a class="animsition-link" href="/interno/tickets/pesquisar">
                             <span class="site-menu-title">Pesquisar Ticket</span>
                         </a>
                     </li>

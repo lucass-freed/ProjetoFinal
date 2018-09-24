@@ -13,12 +13,7 @@ function validarLogin() {
         success: function (data, textStatus, jqXHR) {
             var resultado = JSON.parse(data);
             if (resultado.status === 'sucesso') {
-                if(resultado.master === 'false'){
-                    window.location.replace("/home-externo-regular")
-                }else{
-                    window.location.replace("/home-externo-master");
-                }
-                
+                window.location.replace("/externo");
             } else {
                 $(function () {
                     new PNotify({
@@ -28,9 +23,6 @@ function validarLogin() {
                     });
                 });
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-
         }
     });
 }
