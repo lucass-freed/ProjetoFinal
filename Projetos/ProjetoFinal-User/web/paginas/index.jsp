@@ -31,7 +31,6 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="/tema/global/fonts/web-icons/web-icons.min.css">
         <link rel="stylesheet" href="/tema/global/fonts/brand-icons/brand-icons.min.css">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
         <!-- Scripts -->
         <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
@@ -50,18 +49,9 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
-                            <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
-                                                            <h2>First Slide Label</h2>
-                                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                                        </div>-->
                         </div>
                         <div class="carousel-item">
                             <img class="w-full" src="/tema/assets//images/fundo2.jpeg" alt="..." />
-                            <!--                            <div class="carousel-caption" style="text-align: left; padding-bottom: 25em">
-                                                            <h3>Second Slide Label</h3>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                                elit.</p>
-                                                        </div>-->
                         </div>
                     </div>
                 </div>
@@ -90,11 +80,6 @@
                             <label for="inputCheckbox">Lembrar senha</label>
                         </div>
                         <a class="float-right" href="/interno/esquecer-senha">Esqueceu a senha?</a>
-                    </div>
-                    <div class="form-group text-center">
-                        <div id="botao-logar">
-                            <button type="button" class="btn btn-icon social-google-plus"><i class="icon bd-google-plus" aria-hidden="true"></i></button>
-                        </div>
                     </div>
                 </form>
             </div>

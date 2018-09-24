@@ -33,7 +33,6 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="/tema/global/fonts/web-icons/web-icons.min.css">
         <link rel="stylesheet" href="/tema/global/fonts/brand-icons/brand-icons.min.css">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
         <!-- Scripts -->
         <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
@@ -84,11 +83,6 @@
                         </div>
                         <a class="float-right" href="/forgot-password/index.jsp">Esqueceu a senha?</a>
                     </div>
-                    <div class="form-group text-center">
-                        <div id="botao-logar">
-                            <button type="button" class="btn btn-icon social-google-plus"><i class="icon bd-google-plus" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
@@ -129,11 +123,7 @@
         <script src="/tema/global/js/config/colors.js"></script>
         <script src="/tema/assets/js/config/tour.js"></script>
         <script>Config.set('assets', '/tema/assets');</script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-        <script src="https://apis.google.com/js/api:client.js"></script>
-
+        
         <!-- Page -->
         <script src="/tema/assets/js/Site.js"></script>
         <script src="/tema/global/js/Plugin/asscrollable.js"></script>
