@@ -32,7 +32,7 @@ public class ChamadoConsulta extends HttpServlet {
         req.setAttribute("title", "Consultar Chamados");
         
         resp.setContentType("text/html;charset=UTF-8");
-        req.getRequestDispatcher("/padrao-externo-regular/consulta/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/ticket/consulta/index.jsp").include(req, resp);
     }
 
 }

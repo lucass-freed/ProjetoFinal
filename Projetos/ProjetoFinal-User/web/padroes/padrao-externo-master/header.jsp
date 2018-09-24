@@ -2,10 +2,8 @@
 
     <div class="navbar-header">
         <div class="navbar-brand navbar-brand-center">
-            <a href="/externo">
-                <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
-                <span class="navbar-brand-text hidden-xs-down">FlowDesk</span>         
-            </a>
+            <img class="navbar-brand-logo" src="/tema/assets/images/logo.png" title="FlowDesk">
+            <span class="navbar-brand-text hidden-xs-down">FlowDesk</span>         
         </div>
     </div>
 
