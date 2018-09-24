@@ -41,11 +41,16 @@
 <script src="/tema/global/js/Plugin/slidepanel.js"></script>
 <script src="/tema/global/js/Plugin/switchery.js"></script>
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
-<script src="/js/interno.js"></script>
 <script src="/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/js/datatable/jquery.table2excel.min.js"></script>
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
+<script src="/js/cadastro/jquery.validate.js"></script>
+<script src="/js/cadastro/jquery.validate.min.js"></script>
+<script src="/js/cadastro/jquery.mask.js"></script>
+<script src="/js/cadastro/jquery.mask.min.js"></script>
+<script src="/js/cadastro/additional-methods.js"></script>
+<script src="/js/cadastro/additional-methods.min.js"></script>
 
 
 <script>
