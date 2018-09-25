@@ -33,8 +33,6 @@ public class ChamadoStore extends HttpServlet {
         TicketBean ticket = new TicketBean();
         ticket.setId(Integer.parseInt(req.getParameter("id")));
         ticket.setIdEmpresa(Integer.parseInt(req.getParameter("idEmpresa")));
-        ticket.setIdColaborador(Integer.parseInt(req.getParameter("id_colaborador")));
-        ticket.setIdSazonalidade(Integer.parseInt(req.getParameter("id_ticket_sazonalidade")));
         ticket.setIdUsuario(Integer.parseInt(req.getParameter("id_usuario")));
         ticket.setTitulo(req.getParameter("titulo"));
         ticket.setCriticidade(CriticidadeTypes.valueOf(req.getParameter("criticidade")));
@@ -46,9 +44,9 @@ public class ChamadoStore extends HttpServlet {
         
         int codigo = new TicketDAO().inserir(ticket);
         
-        if(codigo > 0){
+        /*if(codigo > 0){
             resp.sendRedirect("/externo/chamado");
-        }
+        }*/
         
         
         // popular ticket com as info do form
@@ -57,8 +55,8 @@ public class ChamadoStore extends HttpServlet {
         String[] tags = req.getParameterValues("tags[]");
         for (String tag : tags) {
             TicketTagBean ticketTagBean = new TicketTagBean();
-            ticketTagBean.setIdTags(Integer.parseInt(tag));
             ticketTagBean.setIdTickets(ticket.getId());
+            ticketTagBean.setIdTags(Integer.parseInt(tag));
             new TicketTagDAO().inserir(ticketTagBean);
         }
         
