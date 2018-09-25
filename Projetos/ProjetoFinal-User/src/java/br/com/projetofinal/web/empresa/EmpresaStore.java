@@ -36,7 +36,7 @@ public class EmpresaStore extends HttpServlet {
         int codigo = new EmpresaDAO().inserir(empresa);
         
         if(codigo > 0){
-            resp.sendRedirect("/externo/empresa");
+            resp.sendRedirect("/externo");
         }
     }
 }

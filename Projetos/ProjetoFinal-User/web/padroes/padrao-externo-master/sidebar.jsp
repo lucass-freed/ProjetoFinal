@@ -96,8 +96,13 @@
                                 </a>
                             </li>
                             <li class="site-menu-item">
+                                <a class="animsition-link" href="/externo/chamado/pendentes">
+                                    <span class="site-menu-title">Chamados Pendentes</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
                                 <a class="animsition-link" href="/externo/chamado/consultar">
-                                    <span class="site-menu-title">Consultar Chamado</span>
+                                    <span class="site-menu-title">Consultar</span>
                                 </a>
                             </li>
                         </ul>

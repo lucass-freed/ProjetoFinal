@@ -1,7 +1,7 @@
 var validator;
 
 $(function () {
-    validator = $("#alterar-empresa").validate({
+    validator = $("").validate({
         errorClass: "text-danger border-danger",
         errorElementClass: 'text-danger border-danger',
         validElementClass: 'text-success border-success',
