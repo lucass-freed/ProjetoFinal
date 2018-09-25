@@ -1,0 +1,11 @@
+
+.select2-container .select2-selection--multiple{
+   
+    width: 560px;
+    
+}
+
+*, ::after, ::before{
+    box-sizing: border-box;
+    z-index: 10000;
+}
