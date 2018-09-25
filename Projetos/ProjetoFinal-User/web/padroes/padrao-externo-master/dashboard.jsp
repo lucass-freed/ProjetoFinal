@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="/tema/assets/css/site.min.css">
         <link rel="stylesheet" href="/tema/assets/examples/css/tables/basic.min.css?v4.0.2">
         <link rel="stylesheet" href="/css/datatable/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="/css/chamado.css">
         <link rel="stylesheet" href="/css/datatable/dataTables.bootstrap4.min.css">
         <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
         <link href="/css/select2/select2.min.css" rel="stylesheet"/>
