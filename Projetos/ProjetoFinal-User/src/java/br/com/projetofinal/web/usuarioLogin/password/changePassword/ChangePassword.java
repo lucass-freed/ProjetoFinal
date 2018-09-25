@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,26 +22,11 @@ public class ChangePassword extends HttpServlet {
             throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
-        HttpSession sessao = req.getSession();
-        String senha = req.getParameter("senha");
-        UsuarioBean u = (UsuarioBean) sessao.getAttribute("usuario");
-        UsuarioBean usuario = new UsuarioDAO().validarLoginSenha(u.getUsuario(), senha);
-        HashMap<String, String> resultado = new HashMap<>();
-
-        if (usuario == null) {
-            sessao.removeAttribute("usuario");
-            resultado.put("status", "falhou");
-        } else {
-            sessao.setAttribute("usuario", usuario);
-
-            resultado.put("status", "sucesso");
-            resultado.put("id", String.valueOf(usuario.getId()));
-        }
-
         resp.setContentType("text/html;charset=UTF-8");
         req.setAttribute("title", "Mudar Senha");
-        req.getRequestDispatcher("/paginas/password/change-password/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/usuario/password/change-password/index.jsp").include(req, resp);
     }
 
 }

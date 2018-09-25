@@ -1,7 +1,7 @@
-package br.com.projetofinal.web.usuario;
+package br.com.projetofinal.web.usuarioLogin;
 
 import br.com.projetofinal.Util.SHA512Metodos;
-import br.com.projetofinal.bean.ColaboradorBean;
+import br.com.projetofinal.bean.UsuarioBean;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,15 +25,15 @@ public class UsuarioChangePassword extends HttpServlet {
             e.printStackTrace();
         }
         HttpSession sessao = request.getSession();
-        ColaboradorBean colaborador = (ColaboradorBean) sessao.getAttribute("usuario");
+        UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");
 
         HashMap<String, String> resultado = new HashMap<>();
 
-        if (!colaborador.getSenha().equalsIgnoreCase(senha)) {
+        if (!usuario.getSenha().equalsIgnoreCase(senha)) {
             resultado.put("status", "falhou");
         } else {
             resultado.put("status", "sucesso");
-            resultado.put("id", String.valueOf(colaborador.getId()));
+            resultado.put("id", String.valueOf(usuario.getId()));
         }
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().write(new Gson().toJson(resultado));

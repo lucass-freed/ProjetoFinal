@@ -1,9 +1,10 @@
+<%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
 <%@page import="javax.servlet.http.HttpServletRequest;"%>
 <%@page import="javax.servlet.http.HttpServletResponse;"%>
 <%@page import="javax.servlet.http.HttpSession;"%>
 <% HttpSession sessao = request.getSession();%>
-<% ColaboradorBean colaborador = (ColaboradorBean) sessao.getAttribute("usuario");%>
+<% UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");%>
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
     <head>
@@ -56,7 +57,7 @@
                             <h2 class="brand-text font-size-22">FlowDesk</h2>
                             <h4>Alteração de Senha</h4>
                         </div>
-                        <form method="post" role="form">
+                        <form action="/usuario/update" method="post" id="form-change-password">
                             <div class="form-group">
                                 <input type="password" class="form-control" id="inputOldPassword" name="oldPassword" placeholder="Senha Atual" required="true"/>
                             </div>
@@ -67,7 +68,7 @@
                                 <input type="password" class="form-control" id="inputPassword2" name="password2" placeholder="Confirme a Nova Senha" required="true"/>
                             </div>
                             <div class="form-group">
-                                <button onclick="validarLogin();" type="submit" class="btn btn-primary btn-block">Salvar nova Senha</button>
+                                <button type="submit" class="btn btn-primary btn-block">Salvar nova Senha</button>
                             </div>
                         </form>
                     </div>
@@ -97,7 +98,6 @@
             <script src="/tema/global/js/Plugin.js"></script>
             <script src="/tema/global/js/Base.js"></script>
             <script src="/tema/global/js/Config.js"></script>
-            <script src="/js/change-password.js"></script>
 
             <script src="/tema/assets/js/Section/Menubar.js"></script>
             <script src="/tema/assets/js/Section/GridMenu.js"></script>
@@ -114,6 +114,8 @@
             <script src="/tema/global/js/Plugin/asscrollable.js"></script>
             <script src="/tema/global/js/Plugin/slidepanel.js"></script>
             <script src="/tema/global/js/Plugin/switchery.js"></script>
+            <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
+            <script src="/js/change-password.js"></script>
 
             <script>
             (function (document, window, $) {
