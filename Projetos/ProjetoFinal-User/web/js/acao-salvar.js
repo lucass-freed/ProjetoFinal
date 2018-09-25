@@ -1,6 +1,6 @@
 $("#botao-salvar").on("click", function () {
     $.ajax({
-        url: "/empresa-externo/buscaempresa",
+        url: "/externo/empresa/editar",
         method: "post",
         data: {
             "cnpj": $("#inputBasicCNPJ").val(),
@@ -19,7 +19,7 @@ $("#botao-salvar").on("click", function () {
             "uf": $("selectBasicUf").val(),
         },
         success: function (result) {
-
+            
 
         }
     });

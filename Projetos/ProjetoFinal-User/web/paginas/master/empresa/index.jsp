@@ -22,8 +22,9 @@
         <div class="row row-lg">
             <div class="col-md-12">
                 <div class="example-wrap">
+                    <form action="/externo/empresa/editar" method="post" id="alterar-empresa" >
                     <% EmpresaBean empresa = (EmpresaBean) request.getAttribute("empresa");%>
-                    <div class="example" id="alterar-empresa">
+                    <div class="example">
                         <input type="hidden" id="inputBasicId" value="<%= empresa.getId() %>">
                         <div class="row">
                             <div class="col-md-12">
@@ -130,12 +131,13 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao - cacelar.js">Cancelar</button>
-                                <button type="button" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
+                                <button type="button" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
+                                <button type="button" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar" onclick="acao-salvar.js">Salvar</button>
 
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -202,6 +204,7 @@
     });
 </script>
 <script src="/js/acao-cancelar.js"></script>
+<script src="/js/acao-salvar.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>

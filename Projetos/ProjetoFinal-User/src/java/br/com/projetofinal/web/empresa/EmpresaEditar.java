@@ -20,5 +20,6 @@ public class EmpresaEditar extends HttpServlet {
         EmpresaBean empresa = new EmpresaBean();
         empresa.setId(Integer.parseInt(req.getParameter("id")));
         empresa.setCnpj(req.getParameter("cnpj"));
+        empresa.setRazaoSocial(req.getParameter("razaoSocial"));
     }
 }
