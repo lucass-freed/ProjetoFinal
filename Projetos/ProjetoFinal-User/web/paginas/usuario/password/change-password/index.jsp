@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="/tema/global/vendor/intro-js/introjs.css">
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
+        <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/css/change-password.min.css">
 
 
@@ -98,6 +99,7 @@
             <script src="/tema/global/js/Plugin.js"></script>
             <script src="/tema/global/js/Base.js"></script>
             <script src="/tema/global/js/Config.js"></script>
+            <script src="/js/change-password.js"></script>
 
             <script src="/tema/assets/js/Section/Menubar.js"></script>
             <script src="/tema/assets/js/Section/GridMenu.js"></script>
@@ -115,7 +117,6 @@
             <script src="/tema/global/js/Plugin/slidepanel.js"></script>
             <script src="/tema/global/js/Plugin/switchery.js"></script>
             <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
-            <script src="/js/change-password.js"></script>
 
             <script>
             (function (document, window, $) {

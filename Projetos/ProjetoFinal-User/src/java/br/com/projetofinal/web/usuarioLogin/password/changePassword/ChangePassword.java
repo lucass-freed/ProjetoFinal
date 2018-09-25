@@ -1,9 +1,6 @@
 package br.com.projetofinal.web.usuarioLogin.password.changePassword;
 
-import br.com.projetofinal.bean.UsuarioBean;
-import br.com.projetofinal.dao.UsuarioDAO;
 import java.io.IOException;
-import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

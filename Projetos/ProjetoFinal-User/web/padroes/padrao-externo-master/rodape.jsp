@@ -62,7 +62,6 @@
 <script src="/js/cadastro/jquery.validate.min.js"></script>
 <script src="/js/cadastro/jquery.mask.js"></script>
 <script src="/js/cadastro/jquery.mask.min.js"></script>
-<script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
 <script src="/js/select2/selectChamado.js"></script>
 
 <script>

@@ -25,7 +25,7 @@ public class UsuarioAlterar extends HttpServlet {
             usuario.setSenha(new SHA512Metodos().criptografarSenha(request.getParameter("password")));
             boolean alterou = new UsuarioDAO().alterar(usuario);
 
-            response.sendRedirect("/externo/usuario/perfil");
+            response.sendRedirect("/usuario/logout");
         } catch (Exception e) {
             e.printStackTrace();
         }
