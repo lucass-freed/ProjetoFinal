@@ -54,9 +54,9 @@
                         </span>
                     </a>
                     <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Perfil</a>
+                        <a class="dropdown-item" href="/externo/usuario/perfil" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Perfil</a>
                         <div class="dropdown-divider" role="presentation"></div>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Sair</a>
+                        <a class="dropdown-item" href="/usuario/logout" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Sair</a>
                     </div>
                 </li>
                 </li>

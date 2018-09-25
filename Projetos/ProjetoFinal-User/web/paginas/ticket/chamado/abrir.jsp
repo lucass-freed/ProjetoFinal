@@ -18,6 +18,7 @@
 <%@page import="br.com.projetofinal.dao.TagsDAO"%>
 <% List<TagBean> tags = (List<TagBean>) request.getAttribute("tags");%>
 
+
 <div class="panel">
     <div class="panel-body container-fluid">
         <div class="page-content">
@@ -196,6 +197,8 @@
                 </button>
                 <h4 class="modal-title">Chamado Enviado com Sucesso</h4>
             </div>
+            
+            
 
             <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
             <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>
