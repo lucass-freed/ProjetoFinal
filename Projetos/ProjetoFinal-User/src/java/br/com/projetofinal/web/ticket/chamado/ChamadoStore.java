@@ -42,25 +42,25 @@ public class ChamadoStore extends HttpServlet {
         ticket.setVersaoBanco(req.getParameter("versaoBanco"));
         ticket.setDataAbertura(Date.valueOf(req.getParameter("data_ativacao")));
         
-        int codigo = new TicketDAO().inserir(ticket);
+        int codigo = 0;
         
-        /*if(codigo > 0){
-            resp.sendRedirect("/externo/chamado");
-        }*/
-        
-        
-        // popular ticket com as info do form
-        // cadastrar ticket 
-        
-        String[] tags = req.getParameterValues("tags[]");
-        for (String tag : tags) {
-            TicketTagBean ticketTagBean = new TicketTagBean();
-            ticketTagBean.setIdTickets(ticket.getId());
-            ticketTagBean.setIdTags(Integer.parseInt(tag));
-            new TicketTagDAO().inserir(ticketTagBean);
+        try{
+            codigo = new TicketDAO().inserir(ticket);
+        }catch(Exception e){
+            e.printStackTrace();
         }
         
-        System.out.println(Arrays.toString(tags));
+        if(codigo > 0){
+        
+            String[] tags = req.getParameterValues("tags[]");
+            for (String tag : tags) {
+                TicketTagBean ticketTagBean = new TicketTagBean();
+                ticketTagBean.setIdTickets(ticket.getId());
+                ticketTagBean.setIdTags(Integer.parseInt(tag));
+                new TicketTagDAO().inserir(ticketTagBean);
+            }
+            resp.sendRedirect("/externo/chamado");
+        }
+        
     }
-
 }
