@@ -1,11 +1,9 @@
-
-.select2-container .select2-selection--multiple{
-   
-    width: 560px;
-    
+.select2-container, .select2-selection--multiple{
+    width: 100% !important;
 }
 
-*, ::after, ::before{
-    box-sizing: border-box;
-    z-index: 10000;
+
+.select2-container {
+   box-sizing: border-box;
+   z-index: 10000 !important;
 }
