@@ -1,6 +1,6 @@
 $("#botao-salvar").on("click", function () {
     $.ajax({
-        url: "/externo/empresa/editar",
+        url: "/externo/empresa/store",
         method: "post",
         data: {
             "cnpj": $("#inputBasicCNPJ").val(),
@@ -19,7 +19,18 @@ $("#botao-salvar").on("click", function () {
             "uf": $("selectBasicUf").val(),
         },
         success: function (result) {
-            
+            $("#inputBasicCNPJ").val(result.cnpj);
+            $("#inputBasicRazaoSocial").val(result.razaoSocial);
+            $("#inputBasicNomeFantasia").val(result.nomeFantasia);
+            $("#inputBasicIE").val(result.inscricaoEstadual);
+            $("#inputBasicEmail").val(result.email);
+            $("#inputPhone").val(result.telefone);
+            $("#inputBasicLogradouro").val(result.logradouro);
+            $("#inputBasicNumero").val(result.numero);
+            $("#inputBasicComplemento").val(result.complemento);
+            $("#inputBasicBairro").val(result.bairro);
+            $("#inputBasicCEP").val(result.cep);
+            $("#inputBasicCidade").val(result.cidade);
 
         }
     });
