@@ -1,5 +1,6 @@
 package br.com.projetofinal.Util.email;
 
+
 /**
  *
  * @author lukin
@@ -7,7 +8,7 @@ package br.com.projetofinal.Util.email;
 public class teste {
 
     public static void main(String[] args) {
-        EmailPadroesAPI.alterarSenha("francisco.lucas.sens@gmail.com", "Francisco");
+//        EmailPadroesAPI.alterarSenha("lucassfreed@hotmail.com", "Lucas Rodrigo");
     }
 
 }

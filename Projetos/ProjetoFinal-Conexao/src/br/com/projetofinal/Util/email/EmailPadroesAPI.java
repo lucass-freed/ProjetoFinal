@@ -44,7 +44,7 @@ public class EmailPadroesAPI {
         texto.append("<tr>");
         texto.append("<td style='padding-bottom:20px'>");
         texto.append("<h2 style='margin:0; color:#262626; font-weight:700; font-size:20px; line-height:1.2'>");
-        texto.append("Olá, " + nome + "!</h2>");
+        texto.append("Olá, ").append(nome).append("!</h2>");
         texto.append("</td>");
         texto.append("</tr>");
         texto.append("<tr>");
@@ -56,9 +56,9 @@ public class EmailPadroesAPI {
         texto.append("<tr>");
         texto.append("<td style='padding-bottom:20px'>");
         texto.append("<p style='margin:0; color:#4C4C4C; font-weight:400; font-size:16px; line-height:1.25'>");
-        DateFormat df = new SimpleDateFormat("yyyy/MM/dd às HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date date = new Date();
-        texto.append("A sua senha foi alterada em " + df.format(date) + ".");
+        texto.append("A sua senha foi alterada em ").append(df.format(date).split(" ")[0]).append(" às ").append(df.format(date).split(" ")[1]).append(".");
         texto.append("</td>");
         texto.append("</tr>");
         texto.append("<tr>");

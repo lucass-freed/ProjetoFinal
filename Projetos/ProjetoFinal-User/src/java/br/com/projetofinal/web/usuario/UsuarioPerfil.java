@@ -21,8 +21,6 @@ public class UsuarioPerfil extends HttpServlet {
             resp.sendRedirect("/");
             return;
         }
-        
-        
         UsuarioBean usuario = (UsuarioBean) req.getSession().getAttribute("usuario");
 
         resp.setContentType("text/html;charset=UTF-8");

@@ -51,34 +51,37 @@
                         <h4 class="modal-title">Chamado</h4>
                     </div>
 
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label class="form-control-label" for="titulo">Título</label>
-                                <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título">
+                    <form action="/externo/chamado/abrir" method="post" id="chamado" autocomplete="off">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="form-control-label" for="titulo">Título</label>
+                                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-xl-12 form-group">
-                                <label class="form-control-label" for="tags">Tags</label>
-                                <select class="from-control" name="tags[]" id="tags" multiple="multiple">
-                                </select>
+                            <div class="row">
+                                <div class="col-xl-12 form-group">
+                                    <label class="form-control-label" for="tags">Tags</label>
+                                    <select class="from-control" name="tags[]" id="tags" multiple="multiple">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-12 form-group">
+                                    <label class="form-control-label" for="descricao">Descrição</label>
+                                    <textarea class="form-control" rows="5" name="descricao" id="descricao" placeholder="Insira uma Descrição"></textarea>
+                                </div> 
                             </div>
                         </div>
-                        
-                        <div class="row">
-                            <div class="col-xl-12 form-group">
-                                <label class="form-control-label" for="descricao">Descrição</label>
-                                <textarea class="form-control" rows="5" name="descricao" id="descricao" placeholder="Insira uma Descrição"></textarea>
-                            </div> 
+                        <div class="modal-footer">
+                            <div class="col-md-12 float-right text-center">
+                                <!--data-dismiss="modal" type="submit" data-target="#exampleModalSend"  data-toggle="modal"-->
+                                <button type="submit" class="btn btn-primary" id="btn-cadastrar">Enviar Chamado</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="col-md-12 float-right text-center">
-                            <button class="btn btn-primary" id="btn-cadastrar" data-dismiss="modal" type="submit" data-target="#exampleModalSend"  data-toggle="modal">Enviar Chamado</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -197,8 +200,8 @@
                 </button>
                 <h4 class="modal-title">Chamado Enviado com Sucesso</h4>
             </div>
-            
-            
+
+
 
             <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
             <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>

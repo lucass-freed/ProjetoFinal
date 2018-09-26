@@ -14,15 +14,6 @@ import javax.mail.internet.MimeMessage;
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class EnviarEmail {
-    
-    public static void main(String[] args) {
-        for(String textoAExecutar: args){
-            EmailPadroesAPI.alterarSenha(textoAExecutar, textoAExecutar);
-        }
-        for(String textoAExecutar: args){
-            EmailPadroesAPI.redefinirSenha(textoAExecutar, textoAExecutar, textoAExecutar);
-        }
-    }
 
     private String emailDestinatario;
 
@@ -59,15 +50,13 @@ public class EnviarEmail {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class",
-                "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
 
-        Session s = Session.getDefaultInstance(props,
-                new javax.mail.Authenticator() {
+        Session s = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-
                 return new PasswordAuthentication("contato.flowdesk@gmail.com", "flowdesk@123");//email e senha usuário 
             }
         });
@@ -83,6 +72,7 @@ public class EnviarEmail {
 
             //send message  
             Transport.send(message);
+            System.out.println("Mensagem enviada com sucesso!");
 
             retorno = true;
 

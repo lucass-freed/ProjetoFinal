@@ -50,6 +50,11 @@
 <script src="/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/js/datatable/jquery.table2excel.min.js"></script>
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="/js/cadastro/jquery.validate.js"></script>
+<script src="/js/cadastro/jquery.validate.min.js"></script>
+<script src="/js/cadastro/jquery.mask.js"></script>
+<script src="/js/cadastro/jquery.mask.min.js"></script>
+<script src="/js/chamado.js"></script>
 
 
 <script>

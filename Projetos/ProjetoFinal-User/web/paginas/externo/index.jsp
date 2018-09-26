@@ -4,6 +4,7 @@
     Author     : Matheus Ruan Werner
 --%>
 
+<%@page import="br.com.projetofinal.Util.NumberFormato"%>
 <%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@page import="br.com.projetofinal.dao.TicketDAO"%>
 <%@page import="javax.servlet.http.HttpSession"%>
@@ -59,7 +60,7 @@
                                     <div style="text-align: left" class="col-sm-4">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsConcluidosIDUsuario(usuario.getId());%></span>
+                                                <span class="counter-number"><% new NumberFormato().f(new TicketDAO().getQuantidadeTicketsConcluidosIDUsuario(usuario.getId()));%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Concluídos</div>
                                         </div>
@@ -67,7 +68,7 @@
                                     <div style="text-align: right" class="">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsEmAndamentoIDUsuario(usuario.getId());%></span>
+                                                <span class="counter-number"><% new NumberFormato().f(new TicketDAO().getQuantidadeTicketsEmAndamentoIDUsuario(usuario.getId()));%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Em Andamento</div>
                                         </div>
@@ -75,7 +76,7 @@
                                     <div style="text-align: top" class="col-sm-4">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsPendentesIDUsuario(usuario.getId());%></span>
+                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsPendentesIDUsuario(1);%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Pendentes</div>
                                         </div>

@@ -51,7 +51,6 @@
 <script src="/tema/global/js/Plugin/switchery.js"></script>
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
 <script src="/js/tabelas/tabela-usuarios.js"></script>
-<script src="/js/datatable/jquery.min.js"></script>
 <script src="/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/js/datatable/jquery.table2excel.min.js"></script>
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>

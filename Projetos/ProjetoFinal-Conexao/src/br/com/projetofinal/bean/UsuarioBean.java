@@ -21,6 +21,7 @@ public class UsuarioBean {
     private String telefone;
     private String email;
     private boolean master;
+    private byte[] imagemPerfil;
 
     public int getIdFuncao() {
         return idFuncao;

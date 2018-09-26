@@ -29,6 +29,7 @@ public class ColaboradorBean {
     private String ctps;
     private String pis;
     private boolean master;
+    private byte[] imagemPerfil;
 
     public int getId() {
         return id;

@@ -1,7 +1,6 @@
 package br.com.projetofinal.web.usuario;
 
 import br.com.projetofinal.Util.SHA512Metodos;
-import br.com.projetofinal.Util.email.EmailPadroesAPI;
 import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.dao.ColaboradorDAO;
 import java.io.IOException;
@@ -26,7 +25,9 @@ public class UsuarioAlterar extends HttpServlet {
             colaborador.setSenha(new SHA512Metodos().criptografarSenha(request.getParameter("password")));
             boolean alterou = new ColaboradorDAO().alterar(colaborador);
 
-            EmailPadroesAPI.alterarSenha(colaborador.getEmail(), colaborador.getNome());
+            /*if (alterou) {
+                EmailPadroesAPI.alterarSenha(colaborador.getEmail(), colaborador.getNome());
+            }*/
             response.sendRedirect("/usuario/logout");
 
         } catch (Exception e) {

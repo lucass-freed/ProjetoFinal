@@ -1,6 +1,5 @@
 package br.com.projetofinal.web.usuario;
 
-import br.com.projetofinal.bean.UsuarioBean;
 import br.com.projetofinal.dao.UsuarioDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,7 +22,7 @@ public class UsuarioExcluir extends HttpServlet{
             return;
         }
         boolean apagou = new UsuarioDAO().apagar(Integer.parseInt(req.getParameter("id")));
-        resp.sendRedirect("/usuario-master-externo");
+        resp.sendRedirect("/externo/usuarios");
 
     }
     
