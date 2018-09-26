@@ -76,7 +76,7 @@
                                     <div style="text-align: top" class="col-sm-4">
                                         <div class="counter counter-md">
                                             <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new TicketDAO().getQuantidadeTicketsPendentesIDUsuario(1);%></span>
+                                                <span class="counter-number"><% new NumberFormato().f(new TicketDAO().getQuantidadeTicketsPendentesIDUsuario(usuario.getId()));%></span>
                                             </div>
                                             <div class="counter-label blue-grey-400">Pendentes</div>
                                         </div>
