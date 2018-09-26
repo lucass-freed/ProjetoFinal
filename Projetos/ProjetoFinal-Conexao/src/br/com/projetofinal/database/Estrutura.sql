@@ -62,7 +62,7 @@ CREATE TABLE usuarios (
     usuario VARCHAR(100) NOT NULL,
     senha VARCHAR(150) NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(20) NOT NULL,
     data_nascimento DATE NOT NULL,
     telefone VARCHAR(20) NOT NULL,
     email VARCHAR(100) NOT NULL,

@@ -57,7 +57,7 @@ $(function () {
             },
             {"data": null,
                 "render": function (data) {
-                    return "<a class='btn btn-info' href='javascript:verificarEditar()" + data.id + "'><i class='icon wb-edit'></i></a>  " +
+                    return "<a class='btn btn-info' href='javascript:verificarEditar()'><i class='icon wb-edit'></i></a>  " +
                             "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
                 }
             }
@@ -80,7 +80,7 @@ $(function () {
                 });
             });
         } else {
-            window.location.replace("/usuario/editar?id=" + idTable);
+            window.location.replace("/externo/usuario/editar?id=" + idTable);
         }
     });
 });
@@ -96,6 +96,6 @@ excluir = function () {
             });
         });
     } else {
-        window.location.replace("/usuario/excluir?id=" + idTable);
+        window.location.replace("/externo/usuario/excluir?id=" + idTable);
     }
 }

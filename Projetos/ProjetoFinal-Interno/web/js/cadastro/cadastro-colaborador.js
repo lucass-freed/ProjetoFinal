@@ -30,8 +30,7 @@ $(function () {
             },
             inputCPF: {
                 required: true,
-                minlength: 14,
-                maxlength: 14
+                minlength: 14
             },
             inputDataNascimento: {
                 required: true,

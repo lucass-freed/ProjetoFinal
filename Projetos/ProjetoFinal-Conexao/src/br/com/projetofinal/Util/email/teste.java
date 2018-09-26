@@ -8,7 +8,7 @@ package br.com.projetofinal.Util.email;
 public class teste {
 
     public static void main(String[] args) {
-//        EmailPadroesAPI.alterarSenha("lucassfreed@hotmail.com", "Lucas Rodrigo");
+        EmailPadroesAPI.alterarSenha("lucassfreed@hotmail.com", "Lucas Rodrigo");
     }
 
 }

@@ -36,7 +36,7 @@ public class UsuarioDAO {
                 ps.setInt(quantidade++, usuario.getIdEmpresa());
                 ps.setInt(quantidade++, usuario.getIdFuncao());
                 ps.setString(quantidade++, usuario.getUsuario());
-                ps.setString(quantidade++, new br.com.projetofinal.Util.SHA512Metodos().criptografarSenha(usuario.getSenha()));
+                ps.setString(quantidade++, usuario.getSenha());
                 ps.setString(quantidade++, usuario.getNome());
                 ps.setString(quantidade++, usuario.getCpf());
                 ps.setDate(quantidade++, usuario.getDataNascimento());
@@ -192,7 +192,6 @@ public class UsuarioDAO {
                     funcao.setId(rs.getInt("u.id_funcao"));
                     funcao.setNome(rs.getString("f.nome"));
                     usuario.setFuncao(funcao);
-
                     return usuario;
                 }
             } catch (SQLException e) {

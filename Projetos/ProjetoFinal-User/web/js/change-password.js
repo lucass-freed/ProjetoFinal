@@ -1,3 +1,45 @@
+//$(function () {
+//    validator = $("#editar").validate({
+//        errorClass: "text-danger border-danger",
+//        errorElementClass: 'text-danger border-danger',
+//        validElementClass: 'text-success border-success',
+//        validClass: "text-success border-success",
+//        rules: {
+//            oldPassword: {
+//                required: true,
+//                minlength: 4,
+//                maxlength: 50
+//            },
+//            password: {
+//                required: true,
+//                minlength: 4,
+//                maxlength: 100
+//            },
+//            password2: {
+//                required: true,
+//                minlength: 14,
+//                maxlength: 14
+//            }
+//        },
+//        messages: {
+//            inputUsuario: {
+//                required: "Este campo é obrigatório.",
+//                minlength: "Usuário deve conter no mínimo {0} caracteres.",
+//                maxlength: "Usuário deve conter no máximo {0} caracteres."
+//            },
+//            inputNomeCompleto: {
+//                required: "Este campo é obrigatório.",
+//                minlength: "Nome deve conter no mínimo {0} caracteres.",
+//                maxlength: "Nome deve conter no máximo {0} caracteres."
+//            },
+//            inputCPF: {
+//                required: "Este campo é obrigatório.",
+//                minlength: "Insira um CPF válido.",
+//                maxlength: "Insira um CPF válido."
+//            }
+//        }
+//    });
+//});
 $('#form-change-password').on('submit', function (e) {
     debugger;
     var oldPassword = document.getElementById("inputOldPassword").value;
@@ -20,7 +62,6 @@ $('#form-change-password').on('submit', function (e) {
                         type: 'error'
                     });
                 });
-
                 e.preventDefault();
             } else if (isSenhaInvalida(password) === true) {
                 $(function () {
@@ -52,7 +93,6 @@ $('#form-change-password').on('submit', function (e) {
             e.preventDefault();
         }
     });
-
     function isSenhaInvalida(senha) {
         if (senha.length < 8 || senha.length > 50 || isContainsLetterSenha(senha) === false) {
             return true;
