@@ -25,7 +25,7 @@ public class FuncaoStore extends HttpServlet {
             resp.sendRedirect("/");
             return;
         }
-
+        resp.setContentType("text/html;charset=UTF-8");
         FuncaoBean funcao = new FuncaoBean();
         funcao.setNome(req.getParameter("inputNome"));
         funcao.setSetor(req.getParameter("inputSetor"));

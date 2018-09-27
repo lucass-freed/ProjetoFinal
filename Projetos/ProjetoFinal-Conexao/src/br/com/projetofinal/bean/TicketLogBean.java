@@ -1,22 +1,15 @@
 package br.com.projetofinal.bean;
 
+import java.sql.Timestamp;
+
 /**
  * @author Michelle de Jesus Rogério
  */
 public class TicketLogBean {
     
     private int id, idColaborador;
-    private String dataHoraMovto;
+    private Timestamp dataHoraMovto;
     private String observacao;
-
-    public int getIdColaborador() {
-        return idColaborador;
-    }
-
-    public void setIdColaborador(int idColaborador) {
-        this.idColaborador = idColaborador;
-    }
-
     
     public int getId() {
         return id;
@@ -26,11 +19,19 @@ public class TicketLogBean {
         this.id = id;
     }
 
-    public String getDataHoraMovto() {
+    public int getIdColaborador() {
+        return idColaborador;
+    }
+
+    public void setIdColaborador(int idColaborador) {
+        this.idColaborador = idColaborador;
+    }
+    
+    public Timestamp getDataHoraMovto() {
         return dataHoraMovto;
     }
 
-    public void setDataHoraMovto(String dataHoraMovto) {
+    public void setDataHoraMovto(Timestamp dataHoraMovto) {
         this.dataHoraMovto = dataHoraMovto;
     }
 

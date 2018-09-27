@@ -19,7 +19,7 @@
                 <div class="form-group col-md-6">
                     <label class="form-control-label" for="storeDataAbertura">Data de Abertura</label>
                     <input type="text" class="form-control" id="storeDataAbertura" name="storeDataAbertura"
-                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataAbertura())%>"/>
+                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.timesStampFormatoBr(ticket3.getDataAbertura())%>"/>
                 </div>
 
                 <% if (ticket3.getDataEncerramento() == null) {%>
@@ -39,7 +39,7 @@
                 <!---div class="form-group col-md-6">
                     <label class="form-control-label" for="storeColaborador">Concluído Por</label>
                     <input type="text" class="form-control" id="storeColaborador" name="storeColaborador"
-                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataAbertura())%>"/>
+                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.timesStampFormatoBr(ticket3.getDataAbertura())%>"/>
                 </div-->
                 <div class="form-group row col-md-6">
                     <p>Procedimento de Resolução<p>

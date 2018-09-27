@@ -1,5 +1,6 @@
-package br.com.projetofinal.web.usuarioLogin.password.changePassword;
+package br.com.projetofinal.web.ticket.movimentacoes;
 
+import br.com.projetofinal.dao.TicketDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +12,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet(urlPatterns = {"/externo/trocar-senha"})
-public class ChangePassword extends HttpServlet {
+@WebServlet("/interno/ticket/concluir")
+public class TicketConcluir extends HttpServlet {
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
             return;
         }
         resp.setContentType("text/html;charset=UTF-8");
-        req.setAttribute("title", "Mudar Senha");
-        req.getRequestDispatcher("/paginas/usuario/password/change-password/index.jsp").include(req, resp);
+        int id = Integer.parseInt(req.getParameter("id"));
+        boolean alterou = new TicketDAO().concluir(id);
+        resp.sendRedirect("/interno/ticket?id=" + id);
     }
-
 }

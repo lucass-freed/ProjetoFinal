@@ -42,11 +42,11 @@ $(function () {
             {"data": "dataEncerramento"},
             {"data": "criticidade",
                 "render": function (data, type, row) {
-                    if (row.criticidade === 'Baixa') {
+                    if (row.criticidade.toString().toLowerCase() === 'baixa') {
                         return "<span class='badge badge-success font-size-14'><i class='wb-sort-des'> Baixa<span>";
-                    } else if (row.criticidade === 'Média') {
+                    } else if (row.criticidade.toString().toLowerCase() === 'média') {
                         return "<span class='badge badge-primary font-size-14'><i class='wb-stats-bars'></i> Média<span>";
-                    } else if (row.criticidade === 'Alta') {
+                    } else if (row.criticidade.toString().toLowerCase() === 'alta') {
                         return "<span class='badge badge-warning font-size-14'><i class='wb-dashboard'></i> Alta<span>";
                     } else {
                         return "<span class='badge badge-danger font-size-14'><i class='wb-warning'></i> Altíssima<span>";
@@ -55,10 +55,9 @@ $(function () {
             },
             {"data": "situacao",
                 "render": function (data, type, row) {
-
-                    if (row.situacao === 'Aberto') {
+                    if (row.situacao.toString().toLowerCase() === 'aberto') {
                         return "<span class='badge badge-danger font-size-14'><i class='wb-alert-circle'></i> Pendente<span>";
-                    } else if (row.situacao === 'Em Andamento') {
+                    } else if (row.situacao.toString().toLowerCase() === 'em andamento') {
                         return "<span class='badge badge-primary font-size-14'><i class='wb-minus-circle'></i> Em Andamento<span>";
                     } else {
                         return "<span class='badge badge-success font-size-14'><i class='wb-check'></i> Concluído<span>";

@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS projeto_final_banco;
-CREATE DATABASE IF NOT EXISTS projeto_final_banco;
+CREATE DATABASE IF NOT EXISTS projeto_final_banco CHARACTER SET utf8 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT COLLATE utf8_general_ci;
 USE projeto_final_banco;
 
 CREATE TABLE funcoes (
@@ -101,12 +101,10 @@ CREATE TABLE tickets (
 	FOREIGN KEY (id_usuario) references usuarios(id),
     id_ticket_sazonalidade INT,
     FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
-    titulo VARCHAR (150),	
+    titulo VARCHAR (150) NOT NULL,	
     criticidade VARCHAR (50),
     situacao VARCHAR (100),
     descricao TEXT,
-    sistemaOperacional VARCHAR (50),
-    versaoBanco VARCHAR (10),
     dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     dataEncerramento DATE,
     procedimentoResolucao TEXT
@@ -207,24 +205,20 @@ INSERT INTO usuarios (id_empresa, id_funcao, usuario, senha, nome, cpf, data_nas
 (1, 1, 'lucas', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'Lucas Rodrigo', '15469532184', '1994-06-04', '(47) 997036820', 'lucassfreed@hotmail.com', true),
 (1, 1, 'gabriel', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
-INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura, dataEncerramento) VALUES 
-("2", 3, "Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor", "Win10", "9.4","2018-09-01", "2018-09-05")
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura, dataEncerramento) VALUES 
+("2", 3, "Probleminha", "Baixa", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor","2018-09-01", "2018-09-05")
 ;
 
-INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura) VALUES 
-("1", 2, "Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "Windows 7", "9.2", "2018-05-24")
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura) VALUES 
+("1", 2, "Problemão urgente", "Altíssima", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "2018-05-24")
 ;
 
-INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura) VALUES 
-("3", 1, "Problema Top", "Média", "Em Andamento","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura) VALUES 
+("3", 1, "Problema Top", "Média", "Em Andamento","Não consigo enviar mensagens pros meus clientes.", "2018-06-12")
 ;
 
-INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao,
-sistemaOperacional, versaoBanco, dataAbertura) VALUES 
-("3", 1, "Problema Top 2", "Alta", "Aberto","Não consigo enviar mensagens pros meus clientes.", "Windows 7", "9.4", "2018-06-12")
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura) VALUES 
+("3", 1, "Problema Top 2", "Alta", "Aberto","Não consigo enviar mensagens pros meus clientes.", "2018-06-12")
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values

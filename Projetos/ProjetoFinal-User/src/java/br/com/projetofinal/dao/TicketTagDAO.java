@@ -10,12 +10,12 @@ import java.sql.ResultSet;
  * @author Thiago
  */
 public class TicketTagDAO {
-    
-    public int inserir(TicketTagBean ticketTag){
+
+    public int inserir(TicketTagBean ticketTag) {
         Connection conexao = Conexao.getConnection();
-        if(conexao != null){
+        if (conexao != null) {
             String sql = "INSERT INTO ticket_tags (id_tickets, id_tags) VALUES (?, ?);";
-            try{
+            try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
                 ps.setInt(quantidade++, ticketTag.getIdTickets());
@@ -25,9 +25,9 @@ public class TicketTagDAO {
                 if (rs.next()) {
                     return rs.getInt(1);
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
-            }finally{
+            } finally {
                 Conexao.closeConnection();
             }
         }

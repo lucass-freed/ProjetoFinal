@@ -28,4 +28,6 @@
         <%@include file="tab-movimentacoes.jsp"%>
         <%@include file="tab-conclusao.jsp"%>
     </div>
+    <script src="/js/datatable/jquery.min.js"></script>
+    <script src="/js/tabelas/tabela-movimentacoes.js"></script>
 </div>

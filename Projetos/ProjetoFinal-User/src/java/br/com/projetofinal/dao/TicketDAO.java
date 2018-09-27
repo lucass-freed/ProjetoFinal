@@ -35,12 +35,10 @@ public class TicketDAO {
                     + "criticidade, "
                     + "situacao, "
                     + "descricao, "
-                    + "sistemaOperacional, "
-                    + "versaoBanco, "
                     + "dataAbertura, "
                     + "dataEncerramento, "
                     + "procedimentoResolucao"
-                    + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + ") VALUES(?,?,?,?,?,?,?,?,?,?,?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
@@ -52,9 +50,7 @@ public class TicketDAO {
                 ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
                 ps.setString(quantidade++, String.valueOf(ticket.getStatus()));
                 ps.setString(quantidade++, ticket.getDescricao());
-                ps.setString(quantidade++, ticket.getSistemaOperacional());
-                ps.setString(quantidade++, ticket.getVersaoBanco());
-                ps.setDate(quantidade++, ticket.getDataAbertura());
+                ps.setTimestamp(quantidade++, ticket.getDataAbertura());
                 ps.setDate(quantidade++, ticket.getDataEncerramento());
                 ps.setString(quantidade++, ticket.getProcedimentoResolucao());
                 ps.execute();
@@ -113,8 +109,6 @@ public class TicketDAO {
                     + "tck.situacao, "
                     + "tck.criticidade, "
                     + "tck.dataAbertura, "
-                    + "tck.sistemaOperacional, "
-                    + "tck.versaoBanco, "
                     + "tck.descricao, "
                     + "\ntck.dataEncerramento, "
                     + "\ntck.procedimentoResolucao,"
@@ -147,9 +141,7 @@ public class TicketDAO {
                     ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("tck.criticidade")));
                     ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("tck.situacao")));
                     ticket.setTitulo(rs.getString("tck.titulo"));
-                    ticket.setDataAbertura(rs.getDate("tck.dataAbertura"));
-                    ticket.setSistemaOperacional(rs.getString("tck.sistemaOperacional"));
-                    ticket.setVersaoBanco(rs.getString("tck.versaoBanco"));
+                    ticket.setDataAbertura(rs.getTimestamp("tck.dataAbertura"));
                     ticket.setDescricao(rs.getString("tck.descricao"));
                     ticket.setDataEncerramento(rs.getDate("tck.dataEncerramento"));
                     ticket.setProcedimentoResolucao(rs.getString("tck.procedimentoResolucao"));

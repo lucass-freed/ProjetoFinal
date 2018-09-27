@@ -75,14 +75,6 @@
                         <label class="floating-label">Senha</label>
                     </div>
                     <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
-                    </br>
-                    <div class="form-group clearfix">
-                        <div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg float-left">
-                            <input type="checkbox" id="inputCheckbox" name="remember">
-                            <label for="inputCheckbox">Lembrar senha</label>
-                        </div>
-                        <a class="float-right" href="/paginas/password/forgot-password/index.jsp">Esqueceu a senha?</a>
-                    </div>
                 </form>
             </div>
         </div>

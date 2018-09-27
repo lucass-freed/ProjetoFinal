@@ -28,7 +28,7 @@ public class TicketsLogDAO {
             String sql = "INSERT INTO tickets_log("
                     + "\nid, "
                     + "\nidColaborador"
-                    + "\nDataHoraMovto"
+                    + "\ndataHoraMvto"
                     + "\nobservacao"
                     + "\nVALUES (?,?,?,?)";
 
@@ -37,7 +37,7 @@ public class TicketsLogDAO {
                 int quantidade = 1;
                 ps.setInt(quantidade++, ticketLog.getId());
                 ps.setInt(quantidade++, ticketLog.getIdColaborador());
-                ps.setString(quantidade++, ticketLog.getDataHoraMovto());
+                ps.setTimestamp(quantidade++, ticketLog.getDataHoraMovto());
                 ps.setString(quantidade++, ticketLog.getObservacao());
                 ps.execute();
 
@@ -65,9 +65,9 @@ public class TicketsLogDAO {
                 while (resultSet.next()) {
                     HashMap<String, Object> ticketLog = new HashMap<>();
                     ticketLog.put("id", resultSet.getInt("id"));
-                    ticketLog.put("idColaborador", resultSet.getInt ("idColaborador"));
-                    ticketLog.put("dataHoraMovto", resultSet.getString("dataHoraMovto"));
-                    ticketLog.put("observacao", resultSet.getString("observacao"));
+                    ticketLog.put("movimentador", new ColaboradorDAO().obterColaboradorPorID(resultSet.getInt("idColaborador")).getNome());
+                    ticketLog.put("dataMovimentacao", resultSet.getTimestamp("dataHoraMvto"));
+                    ticketLog.put("obs", resultSet.getString("observacao"));
                     ticketsLog.add(ticketLog);
                 }
             } catch (SQLException ex) {

@@ -66,13 +66,6 @@
         </div>
     </div>
     <div>
-        <label class="form-control-label" for="storeSistemaOperacional">Sistema Operacional</label>
-        <input type="text" class="form-control" id="storeSistemaOperacional" name="storeSistemaOperacional"
-               disabled="disabled" autocomplete="off" value="<%= ticket2.getSistemaOperacional()%>"/>
-        <label class="form-control-label" for="storeVersaoBanco">Versão do Banco</label>
-        <input type="text" class="form-control" id="storeVersaoBanco" name="storeVersaoBanco"
-               disabled="disabled" autocomplete="off" value="<%= ticket2.getVersaoBanco()%>"/>
-
         <!--             <label class="form-control-label" for="storeSazonalidade">Telefone</label>
          <input type="text" class="form-control" id="storeSazonalidade" name="storeSazonalidade"
                 disabled="disabled" autocomplete="off" value="getSazonalidade"/> -->

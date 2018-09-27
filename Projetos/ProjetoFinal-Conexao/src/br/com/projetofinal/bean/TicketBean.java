@@ -3,6 +3,7 @@ package br.com.projetofinal.bean;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -19,9 +20,7 @@ public class TicketBean {
     private int idUsuario;
 
     private String titulo;
-    private Date dataAbertura;
-    private String sistemaOperacional;
-    private String versaoBanco;
+    private Timestamp dataAbertura;
     private String descricao;
     private Date dataEncerramento;
     private String procedimentoResolucao;
@@ -93,28 +92,12 @@ public class TicketBean {
         this.titulo = titulo;
     }
 
-    public Date getDataAbertura() {
+    public Timestamp getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(Date dataAbertura) {
+    public void setDataAbertura(Timestamp dataAbertura) {
         this.dataAbertura = dataAbertura;
-    }
-
-    public String getSistemaOperacional() {
-        return sistemaOperacional;
-    }
-
-    public void setSistemaOperacional(String sistemaOperacional) {
-        this.sistemaOperacional = sistemaOperacional;
-    }
-
-    public String getVersaoBanco() {
-        return versaoBanco;
-    }
-
-    public void setVersaoBanco(String versaoBanco) {
-        this.versaoBanco = versaoBanco;
     }
 
     public String getDescricao() {

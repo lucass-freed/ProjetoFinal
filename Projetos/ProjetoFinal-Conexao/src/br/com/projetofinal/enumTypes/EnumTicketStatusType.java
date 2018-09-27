@@ -7,7 +7,7 @@ package br.com.projetofinal.enumTypes;
 public enum EnumTicketStatusType {
 
     ABERTO("Aberto"),
-    EM_ANDAMENTO("Em Andmento"),
+    EM_ANDAMENTO("Em Andamento"),
     CONCLUIDO("Concluído");
 
     private final String descricao;

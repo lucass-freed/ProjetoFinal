@@ -6,6 +6,7 @@
 --%>
 
 
+<%@page import="br.com.projetofinal.bean.UsuarioBean"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
