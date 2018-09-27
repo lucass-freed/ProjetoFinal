@@ -18,7 +18,7 @@
 
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
-        <h2>Editar dados de Interno</h2>
+        <h2>Editar Colaborador</h2>
         <form action="/colaborador/alterar" method="post" id="editar" autocomplete="off">
             <div class="row">
                 <h4 class="example-title col-md-6">Informações Pessoais</h4>

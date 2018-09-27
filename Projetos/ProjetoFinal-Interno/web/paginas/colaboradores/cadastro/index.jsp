@@ -13,7 +13,7 @@
 
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
-        <h2>Cadastro Interno</h2>
+        <h2>Cadastrar Colaborador</h2>
         <form action="/interno/cadastro/store" method="post" id="cadastro" autocomplete="off">
             <div class="row">
                 <h4 class="example-title col-md-6">Informações Pessoais</h4>

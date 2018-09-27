@@ -61,7 +61,6 @@
 <script src="/js/pnotify.custom.min.js"></script>
 <script src="/js/select2/select2.min.js" type="text/javascript"></script>
 
-<script src="/tema/assets/examples/js/dashboard/v1.js"></script>
 
 <script src="/tema/global/js/Plugin/matchheight.js"></script>
 

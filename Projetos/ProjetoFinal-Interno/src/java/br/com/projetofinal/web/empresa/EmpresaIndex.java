@@ -21,6 +21,7 @@ public class EmpresaIndex extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
+            return;
         }
         List<EmpresaBean> empresas = new EmpresaDAO().obterTodos();
         req.setAttribute("empresas", empresas);

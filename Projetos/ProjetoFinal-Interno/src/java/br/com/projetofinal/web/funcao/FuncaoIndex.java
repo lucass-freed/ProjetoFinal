@@ -1,7 +1,7 @@
-package br.com.projetofinal.web.empresa;
+package br.com.projetofinal.web.funcao;
 
-import br.com.projetofinal.bean.EmpresaBean;
-import br.com.projetofinal.dao.EmpresaDAO;
+import br.com.projetofinal.bean.FuncaoBean;
+import br.com.projetofinal.dao.FuncaoDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
-@WebServlet("/interno/empresa/cadastro")
-public class EmpresaCadastro extends HttpServlet {
+@WebServlet("/interno/funcoes")
+public class FuncaoIndex extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,12 +23,12 @@ public class EmpresaCadastro extends HttpServlet {
             resp.sendRedirect("/");
             return;
         }
-        List<EmpresaBean> empresas = new EmpresaDAO().obterTodos();
-        req.setAttribute("empresas", empresas);
+        List<FuncaoBean> funcoes = new FuncaoDAO().obterFuncoes();
+        req.setAttribute("funcoes", funcoes);
         
         resp.setContentType("text/html;charset=UTF-8");
-        req.setAttribute("title", "Cadastrar Empresa");
+        req.setAttribute("title", "Funções");
         req.setAttribute("tipo", req.getParameter("tipo") == null ? "" : req.getParameter("tipo"));
-        req.getRequestDispatcher("/paginas/empresas/cadastro/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/paginas/funcoes/index.jsp").include(req, resp);
     }
 }

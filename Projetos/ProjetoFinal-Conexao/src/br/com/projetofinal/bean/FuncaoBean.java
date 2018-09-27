@@ -1,5 +1,7 @@
 package br.com.projetofinal.bean;
 
+import br.com.projetofinal.enumTypes.FuncaoType;
+
 /**
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
@@ -9,6 +11,7 @@ public class FuncaoBean {
     private int id;
     private String nome;
     private String setor;
+    private FuncaoType tipo;
     private String descricao;
 
     public int getId() {
@@ -35,6 +38,14 @@ public class FuncaoBean {
         this.setor = setor;
     }
 
+    public FuncaoType getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(FuncaoType tipo) {
+        this.tipo = tipo;
+    }
+    
     public String getDescricao() {
         return descricao;
     }
