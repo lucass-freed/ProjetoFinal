@@ -112,10 +112,8 @@ public class EmpresaDAO {
                         + "cep = ?, "
                         + "cidade = ?, "
                         + "uf = ?, "
-                        + "sistema = ?, "
                         + "dataAtivacao = ?, "
                         + "dataExpiracao = ?, "
-                        + "validadeCertificado = ? "
                         + "WHERE id = ?;";
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 int quantidade = 1;
@@ -132,10 +130,8 @@ public class EmpresaDAO {
                 ps.setString(quantidade++, empresa.getCep());
                 ps.setString(quantidade++, empresa.getCidade());
                 ps.setString(quantidade++, empresa.getUf());
-                ps.setString(quantidade++, empresa.getSistema());
                 ps.setDate(quantidade++, empresa.getDataAtivacao());
                 ps.setDate(quantidade++, empresa.getDataExpiracao());
-                ps.setDate(quantidade++, empresa.getValidadeCertificado());
                 ps.setInt(quantidade++, empresa.getId());
                 return ps.executeUpdate() == 1;
             } catch (SQLException e) {
