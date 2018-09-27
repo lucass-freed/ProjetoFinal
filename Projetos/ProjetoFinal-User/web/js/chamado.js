@@ -9,7 +9,7 @@ $(function () {
         rules: {
             titulo: {
                 required: true,
-                minlength: 5,
+                minlength: 15,
                 maxlength: 150
             },
             "tags[]": {
@@ -17,7 +17,7 @@ $(function () {
             },
             descricao: {
                 required: true,
-                minlength: 10,
+                minlength: 30,
                 maxlength: 250
             }
         },

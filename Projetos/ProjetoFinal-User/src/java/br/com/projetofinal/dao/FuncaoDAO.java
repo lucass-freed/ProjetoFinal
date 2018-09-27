@@ -2,6 +2,7 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.FuncaoBean;
 import br.com.projetofinal.database.Conexao;
+import br.com.projetofinal.enumTypes.FuncaoType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,12 +20,13 @@ public class FuncaoDAO {
     public int inserir(FuncaoBean funcao) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "INSERT INTO funcoes(nome, setor, descricao) VALUES(?,?,?);";
+            String sql = "INSERT INTO funcoes(nome, setor, tipo, descricao) VALUES(?,?,?,?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 ps.setString(1, funcao.getNome());
                 ps.setString(2, funcao.getSetor());
-                ps.setString(3, funcao.getDescricao());
+                ps.setString(3, String.valueOf(funcao.getTipo()));
+                ps.setString(4, funcao.getDescricao());
                 ps.execute();
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
@@ -63,13 +65,15 @@ public class FuncaoDAO {
                 String sql = "UPDATE funcoes SET "
                         + "nome = ?, "
                         + "setor = ?, "
+                        + "tipo = ?, "
                         + "descricao = ? "
                         + "WHERE id = ?";
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 ps.setString(1, funcao.getNome());
                 ps.setString(2, funcao.getSetor());
-                ps.setString(3, funcao.getDescricao());
-                ps.setInt(4, funcao.getId());
+                ps.setString(3, String.valueOf(funcao.getTipo()));
+                ps.setString(4, funcao.getDescricao());
+                ps.setInt(5, funcao.getId());
                 return ps.executeUpdate() == 1;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -84,7 +88,7 @@ public class FuncaoDAO {
         List<FuncaoBean> funcoes = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id, nome, setor, descricao FROM funcoes;";
+            String sql = "SELECT id, nome, setor, tipo, descricao FROM funcoes;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -94,6 +98,7 @@ public class FuncaoDAO {
                     funcao.setId(rs.getInt("id"));
                     funcao.setNome(rs.getString("nome"));
                     funcao.setSetor(rs.getString("setor"));
+                    funcao.setTipo(FuncaoType.getEnum(rs.getString("setor")));
                     funcao.setDescricao(rs.getString("descricao"));
                     funcoes.add(funcao);
                 }
@@ -120,6 +125,7 @@ public class FuncaoDAO {
                     funcao.setId(rs.getInt("id"));
                     funcao.setNome(rs.getString("nome"));
                     funcao.setSetor(rs.getString("setor"));
+                    funcao.setTipo(FuncaoType.getEnum(rs.getString("setor")));
                     funcao.setDescricao(rs.getString("descricao"));
                     return funcao;
                 }

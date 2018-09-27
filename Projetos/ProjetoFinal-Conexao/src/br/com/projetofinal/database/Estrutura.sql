@@ -6,6 +6,7 @@ CREATE TABLE funcoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     setor VARCHAR(100) NOT NULL,
+    tipo VARCHAR(7) NOT NULL,
     descricao TEXT
 );
 
@@ -188,8 +189,8 @@ INSERT INTO tags (titulo) values
 ("Cadastral");
 
 
-INSERT INTO funcoes (nome, setor) VALUES 
-("Estagiário", "Suporte");
+INSERT INTO funcoes (nome, setor, tipo) VALUES 
+("Estagiário", "Suporte", "Interna");
 
 
 INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 

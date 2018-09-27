@@ -1,15 +1,10 @@
 package br.com.projetofinal.web.empresa;
 
-import br.com.projetofinal.Util.DateFormatador;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.dao.EmpresaDAO;
 import java.io.IOException;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -16,7 +16,7 @@
 <!-- Page -->
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
-        <h2>Cadastro de Empresa</h2>
+        <h2>Cadastrar Empresa</h2>
         <hr>
         <form action="/interno/empresa/store" method="post" id="cadastro" autocomplete="off">
             <div class="row row-lg">

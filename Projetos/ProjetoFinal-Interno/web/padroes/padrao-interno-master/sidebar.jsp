@@ -69,6 +69,25 @@
             </li>
             <li class="site-menu-item has-sub">
                 <a href="javascript:void(0)">
+                    <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
+                    <span class="site-menu-title">Funções</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
+                <ul class="site-menu-sub">
+                    <li class="site-menu-item has-sub">
+                        <a class="animsition-link" href="/interno/funcoes/cadastro">
+                            <span class="site-menu-title">Adicionar nova Função</span>
+                        </a>       
+                    </li>
+                    <li class="site-menu-item has-sub">
+                        <a class="animsition-link" href="/interno/funcoes">
+                            <span class="site-menu-title">Consular Funções</span>
+                        </a>       
+                    </li>
+                </ul>
+            </li>
+            <li class="site-menu-item has-sub">
+                <a href="javascript:void(0)">
                     <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                     <span class="site-menu-title">Relatórios</span>
                     <span class="site-menu-arrow"></span>
