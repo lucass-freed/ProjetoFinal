@@ -51,7 +51,7 @@
                         <h4 class="modal-title">Chamado</h4>
                     </div>
 
-                    <form action="/externo/chamado/abrir" method="post" id="chamado" autocomplete="off">
+                    <form action="/externo/chamado/store" method="post" id="chamado" autocomplete="off">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-12">

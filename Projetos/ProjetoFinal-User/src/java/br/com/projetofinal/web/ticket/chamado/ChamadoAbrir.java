@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Alunos
+ * @author Matheus Ruan Werner  
  */
 @WebServlet("/externo/chamado")
 public class ChamadoAbrir extends HttpServlet {
@@ -24,8 +24,7 @@ public class ChamadoAbrir extends HttpServlet {
             resp.sendRedirect("/");
             return;
         }
-        //int id = Integer.parseInt(req.getParameter("id"));
-        //TicketBean ticket = new TicketDAO.inserir(id);
+    
         List<TagBean> tags = new TagsDAO().listarTags();
         req.setAttribute("tags", tags);        
 

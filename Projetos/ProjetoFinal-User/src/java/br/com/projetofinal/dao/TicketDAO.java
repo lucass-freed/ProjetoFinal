@@ -29,6 +29,7 @@ public class TicketDAO {
             String sql = "INSERT INTO tickets("
                     + "idEmpresa, "
                     + "id_colaborador, "
+                    + "id_usuario, "
                     + "id_ticket_sazonalidade, "
                     + "titulo, "
                     + "criticidade, "
@@ -39,12 +40,13 @@ public class TicketDAO {
                     + "dataAbertura, "
                     + "dataEncerramento, "
                     + "procedimentoResolucao"
-                    + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
                 ps.setInt(quantidade++, ticket.getIdEmpresa());
                 ps.setInt(quantidade++, ticket.getIdColaborador());
+                ps.setInt(quantidade++, ticket.getIdUsuario());
                 ps.setInt(quantidade++, ticket.getIdSazonalidade());
                 ps.setString(quantidade++, ticket.getTitulo());
                 ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
