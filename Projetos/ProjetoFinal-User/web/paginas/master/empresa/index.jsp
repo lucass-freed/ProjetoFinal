@@ -156,7 +156,7 @@
 <script src="/tema/global/vendor/formatter/jquery.formatter.js"></script>
 
 <script src="/tema/global/js/Plugin/formatter.js"></script>
-<!--<script src="/js/empresa/validator.js"></script>-->
+<script src="/js/empresa/validator.js"></script>
 
 
 <script>
