@@ -26,7 +26,7 @@ hr {
 .page-login-v2 {
     height: 100%;
     overflow-x: hidden; }
-.page-login-v2 {
+.page-login-v2:before {
     background-image: url("/tema/assets/images/fundo.jpg");
 }
 .page-login-v2.page-dark.layout-full:after {

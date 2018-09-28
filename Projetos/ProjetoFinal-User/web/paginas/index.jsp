@@ -38,28 +38,16 @@
             Breakpoints();
         </script>
     </head>
-    <body class="animsition page-login-v2 layout-full">
+    <body class="animsition page-login-v2 layout-full page-dark">
         <style>
 
         </style>
         <!-- Page -->
         <div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
-            <div id="div-fundo-login">
-                <div class="carousel slide" id="exampleCarouselCaptions" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-full" src="/tema/assets//images/fundo2.jpeg" alt="..." />
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="page-login-main animation-slide-right animation-duration-1">
                 <div class="brand text-center">
                     <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
-                    <h2 class="brand-text font-size-30">FlowDesk</h2>
+                    <h2 class="font-size-30" style="display: inline-block; padding: 5pt">FlowDesk</h2>
                 </div>
                 <h3 class="card-title mb-20 text-center">Login Externo</h3>
                 <hr>
