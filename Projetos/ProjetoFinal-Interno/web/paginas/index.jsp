@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">
-        <meta name="google-signin-client_id" content="460600231135-dlvff56etr329n2kdlrtbon4c4beb81t.apps.googleusercontent.com">
         <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
 
         <link rel="apple-touch-icon" href="/tema/assets/images/apple-touch-icon.png">
@@ -40,41 +39,43 @@
             Breakpoints();
         </script>
     </head>
-    <body class="animsition page-login-v2 layout-full">
+    <body class="animsition page-login-v2 layout-full page-dark">
         <style>
 
         </style>
         <!-- Page -->
         <div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
-            <div id="div-fundo-login">
-                <div class="carousel slide" id="exampleCarouselCaptions" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="w-full" src="/tema/assets//images/fundo.jpg" alt="..." />
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-full" src="/tema/assets//images/fundo2.jpg" alt="..." />
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="page-login-main animation-slide-right animation-duration-1 text-shadow">
                 <div class="brand text-center">
                     <img class="brand-img" src="/tema/assets//images/logo-colored@2x.png" alt="...">
-                    <h2 class="brand-text font-size-30">FlowDesk</h2>
+                    <h2 class="font-size-30" style="display: inline-block; padding: 5pt">FlowDesk</h2>
                 </div>
                 <h3 class="card-title mb-20 text-center">Login Interno</h3>
                 <hr>
                 <form method="post" onsubmit="validarLogin()">
-                    <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
-                        <label class="floating-label">Usuário</label>
+                    <div class="example-wrap">
+                        <div class="form-group">
+                            <div class="input-group input-group-icon">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-user" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required" placeholder="Usuário"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-icon">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-lock" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" id="campo-senha" name="password" required="required" placeholder="Senha"/>
+                            </div>
+                        </div>
+                        <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
                     </div>
-                    <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
-                        <label class="floating-label">Senha</label>
-                    </div>
-                    <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
                 </form>
             </div>
         </div>
@@ -115,7 +116,7 @@
         <script src="/tema/global/js/config/colors.js"></script>
         <script src="/tema/assets/js/config/tour.js"></script>
         <script>Config.set('assets', '/tema/assets');</script>
-        
+
         <!-- Page -->
         <script src="/tema/assets/js/Site.js"></script>
         <script src="/tema/global/js/Plugin/asscrollable.js"></script>

@@ -16,7 +16,7 @@
 <div class="row" data-plugin="matchHeight" data-by-row="true">
     <div class="col-xxl-3">
         <div class="row" data-plugin="matchHeight">
-            <div class="col-xxl-12 col-lg-4 col-sm-4">
+            <div class="col-xxl-12 col-lg-5 col-sm-4">
                 <div class="card card-shadow">
                     <div class="card-block p-30 box-shadow">
                         <div class="row">
@@ -35,14 +35,14 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-12 col-lg-10">
+    <div class="col-xxl-3">
         <!-- Panel Tickets -->
         <div class="panel box-shadow">
             <div class="panel-heading">
                 <h3 class="panel-title">Lista de Colaboradores</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-colaboradores">
+                <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="tabela-colaboradores">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">ID</th>

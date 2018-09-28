@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-12 col-lg-10">
+    <div class="col-xxl-3">
         <!-- Panel Tickets -->
         <div class="panel box-shadow">
             <div class="panel-heading">

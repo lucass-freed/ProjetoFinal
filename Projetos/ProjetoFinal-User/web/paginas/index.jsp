@@ -64,15 +64,29 @@
                 <h3 class="card-title mb-20 text-center">Login Externo</h3>
                 <hr>
                 <form method="post" onsubmit="validarLogin()">
-                    <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required"/>
-                        <label class="floating-label">Usuário</label>
+                   <div class="example-wrap">
+                        <div class="form-group">
+                            <div class="input-group input-group-icon">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-user" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="campo-usuario" name="usuario" required="required" placeholder="Usuário"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-icon">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-lock" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" id="campo-senha" name="password" required="required" placeholder="Senha"/>
+                            </div>
+                        </div>
+                        <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
                     </div>
-                    <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="password" class="form-control" id="campo-senha" name="password" required="required"/>
-                        <label class="floating-label">Senha</label>
-                    </div>
-                    <input class="btn btn-primary btn-block btn-lg mt-40" type="submit" value="Entrar" required="required">
                 </form>
             </div>
         </div>
