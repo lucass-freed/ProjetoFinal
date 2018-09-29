@@ -31,23 +31,18 @@
                 </div>
                 <%} else {%>
                 <div class="form-group col-md-6">
-                    <label class="form-control-label" for="storeDataConclusao">Data de Conclusão</label>
-                    <input type="text" class="form-control" id="storeDataConclusao" name="storeDataConclusao"
-                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataEncerramento())%>"/>
+                    <label class="form-control-label">Data de Conclusão</label>
+                    <input type="text" class="form-control" disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataEncerramento())%>"/>
                 </div>
 
-                <!---div class="form-group col-md-6">
-                    <label class="form-control-label" for="storeColaborador">Concluído Por</label>
-                    <input type="text" class="form-control" id="storeColaborador" name="storeColaborador"
-                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.timesStampFormatoBr(ticket3.getDataAbertura())%>"/>
-                </div-->
                 <div class="form-group row col-md-6">
-                    <p>Procedimento de Resolução<p>
+                    <label class="form-control-label">Procedimento de Resolução</label>
                     <div class="col-md-9">
-                        <textarea class="form-control" id="storeDataConclusao" name="storeDataConclusao" disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataEncerramento())%>"/>
-                        </textarea>
+                        <textarea class="form-control" disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataEncerramento())%>"/></textarea>
                     </div>
                 </div>
-
                 <%}%>
             </div>
+        </form>
+    </div>
+</div>

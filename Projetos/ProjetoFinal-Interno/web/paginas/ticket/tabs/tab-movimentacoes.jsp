@@ -18,9 +18,9 @@
 -->
 
 <div class="tab-pane" id="tab-movimentacoes" role="#tab-movimentacoes">
-    <% if (ticket4.getDataEncerramento() == null) {%>
     <div class="col-xl-12 col-xl-12">
         <div class="example-wrap">
+            <% if (ticket4.getDataEncerramento() == null) {%>
             <div class="example example-buttons">
                 <div class="btn-group btn-group-center-align">
 
@@ -75,8 +75,8 @@
                                                 <option>Média</option>
                                                 <option>Alta</option>
                                             </select>
+                                            <%}%>
                                         </div>
-                                        <%}%>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -133,10 +133,9 @@
                         </div>
                     </div>
                     <!-- End Modal -->
-
-                    <%}%>
                 </div>
             </div>
+            <%}%>
 
             <div class="panel box-shadow">
                 <div class="panel-heading">
@@ -163,4 +162,4 @@
         </div>
     </div>
 </div>
-                
+

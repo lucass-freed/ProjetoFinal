@@ -55,20 +55,20 @@
             </div>
 
     </div>
-                <div>
-    <h4 class="example-title">Dados de Contato</h4>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label class="form-control-label" for="storeEmail">Email</label>
-            <input type="text" class="form-control" id="storeEmail" name="storeEmail"
-                   disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getEmail()%>"/>
+    <div>
+        <h4 class="example-title">Dados de Contato</h4>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="form-control-label" for="storeEmail">Email</label>
+                <input type="text" class="form-control" id="storeEmail" name="storeEmail"
+                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getEmail()%>"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" for="storeTelefone">Telefone</label>
+                <input type="text" class="form-control" id="storeTelefone" name="storeTelefone"
+                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getTelefone()%>"/>
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            <label class="form-control-label" for="storeTelefone">Telefone</label>
-            <input type="text" class="form-control" id="storeTelefone" name="storeTelefone"
-                   disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getTelefone()%>"/>
-        </div>
+        </form>
     </div>
-</form>
-</div>
 </div>
