@@ -1,8 +1,9 @@
+var tabela;
 var idTable;
 var tipo;
 
 $(function () {
-    var table = $("#tabela-tags").DataTable({
+    tabel = $("#tabela-tags").DataTable({
         "ajax": "/interno/tags/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -57,36 +58,70 @@ $(function () {
             {"data": null,
                 "render": function (data, type, row) {
                     return "<a class='btn btn-info' href='/interno/tag/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                            "<button type='button' class='btn btn-danger' id='exampleWarningConfirm'><i class='icon wb-trash'></i></button>";
+                            "<a href='javascript:(0)' class='btn btn-danger excluirtest'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
     });
     $('#tabela-tags').on('click', 'tr', function () {
-        var data = table.row(this).data();
+        var data = tabela.row(this).data();
         idTable = data["id"];
         tipo = data["tipo"];
+    });
+    
+    $('#tabela-tags').on('click', '.excluirtest', function () {
+        console.log(idTable);
+        $.ajax({
+            url: '/interno/tag/excluir',
+            method: 'POST',
+            data: {
+                id: idTable
+            },
+            success: function (data) {
+                tabela.ajax.reload();
+            }
+        });
+        return false;
     });
 });
 
 excluirTag = function () {
-    window.location.replace("/interno/tag/excluir?id=" + idTable);
-}
-
-(function () {
-    ('#exampleWarningConfirm').on("click", function () {
-        swal({
-            title: "Tem certeza??",
-            text: "Essa alteração não poderá ser desfeita!!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonClass: "btn-warning",
-            confirmButtonText: 'Sim, remover.',
-            closeOnConfirm: false
-                    //closeOnCancel: false
-        }, function () {
-            swal("Deleted!", "Your imaginary file has been deleted!", "success");
-        });
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
     });
-});
-    
+
+    swalWithBootstrapButtons({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        window.location.replace("/interno/tag/excluir?id=" + idTable);
+        if (result.value) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Tag removida com sucesso!',
+                    'success'
+                    );
+            $.ajax({
+                url: '/interno/tag/excluir',
+                method: 'POST',
+                data: {
+                    id: idTable
+                },
+                success: function (data) {
+                    tabela.ajax.reload();
+                }
+            });
+        } else if (
+                // Read more about handling dismissals
+                result.dismiss === swal.DismissReason.cancel
+                ) {
+        }
+    });
+};

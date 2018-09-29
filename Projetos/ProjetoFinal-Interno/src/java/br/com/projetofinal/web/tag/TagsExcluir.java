@@ -23,12 +23,12 @@ public class TagsExcluir extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {
             resp.sendRedirect("/");
             return;
         }
-        boolean apagou = new TagsDAO().apagar(Integer.parseInt(req.getParameter("id")));
-        resp.sendRedirect("/interno/tags");
+        int id = Integer.parseInt(req.getParameter("id"));
+        boolean apagou = new TagsDAO().apagar(id);
     }
 }

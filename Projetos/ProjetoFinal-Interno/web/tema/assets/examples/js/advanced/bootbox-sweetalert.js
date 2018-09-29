@@ -10,7 +10,7 @@
     factory(global.jQuery, global.Site);
     global.advancedBootboxSweetalert = mod.exports;
   }
-})(this, function (_jquery, _Site) {
+})(this, function (_jquery, _Site) {  
   'use strict';
 
   var _jquery2 = babelHelpers.interopRequireDefault(_jquery);
