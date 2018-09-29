@@ -18,6 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/interno/funcoes/obtertodosparadatatable")
 public class FuncaoObterTodosParaDatatable extends HttpServlet {
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

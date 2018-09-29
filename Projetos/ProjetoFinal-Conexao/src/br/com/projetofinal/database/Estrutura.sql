@@ -112,8 +112,9 @@ CREATE TABLE tickets (
 
 CREATE TABLE tags(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR (100)
-);
+    titulo VARCHAR (100),
+    criticidade VARCHAR (50)
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE ticket_tags(
     idTickets INT NOT NULL,
@@ -177,14 +178,14 @@ INSERT INTO empresas (cnpj, razaoSocial, nomeFantasia, inscricaoEstadual, email,
 "2019-12-05",
 "2019-09-28");
 
-INSERT INTO tags (titulo) values
-("Banco de Dados"),
-("Periféricos"),
-("Comercial"),
-("Dúvida"),
-("Operacional"),
-("Rede e Internet"),
-("Cadastral");
+INSERT INTO tags (titulo, criticidade) values
+("Banco de Dados", "Baixa"),
+("Periféricos", "Média"),
+("Comercial", "Alta"),
+("Dúvida", "Baixa"),
+("Operacional", "Altíssima"),
+("Rede e Internet", "Baixa"),
+("Cadastral", "Média");
 
 
 INSERT INTO funcoes (nome, setor, tipo) VALUES 

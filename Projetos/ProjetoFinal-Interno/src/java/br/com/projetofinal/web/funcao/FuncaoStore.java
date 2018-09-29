@@ -4,8 +4,6 @@ import br.com.projetofinal.bean.FuncaoBean;
 import br.com.projetofinal.dao.FuncaoDAO;
 import br.com.projetofinal.enumTypes.FuncaoType;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/interno/funcoes/store")
 public class FuncaoStore extends HttpServlet {
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {

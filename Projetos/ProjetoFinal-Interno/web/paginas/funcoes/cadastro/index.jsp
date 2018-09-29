@@ -28,7 +28,7 @@
                                     <label class="form-control-label" for="inputBasicNome">Nome</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNome" name="inputNome" autocomplete="off" placeholder="Nome"/>
                                 </div>
-                                <div class="form-group col-md-2">  
+                                <div class="form-group col-md-6">  
                                     <label class="form-control-label" for="inputBasicSetor">Setor</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicSetor" name="inputSetor" autocomplete="off" placeholder="Setor"/>
                                 </div>

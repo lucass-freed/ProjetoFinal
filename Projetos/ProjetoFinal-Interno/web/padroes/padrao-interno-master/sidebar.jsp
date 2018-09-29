@@ -81,7 +81,26 @@
                     </li>
                     <li class="site-menu-item has-sub">
                         <a class="animsition-link" href="/interno/funcoes">
-                            <span class="site-menu-title">Consular Funções</span>
+                            <span class="site-menu-title">Consultar Funções</span>
+                        </a>       
+                    </li>
+                </ul>
+            </li>
+            <li class="site-menu-item has-sub">
+                <a href="javascript:void(0)">
+                    <i class="site-menu-icon wb-tag" aria-hidden="true"></i>
+                    <span class="site-menu-title">Tags</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
+                <ul class="site-menu-sub">
+                    <li class="site-menu-item has-sub">
+                        <a class="animsition-link" href="/interno/tag/cadastro">
+                            <span class="site-menu-title">Adicionar nova Tag</span>
+                        </a>       
+                    </li>
+                    <li class="site-menu-item has-sub">
+                        <a class="animsition-link" href="/interno/tags">
+                            <span class="site-menu-title">Consultar Tags</span>
                         </a>       
                     </li>
                 </ul>

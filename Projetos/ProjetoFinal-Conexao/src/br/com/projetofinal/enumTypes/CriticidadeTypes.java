@@ -19,12 +19,12 @@ public enum CriticidadeTypes {
     }
 
     public static CriticidadeTypes getEnum(String descricao) {
-        switch (descricao) {
-            case "Baixa":
+        switch (descricao.toUpperCase()) {
+            case "BAIXA":
                 return CriticidadeTypes.BAIXA;
-            case "Média":
+            case "MEDIA":
                 return CriticidadeTypes.MEDIA;
-            case "Alta":
+            case "ALTA":
                 return CriticidadeTypes.ALTA;
             default:
                 return CriticidadeTypes.ALTISSIMA;

@@ -1,6 +1,5 @@
 package br.com.projetofinal.web.colaborador;
 
-import br.com.projetofinal.dao.ColaboradorDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

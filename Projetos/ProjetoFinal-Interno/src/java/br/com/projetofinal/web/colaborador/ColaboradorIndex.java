@@ -1,9 +1,7 @@
-package br.com.projetofinal.web.empresa;
+package br.com.projetofinal.web.colaborador;
 
 import br.com.projetofinal.bean.ColaboradorBean;
-import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.dao.ColaboradorDAO;
-import br.com.projetofinal.dao.EmpresaDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;

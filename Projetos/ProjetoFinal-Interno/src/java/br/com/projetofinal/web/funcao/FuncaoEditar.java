@@ -14,6 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/interno/funcoes/editar")
 public class FuncaoEditar extends HttpServlet {
     
+    /**
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("usuario") == null) {

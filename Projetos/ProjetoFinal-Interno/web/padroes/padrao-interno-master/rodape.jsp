@@ -60,9 +60,6 @@
 <script src="/js/cadastro/jquery.mask.min.js"></script>
 <script src="/js/pnotify.custom.min.js"></script>
 <script src="/js/select2/select2.min.js" type="text/javascript"></script>
-
-
-
 <script src="/tema/global/js/Plugin/matchheight.js"></script>
 
 <script>

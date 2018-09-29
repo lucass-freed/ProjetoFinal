@@ -1,6 +1,6 @@
 <%@page import="br.com.projetofinal.bean.FuncaoBean"%>
 <%@page import="br.com.projetofinal.dao.FuncaoDAO"%>
-4<%-- 
+<%-- 
     Document   : index
     Created on : 26/08/2018, 16:00:28
     Author     : Lucas Rodrigo
