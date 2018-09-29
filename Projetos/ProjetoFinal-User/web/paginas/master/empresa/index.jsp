@@ -28,14 +28,14 @@
                         <input type="hidden" id="inputBasicId" name="id" value="<%= empresa.getId() %>">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar">Alterar</button>
+                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar">Habilitar Alteração</button>
                                 <h3 class="example-title col-md-5 float-left">Cadastro de Empresa</h3>
                             </div>
 
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="cnpj" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= Formatador.formatoCnpj(empresa.getCnpj())%>"/>
+                                <input type="text" class="form-control" id="inputBasicCNPJ" name="cnpj" autocomplete="off" placeholder="CNPJ" disabled="disabled" value="<%= Formatador.formatoCnpj(empresa.getCnpj())%>"/>
                             </div>
                         </div>
                         <div class="row">
@@ -131,8 +131,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
-                                <button type="submit" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
+                                <button type="hidden" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
+                                <button type="hidden" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
 
                             </div>
                         </div>
@@ -177,6 +177,8 @@
 <script>
     $("#botao-alterar").click(function () {
         $(".minha-classe").click($('.minha-classe').removeAttr('disabled'));
+        $("#botao-cancelar").click($("#botao-cancelar").removeAttr('hidden'));
+        $("#botao-salvar").click($("#botao-salvar").removeAttr('hidden'));
     });
 
     $("#botao-cancelar").click(function () {
