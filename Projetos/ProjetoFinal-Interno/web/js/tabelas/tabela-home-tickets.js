@@ -57,7 +57,7 @@ $(function () {
                 "render": function (data, type, row) {
                     if (row.criticidade.toString().toLowerCase() === 'baixa') {
                         return "<span class='badge badge-success font-size-14'><i class='wb-sort-des'> Baixa<span>";
-                    } else if (row.criticidade.toString().toLowerCase() === 'média') {
+                    } else if (row.criticidade.toString().toLowerCase() === 'media') {
                         return "<span class='badge badge-primary font-size-14'><i class='wb-stats-bars'></i> Média<span>";
                     } else if (row.criticidade.toString().toLowerCase() === 'alta') {
                         return "<span class='badge badge-warning font-size-14'><i class='wb-dashboard'></i> Alta<span>";

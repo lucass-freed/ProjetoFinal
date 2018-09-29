@@ -23,51 +23,7 @@
         <div class="example-wrap">
             <div class="example example-buttons">
                 <div class="btn-group btn-group-center-align">
-                    <% if (ticket4.getStatus() == EnumTicketStatusType.ABERTO) {%>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary"data-target="#exampleNifty3dRotateInLeft"
-                                data-toggle="modal">
-                            <i class="icon wb-star" aria-hidden="true"></i>
-                            <br>
-                            <span class="text-uppercase hidden-sm-down">Alterar Status</span>
-                        </button>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade modal-rotate-from-left" id="exampleNifty3dRotateInLeft"
-                         aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog"
-                         tabindex="-1">
-                        <div class="modal-dialog modal-simple">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <h4 class="modal-title">Alterar Status</h4>
-                                </div>
-                                <form action="/interno/ticket/alterarStatus" method="post" id="formAlterarStatus" autocomplete="off">
-                                    <input type="hidden" id="Basicid" name="id" value="<%= ticket4.getId()%>">
-                                    <div class="modal-body col-md-6">
-                                        <!-- Opções Alteração de Status -->
-                                        <div class="example-wrap">
-                                            <select class="form-control" id="selectSituacao" name="situacao">
-                                                <option value="" disabled selected>Selecionar Status</option>
-                                                <option value="Em Andamento">Em Andamento</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                        <button type="submit" class="btn btn-primary">Salvar</button>
-                                    </div>
-                                </form>
-                                <!-- End Opções Alteração de Status -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Modal -->
-                    <%}%>
 
-                    <% if (ticket4.getCriticidade() != CriticidadeTypes.ALTISSIMA) {%>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-info" data-target="#alterarCriticidade" data-toggle="modal">
                             <i class="icon wb-time" aria-hidden="true"></i>
@@ -91,15 +47,36 @@
                                     <div class="modal-body col-md-6">
                                         <!-- Opções Alteração de Criticidade -->
                                         <div class="example-wrap">
-                                            <select class="form-control" id="selectCriticidade" name="criticidade">
-
+                                            <% if (ticket4.getCriticidade() == CriticidadeTypes.BAIXA) {%>
+                                            <select class="form-control">
                                                 <option value="" disabled selected>Selecionar Criticidade</option>
-                                                <option>Baixa</option>
                                                 <option>Média</option>
                                                 <option>Alta</option>
                                                 <option>Altíssima</option>
                                             </select>
+                                            <% } else if (ticket4.getCriticidade() == CriticidadeTypes.MEDIA) {%>
+                                            <select class="form-control">
+                                                <option value="" disabled selected>Selecionar Criticidade</option>
+                                                <option>Baixa</option>
+                                                <option>Alta</option>
+                                                <option>Altíssima</option>
+                                            </select>
+                                            <% } else if (ticket4.getCriticidade() == CriticidadeTypes.ALTA) {%>
+                                            <select class="form-control">
+                                                <option value="" disabled selected>Selecionar Criticidade</option>
+                                                <option>Baixa</option>
+                                                <option>Alta</option>
+                                                <option>Altíssima</option>
+                                            </select>
+                                            <% } else {%>
+                                            <select class="form-control">
+                                                <option value="" disabled selected>Selecionar Criticidade</option>
+                                                <option>Baixa</option>
+                                                <option>Média</option>
+                                                <option>Alta</option>
+                                            </select>
                                         </div>
+                                        <%}%>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -111,7 +88,6 @@
                             <!-- End Modal -->
                         </div>
                     </div>
-                    <%}%>
 
 
                     <div class="btn-group" role="group">
@@ -187,3 +163,4 @@
         </div>
     </div>
 </div>
+                
