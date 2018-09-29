@@ -183,6 +183,8 @@
 
     $("#botao-cancelar").click(function () {
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
+        $("#botao-cancelar").click($('.minha-cancelar').attr('hidden', 'hidden'));
+        $("#botao-salvar").click($('#botao-salvar').attr('hidden', 'hidden'));
     });
 </script>
 <script src="/js/acao-cancelar.js"></script>
