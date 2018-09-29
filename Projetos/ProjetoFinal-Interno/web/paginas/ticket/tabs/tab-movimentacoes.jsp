@@ -3,10 +3,13 @@
     Created on : 30/08/2018, 09:23:02
     Author     : Michelle de Jesus Rogério
 --%>
+<%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
 <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
 <%@page import="br.com.projetofinal.enumTypes.CriticidadeTypes"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
 <% TicketBean ticket4 = (TicketBean) request.getAttribute("ticket4");%>
+<% ColaboradorBean colaborador = (ColaboradorBean) request.getSession().getAttribute("usuario");%>
+
 <!-- TODO:
                 INSERIR MENSAGEM DE SUCESSO QUANDO SALVAR
                 - Encaminhar (abre um "FROM/TO" onde o FROM já vem autopreenchido com o colaborador logado e o TO é search)
@@ -89,17 +92,12 @@
                                         <!-- Opções Alteração de Criticidade -->
                                         <div class="example-wrap">
                                             <select class="form-control" id="selectCriticidade" name="criticidade">
+
                                                 <option value="" disabled selected>Selecionar Criticidade</option>
-                                                <% if (ticket4.getCriticidade() == CriticidadeTypes.BAIXA) {%>
+                                                <option>Baixa</option>
                                                 <option>Média</option>
                                                 <option>Alta</option>
                                                 <option>Altíssima</option>
-                                                <% } else if (ticket4.getCriticidade() == CriticidadeTypes.MEDIA) {%>
-                                                <option>Alta</option>
-                                                <option>Altíssima</option>
-                                                <% } else {%>
-                                                <option>Altíssima</option>
-                                                <%}%>
                                             </select>
                                         </div>
                                     </div>
@@ -114,35 +112,78 @@
                         </div>
                     </div>
                     <%}%>
+
+
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-success" data-target="#exampleNiftySlideFromRight"
+                                data-toggle="modal">
+                            <i class="icon wb-star" aria-hidden="true"></i>
+                            <br>
+                            <span class="text-uppercase hidden-sm-down">Encaminhar</span>
+                        </button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade modal-slide-in-right" id="exampleNiftySlideFromRight" aria-hidden="true"
+                         aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-simple">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title">Movimentar Ticket</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>De</p>
+                                    <select class="form-control" id="origem-movto" name="origem-movto">
+                                        <option value="" disabled selected><%=colaborador.getNome()%></option>
+                                    </select>
+
+                                    <p>Para</p>
+                                    <select class="form-control" id="destino-movto" name="destino-movto">
+                                        <option value="" disabled selected>Selecionar Destino</option>
+                                        <option>Baixa</option>
+                                        <option>Média</option>
+                                        <option>Alta</option>
+                                        <option>Altíssima</option>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                            <!-- End Modal -->
+                        </div>
+                    </div>
+                    <!-- End Modal -->
+
+                    <%}%>
+                </div>
+            </div>
+
+            <div class="panel box-shadow">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Últimas Movimentações</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="ultimas-movimentacoes">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Movimentado Por</th>
+                                <th scope="col">Data da Movimentação</th>
+                                <th scope="col">Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-<%}%>
-
-<div class="panel box-shadow">
-    <div class="panel-heading">
-        <h3 class="panel-title">Últimas Movimentações</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="ultimas-movimentacoes">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Movimentado Por</th>
-                    <th scope="col">Data da Movimentação</th>
-                    <th scope="col">Observação</th>
-                </tr>
-            </thead>
-            <tbody>
-
-
-
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
-

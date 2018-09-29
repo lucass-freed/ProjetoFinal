@@ -121,6 +121,7 @@ public class TicketDAO {
                     empresa.setId(rs.getInt("emp.id"));
                     empresa.setCnpj(rs.getString("emp.cnpj"));
                     empresa.setNomeFantasia(rs.getString("emp.nomeFantasia"));
+                    empresa.setRazaoSocial(rs.getString("emp.razaoSocial"));
                     empresa.setInscricaoEstadual(rs.getString("emp.inscricaoEstadual"));
                     empresa.setEmail(rs.getString("emp.email"));
                     empresa.setTelefone(rs.getString("emp.telefone"));

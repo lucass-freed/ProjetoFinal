@@ -21,6 +21,11 @@
                            disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getCnpj()%>"/>
                 </div>
                 <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeInscricaoEstadual">Inscrição Estadual</label>
+                    <input type="text" class="form-control" id="storeInscricaoEstadual" name="storeInscricaoEstadual"
+                           disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getInscricaoEstadual()%>"/>
+                </div>
+                <div class="form-group col-md-6">
                     <label class="form-control-label" for="storeRazaoSocial">Razão Social</label>
                     <input type="text" class="form-control" id="storeRazaoSocial" name="storeRazaoSocial"
                            disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getRazaoSocial()%>"/>
@@ -30,30 +35,29 @@
                     <input type="text" class="form-control" id="storeNomeFantasia" name="storeNomeFantasia"
                            disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getNomeFantasia()%>"/>
                 </div>
+
+
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeDataAtivacao">Data de Ativação</label>
+                    <input type="text" class="form-control" id="storeDataAtivacao" name="storeDataAtivacao"
+                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket2.getEmpresa().getDataAtivacao())%>"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeDataExpiração">Data de Expiração</label>
+                    <input type="text" class="form-control" id="storeDataExpiração" name="storeDataExpiração"
+                           disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket2.getEmpresa().getDataExpiracao())%>"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="form-control-label" for="storeValidadeCertificado">Validade do Certificado</label>
+                    <input type="text" class="form-control" id="storeValidadeCertificado" name="storeValidadeCertificado"
+                           disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getValidadeCertificado()%>"/>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label class="form-control-label" for="storeInscricaoEstadual">Inscrição Estadual</label>
-                <input type="text" class="form-control" id="storeInscricaoEstadual" name="storeInscricaoEstadual"
-                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getInscricaoEstadual()%>"/>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="form-control-label" for="storeDataAtivacao">Data de Ativação</label>
-                <input type="text" class="form-control" id="storeDataAtivacao" name="storeDataAtivacao"
-                       disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket2.getEmpresa().getDataAtivacao())%>"/>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="form-control-label" for="storeDataExpiração">Data de Expiração</label>
-                <input type="text" class="form-control" id="storeDataExpiração" name="storeDataExpiração"
-                       disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket2.getEmpresa().getDataExpiracao())%>"/>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="form-control-label" for="storeValidadeCertificado">Validade do Certificado</label>
-                <input type="text" class="form-control" id="storeValidadeCertificado" name="storeValidadeCertificado"
-                       disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getValidadeCertificado()%>"/>
-            </div>
-        </form>
+
     </div>
-    <div class="form-group contatos">
+                <div>
+    <h4 class="example-title">Dados de Contato</h4>
+    <div class="form-row">
         <div class="form-group col-md-6">
             <label class="form-control-label" for="storeEmail">Email</label>
             <input type="text" class="form-control" id="storeEmail" name="storeEmail"
@@ -65,11 +69,6 @@
                    disabled="disabled" autocomplete="off" value="<%= ticket2.getEmpresa().getTelefone()%>"/>
         </div>
     </div>
-    <div>
-        <!--             <label class="form-control-label" for="storeSazonalidade">Telefone</label>
-         <input type="text" class="form-control" id="storeSazonalidade" name="storeSazonalidade"
-                disabled="disabled" autocomplete="off" value="getSazonalidade"/> -->
-
-    </div>
-
+</form>
+</div>
 </div>
