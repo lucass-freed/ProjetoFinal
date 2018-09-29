@@ -30,6 +30,8 @@
         <link rel="stylesheet" href="/tema/global/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="/tema/global/vendor/flag-icon-css/flag-icon.css">
         <link rel="stylesheet" href="/tema/assets/examples/css/forms/layouts.css">
+        <link rel="stylesheet" href="/css/chamado.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
 
         <!-- Fonts -->

@@ -10,7 +10,6 @@
 </div>
 
 <!-- Core  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
 <script src="/tema/global/vendor/jquery/jquery.js"></script>
 <script src="/tema/global/vendor/popper-js/umd/popper.min.js"></script>
@@ -50,10 +49,12 @@
 <script src="/tema/global/js/Plugin/slidepanel.js"></script>
 <script src="/tema/global/js/Plugin/switchery.js"></script>
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
-<script src="/js/tabelas/tabela-usuarios.js"></script>
-<script src="/js/datatable/jquery.dataTables.min.js"></script>
-<script src="/js/datatable/jquery.table2excel.min.js"></script>
-<script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="/js/tabelas/tabela-ticket-pendente.js"></script>
+<script src="/js/tabelas/tabela-home-tickets.js"></script>
+<script src="/js/consulta.js"></script>
+<script src="/js/change-password.js"></script>
+<script src="/js/select2/selectChamado.js"></script>
+<script src="/js/select2/select2.min.js"></script>
 <script src="/js/datatable/jquery.dataTables.min.js"></script>
 <script src="/js/datatable/jquery.table2excel.min.js"></script>
 <script src="/js/datatable/dataTables.bootstrap4.min.js"></script>
@@ -62,7 +63,7 @@
 <script src="/js/cadastro/jquery.validate.min.js"></script>
 <script src="/js/cadastro/jquery.mask.js"></script>
 <script src="/js/cadastro/jquery.mask.min.js"></script>
-<script src="/js/select2/selectChamado.js"></script>
+<script src="/js/chamado.js"></script>
 
 <script>
     (function (document, window, $) {

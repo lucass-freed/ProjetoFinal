@@ -11,59 +11,67 @@ $(function () {
                 required: true,
                 minlength: 18
             },
-            inputBasicNomeFantasia: {
+            nomeFantasia: {
                 required: true,
+                minlength: 10,
                 maxlength: 200
             },
-            inputBasicRazaoSocial: {
+            razaoSocial: {
                 required: true,
+                minlength: 10,
                 maxlength: 200
             },
-            inputBasicEmail: {
+            email: {
                 required: true,
+                minlength: 10,
                 maxlength: 100,
                 email: true
             },
-            inputPhone: {
+            telefone: {
                 required: true,
                 minlength: 14
             },
-            inputBasicLogradouro: {
+            logradouro: {
                 required: true,
+                minlength: 10,
                 maxlength: 100
             },
-            inputBasicIE: {
+            inscricaoEstadual: {
                 required: true,
                 minlength: 15
             },
-            inputBasicNumero: {
+            numero: {
                 required: true,
+                minlength: 10,
                 maxlength: 20
             },
-            inputBasicComplemento: {
-                required: true,
+            complemento: {
+                required: false,
+                minlength: 10,
                 maxlength: 50
             },
-            inputBasicBairro: {
+            bairro: {
                 required: true,
+                minlength: 3,
                 maxlength: 100
             },
-            inputBasicCEP: {
+            cep: {
                 required: true,
                 minlength: 9
             },
-            inputBasicCidade: {
+            cidade: {
                 required: true,
+                minlength: 3,
                 maxlength: 50
             },
-            selectBasicUf: {
+            uf: {
                 required: true
             },
-            inputBasicDataAtivacao: {
+            dataAtivacao: {
                 required: true,
                 minlength: 10
             },
-            inputBasicDataExpiracao: {
+            dataExpiracao: {
                 required: true,
                 minlength: 10
             }
@@ -73,59 +81,60 @@ $(function () {
                 required: "Este campo é obrigatório",
                 minlength: "CNPJ inválido."
             },
-            inputNomeFantasia: {
+            nomeFantasia: {
                 required: "Este campo é obrigatório",
                 maxlength: "Nome Fantasia deve conter no máximo {0} caracteres."
             },
-            inputRazaoSocial: {
+            razaoSocial: {
                 required: "Este campo é obrigatório",
+                minlength: "Razão Social deve conter no mínimo {0} caracteres."
                 maxlength: "Razão Social deve conter no máximo {0} caracteres."
             },
-            inputEmail: {
+            email: {
                 required: "Este campo é obrigatório",
                 email: "Insira um e-mail válido.",
                 maxlength: "E-mail deve conter no máximo {0} caracteres."
             },
-            inputPhone: {
+            telefone: {
                 required: "Este campo é obrigatório",
                 minlength: "Telefone inválido."
             },
-            inputLogradouro: {
+            logradouro: {
                 required: "Este campo é obrigatório",
                 maxlength: "Logradouro deve conter no máximo {0} caracteres."
             },
-            inputIE: {
+            inscricaoEstadual: {
                 required: "Este campo é obrigatório",
                 minlength: "Inscrição Estadual inválida."
             },
-            inputNumero: {
+            numero: {
                 required: "Este campo é obrigatório",
                 maxlength: "Número deve conter no máximo {0} caracteres."
             },
-            inputComplemento: {
+            complemento: {
                 required: "Este campo é obrigatório",
                 maxlength: "Complemento deve conter no máximo {0} caracteres."
             },
-            inputBairro: {
+            bairro: {
                 required: "Este campo é obrigatório",
                 maxlength: "Bairro deve conter no máximo {0} caracteres."
             },
-            inputCEP: {
+            cep: {
                 required: "Este campo é obrigatório",
                 minlength: "CEP inválido."
             },
-            inputCidade: {
+            cidade: {
                 required: "Este campo é obrigatório",
                 maxlength: "Cidade deve conter no máximo {0} caracteres."
             },
-            selectUf: {
+            uf: {
                 required: "Este campo é obrigatório",
             },
-            inputDataAtivacao: {
+            dataAtivacao: {
                 required: "Este campo é obrigatório",
                 minlength: "Insira uma data válida."
             },
-            inputDataExpiracao: {
+            dataExpiracao: {
                 required: "Este campo é obrigatório",
                 minlength: "Insira uma data válida."
             },
@@ -137,4 +146,12 @@ $(function () {
             e.preventDefault();
         }
     });
+});
+$(document).ready(function () {
+    $("#inputBasicDataAtivacao").mask('00/00/0000');
+    $("#inputBasicDataExpiracao").mask('00/00/0000');
+    $("#inputBasicCNPJ").mask('00.000.000/0000-00');
+    $("#inputBasicCEP").mask('00000-000');
+    $("#inputPhone").mask('(00) 0000-0000');
+    $("#inputBasicIE").mask('000.000.000.000');
 });

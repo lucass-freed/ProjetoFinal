@@ -42,7 +42,7 @@ public class EmpresaUpdate extends HttpServlet {
         empresa.setCidade(req.getParameter("cidade"));
         empresa.setUf(req.getParameter("uf").toUpperCase());
         
-        String dataAtivacaoS = req.getParameter("dataAtivacao").replace("/", "-");
+        String dataAtivacaoS = req.getParameter("dataAtivacaoHidden").replace("/", "-");
         Date dataAtivacao = Date.valueOf(LocalDate.MAX);
         dataAtivacao.setYear(Integer.parseInt(dataAtivacaoS.split("-")[2]));
         dataAtivacao.setMonth(Integer.parseInt(dataAtivacaoS.split("-")[1]));
