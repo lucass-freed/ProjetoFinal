@@ -13,7 +13,11 @@ public class DateFormatador {
         return new SimpleDateFormat("dd/MM/yyyy").format(data);
     }
     
-    public static String timesStampFormatoBr(Timestamp data){
+    public static String timesStampFormatoBrComHora(Timestamp data){
         return new SimpleDateFormat("dd/MM/yyyy").format(data) + " às " + new SimpleDateFormat("HH:mm").format(data);
+    }
+    
+    public static String timesStampFormatoBrSemHora(Timestamp data){
+        return new SimpleDateFormat("dd/MM/yyyy").format(data);
     }
 }

@@ -45,13 +45,13 @@ public class TicketDAO {
                 ps.setInt(quantidade++, ticket.getIdEmpresa());
                 ps.setInt(quantidade++, ticket.getIdColaborador());
                 ps.setInt(quantidade++, ticket.getIdUsuario());
-                ps.setInt(quantidade++, ticket.getIdSazonalidade());
+                ps.setString(quantidade++, ticket.getSazonalidade());
                 ps.setString(quantidade++, ticket.getTitulo());
                 ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
                 ps.setString(quantidade++, String.valueOf(ticket.getStatus()));
                 ps.setString(quantidade++, ticket.getDescricao());
                 ps.setTimestamp(quantidade++, ticket.getDataAbertura());
-                ps.setDate(quantidade++, ticket.getDataEncerramento());
+                ps.setTimestamp(quantidade++, ticket.getDataEncerramento());
                 ps.setString(quantidade++, ticket.getProcedimentoResolucao());
                 ps.execute();
                 ResultSet rs = ps.getGeneratedKeys();
@@ -137,13 +137,13 @@ public class TicketDAO {
                     ticket.setTitulo(rs.getString("tck.titulo"));
                     ticket.setIdEmpresa(rs.getInt("tck.idEmpresa"));
                     ticket.setIdColaborador(rs.getInt("tck.id_colaborador"));
-                    ticket.setIdSazonalidade(rs.getInt("tck.id_ticket_sazonalidade"));
+                    ticket.setSazonalidade(rs.getString("tck.sazonalidade"));
                     ticket.setCriticidade(CriticidadeTypes.getEnum(rs.getString("tck.criticidade")));
                     ticket.setStatus(EnumTicketStatusType.getEnum(rs.getString("tck.situacao")));
                     ticket.setTitulo(rs.getString("tck.titulo"));
                     ticket.setDataAbertura(rs.getTimestamp("tck.dataAbertura"));
                     ticket.setDescricao(rs.getString("tck.descricao"));
-                    ticket.setDataEncerramento(rs.getDate("tck.dataEncerramento"));
+                    ticket.setDataEncerramento(rs.getTimestamp("tck.dataEncerramento"));
                     ticket.setProcedimentoResolucao(rs.getString("tck.procedimentoResolucao"));
 
                     EmpresaBean empresa = new EmpresaBean();

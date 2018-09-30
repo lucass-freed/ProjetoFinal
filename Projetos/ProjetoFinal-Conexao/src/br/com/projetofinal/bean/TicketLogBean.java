@@ -7,7 +7,7 @@ import java.sql.Timestamp;
  */
 public class TicketLogBean {
     
-    private int id, idColaborador;
+    private int id, idColaborador, idFuncao;
     private Timestamp dataHoraMovto;
     private String observacao;
     
@@ -25,6 +25,14 @@ public class TicketLogBean {
 
     public void setIdColaborador(int idColaborador) {
         this.idColaborador = idColaborador;
+    }
+
+    public int getIdFuncao() {
+        return idFuncao;
+    }
+
+    public void setIdFuncao(int idFuncao) {
+        this.idFuncao = idFuncao;
     }
     
     public Timestamp getDataHoraMovto() {

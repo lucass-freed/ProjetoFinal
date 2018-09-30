@@ -33,7 +33,7 @@
                     </div>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="alterarCriticidade" aria-hidden="true" aria-labelledby="alterarCriticidade" role="dialog" tabindex="-1">
+                    <div class="modal fade modal-primary" id="alterarCriticidade" aria-hidden="true" aria-labelledby="alterarCriticidade" role="dialog" tabindex="-1">
                         <div class="modal-dialog modal-simple">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -91,7 +91,7 @@
                         </button>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade modal-slide-in-right" id="exampleNiftySlideFromRight" aria-hidden="true"
+                    <div class="modal fade modal-success modal-slide-in-right" id="exampleNiftySlideFromRight" aria-hidden="true"
                          aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
                         <div class="modal-dialog modal-simple">
                             <div class="modal-content">
@@ -102,6 +102,7 @@
                                     <h4 class="modal-title">Movimentar Ticket</h4>
                                 </div>
                                 <div class="modal-body">
+                                    </br>
                                     <p>De</p>
                                     <select class="form-control" id="origem-movto" name="origem-movto">
                                         <option value="" disabled selected><%=colaborador.getNome()%></option>

@@ -46,21 +46,40 @@
             </div>
         </div>
     </div>
-    <% if (ticket1.getIdColaborador() > 0) {%>
-    <% ColaboradorBean colaborador = new ColaboradorDAO().obterColaboradorPorID(ticket1.getIdColaborador());%>
-    <div class="page-content container-fluid">
-        <div class="row">
-            <span class="font-size-16">Colaborador responsável: <%= colaborador.getNome()%></span>
+    <% if (ticket1.getDataEncerramento() == null) { %>
+        <% if (ticket1.getIdColaborador() > 0) {%>
+        <% ColaboradorBean colaborador = new ColaboradorDAO().obterColaboradorPorID(ticket1.getIdColaborador());%>
+        <div class="page-content container-fluid">
+            <div class="row">
+                <span class="font-size-16">Colaborador responsável: <%= colaborador.getNome()%></span>
+            </div>
         </div>
-    </div>
-    <%}%>
-    <% if (ticket1.getIdFuncaoMovimentacao() > 0) {%>
-    <% FuncaoBean funcao = new FuncaoDAO().obterFuncaoPeloID(ticket1.getIdFuncaoMovimentacao());%>
-    <div class="page-content container-fluid">
-        <div class="row">
-            <span class="text-danger">Função responsável: <%= funcao.getNome()%></span>
+        <%}%>
+        <% if (ticket1.getIdFuncaoMovimentacao() > 0) {%>
+        <% FuncaoBean funcao = new FuncaoDAO().obterFuncaoPeloID(ticket1.getIdFuncaoMovimentacao());%>
+        <div class="page-content container-fluid">
+            <div class="row">
+                <span class="text-danger">Função responsável: <%= funcao.getNome()%></span>
+            </div>
         </div>
-    </div>
+        <%}%>
+    <%} else {%>
+        <% if (ticket1.getIdColaborador() > 0) {%>
+        <% ColaboradorBean colaborador = new ColaboradorDAO().obterColaboradorPorID(ticket1.getIdColaborador());%>
+        <div class="page-content container-fluid">
+            <div class="row">
+                <span class="font-size-16">Concluído pelo Colaborador: <%= colaborador.getNome()%></span>
+            </div>
+        </div>
+        <%}%>
+        <% if (ticket1.getIdFuncaoMovimentacao() > 0) {%>
+        <% FuncaoBean funcao = new FuncaoDAO().obterFuncaoPeloID(ticket1.getIdFuncaoMovimentacao());%>
+        <div class="page-content container-fluid">
+            <div class="row">
+                <span class="text-danger">Concluído pela Função: <%= funcao.getNome()%></span>
+            </div>
+        </div>
+        <%}%>
     <%}%>
     <div class="example-wrap">
         <div class="tags" style="text-align: right;">

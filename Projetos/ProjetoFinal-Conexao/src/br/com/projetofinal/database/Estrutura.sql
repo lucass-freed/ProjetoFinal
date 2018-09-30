@@ -82,15 +82,12 @@ CREATE TABLE tickets_log (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idTicket INT NOT NULL,
     FOREIGN KEY (idTicket) references tickets(id),
-    idColaborador INT NOT NULL,
+    idColaborador INT,
     FOREIGN KEY (idColaborador) references colaboradores(id),
+    idFuncao INT,
+    FOREIGN KEY (idFuncao) references funcoes(id),
     dataHoraMvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     observacao TEXT
-);
-
-CREATE TABLE tickets_sazonalidade (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    sazonalidade VARCHAR (150)
 );
 
 CREATE TABLE tickets (
@@ -101,8 +98,7 @@ CREATE TABLE tickets (
     FOREIGN KEY (id_colaborador) references colaboradores(id),
 	id_usuario INT NOT NULL,
 	FOREIGN KEY (id_usuario) references usuarios(id),
-    id_ticket_sazonalidade INT,
-    FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
+    sazonalidade VARCHAR(200),
     id_funcao_movimentacao INT,
     FOREIGN KEY (id_funcao_movimentacao) references funcoes(id),
     titulo VARCHAR (150) NOT NULL,	
@@ -110,7 +106,7 @@ CREATE TABLE tickets (
     situacao VARCHAR (100),
     descricao TEXT,
     dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    dataEncerramento DATE,
+    dataEncerramento TIMESTAMP,
     procedimentoResolucao TEXT
 );
 

@@ -28,15 +28,17 @@ public class TicketsLogDAO {
             String sql = "INSERT INTO tickets_log("
                     + "\nidTicket, "
                     + "\nidColaborador, "
+                    + "\nidFuncao, "
                     + "\ndataHoraMvto, "
                     + "\nobservacao) "
-                    + "\nVALUES (?,?,?,?)";
+                    + "\nVALUES (?,?,?,?,?)";
 
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
                 ps.setInt(quantidade++, idTicket);
                 ps.setInt(quantidade++, ticketLog.getIdColaborador());
+                ps.setInt(quantidade++, ticketLog.getIdFuncao());
                 ps.setTimestamp(quantidade++, ticketLog.getDataHoraMovto());
                 ps.setString(quantidade++, ticketLog.getObservacao());
                 ps.execute();
@@ -67,7 +69,7 @@ public class TicketsLogDAO {
                     HashMap<String, Object> ticketLog = new HashMap<>();
                     ticketLog.put("id", resultSet.getInt("id"));
                     ticketLog.put("movimentador", new ColaboradorDAO().obterColaboradorPorID(resultSet.getInt("idColaborador")).getNome());
-                    ticketLog.put("dataMovimentacao", DateFormatador.timesStampFormatoBr(resultSet.getTimestamp("dataHoraMvto")));
+                    ticketLog.put("dataMovimentacao", DateFormatador.timesStampFormatoBrComHora(resultSet.getTimestamp("dataHoraMvto")));
                     ticketLog.put("obs", resultSet.getString("observacao"));
                     ticketsLog.add(ticketLog);
                 }
