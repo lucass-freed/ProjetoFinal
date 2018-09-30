@@ -26,7 +26,7 @@
 
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-info" data-target="#alterarCriticidade" data-toggle="modal">
-                            <i class="icon wb-time" aria-hidden="true"></i>
+                            <i class="icon wb-star" aria-hidden="true"></i>
                             <br>
                             <span class="text-uppercase hidden-sm-down">Alterar Prioridade</span>
                         </button>
@@ -44,38 +44,30 @@
                                 </div>
                                 <form action="/interno/ticket/alterarCriticidade" method="post" id="formAlterarCriticidade" autocomplete="off">
                                     <input type="hidden" id="Basicid" name="id" value="<%= ticket4.getId()%>">
+                                    <input type="hidden" id="BasicidColaborador" name="idColaborador" value="<%= colaborador.getId()%>">
                                     <div class="modal-body col-md-6">
                                         <!-- Opções Alteração de Criticidade -->
                                         <div class="example-wrap">
-                                            <% if (ticket4.getCriticidade() == CriticidadeTypes.BAIXA) {%>
-                                            <select class="form-control">
+                                            <select class="form-control" name="criticidade">
                                                 <option value="" disabled selected>Selecionar Criticidade</option>
-                                                <option>Média</option>
-                                                <option>Alta</option>
-                                                <option>Altíssima</option>
+                                                <% if (ticket4.getCriticidade() == CriticidadeTypes.BAIXA) {%>
+                                                <option value="MEDIA">Média</option>
+                                                <option value="ALTA">Alta</option>
+                                                <option value="ALTISSIMA">Altíssima</option>
+                                                <% } else if (ticket4.getCriticidade() == CriticidadeTypes.MEDIA) {%>
+                                                <option value="BAIXA">Baixa</option>
+                                                <option value="ALTA">Alta</option>
+                                                <option value="ALTISSIMA">Altíssima</option>
+                                                <% } else if (ticket4.getCriticidade() == CriticidadeTypes.ALTA) {%>
+                                                <option value="BAIXA">Baixa</option>
+                                                <option value="ALTA">Alta</option>
+                                                <option value="ALTISSIMA">Altíssima</option>
+                                                <% } else {%>
+                                                <option value="BAIXA">Baixa</option>
+                                                <option value="MEDIA">Média</option>
+                                                <option value="ALTA">Alta</option>
+                                                <%}%>
                                             </select>
-                                            <% } else if (ticket4.getCriticidade() == CriticidadeTypes.MEDIA) {%>
-                                            <select class="form-control">
-                                                <option value="" disabled selected>Selecionar Criticidade</option>
-                                                <option>Baixa</option>
-                                                <option>Alta</option>
-                                                <option>Altíssima</option>
-                                            </select>
-                                            <% } else if (ticket4.getCriticidade() == CriticidadeTypes.ALTA) {%>
-                                            <select class="form-control">
-                                                <option value="" disabled selected>Selecionar Criticidade</option>
-                                                <option>Baixa</option>
-                                                <option>Alta</option>
-                                                <option>Altíssima</option>
-                                            </select>
-                                            <% } else {%>
-                                            <select class="form-control">
-                                                <option value="" disabled selected>Selecionar Criticidade</option>
-                                                <option>Baixa</option>
-                                                <option>Média</option>
-                                                <option>Alta</option>
-                                            </select>
-                                            <%}%>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -93,7 +85,7 @@
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-success" data-target="#exampleNiftySlideFromRight"
                                 data-toggle="modal">
-                            <i class="icon wb-star" aria-hidden="true"></i>
+                            <i class="icon wb-time" aria-hidden="true"></i>
                             <br>
                             <span class="text-uppercase hidden-sm-down">Encaminhar</span>
                         </button>
@@ -114,15 +106,40 @@
                                     <select class="form-control" id="origem-movto" name="origem-movto">
                                         <option value="" disabled selected><%=colaborador.getNome()%></option>
                                     </select>
-
+                                    </br>
                                     <p>Para</p>
-                                    <select class="form-control" id="destino-movto" name="destino-movto">
-                                        <option value="" disabled selected>Selecionar Destino</option>
-                                        <option>Baixa</option>
-                                        <option>Média</option>
-                                        <option>Alta</option>
-                                        <option>Altíssima</option>
-                                    </select>
+                                    <div class="radio-custom radio-primary">
+                                        <input type="radio" id="inputRadiosFuncao" name="inputDestinos" onclick="javascrit:showSelectFuncao();">
+                                        <label class="col-md-2" for="inputRadiosFuncao">Função</label>
+                                        <input type="radio" id="inputRadiosColaborador" name="inputDestinos" onclick="javascrit:showSelectColaborador();">
+                                        <label for="inputRadiosColaborador">Colaborador</label>
+                                    </div>
+
+                                    <div id="destino-funcao" style="visibility: hidden">
+                                        <select class="form-control" name="destino-movto">
+                                            <option value="" disabled selected>Selecionar Destino</option>
+                                            <option>Baixa</option>
+                                            <option>Média</option>
+                                            <option>Média</option>
+                                            <option>Média</option>
+                                            <option>Média</option>
+                                            <option>Alta</option>
+                                            <option>Altíssima</option>
+                                        </select>
+                                    </div>
+                                    <div id="destino-colaborador" style="visibility: hidden">
+                                        <select class="form-control" name="destino-movto">
+                                            <option value="" disabled selected>Selecionar Destino</option>
+                                            <option>Baixa</option>
+                                            <option>Média</option>
+                                            <option>Alta</option>
+                                            <option>Altíssima</option>
+                                            <option>Altíssima</option>
+                                            <option>Altíssima</option>
+                                            <option>Altíssima</option>
+                                            <option>Altíssima</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -142,7 +159,7 @@
                     <h3 class="panel-title">Últimas Movimentações</h3>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="ultimas-movimentacoes">
+                    <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="ultimas-movimentacoes">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">ID</th>

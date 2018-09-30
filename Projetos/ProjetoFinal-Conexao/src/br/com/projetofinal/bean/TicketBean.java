@@ -17,6 +17,7 @@ public class TicketBean {
     private int idEmpresa;
     private int idColaborador;
     private int idSazonalidade;
+    private int idFuncaoMovimentacao;
     private int idUsuario;
 
     private String titulo;
@@ -82,6 +83,14 @@ public class TicketBean {
 
     public void setIdSazonalidade(int idSazonalidade) {
         this.idSazonalidade = idSazonalidade;
+    }
+    
+    public int getIdFuncaoMovimentacao() {
+        return idFuncaoMovimentacao;
+    }
+
+    public void setIdFuncaoMovimentacao(int idFuncaoMovimentacao) {
+        this.idFuncaoMovimentacao = idFuncaoMovimentacao;
     }
 
     public String getTitulo() {

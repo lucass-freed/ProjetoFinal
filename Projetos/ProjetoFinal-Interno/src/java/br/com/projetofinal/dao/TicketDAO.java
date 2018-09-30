@@ -1,6 +1,7 @@
 package br.com.projetofinal.dao;
 
 import br.com.projetofinal.Util.DateFormatador;
+import br.com.projetofinal.bean.ColaboradorBean;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
@@ -198,6 +199,23 @@ public class TicketDAO {
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 ps.setString(1, String.valueOf(situacao));
                 ps.setInt(2, id);
+                return ps.executeUpdate() == 1;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return false;
+    }
+    
+    public boolean alterarColaborador(int idTicket, int idColaborador) {
+        if (Conexao.getConnection() != null) {
+            String sql = "UPDATE tickets SET id_colaborador = ? WHERE id = ?";
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, idColaborador);
+                ps.setInt(2, idTicket);
                 return ps.executeUpdate() == 1;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -512,5 +530,4 @@ public class TicketDAO {
         }
         return tickets;
     }
-
 }

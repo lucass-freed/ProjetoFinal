@@ -80,6 +80,8 @@ CREATE TABLE tickets_criticidade (
 
 CREATE TABLE tickets_log (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    idTicket INT NOT NULL,
+    FOREIGN KEY (idTicket) references tickets(id),
     idColaborador INT NOT NULL,
     FOREIGN KEY (idColaborador) references colaboradores(id),
     dataHoraMvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -101,6 +103,8 @@ CREATE TABLE tickets (
 	FOREIGN KEY (id_usuario) references usuarios(id),
     id_ticket_sazonalidade INT,
     FOREIGN KEY (id_ticket_sazonalidade) references tickets_sazonalidade(id),
+    id_funcao_movimentacao INT,
+    FOREIGN KEY (id_funcao_movimentacao) references funcoes(id),
     titulo VARCHAR (150) NOT NULL,	
     criticidade VARCHAR (50),
     situacao VARCHAR (100),

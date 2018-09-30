@@ -4,6 +4,10 @@
     Author     : Michelle de Jesus Rogério
 --%>
 
+<%@page import="br.com.projetofinal.dao.FuncaoDAO"%>
+<%@page import="br.com.projetofinal.bean.FuncaoBean"%>
+<%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
+<%@page import="br.com.projetofinal.dao.ColaboradorDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.projetofinal.enumTypes.CriticidadeTypes"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
@@ -42,6 +46,22 @@
             </div>
         </div>
     </div>
+    <% if (ticket1.getIdColaborador() > 0) {%>
+    <% ColaboradorBean colaborador = new ColaboradorDAO().obterColaboradorPorID(ticket1.getIdColaborador());%>
+    <div class="page-content container-fluid">
+        <div class="row">
+            <span class="font-size-16">Colaborador responsável: <%= colaborador.getNome()%></span>
+        </div>
+    </div>
+    <%}%>
+    <% if (ticket1.getIdFuncaoMovimentacao() > 0) {%>
+    <% FuncaoBean funcao = new FuncaoDAO().obterFuncaoPeloID(ticket1.getIdFuncaoMovimentacao());%>
+    <div class="page-content container-fluid">
+        <div class="row">
+            <span class="text-danger">Função responsável: <%= funcao.getNome()%></span>
+        </div>
+    </div>
+    <%}%>
     <div class="example-wrap">
         <div class="tags" style="text-align: right;">
             <% List<TicketTagBean> ticketsTags = (List<TicketTagBean>) request.getAttribute("ticketsTags");%>

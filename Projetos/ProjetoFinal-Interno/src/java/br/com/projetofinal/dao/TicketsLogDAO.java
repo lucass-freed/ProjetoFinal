@@ -22,20 +22,20 @@ import java.util.logging.Logger;
 public class TicketsLogDAO {
 
 // Métodos direcionados à tab-movimentacoes.jsp
-    public int atualizarLog(TicketLogBean ticketLog) {
+    public int atualizarLog(TicketLogBean ticketLog, int idTicket) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             String sql = "INSERT INTO tickets_log("
-                    + "\nid, "
-                    + "\nidColaborador"
-                    + "\ndataHoraMvto"
-                    + "\nobservacao"
+                    + "\nidTicket, "
+                    + "\nidColaborador, "
+                    + "\ndataHoraMvto, "
+                    + "\nobservacao) "
                     + "\nVALUES (?,?,?,?)";
 
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
-                ps.setInt(quantidade++, ticketLog.getId());
+                ps.setInt(quantidade++, idTicket);
                 ps.setInt(quantidade++, ticketLog.getIdColaborador());
                 ps.setTimestamp(quantidade++, ticketLog.getDataHoraMovto());
                 ps.setString(quantidade++, ticketLog.getObservacao());
@@ -54,9 +54,35 @@ public class TicketsLogDAO {
         return 0;
     }
     
+    public List<HashMap<String, Object>> obterTodosParaDataTableFromTicket(int idTicket) {
+        List<HashMap<String, Object>> ticketsLog = new ArrayList<>();
+        String sql = "SELECT * FROM tickets_log WHERE idTicket = ? ORDER BY id DESC limit 3";
+        if (Conexao.getConnection() != null) {
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, idTicket);
+                ps.execute();
+                ResultSet resultSet = ps.getResultSet();
+                while (resultSet.next()) {
+                    HashMap<String, Object> ticketLog = new HashMap<>();
+                    ticketLog.put("id", resultSet.getInt("id"));
+                    ticketLog.put("movimentador", new ColaboradorDAO().obterColaboradorPorID(resultSet.getInt("idColaborador")).getNome());
+                    ticketLog.put("dataMovimentacao", DateFormatador.timesStampFormatoBr(resultSet.getTimestamp("dataHoraMvto")));
+                    ticketLog.put("obs", resultSet.getString("observacao"));
+                    ticketsLog.add(ticketLog);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TicketsLogDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return ticketsLog;
+    }
+    
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> ticketsLog = new ArrayList<>();
-        String sql = "SELECT * FROM tickets_log DESC limit 3";
+        String sql = "SELECT * FROM tickets_log ORDER BY id DESC limit 3";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();

@@ -30,5 +30,14 @@ public enum CriticidadeTypes {
                 return CriticidadeTypes.ALTISSIMA;
         }
     }
+    
+    public static String getText(CriticidadeTypes criticidadae) {
+        switch (criticidadae) {
+            case BAIXA: return "Baixa";
+            case MEDIA: return "Média";
+            case ALTA: return "Alta";
+            default: return "Altíssima";
+        }
+    }
 
 }

@@ -1,6 +1,10 @@
 package br.com.projetofinal.web.ticket.movimentacoes;
 
+import br.com.projetofinal.bean.ColaboradorBean;
+import br.com.projetofinal.bean.TicketLogBean;
+import br.com.projetofinal.dao.ColaboradorDAO;
 import br.com.projetofinal.dao.TicketDAO;
+import br.com.projetofinal.dao.TicketsLogDAO;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,11 +27,19 @@ public class TicketAlterarCriticidade extends HttpServlet {
             return;
         }
         resp.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(req.getParameter("id"));
+        int idTicket = Integer.parseInt(req.getParameter("id"));
+        int idColaborador = Integer.parseInt(req.getParameter("idColaborador"));
         CriticidadeTypes criticidade = CriticidadeTypes.getEnum(req.getParameter("criticidade"));
         
-        boolean alterou = new TicketDAO().alterarCriticidade(id, criticidade);
-        resp.sendRedirect("/interno/ticket?id=" + id);
+        TicketLogBean log = new TicketLogBean();
+        log.setDataHoraMovto(new java.sql.Timestamp(new java.util.Date().getTime()));
+        log.setIdColaborador(idColaborador);
+        log.setObservacao("Criticidade alterada para " + CriticidadeTypes.getText(CriticidadeTypes.getEnum(req.getParameter("criticidade"))) + ".");
+        
+        boolean alterouCriticidade = new TicketDAO().alterarCriticidade(idTicket, criticidade);
+        boolean alterouColaborador = new TicketDAO().alterarColaborador(idTicket, idColaborador);
+        int a = new TicketsLogDAO().atualizarLog(log, idTicket);
+        resp.sendRedirect("/interno/ticket?id=" + idColaborador);
     }
 
 }

@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="form-group row col-md-6">
-                    <label class="form-control-label">Procedimento de Resolução</label>
                     <div class="col-md-9">
+                    <label class="form-control-label">Procedimento de Resolução</label>
                         <textarea class="form-control" disabled="disabled" autocomplete="off" value="<%= DateFormatador.formatoBr(ticket3.getDataEncerramento())%>"/></textarea>
                     </div>
                 </div>

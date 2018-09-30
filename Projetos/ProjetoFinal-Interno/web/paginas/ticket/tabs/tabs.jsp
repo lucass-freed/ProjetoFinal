@@ -30,4 +30,5 @@
     </div>
     <script src="/js/datatable/jquery.min.js"></script>
     <script src="/js/tabelas/tabela-movimentacoes.js"></script>
+    <script src="/js/tickets.js"></script>
 </div>
