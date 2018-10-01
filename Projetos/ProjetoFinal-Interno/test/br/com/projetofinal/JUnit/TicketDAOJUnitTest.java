@@ -6,22 +6,20 @@ import br.com.projetofinal.database.Conexao;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Date;
 import java.sql.Timestamp;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
-
 
 /**
  *
  * @author Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
  */
 public class TicketDAOJUnitTest {
-    
+
     @Test
     public void inserir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         TicketBean t = new TicketBean();
         t.setIdEmpresa(1);
@@ -31,20 +29,20 @@ public class TicketDAOJUnitTest {
         t.setCriticidade(CriticidadeTypes.ALTISSIMA);
         t.setStatus(EnumTicketStatusType.CONCLUIDO);
         t.setDescricao("dsadas");
-        t.setDataAbertura(Timestamp.valueOf("1993-12-30"));
-        t.setDataEncerramento(Timestamp.valueOf("1993-12-30"));
+        t.setDataAbertura(Timestamp.valueOf("1993-12-30 00:00:00"));
+        t.setDataEncerramento(Timestamp.valueOf("1993-12-30 00:00:01"));
         t.setProcedimentoResolucao("dsadsa");
 
         int cod = new TicketDAO().inserir(t);
         t.setId(cod);
 
-        //assertEquals(cod, 1);
+        assertEquals(cod, 1);
         validarIgual(t, new TicketDAO().obterTicketPorID(cod));
     }
 
     @Test
     public void excluir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         TicketBean t = new TicketBean();
         t.setIdEmpresa(1);
@@ -54,8 +52,8 @@ public class TicketDAOJUnitTest {
         t.setCriticidade(CriticidadeTypes.ALTISSIMA);
         t.setStatus(EnumTicketStatusType.CONCLUIDO);
         t.setDescricao("dsadas");
-        t.setDataAbertura(Timestamp.valueOf("1993-12-30"));
-        t.setDataEncerramento(Timestamp.valueOf("1993-12-30"));
+        t.setDataAbertura(Timestamp.valueOf("1993-12-30 00:00:00"));
+        t.setDataEncerramento(Timestamp.valueOf("1993-12-30 00:00:01"));
         t.setProcedimentoResolucao("dsadsa");
 
         int cod = new TicketDAO().inserir(t);
@@ -66,7 +64,7 @@ public class TicketDAOJUnitTest {
 
     @Test
     public void alterar() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         TicketBean t = new TicketBean();
         int cod = new TicketDAO().inserir(t);
@@ -78,8 +76,8 @@ public class TicketDAOJUnitTest {
         t.setCriticidade(CriticidadeTypes.ALTISSIMA);
         t.setStatus(EnumTicketStatusType.CONCLUIDO);
         t.setDescricao("dsadas");
-        t.setDataAbertura(Timestamp.valueOf("1993-12-30"));
-        t.setDataEncerramento(Timestamp.valueOf("1993-12-30"));
+        t.setDataAbertura(Timestamp.valueOf("1993-12-30 00:00:00"));
+        t.setDataEncerramento(Timestamp.valueOf("1993-12-30 00:00:01"));
         t.setProcedimentoResolucao("dsadsa");
 
         new TicketDAO().alterar(t);
@@ -88,7 +86,7 @@ public class TicketDAOJUnitTest {
 
     @Test
     public void buscarPorID() {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         TicketBean t = new TicketBean();
         t.setIdEmpresa(1);
@@ -98,8 +96,8 @@ public class TicketDAOJUnitTest {
         t.setCriticidade(CriticidadeTypes.ALTISSIMA);
         t.setStatus(EnumTicketStatusType.CONCLUIDO);
         t.setDescricao("dsadas");
-        t.setDataAbertura(Timestamp.valueOf("1993-12-30"));
-        t.setDataEncerramento(Timestamp.valueOf("1993-12-30"));
+        t.setDataAbertura(Timestamp.valueOf("1993-12-30 00:00:00"));
+        t.setDataEncerramento(Timestamp.valueOf("1993-12-30 00:00:01"));
         t.setProcedimentoResolucao("dsadsa");
 
         int cod = new TicketDAO().inserir(t);
@@ -107,25 +105,25 @@ public class TicketDAOJUnitTest {
 
         validarIgual(t, new TicketDAO().obterTicketPorID(cod));
     }
-    
+
     @Test
     public void getQuantidadeTicketsConcluidos() {
-        //Conexao.truncate();
-        
+        Conexao.truncate();
+
         new TicketDAO().getQuantidadeTicketsConcluidos();
     }
-    
+
     @Test
     public void getQuantidadeTicketsEmAndamento() {
-        //Conexao.truncate();
-        
+        Conexao.truncate();
+
         new TicketDAO().getQuantidadeTicketsEmAndamento();
     }
-    
+
     @Test
     public void getQuantidadeTicketsPendentes() {
-        //Conexao.truncate();
-        
+        Conexao.truncate();
+
         new TicketDAO().getQuantidadeTicketsPendentes();
     }
 
@@ -141,5 +139,5 @@ public class TicketDAOJUnitTest {
         assertEquals(t1.getDataEncerramento(), t2.getDataEncerramento());
         assertEquals(t1.getProcedimentoResolucao(), t2.getProcedimentoResolucao());
     }
-    
+
 }
