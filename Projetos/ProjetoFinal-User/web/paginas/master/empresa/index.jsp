@@ -35,7 +35,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <input type="text" class="form-control" id="inputBasicCNPJ" name="cnpj" autocomplete="off" placeholder="CNPJ*" disabled="disabled" value="<%= Formatador.formatoCnpj(empresa.getCnpj())%>"/>
+                                <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="cnpj" autocomplete="off" placeholder="CNPJ*" disabled="disabled" value="<%= Formatador.formatoCnpj(empresa.getCnpj())%>"/>
                             </div>
                         </div>
                         <div class="row">
@@ -123,18 +123,18 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">                  
-                                <input type="text" class="form-control" id="inputBasicDataAtivacao" name="dataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataAtivacao())%>"/>
+                                <input type="text" class="form-control minha-classe" id="inputBasicDataAtivacao" name="dataAtivacao" autocomplete="off" placeholder="Data de Ativação  Ex: 00/00/0000"  disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataAtivacao())%>"/>
                                 <input type="hidden" name="dataAtivacaoHidden" value="<%= empresa.getDataAtivacao()%>"/>
                             </div>
                             <div class="form-group col-md-6">                   
-                                <input type="text" class="form-control" id="inputBasicDataExpiracao" name="dataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataExpiracao())%>"/>
+                                <input type="text" class="form-control minha-classe" id="inputBasicDataExpiracao" name="dataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataExpiracao())%>"/>
                                 <input type="hidden" name="dataExpiracaoHidden" value="<%= empresa.getDataExpiracao()%>"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="hidden" style="visibility: hidden" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
-                                <button type="hidden" style="visibility: hidden" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
+                                <button type="submit" style="visibility: hidden" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
 
                             </div>
                         </div>
@@ -183,8 +183,6 @@
 
     $("#botao-cancelar").click(function () {
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
-        $("#botao-cancelar").click($('#botao-cancelar').attr('style', 'visibility', 'hidden'));
-        $("#botao-salvar").click($('#botao-salvar').attr('style', 'visibility', 'hidden'));
     });
 </script>
 <script>
