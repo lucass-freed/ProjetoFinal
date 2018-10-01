@@ -18,16 +18,6 @@
 <% HttpSession sessao = request.getSession();%>
 <% UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");%>
 <!-- Page -->
-<div class="page-header h-300 mb-30">
-    <div class="text-center blue-grey-800 m-0 mt-50">
-        <div class="font-size-60 mb-30 blue-grey-800">FlowDesk</div>
-        <ul class="list-inline font-size-16">
-            <li class="list-inline-item">
-                {Slogan}
-            </li>
-        </ul>
-    </div>
-</div>
 
 <div class="page-center">
     <div class="page-content container-fluid">
