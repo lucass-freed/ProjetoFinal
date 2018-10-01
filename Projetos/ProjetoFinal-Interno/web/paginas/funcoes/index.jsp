@@ -3,7 +3,7 @@
     Created on : 26/09/2018, 21:47:31
     Author     : Lucas Rodrigo Frederico (lucassfreed@hotmail.com)
 --%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.projetofinal.dao.FuncaoDAO"%>
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
@@ -23,7 +23,7 @@
                                     <button type="button" class="btn btn-floating btn-sm btn-success">
                                         <i class="icon wb-hammer"></i>
                                     </button>
-                                    <span class="ml-15 font-weight-700">FUNÇÕES CADASTRADAS</span>
+                                    <span class="ml-15 font-weight-700">FUNÃ‡Ã•ES CADASTRADAS</span>
                                     <div class="counter-number font-size-40 mt-10"><%= new NumberFormato().f(new FuncaoDAO().getQuantidadeCadastradas())%></div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
         <!-- Panel Tickets -->
         <div class="panel box-shadow">
             <div class="panel-heading">
-                <h3 class="panel-title">Lista de Funções</h3>
+                <h3 class="panel-title">Lista de FunÃ§Ãµes</h3>
             </div>
             <div class="panel-body">
                 <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-funcoes">
@@ -47,7 +47,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Setor</th>
                             <th scope="col">Tipo</th>
-                            <th scope="col">Opção</th>
+                            <th scope="col">OpÃ§Ã£o</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,16 +60,16 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
+                                        <span aria-hidden="true">Ã—</span>
                                     </button>
                                     <h4 class="modal-title">Tem certeza?</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Esta ação não poderá ser desfeita!</p>
+                                    <p>Esta aÃ§Ã£o nÃ£o poderÃ¡ ser desfeita!</p>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="col-lg-12">
-                                        <a href="javascript:excluirFuncao();"><button type="button" class="btn btn-danger">Excluir Função</button></a>
+                                        <a href="javascript:excluirFuncao();"><button type="button" class="btn btn-danger">Excluir FunÃ§Ã£o</button></a>
                                         <button type="button" class="btn btn-default" aria-label="Fechar" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>

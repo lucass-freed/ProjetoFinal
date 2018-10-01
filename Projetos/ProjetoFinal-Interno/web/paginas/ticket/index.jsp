@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 27/08/2018, 08:29:23
-    Author     : Michelle de Jesus Rogério
+    Author     : Michelle de Jesus RogÃ©rio
 --%>
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
@@ -10,6 +10,7 @@
 <% } %>
 <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
 <%@page import="br.com.projetofinal.bean.TicketBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% TicketBean ticket = (TicketBean) request.getAttribute("ticket");%>
 <div class="panel">
     <div class="panel-heading">
@@ -25,7 +26,7 @@
                 </div>
                 <% } else { %>
                 <div class="ribbon ribbon-clip ribbon-reverse ribbon-success">
-                    <span class="ribbon-inner">Concluído</span>
+                    <span class="ribbon-inner">ConcluÃ­do</span>
                 </div>
                 <% }%>
                 <h3 class="panel-title">Ticket # <%= ticket.getId()%></h3>

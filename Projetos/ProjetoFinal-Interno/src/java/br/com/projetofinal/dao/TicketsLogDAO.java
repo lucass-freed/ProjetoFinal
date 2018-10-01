@@ -68,7 +68,11 @@ public class TicketsLogDAO {
                 while (resultSet.next()) {
                     HashMap<String, Object> ticketLog = new HashMap<>();
                     ticketLog.put("id", resultSet.getInt("id"));
-                    ticketLog.put("movimentador", new ColaboradorDAO().obterColaboradorPorID(resultSet.getInt("idColaborador")).getNome());
+                    if (resultSet.getInt("idColaborador") > 0) {
+                        ticketLog.put("movimentador", new ColaboradorDAO().obterColaboradorPorID(resultSet.getInt("idColaborador")).getNome());
+                    } else {
+                        ticketLog.put("movimentador", new FuncaoDAO().obterFuncaoPeloID(resultSet.getInt("idFuncao")).getNome());
+                    }
                     ticketLog.put("dataMovimentacao", DateFormatador.timesStampFormatoBrComHora(resultSet.getTimestamp("dataHoraMvto")));
                     ticketLog.put("obs", resultSet.getString("observacao"));
                     ticketsLog.add(ticketLog);

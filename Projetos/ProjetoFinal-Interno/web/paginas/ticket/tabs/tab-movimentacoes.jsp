@@ -3,6 +3,10 @@
     Created on : 30/08/2018, 09:23:02
     Author     : Michelle de Jesus Rogério
 --%>
+<%@page import="br.com.projetofinal.bean.FuncaoBean"%>
+<%@page import="br.com.projetofinal.dao.FuncaoDAO"%>
+<%@page import="br.com.projetofinal.dao.ColaboradorDAO"%>
+<%@page import="java.util.List"%>
 <%@page import="br.com.projetofinal.bean.ColaboradorBean"%>
 <%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
 <%@page import="br.com.projetofinal.enumTypes.CriticidadeTypes"%>
@@ -20,7 +24,19 @@
 <div class="tab-pane" id="tab-movimentacoes" role="#tab-movimentacoes">
     <div class="col-xl-12 col-xl-12">
         <div class="example-wrap">
-            <% if (ticket4.getDataEncerramento() == null) {%>
+            <% boolean is = false;%>
+            <% if(ticket4.getIdColaborador() > 0) { %>
+                <% if (ticket4.getIdColaborador() == colaborador.getId()) { %>
+                    <% is = true;%>
+                <%}%>
+            <%} else if (ticket4.getIdFuncaoMovimentacao() > 0) { %>
+                <% if (ticket4.getIdFuncaoMovimentacao() == colaborador.getIdFuncao()) { %>
+                    <% is = true;%>
+                <%}%>
+            <%} else {%>
+                <% is = true;%>
+            <%}%>
+            <% if (ticket4.getDataEncerramento() == null && is) {%>
             <div class="example example-buttons">
                 <div class="btn-group btn-group-center-align">
 
@@ -101,51 +117,49 @@
                                     </button>
                                     <h4 class="modal-title">Movimentar Ticket</h4>
                                 </div>
-                                <div class="modal-body">
-                                    </br>
-                                    <p>De</p>
-                                    <select class="form-control" id="origem-movto" name="origem-movto">
-                                        <option value="" disabled selected><%=colaborador.getNome()%></option>
-                                    </select>
-                                    </br>
-                                    <p>Para</p>
-                                    <div class="radio-custom radio-primary">
-                                        <input type="radio" id="inputRadiosFuncao" name="inputDestinos" onclick="javascrit:showSelectFuncao();">
-                                        <label class="col-md-2" for="inputRadiosFuncao">Função</label>
-                                        <input type="radio" id="inputRadiosColaborador" name="inputDestinos" onclick="javascrit:showSelectColaborador();">
-                                        <label for="inputRadiosColaborador">Colaborador</label>
-                                    </div>
+                                <form action="/interno/ticket/encaminhar" method="post" id="formEncaminhar" autocomplete="off">
+                                    <div class="modal-body">
+                                        <input type="hidden" value="<%= ticket4.getId()%>" name="ticketID"/>
+                                        </br>
+                                        <p>De</p>
+                                        <select disabled="disabled" class="form-control" id="origem-movto" name="origem-movto">
+                                            <option value="" disabled selected><%=colaborador.getNome()%></option>
+                                        </select>
+                                        </br>
+                                        <p>Para</p>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" value="funcao" id="inputRadiosFuncao" name="inputDestinos" onclick="javascrit:showSelectFuncao();">
+                                            <label class="col-md-2" for="inputRadiosFuncao">Função</label>
+                                            <input type="radio" value="colaborador" id="inputRadiosColaborador" name="inputDestinos" onclick="javascrit:showSelectColaborador();">
+                                            <label for="inputRadiosColaborador">Colaborador</label>
+                                        </div>
 
-                                    <div id="destino-funcao" style="visibility: hidden">
-                                        <select class="form-control" name="destino-movto">
-                                            <option value="" disabled selected>Selecionar Destino</option>
-                                            <option>Baixa</option>
-                                            <option>Média</option>
-                                            <option>Média</option>
-                                            <option>Média</option>
-                                            <option>Média</option>
-                                            <option>Alta</option>
-                                            <option>Altíssima</option>
-                                        </select>
+                                        <div id="destino-funcao" style="visibility: hidden">
+                                            <select class="form-control" name="destino-funcao">
+                                                <option value="" disabled selected>Selecionar Função</option>
+                                                <% List<FuncaoBean> funcoes = new FuncaoDAO().obterFuncoesInternas();%>
+                                                <% for (FuncaoBean funcao : funcoes) {%>
+                                                <option value="<%= funcao.getId()%>"><%= funcao.getNome()%></option>
+                                                <%}%>
+                                            </select>
+                                        </div>
+                                        <div id="destino-colaborador" style="visibility: hidden">
+                                            <select class="form-control" name="destino-colaborador">
+                                                <option value="" disabled selected>Selecionar Colaborador</option>
+                                                <% List<ColaboradorBean> colaboradores = new ColaboradorDAO().obterColaboradores();%>
+                                                <% for (ColaboradorBean c : colaboradores) {%>
+                                                <% if (!c.getNome().equals(colaborador.getNome())) {%>
+                                                    <option value="<%= c.getId()%>"><%= c.getNome()%></option>
+                                                    <%}%>
+                                                <%}%>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div id="destino-colaborador" style="visibility: hidden">
-                                        <select class="form-control" name="destino-movto">
-                                            <option value="" disabled selected>Selecionar Destino</option>
-                                            <option>Baixa</option>
-                                            <option>Média</option>
-                                            <option>Alta</option>
-                                            <option>Altíssima</option>
-                                            <option>Altíssima</option>
-                                            <option>Altíssima</option>
-                                            <option>Altíssima</option>
-                                            <option>Altíssima</option>
-                                        </select>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn btn-primary">Salvar</button>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-primary">Salvar</button>
-                                </div>
+                                </form>
                             </div>
                             <!-- End Modal -->
                         </div>

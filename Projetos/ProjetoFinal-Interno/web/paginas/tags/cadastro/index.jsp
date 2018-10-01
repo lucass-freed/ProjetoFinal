@@ -49,8 +49,6 @@
     </div>
 </div>
 <!-- End Panel Input Grid -->
-</div>
-</div>
 
 <script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
 <script src="/tema/global/vendor/jquery/jquery.js"></script>

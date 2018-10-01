@@ -4,9 +4,9 @@
     Author     : Lucas Rodrigo Frederico (lcuassfreed@hotmail.com)
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page import="br.com.projetofinal.Util.Formatador"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file="/padroes/padrao-interno-master/dashboard.jsp" %>
 <% } else { %>
@@ -61,8 +61,6 @@
             </div>
         </form>
     </div>
-</div>
-</div>
 </div>
 
 <!-- End Page -->

@@ -226,6 +226,23 @@ public class TicketDAO {
         }
         return false;
     }
+    
+    public boolean alterarFuncao(int idTicket, int idFuncao) {
+        if (Conexao.getConnection() != null) {
+            String sql = "UPDATE tickets SET id_funcao_movimentacao = ? WHERE id = ?";
+            try {
+                PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
+                ps.setInt(1, idFuncao);
+                ps.setInt(2, idTicket);
+                return ps.executeUpdate() == 1;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return false;
+    }
 
     public boolean alterarCriticidade(int id, CriticidadeTypes criticidade) {
         if (Conexao.getConnection() != null) {
@@ -463,7 +480,7 @@ public class TicketDAO {
                     ticket.put("titulo", resultSet.getString("titulo"));
                     ticket.put("dataAbertura", DateFormatador.timesStampFormatoBrComHora(resultSet.getTimestamp("dataAbertura")));
                     try {
-                        ticket.put("dataEncerramento", DateFormatador.timesStampFormatoBrSemHora(resultSet.getTimestamp("dataEncerramento")));
+                        ticket.put("dataEncerramento", DateFormatador.timesStampFormatoBrComHora(resultSet.getTimestamp("dataEncerramento")));
                     } catch (Exception e) {
                         ticket.put("dataEncerramento", "xx/xx/xxxx");
                     }

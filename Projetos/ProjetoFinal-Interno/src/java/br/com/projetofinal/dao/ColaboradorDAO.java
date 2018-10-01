@@ -185,7 +185,9 @@ public class ColaboradorDAO extends SHA512Metodos {
                     ColaboradorBean colaborador = new ColaboradorBean();
                     colaborador.setId(rs.getInt("id"));
                     colaborador.setIdFuncao(rs.getInt("id_funcao"));
-                    colaborador.setNome(rs.getString("usuario"));
+                    colaborador.setUsuario(rs.getString("usuario"));
+                    colaborador.setSenha(rs.getString("senha"));
+                    colaborador.setNome(rs.getString("nome"));
                     colaborador.setCpf(rs.getString("cpf"));
                     colaborador.setDataNascimento(rs.getDate("data_nascimento"));
                     colaborador.setTelefone(rs.getString("telefone"));

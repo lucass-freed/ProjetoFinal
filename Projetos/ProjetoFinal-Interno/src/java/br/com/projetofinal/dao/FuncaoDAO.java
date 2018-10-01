@@ -113,6 +113,60 @@ public class FuncaoDAO {
         }
         return funcoes;
     }
+    
+    public List<FuncaoBean> obterFuncoesInternas() {
+        List<FuncaoBean> funcoes = new ArrayList<>();
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT id, nome, setor, tipo, descricao FROM funcoes WHERE tipo = 'INTERNA';";
+            try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                while (rs.next()) {
+                    FuncaoBean funcao = new FuncaoBean();
+                    funcao.setId(rs.getInt("id"));
+                    funcao.setNome(rs.getString("nome"));
+                    funcao.setSetor(rs.getString("setor"));
+                    funcao.setTipo(FuncaoType.getEnum(rs.getString("tipo")));
+                    funcao.setDescricao(rs.getString("descricao"));
+                    funcoes.add(funcao);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return funcoes;
+    }
+    
+    public List<FuncaoBean> obterFuncoesExternas() {
+        List<FuncaoBean> funcoes = new ArrayList<>();
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT id, nome, setor, tipo, descricao FROM funcoes WHERE tipo = 'EXTERNA';";
+            try {
+                Statement st = conexao.createStatement();
+                st.execute(sql);
+                ResultSet rs = st.getResultSet();
+                while (rs.next()) {
+                    FuncaoBean funcao = new FuncaoBean();
+                    funcao.setId(rs.getInt("id"));
+                    funcao.setNome(rs.getString("nome"));
+                    funcao.setSetor(rs.getString("setor"));
+                    funcao.setTipo(FuncaoType.getEnum(rs.getString("tipo")));
+                    funcao.setDescricao(rs.getString("descricao"));
+                    funcoes.add(funcao);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return funcoes;
+    }
 
     public FuncaoBean obterFuncaoPeloID(int id) {
         Connection conexao = Conexao.getConnection();
