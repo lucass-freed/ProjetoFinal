@@ -19,9 +19,7 @@ $(document).ready(function () {
 
             }
         });
-    });
-    
-    $("#botao-cancelar").click(function () {
+        
         var hidden = false;
         hidden = !hidden;
         if(hidden) {
@@ -31,9 +29,8 @@ $(document).ready(function () {
         } else {
             document.getElementById('botao-cancelar').style.visibility = 'visible';
         }
-        
-        
     });
+    
 });
 
 
