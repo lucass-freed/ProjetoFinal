@@ -20,19 +20,20 @@ $(document).ready(function () {
             }
         });
     });
-
-
+    
+    $("#botao-cancelar").click(function () {
+        var hidden = false;
+        hidden = !hidden;
+        if(hidden) {
+            document.getElementById('botao-alterar').style.visibility = 'visible';
+            document.getElementById('botao-cancelar').style.visibility = 'hidden';
+            document.getElementById('botao-salvar').style.visibility = 'hidden';
+        } else {
+            document.getElementById('botao-cancelar').style.visibility = 'visible';
+        }
+        
+        
+    });
 });
 
-var hidden = false;
-function cancelar() {
-    hidden = !hidden;
-    if(hidden) {
-        document.getElementById('botao-alterar').style.visibility = 'visible';
-        document.getElementById('botao-cancelar').style.visibility = 'hidden';
-        document.getElementById('botao-salvar').style.visibility = 'hidden';
-    } else {
-        document.getElementById('botao-cancelar').style.visibility = 'visible';
-    }
-}
 

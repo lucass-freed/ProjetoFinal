@@ -133,8 +133,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="hidden" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
-                                <button type="hidden" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
+                                <button type="hidden" style="visibility: hidden" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
+                                <button type="hidden" style="visibility: hidden" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
 
                             </div>
                         </div>
