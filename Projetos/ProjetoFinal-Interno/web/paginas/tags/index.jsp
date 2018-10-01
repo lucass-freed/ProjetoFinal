@@ -47,7 +47,6 @@
                             <th scope="col">ID</th>
                             <th scope="col">Título</th>
                             <th scope="col">Criticidade</th>
-                            <th scope="col">Opção</th>
                         </tr>
                     </thead>
                     <tbody>

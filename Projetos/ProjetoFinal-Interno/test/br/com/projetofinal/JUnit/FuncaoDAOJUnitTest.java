@@ -16,7 +16,7 @@ public class FuncaoDAOJUnitTest {
     
     @Test
     public void inserir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");
@@ -26,13 +26,13 @@ public class FuncaoDAOJUnitTest {
         int cod = new FuncaoDAO().inserir(f);
         f.setId(cod);
 
-        //assertEquals(cod, 1);
+        assertEquals(cod, 1);
         validarIgual(f, new FuncaoDAO().obterFuncaoPeloID(cod));
     }
 
     @Test
     public void excluir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");
@@ -47,7 +47,7 @@ public class FuncaoDAOJUnitTest {
 
     @Test
     public void alterar() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");
@@ -63,7 +63,7 @@ public class FuncaoDAOJUnitTest {
 
     @Test
     public void buscarPorID() {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         FuncaoBean f = new FuncaoBean();
         f.setNome("sadas");

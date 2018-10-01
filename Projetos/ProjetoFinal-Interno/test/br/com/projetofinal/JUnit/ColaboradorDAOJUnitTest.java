@@ -18,7 +18,7 @@ public class ColaboradorDAOJUnitTest {
 
     @Test
     public void inserir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
         
         ColaboradorBean c = new ColaboradorBean();
         c.setIdFuncao(1);

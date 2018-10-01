@@ -3,6 +3,7 @@ package br.com.projetofinal.JUnit;
 import br.com.projetofinal.Util.SHA512Metodos;
 import br.com.projetofinal.bean.EmpresaBean;
 import br.com.projetofinal.dao.EmpresaDAO;
+import br.com.projetofinal.database.Conexao;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import org.junit.Test;
@@ -16,7 +17,7 @@ public class EmpresaDAOJUnitTest {
 
     @Test
     public void inserir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         EmpresaBean e = new EmpresaBean();
         e.setCnpj("dsadsa");
@@ -40,13 +41,13 @@ public class EmpresaDAOJUnitTest {
         int cod = new EmpresaDAO().inserir(e);
         e.setId(cod);
 
-        //assertEquals(cod, 1);
+        assertEquals(cod, 1);
         validarIgual(e, new EmpresaDAO().obterPeloID(cod));
     }
 
     @Test
     public void excluir() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         EmpresaBean e = new EmpresaBean();
         e.setCnpj("dsadsa");
@@ -75,7 +76,7 @@ public class EmpresaDAOJUnitTest {
 
     @Test
     public void alterar() throws NoSuchAlgorithmException {
-        //Conexao.truncate();
+        Conexao.truncate();
 
         EmpresaBean e = new EmpresaBean();
         e.setCnpj("dsadsa");
@@ -105,7 +106,7 @@ public class EmpresaDAOJUnitTest {
 
     @Test
     public void buscarPorID() throws NoSuchAlgorithmException {
-       //Conexao.truncate();
+        Conexao.truncate();
 
         EmpresaBean e = new EmpresaBean();
         e.setCnpj("dsadsa");

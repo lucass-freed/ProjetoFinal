@@ -9,6 +9,8 @@ import br.com.projetofinal.dao.TicketsLogDAO;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import br.com.projetofinal.enumTypes.EnumTicketStatusType;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,9 +43,9 @@ public class TicketAlterarCriticidade extends HttpServlet {
         CriticidadeTypes criticidade = CriticidadeTypes.getEnum(req.getParameter("criticidade"));
         
         TicketLogBean log = new TicketLogBean();
-        log.setDataHoraMovto(new java.sql.Timestamp(new java.util.Date().getTime()));
         log.setIdColaborador(idColaborador);
         log.setObservacao("Criticidade alterada para " + CriticidadeTypes.getText(CriticidadeTypes.getEnum(req.getParameter("criticidade"))) + ".");
+        int a = new TicketsLogDAO().atualizarLog(log, idTicket);
         
         boolean alterouCriticidade = new TicketDAO().alterarCriticidade(idTicket, criticidade);
         boolean alterouColaborador = new TicketDAO().alterarColaborador(idTicket, idColaborador);
@@ -51,7 +53,6 @@ public class TicketAlterarCriticidade extends HttpServlet {
         if (ticket.getStatus() == EnumTicketStatusType.ABERTO) {
             boolean alterouStatus = new TicketDAO().alterarStatus(idTicket, "Em Andamento");
         }
-        int a = new TicketsLogDAO().atualizarLog(log, idTicket);
         resp.sendRedirect("/interno/ticket?id=" + idTicket);
     }
 

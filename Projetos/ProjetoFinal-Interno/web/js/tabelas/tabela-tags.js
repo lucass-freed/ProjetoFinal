@@ -54,12 +54,6 @@ $(function () {
                         return "<span class='badge badge-danger font-size-14'><i class='wb-warning'></i> Altíssima<span>";
                     }
                 }
-            },
-            {"data": null,
-                "render": function (data, type, row) {
-                    return "<a class='btn btn-info' href='/interno/tag/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                            "<a href='javascript:excluirTag();' id='excluirtest' class='btn btn-danger'><i class='icon wb-trash'></i></a>";
-                }
             }
         ]
     });

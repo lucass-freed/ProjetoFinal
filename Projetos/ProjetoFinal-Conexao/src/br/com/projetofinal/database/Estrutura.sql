@@ -93,8 +93,8 @@ CREATE TABLE tickets (
     criticidade VARCHAR (50),
     situacao VARCHAR (100),
     descricao TEXT,
-    dataAbertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    dataEncerramento TIMESTAMP,
+    dataAbertura DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dataEncerramento DATETIME,
     procedimentoResolucao TEXT
 );
 
@@ -106,7 +106,7 @@ CREATE TABLE tickets_log (
     FOREIGN KEY (idColaborador) references colaboradores(id),
     idFuncao INT,
     FOREIGN KEY (idFuncao) references funcoes(id),
-    dataHoraMvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    dataHoraMvto DATETIME DEFAULT CURRENT_TIMESTAMP, 
     observacao TEXT
 );
 
@@ -127,70 +127,70 @@ CREATE TABLE ticket_tags(
 INSERT INTO empresas (cnpj, razaoSocial, nomeFantasia, inscricaoEstadual, email, telefone, 
 	logradouro, numero, complemento, bairro, cep, cidade, uf, sistema, dataAtivacao, dataExpiracao, 
 	validadeCertificado) VALUES
-("50525544000145",
-"Laís Associados Ltda",
-"Alfa Corretora",
-"601497732",
-"posvenda@ltda.com.br",
-"4828208738",
-"Rua Graça Aranha",
-"423",
-"Apto 12",
-"Pio Corrêa",
-"88811575",
-"Criciúma",
-"SC",
-"SafeCorporate",
-"2013-08-31",
-"2019-01-08",
-"2018-11-20"),
-("35392425000178",
-"Miguel Ltda",
-"Gueto RapBox",
-"689.707.177",
-"fabricacao@ltda.com.br",
-"1129371397",
-"Nestor Pestana",
-"777",
-"Casa",
-"República",
-"01303010",
-"São Paulo",
-"SP",
-"SellerNight",
-"2018-05-24",
-"2019-05-24",
-"2019-03-01"),
-("41198708000186",
-"Gustavo e Amanda Consultoria Financeira ME",
-"Investimentos Avanço 777",
-"96007572713",
-"orcamento@veraegiraltda.com.br",
-"66998127194",
-"Travessa Santa Isa",
-"809",
-"Sala 4",
-"Conjunto Habitacional Cidade de Deus",
-"78734206",
-"Rondonópolis",
-"MT",
-"FinInvest",
-"2011-02-24",
-"2019-12-05",
-"2019-09-28");
+('50525544000145',
+'Laís Associados Ltda',
+'Alfa Corretora',
+'601497732',
+'posvenda@ltda.com.br',
+'4828208738',
+'Rua Graça Aranha',
+'423',
+'Apto 12',
+'Pio Corrêa',
+'88811575',
+'Criciúma',
+'SC',
+'SafeCorporate',
+'2013-08-31',
+'2019-01-08',
+'2018-11-20'),
+('35392425000178',
+'Miguel Ltda',
+'Gueto RapBox',
+'689.707.177',
+'fabricacao@ltda.com.br',
+'1129371397',
+'Nestor Pestana',
+'777',
+'Casa',
+'República',
+'01303010',
+'São Paulo',
+'SP',
+'SellerNight',
+'2018-05-24',
+'2019-05-24',
+'2019-03-01'),
+('41198708000186',
+'Gustavo e Amanda Consultoria Financeira ME',
+'Investimentos Avanço 777',
+'96007572713',
+'orcamento@veraegiraltda.com.br',
+'66998127194',
+'Travessa Santa Isa',
+'809',
+'Sala 4',
+'Conjunto Habitacional Cidade de Deus',
+'78734206',
+'Rondonópolis',
+'MT',
+'FinInvest',
+'2011-02-24',
+'2019-12-05',
+'2019-09-28');
 
 INSERT INTO tags (titulo, criticidade) values
-("Banco de Dados", "BAIXA"),
-("Periféricos", "MEDIA"),
-("Comercial", "ALTA"),
-("Dúvida", "BAIXA"),
-("Operacional", "ALTISSIMA"),
-("Rede e Internet", "BAIXA"),
-("Cadastral", "MEDIA");
+('Banco de Dados', 'BAIXA'),
+('Periféricos', 'MEDIA'),
+('Comercial', 'ALTA'),
+('Dúvida', 'BAIXA'),
+('Operacional', 'ALTISSIMA'),
+('Rede e Internet', 'BAIXA'),
+('Cadastral', 'MEDIA');
 
 
 INSERT INTO funcoes (nome, setor, tipo) VALUES 
-("Estagiário", "Suporte", "Interna");
+('Estagiário', 'Suporte', 'Interna');
 
 
 INSERT INTO colaboradores (id_funcao, usuario, senha, nome, cpf, data_nascimento, telefone, email, logradouro, numero, complemento, bairro, cep, cidade, uf, 
@@ -208,24 +208,24 @@ INSERT INTO usuarios (id_empresa, id_funcao, usuario, senha, nome, cpf, data_nas
 (1, 1, 'gabriel', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'Gabriel Ferreira', '15469532184', '1994-06-04', '(47) 997036820', 'gabrielferreira@hotmail.com', true);
 
 INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura, dataEncerramento) VALUES 
-("2", 3, "Probleminha", "BAIXA", "Concluído","Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor","2018-09-01", "2018-09-05")
+('2', 3, 'Probleminha', 'BAIXA', 'Concluído','Não consigo encontrar o relatório de vendas do dia 25, alguém me ajuda por favor','2018-09-01', '2018-09-05')
+;
+
+INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao) VALUES 
+('1', 2, 'Problemão urgente', 'ALTISSIMA', 'Aberto','Está aparecendo a mensagem Impossível conectar ao banco de dados. Não conseguimos entrar no sistema')
 ;
 
 INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura) VALUES 
-("1", 2, "Problemão urgente", "ALTISSIMA", "Aberto","Está aparecendo a mensagem 'Impossível conectar ao banco de dados'. Não conseguimos entrar no sistema", "2018-05-24")
+('3', 1, 'Problema Top', 'MEDIA', 'Em Andamento','Não consigo enviar mensagens pros meus clientes.', '2018-06-12')
 ;
 
 INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura) VALUES 
-("3", 1, "Problema Top", "MEDIA", "Em Andamento","Não consigo enviar mensagens pros meus clientes.", "2018-06-12")
-;
-
-INSERT INTO tickets (idEmpresa, id_usuario, titulo, criticidade, situacao, descricao, dataAbertura) VALUES 
-("3", 1, "Problema Top 2", "ALTA", "Aberto","Não consigo enviar mensagens pros meus clientes.", "2018-06-12")
+('3', 1, 'Problema Top 2', 'ALTA', 'Aberto','Não consigo enviar mensagens pros meus clientes.', '2018-06-12')
 ;
 
 INSERT INTO ticket_tags (idTickets, idTags) values
-("1", "4"),
-("1", "5"),
-("2", "1"),
-("2", "6")
+('1', '4'),
+('1', '5'),
+('2', '1'),
+('2', '6')
 ;

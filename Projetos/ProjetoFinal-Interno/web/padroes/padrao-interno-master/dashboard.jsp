@@ -3,8 +3,7 @@
 <html class="no-js css-menubar" lang="en">
     <head>
         <title>FlowDesk Interno | <%= request.getAttribute("title")%></title>
-        <meta charset="ISO-8859-1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="bootstrap admin template">
         <meta name="author" content="">

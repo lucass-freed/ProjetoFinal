@@ -3,6 +3,7 @@
     Created on : 30/08/2018, 09:25:35
     Author     : Michelle de Jesus Rogério
 --%>
+<%@page import="br.com.projetofinal.enumTypes.EnumTicketStatusType"%>
 <%@page import="br.com.projetofinal.dao.TicketDAO"%>
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page import="br.com.projetofinal.bean.EmpresaBean"%>
@@ -24,7 +25,7 @@
         </div>
 
         <% if (is) {%>
-            <% if (ticket3.getDataEncerramento() == null) {%>
+        <% if (ticket3.getDataEncerramento() == null) {%>
             <!--if dataConclusao is null aparece botao-->
             </br>
             <div class="form-row">

@@ -42,13 +42,11 @@ public class TicketConcluir extends HttpServlet {
         ticket = new TicketDAO().obterTicketPorID(id);
         if (ticket.getIdColaborador() > 0) {
             TicketLogBean log = new TicketLogBean();
-            log.setDataHoraMovto(new java.sql.Timestamp(new java.util.Date().getTime()));
             log.setIdColaborador(ticket.getIdColaborador());
             log.setObservacao("Concluído pelo Colaborador: " + new ColaboradorDAO().obterColaboradorPorID(ticket.getIdColaborador()).getNome() + ".");
             int a = new TicketsLogDAO().atualizarLog(log, id);
         } else if (ticket.getIdFuncaoMovimentacao() > 0) {
             TicketLogBean log = new TicketLogBean();
-            log.setDataHoraMovto(new java.sql.Timestamp(new java.util.Date().getTime()));
             log.setIdFuncao(ticket.getIdFuncaoMovimentacao());
             log.setObservacao("Concluído pela Função: " + new FuncaoDAO().obterFuncaoPeloID(ticket.getIdFuncaoMovimentacao()).getNome() + ".");
             int a = new TicketsLogDAO().atualizarLog(log, id);

@@ -14,6 +14,9 @@ public class DateFormatador {
     }
     
     public static String timesStampFormatoBrComHora(Timestamp data){
+        if(data == null){
+            return "";
+        }
         return new SimpleDateFormat("dd/MM/yyyy").format(data) + " às " + new SimpleDateFormat("HH:mm").format(data);
     }
     

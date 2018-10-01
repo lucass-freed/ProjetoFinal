@@ -1,6 +1,7 @@
 package br.com.projetofinal.bean;
 
 import java.sql.Timestamp;
+import org.joda.time.DateTime;
 
 /**
  * @author Michelle de Jesus Rogério
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
 public class TicketLogBean {
     
     private int id, idColaborador, idFuncao;
-    private Timestamp dataHoraMovto;
+    private DateTime dataHoraMovto;
     private String observacao;
     
     public int getId() {
@@ -35,11 +36,11 @@ public class TicketLogBean {
         this.idFuncao = idFuncao;
     }
     
-    public Timestamp getDataHoraMovto() {
+    public DateTime getDataHoraMovto() {
         return dataHoraMovto;
     }
 
-    public void setDataHoraMovto(Timestamp dataHoraMovto) {
+    public void setDataHoraMovto(DateTime dataHoraMovto) {
         this.dataHoraMovto = dataHoraMovto;
     }
 

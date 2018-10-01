@@ -48,7 +48,6 @@ public class TicketEncaminhar extends HttpServlet {
             boolean setFuncao = new TicketDAO().alterarFuncao(idTicket, 0);
             
             TicketLogBean log = new TicketLogBean();
-            log.setDataHoraMovto(new java.sql.Timestamp(new java.util.Date().getTime()));
             log.setIdColaborador(colaboradorSessao.getId());
             log.setObservacao("Encaminhado para o Colaborador: " + colaborador.getNome() + ", por " + colaboradorSessao.getNome() + ".");
             int a = new TicketsLogDAO().atualizarLog(log, idTicket);
@@ -60,7 +59,6 @@ public class TicketEncaminhar extends HttpServlet {
             boolean setColaborador = new TicketDAO().alterarColaborador(idTicket, 0);
             
             TicketLogBean log = new TicketLogBean();
-            log.setDataHoraMovto(new java.sql.Timestamp(new java.util.Date().getTime()));
             log.setIdColaborador(colaboradorSessao.getId());
             log.setObservacao("Encaminhado para a Função: " + funcao.getNome() + ", por " + colaboradorSessao.getNome() + ".");
             int a = new TicketsLogDAO().atualizarLog(log, idTicket);
