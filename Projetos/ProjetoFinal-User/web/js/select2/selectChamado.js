@@ -15,13 +15,7 @@ $(function () {
     });
 
     $("#btn-cadastrar").on("click", function () {
-        $.ajax({
-            url: "/externo/chamado/store",
-            method: "post",
-            data: {
-                tags: $("#tags").val()
-            }
-        });
+   
     });
 
 });

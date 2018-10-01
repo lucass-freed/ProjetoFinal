@@ -45,34 +45,7 @@
                             <div class="col-md-7">
                                 <div class="blue-grey-700 font-size-18">Seus Tickets</div>
                             </div>
-                            <div class="col-sm-5">
-                                <div class="row">
-                                    <div style="text-align: left" class="col-sm-4">
-                                        <div class="counter counter-md">
-                                            <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new NumberFormato().f(new TicketDAO().getQuantidadeTicketsConcluidosIDUsuario(usuario.getId()));%></span>
-                                            </div>
-                                            <div class="counter-label blue-grey-400">Concluídos</div>
-                                        </div>
-                                    </div>
-                                    <div style="text-align: right" class="">
-                                        <div class="counter counter-md">
-                                            <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new NumberFormato().f(new TicketDAO().getQuantidadeTicketsEmAndamentoIDUsuario(usuario.getId()));%></span>
-                                            </div>
-                                            <div class="counter-label blue-grey-400">Em Andamento</div>
-                                        </div>
-                                    </div>
-                                    <div style="text-align: top" class="col-sm-4">
-                                        <div class="counter counter-md">
-                                            <div class="counter-number-group text-nowrap">
-                                                <span class="counter-number"><% new NumberFormato().f(new TicketDAO().getQuantidadeTicketsPendentesIDUsuario(usuario.getId()));%></span>
-                                            </div>
-                                            <div class="counter-label blue-grey-400">Pendentes</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <div class="panel box-shadow">
                                 </br>
                                 <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:102.5%" id="tabela-home-tickets">

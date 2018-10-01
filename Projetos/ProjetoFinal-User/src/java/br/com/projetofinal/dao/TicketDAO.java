@@ -28,31 +28,27 @@ public class TicketDAO {
         if (conexao != null) {
             String sql = "INSERT INTO tickets("
                     + "idEmpresa, "
-                    + "id_colaborador, "
                     + "id_usuario, "
-                    + "id_ticket_sazonalidade, "
                     + "titulo, "
                     + "criticidade, "
                     + "situacao, "
                     + "descricao, "
                     + "dataAbertura, "
-                    + "dataEncerramento, "
-                    + "procedimentoResolucao"
-                    + ") VALUES(?,?,?,?,?,?,?,?,?,?,?);";
+                    + "dataEncerramento "
+                    
+                    + ") VALUES(?,?,?,?,?,?,?,?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
                 ps.setInt(quantidade++, ticket.getIdEmpresa());
-                ps.setInt(quantidade++, ticket.getIdColaborador());
                 ps.setInt(quantidade++, ticket.getIdUsuario());
-                ps.setString(quantidade++, ticket.getSazonalidade());
                 ps.setString(quantidade++, ticket.getTitulo());
                 ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
                 ps.setString(quantidade++, String.valueOf(ticket.getStatus()));
                 ps.setString(quantidade++, ticket.getDescricao());
                 ps.setTimestamp(quantidade++, ticket.getDataAbertura());
                 ps.setTimestamp(quantidade++, ticket.getDataEncerramento());
-                ps.setString(quantidade++, ticket.getProcedimentoResolucao());
+               // ps.setString(quantidade++, ticket.getProcedimentoResolucao());
                 ps.execute();
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
@@ -105,7 +101,7 @@ public class TicketDAO {
                     + "tck.titulo, "
                     + "tck.idEmpresa, "
                     + "tck.id_colaborador, "
-                    + "tck.id_ticket_sazonalidade, "
+                    + "tck.sazonalidade, "
                     + "tck.situacao, "
                     + "tck.criticidade, "
                     + "tck.dataAbertura, "
@@ -208,9 +204,9 @@ public class TicketDAO {
                     HashMap<String, Object> ticket = new HashMap<>();
                     ticket.put("id", rs.getInt("id"));
                     ticket.put("titulo", rs.getString("titulo"));
-                    ticket.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
+                    ticket.put("dataAbertura", DateFormatador.timesStampFormatoBrComHora(rs.getTimestamp("dataAbertura")));
                     try {
-                        ticket.put("dataEncerramento", DateFormatador.formatoBr(rs.getDate("dataEncerramento")));
+                        ticket.put("dataEncerramento", DateFormatador.timesStampFormatoBrComHora(rs.getTimestamp("dataEncerramento")));
                     } catch (Exception e) {
                         ticket.put("dataEncerramento", "xx/xx/xxxx");
                     }
