@@ -14,7 +14,7 @@
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
         <h2>Cadastrar Colaborador</h2>
-        <form action="/interno/cadastro/store" method="post" id="cadastro" autocomplete="off">
+        <form action="javascript:cadastrarColaborador(<%= request.getParameter("id")%>);" id="cadastro" autocomplete="off">
             <div class="row">
                 <h4 class="example-title col-md-6">Informações Pessoais</h4>
                 <h4 class="example-title">Endereço</h4>
@@ -137,7 +137,7 @@
                         <div class="col-sm-10">
                             <select class="form-control" id="comboBoxBasicFuncao" name="comboBoxFuncao">
                                 <option value="" disabled selected>Selecionar Função</option>
-                                <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoes()) {%>
+                                <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoesInternas()) {%>
                                 <option value="<%= funcao.getId()%>"><%= funcao.getNome()%></option>
                                 <% }%>
                             </select>
@@ -175,6 +175,8 @@
 <script>
     Breakpoints();
 </script>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-colaboradores.js"></script>
 <script src="/js/cadastro/cadastro-colaborador.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>

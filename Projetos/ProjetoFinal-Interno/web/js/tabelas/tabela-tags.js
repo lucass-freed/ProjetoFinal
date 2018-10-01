@@ -3,7 +3,7 @@ var idTable;
 var tipo;
 
 $(function () {
-    tabel = $("#tabela-tags").DataTable({
+    tabela = $("#tabela-tags").DataTable({
         "ajax": "/interno/tags/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -58,7 +58,7 @@ $(function () {
             {"data": null,
                 "render": function (data, type, row) {
                     return "<a class='btn btn-info' href='/interno/tag/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                            "<a href='javascript:(0)' class='btn btn-danger excluirtest'><i class='icon wb-trash'></i></a>";
+                            "<a href='javascript:excluirTag();' id='excluirtest' class='btn btn-danger'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
@@ -67,21 +67,6 @@ $(function () {
         var data = tabela.row(this).data();
         idTable = data["id"];
         tipo = data["tipo"];
-    });
-    
-    $('#tabela-tags').on('click', '.excluirtest', function () {
-        console.log(idTable);
-        $.ajax({
-            url: '/interno/tag/excluir',
-            method: 'POST',
-            data: {
-                id: idTable
-            },
-            success: function (data) {
-                tabela.ajax.reload();
-            }
-        });
-        return false;
     });
 });
 
@@ -93,15 +78,14 @@ excluirTag = function () {
     });
 
     swalWithBootstrapButtons({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Você tem certeza??',
+        text: "Esta ação não pode ser desfeita!",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
+        confirmButtonText: 'Sim, excluir tag!',
+        cancelButtonText: 'Não, cancelar!',
         reverseButtons: true
     }).then((result) => {
-        window.location.replace("/interno/tag/excluir?id=" + idTable);
         if (result.value) {
             swalWithBootstrapButtons(
                     'Sucesso!',
@@ -109,19 +93,11 @@ excluirTag = function () {
                     'success'
                     );
             $.ajax({
-                url: '/interno/tag/excluir',
-                method: 'POST',
-                data: {
-                    id: idTable
-                },
+                url: '/interno/tag/excluir?id=' + idTable,
                 success: function (data) {
                     tabela.ajax.reload();
                 }
             });
-        } else if (
-                // Read more about handling dismissals
-                result.dismiss === swal.DismissReason.cancel
-                ) {
-        }
+        };
     });
 };

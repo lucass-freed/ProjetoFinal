@@ -18,7 +18,7 @@
     <div class="panel-body container-fluid box-shadow">
         <h2>Cadastrar Empresa</h2>
         <hr>
-        <form action="/interno/empresa/store" method="post" id="cadastro" autocomplete="off">
+        <form action="javascript:cadastrarEmpresa(<%= request.getParameter("id")%>);" id="cadastro" autocomplete="off">
             <div class="row row-lg">
                 <div class="col-md-12">
                     <div class="example-wrap">
@@ -180,6 +180,8 @@
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
     });
 </script>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-empresas.js"></script>
 <script src="/js/cadastro/cadastro-empresa.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>

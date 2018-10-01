@@ -60,7 +60,6 @@ public class ColaboradorAlterar extends HttpServlet {
         colaborador.setComplemento(req.getParameter("inputComplemento"));
 
         boolean alterou = new ColaboradorDAO().alterar(colaborador);
-        resp.sendRedirect("/interno/colaboradores");
 
     }
 

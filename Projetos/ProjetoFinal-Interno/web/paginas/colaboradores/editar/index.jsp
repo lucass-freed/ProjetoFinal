@@ -19,7 +19,7 @@
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
         <h2>Editar Colaborador</h2>
-        <form action="/colaborador/alterar" method="post" id="editar" autocomplete="off">
+        <form action="javascript:editarColaborador(<%= colaborador.getId()%>);" id="editar" autocomplete="off">
             <div class="row">
                 <h4 class="example-title col-md-6">Informações Pessoais</h4>
                 <h4 class="example-title">Endereço</h4>
@@ -133,7 +133,7 @@
                         <div class="col-sm-10">
                             <select class="form-control" id="comboBoxBasicFuncao" name="comboBoxFuncao">
                                 <option value="<%= colaborador.getFuncao().getId()%>" selected><%= colaborador.getFuncao().getNome()%></option>
-                                <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoes()) {%>
+                                <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoesInternas()) {%>
                                 <option value="<%= funcao.getId()%>"><%= funcao.getNome()%></option>
                                 <% }%>
                             </select>
@@ -171,6 +171,8 @@
 <script>
     Breakpoints();
 </script>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-colaboradores.js"></script>
 <script src="/js/editar/editar-colaborador.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>

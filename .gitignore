@@ -84,3 +84,5 @@ Projetos/ProjetoFinal-Conexao/nbproject/private/private.properties
 !/Projetos/ProjetoFinal-User/web/css/select2/select2.min.css
 !/Projetos/ProjetoFinal-Interno/web/css/select2/select2.min.css
 !/Projetos/ProjetoFinal-Interno/web/css/datatable/datatables.min.css
+!/Projetos/ProjetoFinal-Interno/web/css/sweetalert2.min.css
+!/Projetos/ProjetoFinal-Interno/web/css/sweet-alert.less.css

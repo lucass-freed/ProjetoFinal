@@ -1,8 +1,9 @@
 var idTable;
+var table;
 var tipo;
 
 $(function () {
-    var table = $("#tabela-colaboradores").DataTable({
+    table = $("#tabela-colaboradores").DataTable({
         "ajax": "/colaborador/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -58,8 +59,8 @@ $(function () {
             },
             {"data": null,
                 "render": function (data, type, row) {
-                    return "<a class='btn btn-info' href='javascript:verificarEditar()'><i class='icon wb-edit'></i></a>  " +
-                            "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
+                    return "<a class='btn btn-info' href='javascript:verificarEditar();'><i class='icon wb-edit'></i></a>  " +
+                            "<a class='btn btn-danger' href='javascript:verificarExcluir();'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
@@ -72,29 +73,145 @@ $(function () {
 
     verificarEditar = (function () {
         if (tipo === 'Master') {
-            $(function () {
-                new PNotify({
-                    title: 'Ocorreu um erro!',
-                    text: 'Você não pode alterar os dados deste colaborador.',
-                    type: 'error'
-                });
+            const swalWithBootstrapButtons = swal.mixin({
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
             });
+            swalWithBootstrapButtons(
+                    'Ocorreu um erro!',
+                    'Você não pode alterar as informações deste colaborador!',
+                    'error'
+                    );
         } else {
             window.location.replace("/colaborador/editar?id=" + idTable);
         }
-    })
+    });
+
+    verificarExcluir = (function () {
+        const swalWithBootstrapButtons = swal.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        });
+        if (tipo === 'Master') {
+            swalWithBootstrapButtons(
+                    'Ocorreu um erro!',
+                    'Você não pode alterar as excluir este colaborador!',
+                    'error'
+                    );
+        } else {
+            swalWithBootstrapButtons({
+                title: 'Você tem certeza??',
+                text: "Esta ação não pode ser desfeita!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, excluir Colaborador!',
+                cancelButtonText: 'Não, cancelar!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons(
+                            'Sucesso!',
+                            'Colaborador removido com sucesso!',
+                            'success'
+                            ), function (isConfirm) {
+                        alert('ok');
+                    };
+                    $.ajax({
+                        url: "/colaborador/excluir?id=" + idTable,
+                        success: function (data) {
+                            table.ajax.reload();
+                        }
+                    });
+                }
+                ;
+            });
+        }
+    });
 });
 
-excluir = function () {
-    if (tipo === 'Master') {
-        $(function () {
-            new PNotify({
-                title: 'Ocorreu um erro!',
-                text: 'Você não pode excluir este colaborador.',
-                type: 'error'
+function cadastrarColaborador(id) {
+    $('#cadastro').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/interno/cadastro/store?id=" + id,
+        method: 'POST',
+        data: {
+            'inputUsuario': $('#inputBasicUsuario').val(),
+            'inputSenha': $('#inputBasicSenha').val(),
+            'inputCidade': $('#inputBasicCidade').val(),
+            'selectUf': $('#selectBasicUf').val(),
+            'inputNomeCompleto': $('#inputBasicNomeCompleto').val(),
+            'inputCEP': $('#inputBasicCEP').val(),
+            'inputBairro': $('#inputBasicBairro').val(),
+            'inputCPF': $('#inputBasicCPF').val(),
+            'inputDataNascimento': $('#inputBasicDataNascimento').val(),
+            'inputLogradouro': $('#inputBasicLogradouro').val(),
+            'inputCTPS': $('#inputBasicCTPS').val(),
+            'inputPIS': $('#inputBasicPIS').val(),
+            'inputNumero': $('#inputBasicNumero').val(),
+            'inputTelefone': $('#inputBasicTelefone').val(),
+            'inputEmail': $('#inputBasicEmail').val(),
+            'inputComplemento': $('#inputBasicComplemento').val(),
+            'comboBoxFuncao': $('#comboBoxBasicFuncao').val(),
+            'inputDataAdmissao': $('#inputBasicDataAdmissao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Colaborador cadastrado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/colaboradores";
             });
-        });
-    } else {
-        window.location.replace("/colaborador/excluir?id=" + idTable);
-    }
-}
+        }
+    });
+};
+
+function editarColaborador(id) {
+    $('#editar').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/colaborador/alterar?id=" + id,
+        method: 'POST',
+        data: {
+            'inputID': $('#inputBasicID').val(),
+            'inputUsuario': $('#inputBasicUsuario').val(),
+            'inputSenha': $('#inputBasicSenha').val(),
+            'inputCidade': $('#inputBasicCidade').val(),
+            'selectUf': $('#selectBasicUf').val(),
+            'inputNomeCompleto': $('#inputBasicNomeCompleto').val(),
+            'inputCEP': $('#inputBasicCEP').val(),
+            'inputBairro': $('#inputBasicBairro').val(),
+            'inputCPF': $('#inputBasicCPF').val(),
+            'inputDataNascimento': $('#inputBasicDataNascimento').val(),
+            'inputLogradouro': $('#inputBasicLogradouro').val(),
+            'inputCTPS': $('#inputBasicCTPS').val(),
+            'inputPIS': $('#inputBasicPIS').val(),
+            'inputNumero': $('#inputBasicNumero').val(),
+            'inputTelefone': $('#inputBasicTelefone').val(),
+            'inputEmail': $('#inputBasicEmail').val(),
+            'inputComplemento': $('#inputBasicComplemento').val(),
+            'comboBoxFuncao': $('#comboBoxBasicFuncao').val(),
+            'inputDataAdmissao': $('#inputBasicDataAdmissao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Colaborador alterado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/colaboradores";
+            });
+        }
+    });
+};

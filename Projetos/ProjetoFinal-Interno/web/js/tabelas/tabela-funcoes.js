@@ -1,8 +1,9 @@
 var idTable;
+var table;
 var tipo;
 
 $(function () {
-    var table = $("#tabela-funcoes").DataTable({
+    table = $("#tabela-funcoes").DataTable({
         "ajax": "/interno/funcoes/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -54,7 +55,7 @@ $(function () {
             {"data": null,
                 "render": function (data, type, row) {
                     return "<a class='btn btn-info' href='/interno/funcoes/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                            "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
+                            "<a class='btn btn-danger' href='javascript:excluirFuncao();'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
@@ -67,5 +68,33 @@ $(function () {
 });
 
 excluirFuncao = function () {
-    window.location.replace("/interno/funcoes/excluir?id=" + idTable);
-}
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons({
+        title: 'Você tem certeza??',
+        text: "Esta ação não pode ser desfeita!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sim, excluir função!',
+        cancelButtonText: 'Não, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Função removida com sucesso!',
+                    'success'
+                    );
+            $.ajax({
+                url: '/interno/funcoes/excluir?id=' + idTable,
+                success: function (data) {
+                    table.ajax.reload();
+                }
+            });
+        };
+    });
+};

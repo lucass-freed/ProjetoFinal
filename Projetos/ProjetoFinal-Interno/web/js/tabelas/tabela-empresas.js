@@ -1,8 +1,9 @@
 var idTable;
+var table;
 var tipo;
 
 $(function () {
-    var table = $("#tabela-empresas").DataTable({
+    table = $("#tabela-empresas").DataTable({
         "ajax": "/empresas/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -50,7 +51,7 @@ $(function () {
             {"data": null,
                 "render": function (data, type, row) {
                     return "<a class='btn btn-info' href='/empresa/editar?id=" + data.id + "'><i class='icon wb-edit'></i></a>  " +
-                            "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
+                            "<a class='btn btn-danger' href='javascript:excluirEmpresa();'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
@@ -63,5 +64,33 @@ $(function () {
 });
 
 excluirEmpresa = function () {
-    window.location.replace("/empresa/excluir?id=" + idTable);
-}
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons({
+        title: 'Você tem certeza??',
+        text: "Esta ação não pode ser desfeita!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sim, excluir empresa!',
+        cancelButtonText: 'Não, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Empresa removida com sucesso!',
+                    'success'
+                    );
+            $.ajax({
+                url: '/empresa/excluir?id=' + idTable,
+                success: function (data) {
+                    table.ajax.reload();
+                }
+            });
+        };
+    });
+};

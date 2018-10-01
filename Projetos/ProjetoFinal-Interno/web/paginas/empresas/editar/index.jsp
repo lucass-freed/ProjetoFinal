@@ -22,7 +22,7 @@
     <div class="panel-body container-fluid box-shadow">
         <h2>Editar Empresa</h2>
         <hr>
-        <form action="/empresa/alterar" method="post" id="editar" autocomplete="off">
+        <form action="javascript:editarEmpresa(<%= empresa.getId()%>);" id="editar" autocomplete="off">
             <div class="row row-lg">
                 <div class="col-md-12">
                     <div class="example-wrap">
@@ -183,6 +183,8 @@
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
     });
 </script>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-empresas.js"></script>
 <script src="/js/editar/editar-empresa.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
