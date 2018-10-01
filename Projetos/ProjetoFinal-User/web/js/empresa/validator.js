@@ -87,7 +87,7 @@ $(function () {
             },
             razaoSocial: {
                 required: "Este campo é obrigatório",
-                minlength: "Razão Social deve conter no mínimo {0} caracteres."
+                minlength: "Razão Social deve conter no mínimo {0} caracteres.",
                 maxlength: "Razão Social deve conter no máximo {0} caracteres."
             },
             email: {

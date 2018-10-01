@@ -189,6 +189,17 @@
         $("#botao-salvar").click($('#botao-salvar').attr('submit', 'submit'));  
     });
 </script>
+<script>
+    var hidden = false;
+    function action() {
+        hidden = !hidden;
+        if(hidden) {
+            document.getElementById('togglee').style.visibility = 'hidden';
+        } else {
+            document.getElementById('togglee').style.visibility = 'visible';
+        }
+    }
+</script>
 <script src="/js/acao-cancelar.js"></script>
 <script src="/js/acao-editar.js"></script>
 
