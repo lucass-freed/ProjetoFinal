@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS projeto_final_banco;
-CREATE DATABASE IF NOT EXISTS projeto_final_banco CHARACTER SET utf8 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS projeto_final_banco;
 USE projeto_final_banco;
 
 CREATE TABLE funcoes (
@@ -78,18 +78,6 @@ CREATE TABLE tickets_criticidade (
     prazo VARCHAR (20)
 );
 
-CREATE TABLE tickets_log (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    idTicket INT NOT NULL,
-    FOREIGN KEY (idTicket) references tickets(id),
-    idColaborador INT,
-    FOREIGN KEY (idColaborador) references colaboradores(id),
-    idFuncao INT,
-    FOREIGN KEY (idFuncao) references funcoes(id),
-    dataHoraMvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    observacao TEXT
-);
-
 CREATE TABLE tickets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idEmpresa INT NOT NULL,
@@ -109,6 +97,19 @@ CREATE TABLE tickets (
     dataEncerramento TIMESTAMP,
     procedimentoResolucao TEXT
 );
+
+CREATE TABLE tickets_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idTicket INT NOT NULL,
+    FOREIGN KEY (idTicket) references tickets(id),
+    idColaborador INT,
+    FOREIGN KEY (idColaborador) references colaboradores(id),
+    idFuncao INT,
+    FOREIGN KEY (idFuncao) references funcoes(id),
+    dataHoraMvto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    observacao TEXT
+);
+
 
 CREATE TABLE tags(
     id INT PRIMARY KEY AUTO_INCREMENT,
