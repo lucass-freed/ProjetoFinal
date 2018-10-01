@@ -94,3 +94,84 @@ excluirEmpresa = function () {
         };
     });
 };
+
+function cadastrarEmpresa(id) {
+    $('#cadastro').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/interno/empresa/store?id=" + id,
+        method: 'POST',
+        data: {
+            'inputCNPJ': $('#inputBasicCNPJ').val(),
+            'inputNomeFantasia': $('#inputBasicNomeFantasia').val(),
+            'inputRazaoSocial': $('#inputBasicRazaoSocial').val(),
+            'inputEmail': $('#inputBasicEmail').val(),
+            'inputUsuario': $('#inpuBasictUsuario').val(),
+            'inputPhone': $('#inputBasicPhone').val(),
+            'inputLogradouro': $('#inputBasicLogradouro').val(),
+            'inputIE': $('#inputBasicIE').val(),
+            'inputNumero': $('#inputBasicNumero').val(),
+            'inputComplemento': $('#inputBasicComplemento').val(),
+            'inputBairro': $('#inputBasicBairro').val(),
+            'inputCEP': $('#inputBasicCEP').val(),
+            'inputCidade': $('#inputBasicCidade').val(),
+            'selectUf': $('#selectBasicUf').val(),
+            'inputDataAtivacao': $('#inputBasicDataAtivacao').val(),
+            'inputDataExpiracao': $('#inputBasicDataExpiracao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Colaborador cadastrado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/colaboradores";
+            });
+        }
+    });
+};
+
+function editarEmpresa(id) {
+    $('#editar').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/colaborador/alterar?id=" + id,
+        method: 'POST',
+        data: {
+            'inputID': $('#inputBasicID').val(),
+            'inputCNPJ': $('#inputBasicCNPJ').val(),
+            'inputNomeFantasia': $('#inputBasicNomeFantasia').val(),
+            'inputRazaoSocial': $('#inputBasicRazaoSocial').val(),
+            'inputEmail': $('#inputBasicEmail').val(),
+            'inputUsuario': $('#inpuBasictUsuario').val(),
+            'inputPhone': $('#inputBasicPhone').val(),
+            'inputLogradouro': $('#inputBasicLogradouro').val(),
+            'inputIE': $('#inputBasicIE').val(),
+            'inputNumero': $('#inputBasicNumero').val(),
+            'inputComplemento': $('#inputBasicComplemento').val(),
+            'inputBairro': $('#inputBasicBairro').val(),
+            'inputCEP': $('#inputBasicCEP').val(),
+            'inputCidade': $('#inputBasicCidade').val(),
+            'selectUf': $('#selectBasicUf').val(),
+            'inputDataAtivacao': $('#inputBasicDataAtivacao').val(),
+            'inputDataExpiracao': $('#inputBasicDataExpiracao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Colaborador alterado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/colaboradores";
+            });
+        }
+    });
+};
