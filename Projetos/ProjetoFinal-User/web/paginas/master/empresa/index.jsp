@@ -183,8 +183,8 @@
 
     $("#botao-cancelar").click(function () {
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
-        $("#botao-cancelar").click($('#botao-cancelar').attr('style', 'hidden'));
-        $("#botao-salvar").click($('#botao-salvar').attr('style', 'hidden'));
+        $("#botao-cancelar").click($('#botao-cancelar').attr('style', 'visibility', 'hidden'));
+        $("#botao-salvar").click($('#botao-salvar').attr('style', 'visibility', 'hidden'));
     });
 </script>
 <script>
