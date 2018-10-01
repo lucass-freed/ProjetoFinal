@@ -128,7 +128,7 @@
                             </div>
                             <div class="form-group col-md-6">                   
                                 <input type="text" class="form-control" id="inputBasicDataExpiracao" name="dataExpiracao" autocomplete="off" placeholder="Data de Expiração  Ex: 00/00/0000" disabled="disabled" value="<%= DateFormatador.formatoBr(empresa.getDataExpiracao())%>"/>
-                                <input type="hidden"  name="dataExpiracaoHidden" value="<%= empresa.getDataExpiracao()%>"/>
+                                <input type="hidden" name="dataExpiracaoHidden" value="<%= empresa.getDataExpiracao()%>"/>
                             </div>
                         </div>
                         <div class="row">

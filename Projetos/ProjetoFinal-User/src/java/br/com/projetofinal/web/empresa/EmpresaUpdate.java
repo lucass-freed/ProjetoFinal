@@ -48,7 +48,7 @@ public class EmpresaUpdate extends HttpServlet {
         dataAtivacao.setMonth(Integer.parseInt(dataAtivacaoS.split("-")[1]));
         dataAtivacao.setDate(Integer.parseInt(dataAtivacaoS.split("-")[0]));
         
-        String dataExpiracaoS = req.getParameter("dataExpiracao").replace("/", "-");
+        String dataExpiracaoS = req.getParameter("dataExpiracaoHidden").replace("/", "-");
         Date dataExpiracao = Date.valueOf(LocalDate.MAX);
         dataExpiracao.setYear(Integer.parseInt(dataExpiracaoS.split("-")[2]));
         dataExpiracao.setMonth(Integer.parseInt(dataExpiracaoS.split("-")[1]));

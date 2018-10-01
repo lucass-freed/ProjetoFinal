@@ -75,6 +75,12 @@
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-control-label">Sazonalidade</label>
+                    <input type="text" class="form-control" disabled="disabled" autocomplete="off" value="<%= ticket3.getSazonalidade()%>"/>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group row col-md-6">
                     <div class="col-md-12">
                         <label class="form-control-label">Procedimento de Resolução</label>
