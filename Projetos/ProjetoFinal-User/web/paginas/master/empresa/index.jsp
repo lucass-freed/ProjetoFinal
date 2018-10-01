@@ -28,7 +28,7 @@
                         <input type="hidden" id="inputBasicId" name="id" value="<%= empresa.getId() %>">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar">Habilitar Alteração</button>
+                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar" onclick="alterar()">Habilitar Alteração</button>
                                 <h3 class="example-title col-md-5 float-left">Cadastro de Empresa</h3>
                             </div>
 
@@ -179,24 +179,22 @@
 <script>
     $("#botao-alterar").click(function () {
         $(".minha-classe").click($('.minha-classe').removeAttr('disabled'));
-        $("#botao-cancelar").click($("#botao-cancelar").removeAttr('hidden'));
-        $("#botao-salvar").click($("#botao-salvar").removeAttr('hidden'));
     });
 
     $("#botao-cancelar").click(function () {
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
-        $("#botao-cancelar").click($('.minha-cancelar').attr('hidden', 'hidden'));
-        $("#botao-salvar").click($('#botao-salvar').attr('submit', 'submit'));  
     });
 </script>
 <script>
     var hidden = false;
-    function action() {
+    function alterar() {
         hidden = !hidden;
         if(hidden) {
-            document.getElementById('togglee').style.visibility = 'hidden';
+            document.getElementById('botao-alterar').style.visibility = 'hidden';
+            document.getElementById('botao-cancelar').style.visibility = 'visible';
+            document.getElementById('botao-salvar').style.visibility = 'visible';
         } else {
-            document.getElementById('togglee').style.visibility = 'visible';
+            document.getElementById('botao-alterar').style.visibility = 'visible';
         }
     }
 </script>
