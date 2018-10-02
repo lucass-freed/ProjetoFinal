@@ -73,25 +73,27 @@
                 <h3 class="panel-title">Lista de Tickets</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="tabela-ticket">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Protocolo</th>
-                            <th scope="col">Empresa</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Data de Abertura</th>
-                            <th scope="col">Data de Encerramento</th>
-                            <th scope="col">Criticidade</th>
-                            <th scope="col">Situação</th>
-                            <th scope="col">Opção</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="tabela-ticket">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Protocolo</th>
+                                <th scope="col">Empresa</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Data de Abertura</th>
+                                <th scope="col">Data de Encerramento</th>
+                                <th scope="col">Criticidade</th>
+                                <th scope="col">Situação</th>
+                                <th scope="col">Opção</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- End Panel Tickets -->
