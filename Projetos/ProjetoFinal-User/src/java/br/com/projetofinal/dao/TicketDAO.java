@@ -165,7 +165,7 @@ public class TicketDAO {
 
     public List<HashMap<String, Object>> obterTodosPendentesParaDataTableUsuario(int id) {
         List<HashMap<String, Object>> ticketsPendentes = new ArrayList<>();
-        String sql = "SELECT * FROM tickets WHERE id_usuario = ? AND situacao = 'Pendente'";
+        String sql = "SELECT * FROM tickets WHERE id_usuario = ? AND situacao = 'Aberto'";
         if (Conexao.getConnection() != null) {
             try {
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
