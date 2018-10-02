@@ -13,6 +13,7 @@ public class FuncaoBean {
     private String setor;
     private FuncaoType tipo;
     private String descricao;
+    private boolean excluido;
 
     public int getId() {
         return id;
@@ -52,5 +53,13 @@ public class FuncaoBean {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public boolean isExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(boolean excluido) {
+        this.excluido = excluido;
     }
 }

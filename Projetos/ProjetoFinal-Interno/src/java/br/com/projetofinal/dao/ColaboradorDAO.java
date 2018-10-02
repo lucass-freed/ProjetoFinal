@@ -84,7 +84,7 @@ public class ColaboradorDAO extends SHA512Metodos {
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "DELETE FROM colaboradores WHERE id = ?";
+            String sql = "UPDATE colaboradores SET excluido = true WHERE id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -176,7 +176,7 @@ public class ColaboradorDAO extends SHA512Metodos {
                     + "uf, "
                     + "data_admissao, "
                     + "ctps, "
-                    + "pis FROM colaboradores;";
+                    + "pis FROM colaboradores WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -329,7 +329,7 @@ public class ColaboradorDAO extends SHA512Metodos {
     public int getQuantidadeColaboradoresCadastrados() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM colaboradores;";
+            String sql = "SELECT COUNT(id) FROM colaboradores WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -348,7 +348,7 @@ public class ColaboradorDAO extends SHA512Metodos {
 
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> colaboradores = new ArrayList<>();
-        String sql = "SELECT * FROM colaboradores";
+        String sql = "SELECT * FROM colaboradores WHERE excluido = false;";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();

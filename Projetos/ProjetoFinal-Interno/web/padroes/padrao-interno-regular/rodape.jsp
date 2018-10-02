@@ -53,6 +53,7 @@
 <script src="/js/cadastro/additional-methods.js"></script>
 <script src="/js/cadastro/additional-methods.min.js"></script>
 <script src="/js/select2/select2.min.js" type="text/javascript"></script>
+<script src="/js/sweetalert2.all.min.js"></script>
 
 
 <script>

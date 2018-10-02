@@ -58,13 +58,13 @@
                                     </button>
                                     <h4 class="modal-title" id="exampleOptionalSmall">Alterar Prioridade</h4>
                                 </div>
-                                <form action="/interno/ticket/alterarCriticidade" method="post" id="formAlterarCriticidade" autocomplete="off">
+                                <form action="javascript:alterarCriticidade(<%= ticket4.getId()%>);" id="formAlterarCriticidade" autocomplete="off">
                                     <input type="hidden" id="Basicid" name="id" value="<%= ticket4.getId()%>">
                                     <input type="hidden" id="BasicidColaborador" name="idColaborador" value="<%= colaborador.getId()%>">
                                     <div class="modal-body col-md-6">
                                         <!-- Opções Alteração de Criticidade -->
                                         <div class="example-wrap">
-                                            <select class="form-control" name="criticidade">
+                                            <select class="form-control" id="BasicCriticidade" name="criticidade">
                                                 <option value="" disabled selected>Selecionar Criticidade</option>
                                                 <% if (ticket4.getCriticidade() == CriticidadeTypes.BAIXA) {%>
                                                 <option value="MEDIA">Média</option>
@@ -76,7 +76,7 @@
                                                 <option value="ALTISSIMA">Altíssima</option>
                                                 <% } else if (ticket4.getCriticidade() == CriticidadeTypes.ALTA) {%>
                                                 <option value="BAIXA">Baixa</option>
-                                                <option value="ALTA">Alta</option>
+                                                <option value="MEDIA">Média</option>
                                                 <option value="ALTISSIMA">Altíssima</option>
                                                 <% } else {%>
                                                 <option value="BAIXA">Baixa</option>

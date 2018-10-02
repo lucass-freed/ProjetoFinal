@@ -41,7 +41,7 @@
                 <h3 class="panel-title">Lista de Tags</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="tabela-tags">
+                <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-tags">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">ID</th>

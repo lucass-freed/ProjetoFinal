@@ -22,25 +22,25 @@
     <div class="panel-body container-fluid box-shadow">
         <h2>Editar Função</h2>
         <hr>
-        <form action="/interno/funcoes/alterar" method="post" id="editar" autocomplete="off">
+        <form action="javascript:editarFuncao(<%= funcao.getId()%>);" method="post" id="editar" autocomplete="off">
             <div class="row row-lg">
                 <div class="col-md-12">
                     <div class="example-wrap">
                         <div class="example">
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicNome">Nome</label>
+                                    <label class="form-control-label" for="inputBasicNome">Nome *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNome" name="inputNome" autocomplete="off" value="<%= funcao.getNome()%>" placeholder="Nome"/>
                                 </div>
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicSetor">Setor</label>
+                                    <label class="form-control-label" for="inputBasicSetor">Setor *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicSetor" name="inputSetor" autocomplete="off" value="<%= funcao.getSetor()%>" placeholder="Setor"/>
                                 </div>
                                 <input type="hidden" id="inputBasicID" name="inputID" value="<%= funcao.getId()%>">
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="selectBasicTipo">Tipo da Função</label>
+                                    <label class="form-control-label" for="selectBasicTipo">Tipo da Função *</label>
                                     <select class="form-control minha-classe" id="selectBasicTipo" name="selectTipo">
                                         <option value="<%= funcao.getTipo().toString().toUpperCase()%>" selected><%= funcao.getTipo().toString().toUpperCase().charAt(0) + funcao.getTipo().toString().toLowerCase().substring(1, 7)%></option>
                                         <option value="EXTERNA">Externa</option>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="form-control-label" for="selectBasicTipo">Descrição</label>
-                                    <textarea class="form-control" id="textareaBasicDescricao" name="textareaDescricao" value="<%= funcao.getDescricao()%>" placeholder="Adicionar uma Descrição" style="margin-top: 0px; margin-bottom: 0px; height: 62px;"></textarea>
+                                    <textarea class="form-control" id="textareaBasicDescricao" name="textareaDescricao" placeholder="Adicionar uma Descrição" style="margin-top: 0px; margin-bottom: 0px; height: 62px;"><%= funcao.getDescricao() == null ? "" : funcao.getDescricao()%></textarea>
                                 </div>
                             </div>
                             </br>
@@ -103,6 +103,8 @@
         $(".minha-classe").click($('.minha-classe').attr('disabled', 'disabled'));
     });
 </script>
+<script src="/js/datatable/jquery.min.js"></script>
+<script src="/js/tabelas/tabela-funcoes.js"></script>
 <script src="/js/editar/editar-funcao.js"></script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>

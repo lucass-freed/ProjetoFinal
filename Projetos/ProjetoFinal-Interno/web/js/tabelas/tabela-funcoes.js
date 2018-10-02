@@ -98,3 +98,62 @@ excluirFuncao = function () {
         };
     });
 };
+
+function cadastrarFuncao(id) {
+    $('#cadastro').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/interno/funcoes/store?id=" + id,
+        method: 'POST',
+        data: {
+            'inputNome': $('#inputBasicNome').val(),
+            'inputSetor': $('#inputBasicSetor').val(),
+            'selectTipo': $('#selectBasicTipo').val(),
+            'textareaDescricao': $('#textareaBasicDescricao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Função cadastrada com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/funcoes";
+            });
+        }
+    });
+}
+;
+
+function editarFuncao(id) {
+    $('#editar').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/interno/funcoes/alterar?id=" + id,
+        method: 'POST',
+        data: {
+            'inputID': $('#inputBasicID').val(),
+            'inputNome': $('#inputBasicNome').val(),
+            'inputSetor': $('#inputBasicSetor').val(),
+            'selectTipo': $('#selectBasicTipo').val(),
+            'textareaDescricao': $('#textareaBasicDescricao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Função alterada com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/funcoes";
+            });
+        }
+    });
+}
+;

@@ -43,7 +43,7 @@ public class TagsDAO {
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "DELETE FROM tags WHERE id = ?";
+            String sql = "UPDATE tags SET excluido = true WHERE id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -61,7 +61,7 @@ public class TagsDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             try {
-                String sql = "UPDATE funcoes SET "
+                String sql = "UPDATE tags SET "
                         + "titulo = ?, "
                         + "criticidade = ? "
                         + "WHERE id = ?";
@@ -83,7 +83,7 @@ public class TagsDAO {
         List<TagBean> tags = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id, titulo, criticidade FROM tags;";
+            String sql = "SELECT id, titulo, criticidade FROM tags WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -132,7 +132,7 @@ public class TagsDAO {
     public int getQuantidadeCadastradas() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tags;";
+            String sql = "SELECT COUNT(id) FROM tags WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -151,7 +151,7 @@ public class TagsDAO {
 
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> tags = new ArrayList<>();
-        String sql = "SELECT * FROM tags";
+        String sql = "SELECT * FROM tags WHERE excluido = false;";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();

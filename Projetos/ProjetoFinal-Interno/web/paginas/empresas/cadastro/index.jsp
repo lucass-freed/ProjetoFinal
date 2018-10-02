@@ -25,69 +25,69 @@
                         <div class="example">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="form-control-label" for="inputBasicCNPJ">CNPJ</label>
+                                    <label class="form-control-label" for="inputBasicCNPJ">CNPJ *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" placeholder="CNPJ" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicNomeFantasia">Nome Fantasia</label>
+                                    <label class="form-control-label" for="inputBasicNomeFantasia">Nome Fantasia *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNomeFantasia" name="inputNomeFantasia" autocomplete="off" placeholder="Nome Fantasia"/>
                                 </div>
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="inputBasicRazaoSocial">Razão Social</label>
+                                    <label class="form-control-label" for="inputBasicRazaoSocial">Razão Social *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicRazaoSocial" name="inputRazaoSocial"
                                            autocomplete="off" placeholder="Razão Social"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="inputBasicEmail">E-mail</label>
+                                    <label class="form-control-label" for="inputBasicEmail">E-mail *</label>
                                     <input type="email" class="form-control minha-classe" id="inputBasicEmail" name="inputEmail"
                                            autocomplete="off" placeholder="E-mail" />
                                 </div>
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="inputBasicPhone">Telefone</label>
+                                    <label class="form-control-label" for="inputBasicPhone">Telefone *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicPhone" name="inputPhone" placeholder="Telefone"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="inputBasicLogradouro">Logradouro</label>
+                                    <label class="form-control-label" for="inputBasicLogradouro">Logradouro *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicLogradouro" name="inputLogradouro" autocomplete="off" placeholder="Logradouro"/>
                                 </div>
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="inputBasicIE">Inscrição Estadual</label>
+                                    <label class="form-control-label" for="inputBasicIE">Inscrição Estadual *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicIE" name="inputIE" autocomplete="off" placeholder="Inscrição Estadual"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">   
-                                    <label class="form-control-label" for="inputBasicNumero">Número</label>
+                                    <label class="form-control-label" for="inputBasicNumero">Número *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNumero" name="inputNumero" autocomplete="off" placeholder="Número"/>
                                 </div>
                                 <div class="form-group col-md-6">   
-                                    <label class="form-control-label" for="inputBasicComplemento">Complemento</label>
+                                    <label class="form-control-label" for="inputBasicComplemento">Complemento *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicComplemento" name="inputComplemento" autocomplete="off" placeholder="Complemento"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicBairro">Bairro</label>
+                                    <label class="form-control-label" for="inputBasicBairro">Bairro *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicBairro" name="inputBairro" autocomplete="off" placeholder="Bairro"/>
                                 </div> 
                                 <div class="form-group col-md-6">
-                                    <label class="form-control-label" for="inputBasicCEP">CEP</label>
+                                    <label class="form-control-label" for="inputBasicCEP">CEP *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicCEP" name="inputCEP" autocomplete="off" placeholder="CEP"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicCidade">Cidade</label>
+                                    <label class="form-control-label" for="inputBasicCidade">Cidade *</label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicCidade" name="inputCidade"autocomplete="off" placeholder="Cidade"/>
                                 </div>                               
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="selectBasicUf">UF</label>
+                                    <label class="form-control-label" for="selectBasicUf">UF *</label>
                                     <select class="form-control minha-classe" id="selectBasicUf" name="selectUf">
                                         <option value="" disabled selected>Selecionar UF</option>
                                         <option value="ac">AC</option>
@@ -122,11 +122,11 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicDataAtivacao">Data de Ativação</label>
+                                    <label class="form-control-label" for="inputBasicDataAtivacao">Data de Ativação *</label>
                                     <input type="text" class="form-control" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" placeholder="Data de Ativação"/>
                                 </div>
                                 <div class="form-group col-md-6">   
-                                    <label class="form-control-label" for="inputBasicDataExpiracao">Data de Expiração</label>
+                                    <label class="form-control-label" for="inputBasicDataExpiracao">Data de Expiração *</label>
                                     <input type="text" class="form-control" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" placeholder="Data de Expiração"/>
                                 </div>
                             </div>

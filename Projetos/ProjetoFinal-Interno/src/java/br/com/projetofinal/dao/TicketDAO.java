@@ -144,7 +144,7 @@ public class TicketDAO {
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "DELETE FROM tickets WHERE id = ?";
+            String sql = "UPDATE tickets SET excluido = true WHERE id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -362,7 +362,7 @@ public class TicketDAO {
                     + "\nemp.dataExpiracao,"
                     + "\nemp.validadeCertificado"
                     + "\nFROM tickets tck"
-                    + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id)";
+                    + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id) WHERE tkt.excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -408,7 +408,7 @@ public class TicketDAO {
     public int getQuantidadeTicketsConcluidos() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Concluído';";
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Concluído' AND excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -428,7 +428,7 @@ public class TicketDAO {
     public int getQuantidadeTicketsEmAndamento() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Em Andamento';";
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Em Andamento' AND excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -448,7 +448,7 @@ public class TicketDAO {
     public int getQuantidadeTicketsPendentes() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Aberto';";
+            String sql = "SELECT COUNT(id) FROM tickets WHERE situacao = 'Aberto' AND excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -467,7 +467,7 @@ public class TicketDAO {
 
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> tickets = new ArrayList<>();
-        String sql = "SELECT * FROM tickets";
+        String sql = "SELECT * FROM tickets WHERE excluido = false;";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();
@@ -499,7 +499,7 @@ public class TicketDAO {
 
     public List<HashMap<String, String>> obterTodosParaSelect2(String termo) {
         List<HashMap<String, String>> tickets = new ArrayList<HashMap<String, String>>();
-        String sql = "SELECT * FROM tickets WHERE titulo LIKE ? ORDER BY titulo";
+        String sql = "SELECT * FROM tickets WHERE excluido = false AND titulo LIKE ? ORDER BY titulo";
         try {
             PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
             ps.setString(1, "%" + termo + "%");

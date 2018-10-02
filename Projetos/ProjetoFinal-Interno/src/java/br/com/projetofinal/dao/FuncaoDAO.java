@@ -47,7 +47,7 @@ public class FuncaoDAO {
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "DELETE FROM funcoes WHERE id = ?";
+            String sql = "UPDATE funcoes SET excluido = true WHERE id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -91,7 +91,7 @@ public class FuncaoDAO {
         List<FuncaoBean> funcoes = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id, nome, setor, tipo, descricao FROM funcoes;";
+            String sql = "SELECT id, nome, setor, tipo, descricao FROM funcoes WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -198,7 +198,7 @@ public class FuncaoDAO {
     public int getQuantidadeCadastradas() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM funcoes;";
+            String sql = "SELECT COUNT(id) FROM funcoes WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -217,7 +217,7 @@ public class FuncaoDAO {
 
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> funcoes = new ArrayList<>();
-        String sql = "SELECT * FROM funcoes";
+        String sql = "SELECT * FROM funcoes WHERE excluido = false;";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();

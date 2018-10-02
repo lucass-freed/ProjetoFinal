@@ -27,6 +27,7 @@ public class TicketBean {
     private EnumTicketStatusType status;
     private CriticidadeTypes criticidade;
     private EmpresaBean empresa;
+    private boolean excluido;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -140,4 +141,11 @@ public class TicketBean {
         this.empresa = empresa;
     }
 
+    public boolean isExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(boolean excluido) {
+        this.excluido = excluido;
+    }
 }

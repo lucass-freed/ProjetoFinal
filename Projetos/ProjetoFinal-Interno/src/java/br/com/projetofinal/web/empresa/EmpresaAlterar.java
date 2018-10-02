@@ -57,7 +57,6 @@ public class EmpresaAlterar extends HttpServlet {
         empresa.setDataExpiracao(dataExpiracao);
 
         boolean alterou = new EmpresaDAO().alterar(empresa);
-        resp.sendRedirect("/interno/empresas");
 
     }
 

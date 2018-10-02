@@ -85,7 +85,7 @@
         <div class="tags" style="text-align: right;">
             <% List<TicketTagBean> ticketsTags = (List<TicketTagBean>) request.getAttribute("ticketsTags");%>
             <% for (TicketTagBean ticketTag : ticketsTags) {%>
-            <span class="badge badge-outline badge-dark"><%= ticketTag.getTag().getTitulo()%></span>
+            <span class="badge badge-outline badge-dark font-size-14"><%= ticketTag.getTag().getTitulo()%></span>
             <%}%>
         </div>
     </div>

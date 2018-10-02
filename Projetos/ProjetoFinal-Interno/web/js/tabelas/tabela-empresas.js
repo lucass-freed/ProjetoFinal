@@ -110,7 +110,6 @@ function cadastrarEmpresa(id) {
             'inputNomeFantasia': $('#inputBasicNomeFantasia').val(),
             'inputRazaoSocial': $('#inputBasicRazaoSocial').val(),
             'inputEmail': $('#inputBasicEmail').val(),
-            'inputUsuario': $('#inpuBasictUsuario').val(),
             'inputPhone': $('#inputBasicPhone').val(),
             'inputLogradouro': $('#inputBasicLogradouro').val(),
             'inputIE': $('#inputBasicIE').val(),
@@ -126,10 +125,10 @@ function cadastrarEmpresa(id) {
         success: function (data) {
             swalWithBootstrapButtons(
                     'Sucesso!',
-                    'Colaborador cadastrado com sucesso!',
+                    'Empresa cadastrada com sucesso!',
                     'success'
                     ).then(function () {
-                window.location = "/interno/colaboradores";
+                window.location = "/interno/empresas";
             });
         }
     });
@@ -143,7 +142,7 @@ function editarEmpresa(id) {
         buttonsStyling: false
     });
     $.ajax({
-        url: "/colaborador/alterar?id=" + id,
+        url: "/empresa/alterar?id=" + id,
         method: 'POST',
         data: {
             'inputID': $('#inputBasicID').val(),
@@ -151,7 +150,6 @@ function editarEmpresa(id) {
             'inputNomeFantasia': $('#inputBasicNomeFantasia').val(),
             'inputRazaoSocial': $('#inputBasicRazaoSocial').val(),
             'inputEmail': $('#inputBasicEmail').val(),
-            'inputUsuario': $('#inpuBasictUsuario').val(),
             'inputPhone': $('#inputBasicPhone').val(),
             'inputLogradouro': $('#inputBasicLogradouro').val(),
             'inputIE': $('#inputBasicIE').val(),
@@ -167,10 +165,10 @@ function editarEmpresa(id) {
         success: function (data) {
             swalWithBootstrapButtons(
                     'Sucesso!',
-                    'Colaborador alterado com sucesso!',
+                    'Empresa alterada com sucesso!',
                     'success'
                     ).then(function () {
-                window.location = "/interno/colaboradores";
+                window.location = "/interno/empresas";
             });
         }
     });

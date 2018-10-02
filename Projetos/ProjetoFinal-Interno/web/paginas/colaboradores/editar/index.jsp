@@ -26,17 +26,17 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
-                    <label class="form-control-label" for="inputBasicUsuario">Usuário</label>
+                    <label class="form-control-label" for="inputBasicUsuario">Usuário *</label>
                     <input type="text" class="form-control" id="inputBasicUsuario" name="inputUsuario" value="<%= colaborador.getUsuario()%>" placeholder="Usuário" autocomplete="off"/>
                 </div>
                 <input type="hidden" id="inputBasicSenha" name="inputSenha" value="<%= colaborador.getSenha()%>">
                 <input type="hidden" id="inputBasicID" name="inputID" value="<%= colaborador.getId()%>">
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicCidade">Cidade</label>
+                    <label class="form-control-label" for="inputBasicCidade">Cidade *</label>
                     <input type="text" class="form-control" id="inputBasicCidade" name="inputCidade" value="<%= colaborador.getCidade()%>" placeholder="Cidade" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="selectBasicUf">UF</label>
+                    <label class="form-control-label" for="selectBasicUf">UF *</label>
                     <select class="form-control minha-classe" id="selectBasicUf" name="selectUf">
                         <option value="<%= colaborador.getUf().toLowerCase()%>" selected><%= colaborador.getUf()%></option>
                         <option value="ac">AC</option>
@@ -72,66 +72,66 @@
             <div class="row">
                 <% String[] st = colaborador.getNome().split(" ");%>
                 <div class="form-group col-md-6">
-                    <label class="form-control-label" for="inputBasicNomeCompleto">Nome</label>
+                    <label class="form-control-label" for="inputBasicNomeCompleto">Nome *</label>
                     <input type="text" class="form-control" id="inputBasicNomeCompleto" name="inputNomeCompleto" value="<%= colaborador.getNome()%>" placeholder="Nome Completo" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicCEP">CEP</label>
+                    <label class="form-control-label" for="inputBasicCEP">CEP *</label>
                     <input type="text" class="form-control" id="inputBasicCEP" name="inputCEP" value="<%= colaborador.getCep()%>" placeholder="CEP" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicBairro">Bairro</label>
+                    <label class="form-control-label" for="inputBasicBairro">Bairro *</label>
                     <input type="text" class="form-control" id="inputBasicBairro" name="inputBairro" value="<%= colaborador.getBairro()%>" placeholder="Bairro" autocomplete="off"/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicCPF">CPF</label>
+                    <label class="form-control-label" for="inputBasicCPF">CPF *</label>
                     <input type="text" class="form-control" id="inputBasicCPF" name="inputCPF" value="<%= colaborador.getCpf()%>" placeholder="CPF" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicDataNascimento">Data de Nascimento</label>
+                    <label class="form-control-label" for="inputBasicDataNascimento">Data de Nascimento *</label>
                     <input type="text" class="form-control" id="inputBasicDataNascimento" name="inputDataNascimento" value="<%= colaborador.getDataNascimento()%>" placeholder="Data de Nascimento" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="form-control-label" for="inputBasicLogradouro">Logradouro</label>
+                    <label class="form-control-label" for="inputBasicLogradouro">Logradouro *</label>
                     <input type="text" class="form-control" id="inputBasicLogradouro" name="inputLogradouro" value="<%= colaborador.getLogradouro()%>" placeholder="Logradouro" autocomplete="off"/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicCTPS">CTPS</label>
+                    <label class="form-control-label" for="inputBasicCTPS">CTPS *</label>
                     <input type="text" class="form-control" id="inputBasicCTPS" name="inputCTPS" value="<%= colaborador.getCtps()%>" placeholder="CTPS" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicPIS">PIS</label>
+                    <label class="form-control-label" for="inputBasicPIS">PIS *</label>
                     <input type="text" class="form-control" id="inputBasicPIS" name="inputPIS" value="<%= colaborador.getPis()%>" placeholder="PIS" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="form-control-label" for="inputBasicNumero">Número</label>
+                    <label class="form-control-label" for="inputBasicNumero">Número *</label>
                     <input type="text" class="form-control" id="inputBasicNumero" name="inputNumero" value="<%= colaborador.getNumero()%>" placeholder="Número" autocomplete="off"/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicTelefone">Telefone Celular</label>
+                    <label class="form-control-label" for="inputBasicTelefone">Telefone Celular *</label>
                     <input type="text" class="form-control" id="inputBasicTelefone" name="inputTelefone" value="<%= colaborador.getTelefone()%>" placeholder="Telefone Celular" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicEmail">Endereço Email</label>
+                    <label class="form-control-label" for="inputBasicEmail">Endereço Email *</label>
                     <input type="email" class="form-control" id="inputBasicEmail" name="inputEmail" value="<%= colaborador.getEmail()%>" placeholder="Endereço Email" autocomplete="off"/>
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="form-control-label" for="inputBasicComplemento">Complemento</label>
+                    <label class="form-control-label" for="inputBasicComplemento">Complemento *</label>
                     <input type="text" class="form-control" id="inputBasicComplemento" name="inputComplemento" value="<%= colaborador.getComplemento()%>" placeholder="Complemento" autocomplete="off"/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="comboBoxBasicFuncao">Função</label>
+                    <label class="form-control-label" for="comboBoxBasicFuncao">Função *</label>
                     <div class="row">
                         <div class="col-sm-10">
-                            <select class="form-control" id="comboBoxBasicFuncao" name="comboBoxFuncao">
+                            <select disabled="disabled" class="form-control" id="comboBoxBasicFuncao" name="comboBoxFuncao">
                                 <option value="<%= colaborador.getFuncao().getId()%>" selected><%= colaborador.getFuncao().getNome()%></option>
                                 <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoesInternas()) {%>
                                 <option value="<%= funcao.getId()%>"><%= funcao.getNome()%></option>
@@ -141,7 +141,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-3">
-                    <label class="form-control-label" for="inputBasicDataAdmissao">Data de Admissão</label>
+                    <label class="form-control-label" for="inputBasicDataAdmissao">Data de Admissão *</label>
                     <input type="text" class="form-control" id="inputBasicDataAdmissao" name="inputDataAdmissao" value="<%= colaborador.getDataAdmissao()%>" placeholder="Data de Admissão" autocomplete="off"/>
                 </div>
             </div>

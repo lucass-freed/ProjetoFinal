@@ -25,7 +25,7 @@
                 <div class="card-block">
                     <div class="overlay-panel overlay-background">
                         <div class="avatar avatar-100">
-                            <img src="/tema/global/portraits/7.jpg" alt="...">
+                            <img src="/tema/assets/images/imagemDefaultPerfil.png" alt="...">
                         </div>
                     </div>
                 </div>

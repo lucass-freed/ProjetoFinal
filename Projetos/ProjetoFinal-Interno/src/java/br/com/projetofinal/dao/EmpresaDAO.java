@@ -79,7 +79,7 @@ public class EmpresaDAO {
     public boolean excluir(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "DELETE FROM empresas WHERE id = ?";
+            String sql = "UPDATE empresas SET excluido = true WHERE id = ?;";
             try {
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 ps.setInt(1, id);
@@ -191,7 +191,7 @@ public class EmpresaDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             try {
-                String sql = "SELECT * FROM empresas";
+                String sql = "SELECT * FROM empresas WHERE excluido = false;";
                 Statement st = Conexao.getConnection().createStatement();
                 st.execute(sql);
                 ResultSet resultSet = st.getResultSet();
@@ -229,7 +229,7 @@ public class EmpresaDAO {
     public int getQuantidadeEmpresasCadastradas() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM empresas;";
+            String sql = "SELECT COUNT(id) FROM empresas WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -248,7 +248,7 @@ public class EmpresaDAO {
     
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> empresas = new ArrayList<>();
-        String sql = "SELECT * FROM empresas";
+        String sql = "SELECT * FROM empresas WHERE excluido = false;";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();

@@ -29,7 +29,7 @@ public class ColaboradorBean {
     private String ctps;
     private String pis;
     private boolean master;
-    private byte[] imagemPerfil;
+    private boolean excluido;
 
     public int getId() {
         return id;
@@ -197,5 +197,13 @@ public class ColaboradorBean {
 
     public void setMaster(boolean master) {
         this.master = master;
+    }
+
+    public boolean isExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(boolean excluido) {
+        this.excluido = excluido;
     }
 }

@@ -61,3 +61,64 @@ $(function () {
         ]
     });
 });
+var opcao;
+$(document).ready(function () {
+    $("input:radio[name=inputDestinos]").click(function () {
+        opcao = ($(this).val());
+    });
+});
+
+function alterarCriticidade(id) {
+    $('#formAlterarCriticidade').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/interno/ticket/alterarCriticidade?id=" + id,
+        method: 'POST',
+        data: {
+            'id': $('#Basicid').val(),
+            'idColaborador': $('#BasicidColaborador').val(),
+            'criticidade': $('#BasicCriticidade').val()
+        },
+        success: function (data) {
+            $('#alterarCriticidade').modal('hide');
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Criticidade alterada com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/ticket?id=" + id;
+            });
+        }
+    });
+};
+
+function concluirTicket(id) {
+    $('#formConcluir').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/interno/ticket/concluir?id=" + id,
+        method: 'POST',
+        data: {
+            'ticketID': $('#ticketBasicID').val(),
+            'resolucao': $('#BasicResolucao').val()
+        },
+        success: function (data) {
+            $('#modalConclusao').modal('hide');
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Ticket concluído com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/interno/ticket?id=" + id;
+            });
+        }
+    });
+};

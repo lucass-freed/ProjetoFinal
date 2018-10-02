@@ -1,6 +1,5 @@
 package br.com.projetofinal.bean;
 
-import java.sql.Timestamp;
 import org.joda.time.DateTime;
 
 /**

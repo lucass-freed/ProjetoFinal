@@ -23,7 +23,8 @@ public class EmpresaBean {
             uf, 
             inscricaoEstadual,
             sistema;
-    private Date dataAtivacao, dataExpiracao, validadeCertificado;       
+    private Date dataAtivacao, dataExpiracao, validadeCertificado;
+    private boolean excluido;
 
     public String getInscricaoEstadual() {
         return inscricaoEstadual;
@@ -169,6 +170,11 @@ public class EmpresaBean {
         this.validadeCertificado = validadeCertificado;
     }
 
-    
-    
+    public boolean isExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(boolean excluido) {
+        this.excluido = excluido;
+    }
 }

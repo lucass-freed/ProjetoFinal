@@ -7,29 +7,10 @@
                 <ul class="site-menu" data-plugin="menu">
                     <li class="site-menu-category">Interno</li>
                     <li class="site-menu-item has-sub">
-                        <a href="javascript:void(0)">
+                        <a href="/interno/tickets/pesquisar">
                             <i class="site-menu-icon wb-time" aria-hidden="true"></i>
                             <span class="site-menu-title">Atendimento</span>
-                            <% if (new TicketDAO().getQuantidadeTicketsPendentes() > 1) {%>
-                            <div class="site-menu-badge">
-                                <span class="badge badge-pill badge-danger"><%= new NumberFormato().f(new TicketDAO().getQuantidadeTicketsPendentes())%></span>
-                            </div>
-                            <% } else { %>
-                            <span class="site-menu-arrow"></span>
-                            <% }%>
                         </a>
-                        <ul class="site-menu-sub">
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="../index.html">
-                                    <span class="site-menu-title">Fila de atendimento</span>
-                                </a>
-                            </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="/interno/tickets/pesquisar">
-                                    <span class="site-menu-title">Pesquisar Ticket</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="site-menu-item has-sub">
                         <a href="/interno/empresas">

@@ -45,14 +45,14 @@
                                     </button>
                                     <h4 class="modal-title">Concluir Ticket</h4>
                                 </div>
-                                <form action="/interno/ticket/concluir" method="post" id="formConcluir" autocomplete="off">
-                                    <input type="hidden" value="<%= ticket3.getId()%>" name="ticketID"/>
+                                <form action="javascript:concluirTicket(<%= ticket3.getId()%>);" method="post" id="formConcluir" autocomplete="off">
+                                    <input type="hidden" value="<%= ticket3.getId()%>" id="ticketBasicID" name="ticketID"/>
                                     <div class="modal-body">
                                         </br>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label class="form-control-label">Procedimento de Resolução</label>
-                                                <textarea name="resolucao" rows="7" class="form-control" autocomplete="off"/></textarea>
+                                                <textarea id="BasicResolucao" name="resolucao" rows="7" class="form-control" autocomplete="off"/></textarea>
                                             </div>
                                         </div>
                                     </div>

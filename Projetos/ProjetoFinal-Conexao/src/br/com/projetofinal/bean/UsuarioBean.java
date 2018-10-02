@@ -21,7 +21,7 @@ public class UsuarioBean {
     private String telefone;
     private String email;
     private boolean master;
-    private byte[] imagemPerfil;
+    private boolean excluido;
 
     public int getIdFuncao() {
         return idFuncao;
@@ -125,5 +125,13 @@ public class UsuarioBean {
 
     public void setMaster(boolean master) {
         this.master = master;
+    }
+
+    public boolean isExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(boolean excluido) {
+        this.excluido = excluido;
     }
 }

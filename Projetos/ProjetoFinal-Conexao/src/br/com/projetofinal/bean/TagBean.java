@@ -11,6 +11,7 @@ public class TagBean {
     private int id;
     private String titulo;
     private CriticidadeTypes criticidade;
+    private boolean excluido;
 
     public int getId() {
         return id;
@@ -34,5 +35,13 @@ public class TagBean {
 
     public void setCriticidade(CriticidadeTypes criticidade) {
         this.criticidade = criticidade;
+    }
+
+    public boolean isExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(boolean excluido) {
+        this.excluido = excluido;
     }
 }
