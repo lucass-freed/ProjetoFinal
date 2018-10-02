@@ -1,8 +1,10 @@
 package br.com.projetofinal.web.ticket.chamado;
 
+import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.bean.TicketBean;
 import br.com.projetofinal.bean.TicketTagBean;
 import br.com.projetofinal.bean.UsuarioBean;
+import br.com.projetofinal.dao.TagsDAO;
 import br.com.projetofinal.dao.TicketDAO;
 import br.com.projetofinal.dao.TicketTagDAO;
 import br.com.projetofinal.enumTypes.CriticidadeTypes;
@@ -38,15 +40,24 @@ public class ChamadoStore extends HttpServlet {
         ticket.setTitulo(req.getParameter("titulo"));
 
         CriticidadeTypes criticidade = null;
-        String[] tags = req.getParameterValues("tags[]");
+        String[] tagsString = req.getParameterValues("tags[]");
         ArrayList<String> tagsList = new ArrayList<>();
-        tagsList.addAll(Arrays.asList(tags));
+        tagsList.addAll(Arrays.asList(tagsString));
+        ArrayList<TagBean> tags = new ArrayList<>();
+        for (int i = 0; i < tagsList.size(); i++) {
+            tags.add(new TagsDAO().obterPeloID(Integer.parseInt(tagsList.get(i))));
+        }
 
-        if (tagsList.contains("1") || tagsList.contains("6")) {
+        ArrayList<CriticidadeTypes> criticidades = new ArrayList<>();
+        for (int i = 0; i < tags.size(); i++) {
+            criticidades.add(tags.get(i).getCriticidade());
+        }
+
+        if (criticidades.contains(CriticidadeTypes.ALTISSIMA)) {
             criticidade = CriticidadeTypes.ALTISSIMA;
-        } else if (tagsList.contains("5")) {
+        } else if (criticidades.contains(CriticidadeTypes.ALTA)) {
             criticidade = CriticidadeTypes.ALTA;
-        } else if (tagsList.contains("3") || tagsList.contains("2") || tagsList.contains("7")) {
+        } else if (criticidades.contains(CriticidadeTypes.MEDIA)) {
             criticidade = CriticidadeTypes.MEDIA;
         } else {
             criticidade = CriticidadeTypes.BAIXA;
@@ -60,7 +71,7 @@ public class ChamadoStore extends HttpServlet {
         int codigo = new TicketDAO().inserir(ticket);
 
         if (codigo > 0) {
-            for (String tag : tags) {
+            for (String tag : tagsString) {
                 TicketTagBean ticketTagBean = new TicketTagBean();
                 ticketTagBean.setIdTickets(codigo);
                 ticketTagBean.setIdTags(Integer.parseInt(tag));

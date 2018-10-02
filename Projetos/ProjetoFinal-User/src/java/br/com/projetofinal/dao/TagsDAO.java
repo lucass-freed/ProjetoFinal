@@ -2,6 +2,7 @@ package br.com.projetofinal.dao;
 
 import br.com.projetofinal.bean.TagBean;
 import br.com.projetofinal.database.Conexao;
+import br.com.projetofinal.enumTypes.CriticidadeTypes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,5 +63,30 @@ public class TagsDAO {
             Conexao.closeConnection();
         }
         return tags;
+    }
+
+    public TagBean obterPeloID(int id) {
+        Connection conexao = Conexao.getConnection();
+        if (conexao != null) {
+            String sql = "SELECT * FROM tags WHERE id = ?";
+            try {
+                PreparedStatement ps = conexao.prepareStatement(sql);
+                ps.setInt(1, id);
+                ps.execute();
+                ResultSet rs = ps.getResultSet();
+                if (rs.next()) {
+                    TagBean tag = new TagBean();
+                    tag.setId(rs.getInt("id"));
+                    tag.setTitulo(rs.getString("titulo"));
+                    tag.setCriticidade(CriticidadeTypes.getEnum(rs.getString("criticidade")));
+                    return tag;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                Conexao.closeConnection();
+            }
+        }
+        return null;
     }
 }
