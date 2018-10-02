@@ -72,7 +72,7 @@ public class UsuarioDAO {
                     + "telefone = ?, "
                     + "email = ?, "
                     + "usuario_master = ? "
-                    + "WHERE id = ?";
+                    + "WHERE id = ? AND excluido = false;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;
@@ -100,7 +100,7 @@ public class UsuarioDAO {
     public boolean apagar(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "DELETE FROM usuarios WHERE id = ?";
+            String sql = "UPDATE usuarios SET excluido = true WHERE id = ?;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -120,7 +120,7 @@ public class UsuarioDAO {
         if (conexao != null) {
             String sql = "SELECT id, id_empresa, id_funcao, usuario,"
                     + "senha, nome, cpf, data_nascimento, telefone, email, usuario_master"
-                    + "\nFROM usuarios;";
+                    + "\nFROM usuarios WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -168,7 +168,7 @@ public class UsuarioDAO {
                     + "f.nome"
                     + "\nFROM usuarios u "
                     + "\nJOIN funcoes f ON(u.id_funcao = f.id)"
-                    + "\nWHERE u.id = ?;";
+                    + "\nWHERE u.id = ? AND u.excluido = false;;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
@@ -229,7 +229,7 @@ public class UsuarioDAO {
     
     public List<HashMap<String, Object>> obterTodosParaDataTable() {
         List<HashMap<String, Object>> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usuarios";
+        String sql = "SELECT * FROM usuarios WHERE excluido = false;";
         if (Conexao.getConnection() != null) {
             try {
                 Statement statement = Conexao.getConnection().createStatement();
@@ -263,7 +263,7 @@ public class UsuarioDAO {
     public int getQuantidadeUsuariosCadastradas() {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT COUNT(id) FROM usuarios;";
+            String sql = "SELECT COUNT(id) FROM usuarios WHERE excluido = false;;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);

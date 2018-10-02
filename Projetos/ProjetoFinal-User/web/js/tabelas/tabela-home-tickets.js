@@ -1,5 +1,6 @@
 $(function () {
     $("#tabela-home-tickets").DataTable({
+        "responsive": true,
         "ajax": "/home/tickets/obtertodosparadatatable",
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",

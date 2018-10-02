@@ -15,7 +15,7 @@
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
         <h2>Cadastrar Usuário</h2>
-        <form action="/externo/usuario/store" method="post" id="cadastro" autocomplete="off">
+        <form action="javascript:cadastrarUsuario(<%= request.getParameter("id")%>);" id="cadastro" autocomplete="off">
             <div class="row">
                 <div class="form-group col-md-6">
                     <label class="form-control-label" for="inputBasicUsuario">Usuário</label>
@@ -63,7 +63,7 @@
                         <div class="col-sm-12">
                             <select class="form-control" id="comboBoxBasicFuncao" name="comboBoxFuncao">
                                 <option value="" disabled selected>Selecionar Função</option>
-                                <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoes()) {%>
+                                <% for (FuncaoBean funcao : new FuncaoDAO().obterFuncoesExternas()) {%>
                                 <option value="<%= funcao.getId()%>"><%= funcao.getNome()%></option>
                                 <% }%>
                             </select>

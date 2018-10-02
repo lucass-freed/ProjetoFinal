@@ -58,12 +58,12 @@ $(function () {
             {"data": null,
                 "render": function (data) {
                     return "<a class='btn btn-info' href='javascript:verificarEditar()'><i class='icon wb-edit'></i></a>  " +
-                            "<a class='btn btn-danger' href='javascript:void(0)' data-toggle='modal' data-target='#examplePositionSidebar'><i class='icon wb-trash'></i></a>";
+                            "<a class='btn btn-danger' href='javascript:verificarExcluir()'><i class='icon wb-trash'></i></a>";
                 }
             }
         ]
     });
-    
+
     $('#tabela-usuarios').on('click', 'tr', function () {
         var data = table.row(this).data();
         idTable = data["id"];
@@ -72,30 +72,126 @@ $(function () {
 
     verificarEditar = (function () {
         if (tipo === 'Master') {
-            $(function () {
-                new PNotify({
-                    title: 'Ocorreu um erro!',
-                    text: 'Você não pode alterar os dados deste usuário.',
-                    type: 'error'
-                });
+            const swalWithBootstrapButtons = swal.mixin({
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
             });
+            swalWithBootstrapButtons(
+                    'Ocorreu um erro!',
+                    'Você não pode alterar as informações deste usuário!',
+                    'error'
+                    );
         } else {
             window.location.replace("/externo/usuario/editar?id=" + idTable);
         }
     });
+    
+    verificarExcluir = (function () {
+        const swalWithBootstrapButtons = swal.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        });
+        if (tipo === 'Master') {
+            swalWithBootstrapButtons(
+                    'Ocorreu um erro!',
+                    'Você não pode alterar as excluir este usuário!',
+                    'error'
+                    );
+        } else {
+            swalWithBootstrapButtons({
+                title: 'Você tem certeza??',
+                text: "Esta ação não pode ser desfeita!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, excluir Usuário!',
+                cancelButtonText: 'Não, cancelar!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons(
+                            'Sucesso!',
+                            'Usuário removido com sucesso!',
+                            'success'
+                            ), function (isConfirm) {
+                        alert('ok');
+                    };
+                    $.ajax({
+                        url: "/externo/usuario/excluir?id=" + idTable,
+                        success: function (data) {
+                            table.ajax.reload();
+                        }
+                    });
+                }
+                ;
+            });
+        }
+    });
 });
 
-
-excluir = function () {
-    if (tipo === 'Master') {
-        $(function () {
-            new PNotify({
-                title: 'Ocorreu um erro!',
-                text: 'Você não pode excluir este usuário.',
-                type: 'error'
+function cadastrarUsuario(id) {
+    $('#cadastro').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/externo/usuario/store?id=" + id,
+        method: 'POST',
+        data: {
+            'inputUsuario': $('#inputBasicUsuario').val(),
+            'inputSenha': $('#inputBasicSenha').val(),
+            'inputNomeCompleto': $('#inputBasicNomeCompleto').val(),
+            'inputCPF': $('#inputBasicCPF').val(),
+            'inputDataNascimento': $('#inputBasicDataNascimento').val(),
+            'inputTelefone': $('#inputBasicTelefone').val(),
+            'inputEmail': $('#inputBasicEmail').val(),
+            'comboBoxFuncao': $('#comboBoxBasicFuncao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Usuário cadastrado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/externo/usuarios";
             });
-        });
-    } else {
-        window.location.replace("/externo/usuario/excluir?id=" + idTable);
-    }
-}
+        }
+    });
+};
+
+function editarUsuario(id) {
+    $('#editar').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/externo/usuario/alterar?id=" + id,
+        method: 'POST',
+        data: {
+            'inputID': $('#inputBasicID').val(),
+            'inputUsuario': $('#inputBasicUsuario').val(),
+            'inputSenha': $('#inputBasicSenha').val(),
+            'inputIDEmpresa': $('#inputBasicIDEmpresa').val(),
+            'inputNomeCompleto': $('#inputBasicNomeCompleto').val(),
+            'inputCPF': $('#inputBasicCPF').val(),
+            'inputDataNascimento': $('#inputBasicDataNascimento').val(),
+            'inputTelefone': $('#inputBasicTelefone').val(),
+            'inputEmail': $('#inputBasicEmail').val(),
+            'comboBoxFuncao': $('#comboBoxBasicFuncao').val()
+        },
+        success: function (data) {
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Usuário alterado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/externo/usuarios";
+            });
+        }
+    });
+};

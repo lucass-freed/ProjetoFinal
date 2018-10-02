@@ -22,7 +22,7 @@ public class TagsDAO {
         List<TagBean> tags = new ArrayList<>();
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT id, titulo FROM tags";
+            String sql = "SELECT id, titulo FROM tags WHERE excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);
@@ -45,7 +45,7 @@ public class TagsDAO {
 
     public List<HashMap<String, String>> obterTodosParaSelect2(String termo) {
         List<HashMap<String, String>> tags = new ArrayList<HashMap<String, String>>();
-        String sql = "SELECT * FROM tags WHERE titulo LIKE ? ORDER BY titulo";
+        String sql = "SELECT * FROM tags WHERE excluido = false AND titulo LIKE ? ORDER BY titulo";
         try {
             PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
             ps.setString(1, "%" + termo + "%");
@@ -68,7 +68,7 @@ public class TagsDAO {
     public TagBean obterPeloID(int id) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "SELECT * FROM tags WHERE id = ?";
+            String sql = "SELECT * FROM tags WHERE id = ? AND excluido = false;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);

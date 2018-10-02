@@ -51,6 +51,7 @@
 <script src="/tema/global/js/Plugin/jquery-placeholder.js"></script>
 <script src="/js/tabelas/tabela-ticket-pendente.js"></script>
 <script src="/js/tabelas/tabela-home-tickets.js"></script>
+<script src="/js/tabelas/tabela-usuarios.js"></script>
 <script src="/js/consulta.js"></script>
 <script src="/js/change-password.js"></script>
 <script src="/js/select2/selectChamado.js"></script>

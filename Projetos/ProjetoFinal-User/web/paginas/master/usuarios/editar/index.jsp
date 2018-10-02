@@ -19,7 +19,7 @@
 <div class="panel">
     <div class="panel-body container-fluid box-shadow">
         <h2>Editar Usuário</h2>
-        <form action="/externo/usuario/alterar" method="post" id="editar" autocomplete="off">
+        <form action="javascript:editarUsuario(<%= usuario.getId()%>);" id="editar" autocomplete="off">
             <div class="row">
                 <div class="form-group col-md-6">
                     <label class="form-control-label" for="inputBasicUsuario">Usuário</label>

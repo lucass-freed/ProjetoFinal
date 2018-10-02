@@ -18,7 +18,7 @@ public class EmpresaDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             try {
-                String sql = "SELECT * FROM empresas WHERE id = ?";
+                String sql = "SELECT * FROM empresas WHERE id = ? AND excluido = false;";
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 ps.setInt(1, id);
                 ps.execute();
@@ -58,7 +58,7 @@ public class EmpresaDAO {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
             try {
-                String sql = "SELECT * FROM empresas WHERE id = ?";
+                String sql = "SELECT * FROM empresas WHERE id = ? AND excluido = false;";
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 ps.setInt(1, id);
                 ps.execute();
@@ -114,7 +114,7 @@ public class EmpresaDAO {
                         + "uf = ?, "
                         + "dataAtivacao = ?, "
                         + "dataExpiracao = ?, "
-                        + "WHERE id = ?;";
+                        + "WHERE id = ? AND excluido = false;;";
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 int quantidade = 1;
                 ps.setString(quantidade++, empresa.getCnpj());

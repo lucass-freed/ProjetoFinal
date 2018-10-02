@@ -119,7 +119,7 @@ public class TicketDAO {
                     + "\nemp.validadeCertificado"
                     + "\nFROM tickets tck"
                     + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id)"
-                    + "\nWHERE tck.id = ? ";
+                    + "\nWHERE tck.id = ? AND tck.excluido = false;";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql);
                 ps.setInt(1, id);
