@@ -56,12 +56,12 @@ $(function () {
             },
             {"data": "situacao",
                 "render": function (data, type, row) {
-                    if (row.situacao === 'Aberto') {
-                        return "<span class='badge badge-danger font-size-14'>Aberto<span>";
-                    } else if (row.situacao === 'Em Andamento') {
-                        return "<span class='badge badge-primary font-size-14'>Em Andamento<span>";
+                    if (row.situacao.toString().toLowerCase() === 'aberto') {
+                        return "<span class='badge badge-danger font-size-14'><i class='wb-alert-circle'></i> Pendente<span>";
+                    } else if (row.situacao.toString().toLowerCase() === 'em andamento') {
+                        return "<span class='badge badge-primary font-size-14'><i class='wb-minus-circle'></i> Em Andamento<span>";
                     } else {
-                        return "<span class='badge badge-success font-size-14'>Concluído<span>";
+                        return "<span class='badge badge-success font-size-14'><i class='wb-check'></i> Concluído<span>";
                     }
                 }
             }

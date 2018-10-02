@@ -26,4 +26,15 @@ public enum EnumTicketStatusType {
                 return EnumTicketStatusType.CONCLUIDO;
         }
     }
+    
+    public static String getText(EnumTicketStatusType situacao) {
+        switch (situacao) {
+            case ABERTO:
+                return "Aberto";
+            case EM_ANDAMENTO:
+                return "Em Andamento";
+            default:
+                return "Concluído";
+        }
+    }
 }

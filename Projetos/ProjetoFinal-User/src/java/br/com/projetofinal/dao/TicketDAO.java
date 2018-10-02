@@ -35,7 +35,6 @@ public class TicketDAO {
                     + "descricao, "
                     + "dataAbertura, "
                     + "dataEncerramento "
-                    
                     + ") VALUES(?,?,?,?,?,?,?,?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -44,11 +43,10 @@ public class TicketDAO {
                 ps.setInt(quantidade++, ticket.getIdUsuario());
                 ps.setString(quantidade++, ticket.getTitulo());
                 ps.setString(quantidade++, String.valueOf(ticket.getCriticidade()));
-                ps.setString(quantidade++, String.valueOf(ticket.getStatus()));
+                ps.setString(quantidade++, EnumTicketStatusType.getText(ticket.getStatus()));
                 ps.setString(quantidade++, ticket.getDescricao());
                 ps.setTimestamp(quantidade++, ticket.getDataAbertura());
                 ps.setTimestamp(quantidade++, ticket.getDataEncerramento());
-               // ps.setString(quantidade++, ticket.getProcedimentoResolucao());
                 ps.execute();
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
