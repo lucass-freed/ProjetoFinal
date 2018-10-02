@@ -174,11 +174,11 @@ public class TicketDAO {
                 ps.setInt(1, id);
                 ps.execute();
                 ResultSet rs = ps.getResultSet();
-                if (rs.next()) {
+                while (rs.next()) {
                     HashMap<String, Object> ticketPendentes = new HashMap<>();
                     ticketPendentes.put("id", rs.getInt("id"));
                     ticketPendentes.put("titulo", rs.getString("titulo"));
-                    ticketPendentes.put("dataAbertura", DateFormatador.formatoBr(rs.getDate("dataAbertura")));
+                    ticketPendentes.put("dataAbertura", DateFormatador.timesStampFormatoBrComHora(rs.getTimestamp("dataAbertura")));
                     ticketPendentes.put("criticidade", rs.getString("criticidade"));
                     ticketsPendentes.add(ticketPendentes);
                 }
@@ -193,14 +193,14 @@ public class TicketDAO {
 
     public List<HashMap<String, Object>> obterTodosParaDataTableUsuario(int id) {
         List<HashMap<String, Object>> tickets = new ArrayList<>();
-        String sql = "SELECT * FROM tickets WHERE id_usuario = ?";
+        String sql = "SELECT * FROM tickets WHERE id_usuario = ?;";
         if (Conexao.getConnection() != null) {
             try {
                 PreparedStatement ps = Conexao.getConnection().prepareStatement(sql);
                 ps.setInt(1, id);
                 ps.execute();
                 ResultSet rs = ps.getResultSet();
-                if (rs.next()) {
+                while (rs.next()) {
                     HashMap<String, Object> ticket = new HashMap<>();
                     ticket.put("id", rs.getInt("id"));
                     ticket.put("titulo", rs.getString("titulo"));

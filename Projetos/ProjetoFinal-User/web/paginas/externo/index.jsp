@@ -27,7 +27,7 @@
                 <div class="card card-shadow">
                     <div class="card-block text-center bg-white p-40">
                         <div class="avatar avatar-100 mb-20">
-                            <img src="/tema/global/portraits/1.jpg" alt="">
+                            <img src="/tema/assets/images/imagemDefaultPerfil.png" alt="">
                         </div>
                         <p class="font-size-20 blue-grey-700"><%= usuario.getNome() %></p>
                         <p class="blue-grey-400 mb-20"><%= usuario.getFuncao().getNome() %></p>
@@ -48,11 +48,11 @@
                            
                             <div class="panel box-shadow">
                                 </br>
-                                <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:102.5%" id="tabela-home-tickets">
+                                <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:100%" id="tabela-home-tickets">
                                     <div class="fixed-table-toolbar">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col">Protocolo</th>
                                                 <th scope="col">Título</th>
                                                 <th scope="col">Data de Abertura</th>
                                                 <th scope="col">Data de Conclusão</th>

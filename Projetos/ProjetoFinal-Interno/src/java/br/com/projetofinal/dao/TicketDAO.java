@@ -362,7 +362,7 @@ public class TicketDAO {
                     + "\nemp.dataExpiracao,"
                     + "\nemp.validadeCertificado"
                     + "\nFROM tickets tck"
-                    + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id) WHERE tkt.excluido = false;";
+                    + "\nJOIN empresas emp ON (tck.idEmpresa = emp.id) WHERE tck.excluido = false;";
             try {
                 Statement st = conexao.createStatement();
                 st.execute(sql);

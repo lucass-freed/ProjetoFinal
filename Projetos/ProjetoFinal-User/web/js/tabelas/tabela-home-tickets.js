@@ -35,6 +35,7 @@ $(function () {
         /*"language": {
          "url": "/libs/datatable/Portuguese-Brasil.lang"
          },*/
+        
         "columns": [
             {"data": "id"},
             {"data": "titulo"},
@@ -42,14 +43,14 @@ $(function () {
             {"data": "dataEncerramento"},
             {"data": "criticidade",
                 "render": function (data, type, row) {
-                    if (row.criticidade === 'Baixa') {
-                        return "<span class='badge badge-success font-size-14'>Baixa<span>";
-                    } else if (row.criticidade === 'Média') {
-                        return "<span class='badge badge-primary font-size-14'>Média<span>";
-                    } else if (row.criticidade === 'Alta') {
-                        return "<span class='badge badge-warning font-size-14'>Alta<span>";
+                    if (row.criticidade.toString().toLowerCase() === 'baixa') {
+                        return "<span class='badge badge-success font-size-14'><i class='wb-sort-des'> Baixa<span>";
+                    } else if (row.criticidade.toString().toLowerCase() === 'media') {
+                        return "<span class='badge badge-primary font-size-14'><i class='wb-stats-bars'></i> Média<span>";
+                    } else if (row.criticidade.toString().toLowerCase() === 'alta') {
+                        return "<span class='badge badge-warning font-size-14'><i class='wb-dashboard'></i> Alta<span>";
                     } else {
-                        return "<span class='badge badge-danger font-size-14'>Altíssima<span>";
+                        return "<span class='badge badge-danger font-size-14'><i class='wb-warning'></i> Altíssima<span>";
                     }
                 }
             },

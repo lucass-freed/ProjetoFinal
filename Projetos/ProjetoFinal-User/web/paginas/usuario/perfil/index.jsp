@@ -11,6 +11,7 @@
 <% } else { %>
 <%@include file="/padroes/padrao-externo-regular/dashboard.jsp" %>
 <% }%>
+<link rel="stylesheet" href="/css/perfil.css">
 <%@page import="br.com.projetofinal.Util.DateFormatador"%>
 <%@page import="br.com.projetofinal.Util.Formatador"%>
 <%@page import="javax.servlet.http.HttpServletRequest;"%>
@@ -26,7 +27,7 @@
                 <div class="card-block">
                     <div class="overlay-panel overlay-background">
                         <div class="avatar avatar-100">
-                            <img src="/tema/global/portraits/7.jpg" alt="...">
+                            <img src="/tema/assets/images/imagemDefaultPerfil.png" alt="...">
                         </div>
                     </div>
                 </div>
@@ -116,25 +117,6 @@
     </div>
 </div>
                                                 
-<script>
-    $("#image").change(function(){
-        readURL(this);
-        //other uploading proccess [server side by ajax and form-data ]
-    });
-
-function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#profile').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
-
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>
 <% } else { %>

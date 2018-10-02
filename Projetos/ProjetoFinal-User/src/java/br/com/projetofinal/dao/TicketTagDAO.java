@@ -14,7 +14,7 @@ public class TicketTagDAO {
     public int inserir(TicketTagBean ticketTag) {
         Connection conexao = Conexao.getConnection();
         if (conexao != null) {
-            String sql = "INSERT INTO ticket_tags (id_tickets, id_tags) VALUES (?, ?);";
+            String sql = "INSERT INTO ticket_tags (idTickets, idTags) VALUES (?, ?);";
             try {
                 PreparedStatement ps = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
                 int quantidade = 1;

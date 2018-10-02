@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 /**
@@ -24,10 +23,9 @@ public class TicketsUsuarioObterTodosParaDataTable extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HashMap<String, Object> resultado = new HashMap<>();
-        HttpSession sessao = request.getSession();
         
-        UsuarioBean usuario = (UsuarioBean) sessao.getAttribute("usuario");
+        HashMap<String, Object> resultado = new HashMap<>();
+        UsuarioBean usuario = (UsuarioBean) request.getSession().getAttribute("usuario");
         List<HashMap<String, Object>> registros = new TicketDAO().obterTodosParaDataTableUsuario(usuario.getId());
         resultado.put("data", registros);
         response.setContentType("text/html;charset=UTF-8");

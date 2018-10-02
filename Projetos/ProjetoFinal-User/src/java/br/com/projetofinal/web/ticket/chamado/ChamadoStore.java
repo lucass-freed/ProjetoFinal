@@ -33,7 +33,7 @@ public class ChamadoStore extends HttpServlet {
         UsuarioBean usuarioSessao = (UsuarioBean) req.getSession().getAttribute("usuario");
 
         TicketBean ticket = new TicketBean();
-            ticket.setIdEmpresa(usuarioSessao.getIdEmpresa());
+        ticket.setIdEmpresa(usuarioSessao.getIdEmpresa());
         ticket.setIdUsuario(usuarioSessao.getId());
         ticket.setTitulo(req.getParameter("titulo"));
 
@@ -60,12 +60,12 @@ public class ChamadoStore extends HttpServlet {
         int codigo = new TicketDAO().inserir(ticket);
 
         if (codigo > 0) {
-//            for (String tag : tags) {
-//                TicketTagBean ticketTagBean = new TicketTagBean();
-//                ticketTagBean.setIdTickets(codigo);
-//                ticketTagBean.setIdTags(Integer.parseInt(tag));
-//                new TicketTagDAO().inserir(ticketTagBean);
-//            }
+            for (String tag : tags) {
+                TicketTagBean ticketTagBean = new TicketTagBean();
+                ticketTagBean.setIdTickets(codigo);
+                ticketTagBean.setIdTags(Integer.parseInt(tag));
+                new TicketTagDAO().inserir(ticketTagBean);
+            }
             resp.sendRedirect("/externo/chamado");
         }
 
