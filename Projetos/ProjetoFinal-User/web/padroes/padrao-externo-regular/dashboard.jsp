@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/css/datatable/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/css/datatable/dataTables.bootstrap4.min.css">
         <link href="/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/css/sweetalert2.min.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" href="/tema/global/vendor/animsition/animsition.css">

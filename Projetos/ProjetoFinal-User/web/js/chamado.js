@@ -42,6 +42,33 @@ $(function () {
             e.preventDefault();
         }
     });
-
 });
+
+function enviarChamado() {
+    $('#chamado').submit();
+    const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    });
+    $.ajax({
+        url: "/externo/chamado/store",
+        method: 'POST',
+        data: {
+            'titulo': $('#BasicTitulo').val(),
+            'tags[]': $('#tags').val(),
+            'descricao': $('#BasicDescricao').val()
+        },
+        success: function (data) {
+            $('#exampleModalPrimary').modal('hide');
+            swalWithBootstrapButtons(
+                    'Sucesso!',
+                    'Chamado enviado com sucesso!',
+                    'success'
+                    ).then(function () {
+                window.location = "/externo/chamado/pendentes";
+            });
+        }
+    });
+};
 

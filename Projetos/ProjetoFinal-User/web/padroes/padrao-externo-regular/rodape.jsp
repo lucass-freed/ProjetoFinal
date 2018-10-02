@@ -56,6 +56,7 @@
 <script src="/js/cadastro/jquery.mask.js"></script>
 <script src="/js/cadastro/jquery.mask.min.js"></script>
 <script src="/js/chamado.js"></script>
+<script src="/js/sweetalert2.all.min.js"></script>
 
 
 <script>
