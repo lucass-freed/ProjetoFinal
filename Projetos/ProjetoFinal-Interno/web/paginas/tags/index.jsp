@@ -41,19 +41,21 @@
                 <h3 class="panel-title">Lista de Tags</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-tags">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Criticidade</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-shadow" style="width:100%" id="tabela-tags">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Criticidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- End Panel Tickets -->

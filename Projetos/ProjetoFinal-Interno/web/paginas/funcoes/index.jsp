@@ -40,21 +40,23 @@
                 <h3 class="panel-title">Lista de Funções</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-funcoes">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Setor</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Opção</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-funcoes">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Setor</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Opção</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- End Panel Tickets -->

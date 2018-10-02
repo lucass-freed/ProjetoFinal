@@ -35,25 +35,27 @@
                 <h3 class="panel-title">Lista de Empresas</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-empresas">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome Fantasia</th>
-                            <th scope="col">Razão Social</th>
-                            <th scope="col">CNPJ</th>
-                            <th scope="col">I.E.</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Cidade</th>
-                            <th scope="col">Opção</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered compact text-shadow" style="width:100%" id="tabela-empresas">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome Fantasia</th>
+                                <th scope="col">Razão Social</th>
+                                <th scope="col">CNPJ</th>
+                                <th scope="col">I.E.</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">Cidade</th>
+                                <th scope="col">Opção</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- End Panel Tickets -->

@@ -29,8 +29,8 @@
                         <div class="avatar avatar-100 mb-20">
                             <img src="/tema/assets/images/imagemDefaultPerfil.png" alt="">
                         </div>
-                        <p class="font-size-20 blue-grey-700"><%= usuario.getNome() %></p>
-                        <p class="blue-grey-400 mb-20"><%= usuario.getFuncao().getNome() %></p>
+                        <p class="font-size-20 blue-grey-700"><%= usuario.getNome()%></p>
+                        <p class="blue-grey-400 mb-20"><%= usuario.getFuncao().getNome()%></p>
                         <a href="/externo/usuario/perfil"><button type="button" class="btn btn-primary px-40">Ir para o Perfil</button></a>
                     </div>
                 </div>
@@ -45,28 +45,30 @@
                             <div class="col-md-7">
                                 <div class="blue-grey-700 font-size-18">Seus Tickets</div>
                             </div>
-                           
+
                             <div class="panel box-shadow">
                                 </br>
-                                <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:100%" id="tabela-home-tickets">
-                                    <div class="fixed-table-toolbar">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">Protocolo</th>
-                                                <th scope="col">Título</th>
-                                                <th scope="col">Data de Abertura</th>
-                                                <th scope="col">Data de Conclusão</th>
-                                                <th scope="col">Criticidade</th>
-                                                <th scope="col">Situação</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                <div class="table-responsive">
+                                    <table class="table table-striped compact table-hover table-bordered text-shadow" style="width:100%" id="tabela-home-tickets">
+                                        <div class="fixed-table-toolbar">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">Protocolo</th>
+                                                    <th scope="col">Título</th>
+                                                    <th scope="col">Data de Abertura</th>
+                                                    <th scope="col">Data de Conclusão</th>
+                                                    <th scope="col">Criticidade</th>
+                                                    <th scope="col">Situação</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
 
 
-                                        </tbody>
-                                    </div>
-                                </table>
+                                            </tbody>
+                                        </div>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
