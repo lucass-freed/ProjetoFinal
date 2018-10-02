@@ -1,24 +1,23 @@
 $(function () {
-    $("#formAlterarCriticidade").validate({
+    $("#formEncaminhar").validate({
         errorClass: "text-danger border-danger",
         errorElementClass: 'text-danger border-danger',
         validElementClass: 'text-success border-success',
         validClass: "text-success border-success",
         rules: {
-            criticidade: {
+            inputDestinos: {
                 required: true
             }
         },
         messages: {
-            criticidade: {
+            inputDestinos: {
                 required: "Este campo é obrigatório."
             }
         }
     });
-    $("#formAlterarCriticidade").on('submit', function (e) {
-        if ($("#formAlterarCriticidade").valid() === false) {
+    $("#formEncaminhar").on('submit', function (e) {
+        if ($("#formEncaminhar").valid() === false) {
             e.preventDefault();
         }
     });
-
 });
