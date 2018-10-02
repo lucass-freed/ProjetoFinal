@@ -25,16 +25,16 @@
     <div class="col-xl-12 col-xl-12">
         <div class="example-wrap">
             <% boolean is = false;%>
-            <% if(ticket4.getIdColaborador() > 0) { %>
-                <% if (ticket4.getIdColaborador() == colaborador.getId()) { %>
-                    <% is = true;%>
-                <%}%>
+            <% if (ticket4.getIdColaborador() > 0) { %>
+            <% if (ticket4.getIdColaborador() == colaborador.getId()) { %>
+            <% is = true;%>
+            <%}%>
             <%} else if (ticket4.getIdFuncaoMovimentacao() > 0) { %>
-                <% if (ticket4.getIdFuncaoMovimentacao() == colaborador.getIdFuncao()) { %>
-                    <% is = true;%>
-                <%}%>
+            <% if (ticket4.getIdFuncaoMovimentacao() == colaborador.getIdFuncao()) { %>
+            <% is = true;%>
+            <%}%>
             <%} else {%>
-                <% is = true;%>
+            <% is = true;%>
             <%}%>
             <% if (ticket4.getDataEncerramento() == null && is) {%>
             <div class="example example-buttons">
@@ -149,8 +149,8 @@
                                                 <% List<ColaboradorBean> colaboradores = new ColaboradorDAO().obterColaboradores();%>
                                                 <% for (ColaboradorBean c : colaboradores) {%>
                                                 <% if (!c.getNome().equals(colaborador.getNome())) {%>
-                                                    <option value="<%= c.getId()%>"><%= c.getNome()%></option>
-                                                    <%}%>
+                                                <option value="<%= c.getId()%>"><%= c.getNome()%></option>
+                                                <%}%>
                                                 <%}%>
                                             </select>
                                         </div>
@@ -174,21 +174,23 @@
                     <h3 class="panel-title">Últimas Movimentações</h3>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="ultimas-movimentacoes">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Movimentado Por</th>
-                                <th scope="col">Data da Movimentação</th>
-                                <th scope="col">Observação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover compact table-bordered text-shadow" style="width:100%" id="ultimas-movimentacoes">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Movimentado Por</th>
+                                    <th scope="col">Data da Movimentação</th>
+                                    <th scope="col">Observação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
 
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
