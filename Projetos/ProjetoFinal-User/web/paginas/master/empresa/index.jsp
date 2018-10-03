@@ -194,19 +194,14 @@ $(document).ready(function(){
     });
 });
 </script>
-<!--<script>
-    var hidden = false;
-    function alterar() {
-        hidden = !hidden;
-        if(hidden) {
-            document.getElementById('botao-alterar').style.visibility = 'hidden';
-            document.getElementById('botao-cancelar').style.visibility = 'visible';
-            document.getElementById('botao-salvar').style.visibility = 'visible';
-        } else {
-            document.getElementById('botao-alterar').style.visibility = 'visible';
-        }
-    }
-</script>-->
+<script>
+$(document).ready(function () {
+    var validator = $("#alterar-empresa").validate();
+    $("#botao-cancelar").click(function(){
+        validator.resetForm();
+    });
+});
+</script>
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>
