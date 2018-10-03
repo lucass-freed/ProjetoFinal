@@ -1,7 +1,7 @@
 var validator;
 
 $(function () {
-    validator = $("").validate({
+    validator = $("#alterar-empresa").validate({
         errorClass: "text-danger border-danger",
         errorElementClass: 'text-danger border-danger',
         validElementClass: 'text-success border-success',
@@ -13,7 +13,7 @@ $(function () {
             },
             nomeFantasia: {
                 required: true,
-                minlength: 10,
+                minlength: 3,
                 maxlength: 200
             },
             razaoSocial: {
@@ -23,7 +23,7 @@ $(function () {
             },
             email: {
                 required: true,
-                minlength: 10,
+                minlength: 5,
                 maxlength: 100,
                 email: true
             },
@@ -33,7 +33,7 @@ $(function () {
             },
             logradouro: {
                 required: true,
-                minlength: 10,
+                minlength: 5,
                 maxlength: 100
             },
             inscricaoEstadual: {
@@ -42,12 +42,12 @@ $(function () {
             },
             numero: {
                 required: true,
-                minlength: 10,
+                minlength: 1,
                 maxlength: 20
             },
             complemento: {
                 required: false,
-                minlength: 10,
+                minlength: 1,
                 maxlength: 50
             },
             bairro: {

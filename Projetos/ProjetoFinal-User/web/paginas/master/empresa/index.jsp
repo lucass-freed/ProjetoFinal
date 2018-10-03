@@ -28,7 +28,7 @@
                         <input type="hidden" id="inputBasicId" name="id" value="<%= empresa.getId() %>">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar" onclick="alterar()">Habilitar Alteração</button>
+                                <button type="button" class="btn btn-outline-success col-md-4 float-right" id="botao-alterar">Habilitar Alteração</button>
                                 <h3 class="example-title col-md-5 float-left">Cadastro de Empresa</h3>
                             </div>
 
@@ -133,8 +133,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="hidden" style="visibility: hidden" class="btn btn-outline-danger col-md-4 float-left" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
-                                <button type="submit" style="visibility: hidden" class="btn btn-outline-primary col-md-4 float-right minha-classe" disabled="disabled" id="botao-salvar">Salvar</button>
+                                <button type="button" style="display: none" class="btn btn-outline-danger col-md-4 float-left classe-cancelar" id="botao-cancelar" onclick="acao-cancelar.js">Cancelar</button>
+                                <button type="submit" style="display: none" class="btn btn-outline-primary col-md-4 float-right minha-classe classe-cancelar" disabled="disabled" id="botao-salvar">Salvar</button>
 
                             </div>
                         </div>
@@ -149,22 +149,16 @@
 <!-- End Page -->
 
 <script src="/tema/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-
 <script src="/tema/global/vendor/jquery/jquery.js"></script>
-
 <script src="/tema/global/js/Plugin.js"></script>
 <script src="/tema/global/vendor/breakpoints/breakpoints.js"></script>
-
 <script src="/tema/global/vendor/formatter/jquery.formatter.js"></script>
-
 <script src="/tema/global/js/Plugin/formatter.js"></script>
 <script src="/js/empresa/validator.js"></script>
-
-
+<script src="/js/acao-cancelar.js"></script>
 <script>
                                     Breakpoints();
 </script>
-
 <script>
     (function (document, window, $) {
         'use strict';
@@ -175,7 +169,6 @@
         });
     })(document, window, jQuery);
 </script>
-
 <script>
     $("#botao-alterar").click(function () {
         $(".minha-classe").click($('.minha-classe').removeAttr('disabled'));
@@ -186,6 +179,22 @@
     });
 </script>
 <script>
+$(document).ready(function(){       
+    $("#botao-alterar").click(function(){
+        $("#botao-cancelar, #botao-salvar").show();
+        $("#botao-alterar").hide();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){       
+    $("#botao-cancelar").click(function(){
+        $("#botao-cancelar, #botao-salvar").hide();
+        $("#botao-alterar").show();
+    });
+});
+</script>
+<!--<script>
     var hidden = false;
     function alterar() {
         hidden = !hidden;
@@ -197,9 +206,7 @@
             document.getElementById('botao-alterar').style.visibility = 'visible';
         }
     }
-</script>
-<script src="/js/acao-cancelar.js"></script>
-<script src="/js/acao-editar.js"></script>
+</script>-->
 
 <% if (request.getSession().getAttribute("isMaster").equals("true")) { %>
 <%@include file= "/padroes/padrao-externo-master/rodape.jsp"%>
