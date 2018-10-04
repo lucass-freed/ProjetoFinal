@@ -29,7 +29,7 @@ $(function () {
             },
             telefone: {
                 required: true,
-                minlength: 14
+                minlength: 13
             },
             logradouro: {
                 required: true,
