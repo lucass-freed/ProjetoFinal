@@ -80,12 +80,6 @@ public class UsuarioDAOJUnitTest {
     }
     
     @Test
-    public void obterTodosParaDataTable() {
-        Conexao.truncate();
-        new UsuarioDAO().obterTodosParaDataTable();
-    } 
-    
-    @Test
     public void getQuantidadeUsuariosCadastradas() {
         Conexao.truncate();
         new UsuarioDAO().getQuantidadeUsuariosCadastradas();

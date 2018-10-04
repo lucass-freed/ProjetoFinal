@@ -16,6 +16,7 @@ public class Conexao {
     private static String USER = "administrador";
     private static String PASSWORD = "Tes123te";
      */
+    
     private static final String HOST = "jdbc:mysql://localhost/projeto_final_banco";
     private static String USER = "root";
     private static String PASSWORD = "";
