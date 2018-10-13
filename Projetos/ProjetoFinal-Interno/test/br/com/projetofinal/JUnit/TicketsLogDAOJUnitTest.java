@@ -36,10 +36,4 @@ public class TicketsLogDAOJUnitTest {
         Conexao.truncate();
         new TicketsLogDAO().obterTodosParaDataTableFromTicket(1);
     }
-    
-    @Test
-    public void obterTodosParaDataTable() {
-        Conexao.truncate();
-        new TicketsLogDAO().obterTodosParaDataTable();
-    }
 }
