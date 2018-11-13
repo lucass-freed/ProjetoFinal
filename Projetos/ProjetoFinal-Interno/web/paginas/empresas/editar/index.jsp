@@ -29,68 +29,68 @@
                         <div class="example">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="form-control-label" for="inputBasicCNPJ">CNPJ *</label>
+                                    <label class="form-control-label" for="inputBasicCNPJ">CNPJ <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicCNPJ" name="inputCNPJ" autocomplete="off" value="<%= empresa.getCnpj()%>" placeholder="CNPJ" />
                                 </div>
                                 <input type="hidden" id="inputBasicID" name="inputID" value="<%= empresa.getId()%>">
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicNomeFantasia">Nome Fantasia *</label>
+                                    <label class="form-control-label" for="inputBasicNomeFantasia">Nome Fantasia <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNomeFantasia" name="inputNomeFantasia" autocomplete="off" value="<%= empresa.getNomeFantasia()%>" placeholder="Nome Fantasia"/>
                                 </div>
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="inputBasicRazaoSocial">Razão Social *</label>
+                                    <label class="form-control-label" for="inputBasicRazaoSocial">Razão Social <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicRazaoSocial" name="inputRazaoSocial" autocomplete="off" value="<%= empresa.getRazaoSocial()%>" placeholder="Razão Social"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="inputBasicEmail">E-mail *</label>
+                                    <label class="form-control-label" for="inputBasicEmail">E-mail <span style="color: red">*</span></label>
                                     <input type="email" class="form-control minha-classe" id="inputBasicEmail" name="inputEmail" autocomplete="off" value="<%= empresa.getEmail()%>" placeholder="E-mail" />
                                 </div>
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="inputBasicPhone">Telefone *</label>
+                                    <label class="form-control-label" for="inputBasicPhone">Telefone <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicPhone" name="inputPhone" value="<%= empresa.getTelefone()%>" placeholder="Telefone"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="inputBasicLogradouro">Logradouro *</label>
+                                    <label class="form-control-label" for="inputBasicLogradouro">Logradouro <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicLogradouro" name="inputLogradouro" autocomplete="off" value="<%= empresa.getLogradouro()%>" placeholder="Logradouro"/>
                                 </div>
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="inputBasicIE">Inscrição Estadual *</label>
+                                    <label class="form-control-label" for="inputBasicIE">Inscrição Estadual <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicIE" name="inputIE" autocomplete="off" value="<%= empresa.getInscricaoEstadual()%>" placeholder="Inscrição Estadual"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">   
-                                    <label class="form-control-label" for="inputBasicNumero">Número *</label>
+                                    <label class="form-control-label" for="inputBasicNumero">Número <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNumero" name="inputNumero" autocomplete="off" value="<%= empresa.getNumero()%>" placeholder="Número"/>
                                 </div>
                                 <div class="form-group col-md-6">   
-                                    <label class="form-control-label" for="inputBasicComplemento">Complemento *</label>
+                                    <label class="form-control-label" for="inputBasicComplemento">Complemento <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicComplemento" name="inputComplemento" autocomplete="off" value="<%= empresa.getComplemento()%>" placeholder="Complemento"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicBairro">Bairro *</label>
+                                    <label class="form-control-label" for="inputBasicBairro">Bairro <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicBairro" name="inputBairro" autocomplete="off" value="<%= empresa.getBairro()%>" placeholder="Bairro"/>
                                 </div> 
                                 <div class="form-group col-md-6">
-                                    <label class="form-control-label" for="inputBasicCEP">CEP *</label>
+                                    <label class="form-control-label" for="inputBasicCEP">CEP <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicCEP" name="inputCEP" autocomplete="off" value="<%= empresa.getCep()%>" placeholder="CEP"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicCidade">Cidade *</label>
+                                    <label class="form-control-label" for="inputBasicCidade">Cidade <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicCidade" name="inputCidade"autocomplete="off" value="<%= empresa.getCidade()%>" placeholder="Cidade"/>
                                 </div>                               
                                 <div class="form-group col-md-6"> 
-                                    <label class="form-control-label" for="selectBasicUf">UF *</label>
+                                    <label class="form-control-label" for="selectBasicUf">UF <span style="color: red">*</span></label>
                                     <select class="form-control minha-classe" id="selectBasicUf" name="selectUf">
                                         <option value="<%= empresa.getUf().toLowerCase()%>" selected><%= empresa.getUf()%></option>
                                         <option value="ac">AC</option>
@@ -125,11 +125,11 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicDataAtivacao">Data de Ativação *</label>
+                                    <label class="form-control-label" for="inputBasicDataAtivacao">Data de Ativação <span style="color: red">*</span></label>
                                     <input type="text" class="form-control" id="inputBasicDataAtivacao" name="inputDataAtivacao" autocomplete="off" value="<%= empresa.getDataAtivacao()%>" placeholder="Data de Ativação"/>
                                 </div>
                                 <div class="form-group col-md-6">   
-                                    <label class="form-control-label" for="inputBasicDataExpiracao">Data de Expiração *</label>
+                                    <label class="form-control-label" for="inputBasicDataExpiracao">Data de Expiração <span style="color: red">*</span></label>
                                     <input type="text" class="form-control" id="inputBasicDataExpiracao" name="inputDataExpiracao" autocomplete="off" value="<%= empresa.getDataExpiracao()%>" placeholder="Data de Expiração"/>
                                 </div>
                             </div>

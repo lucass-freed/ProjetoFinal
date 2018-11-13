@@ -25,17 +25,17 @@
                         <div class="example">
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicNome">Nome *</label>
+                                    <label class="form-control-label" for="inputBasicNome">Nome <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicNome" name="inputNome" autocomplete="off" placeholder="Nome"/>
                                 </div>
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicSetor">Setor *</label>
+                                    <label class="form-control-label" for="inputBasicSetor">Setor <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicSetor" name="inputSetor" autocomplete="off" placeholder="Setor"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="selectBasicTipo">Tipo da Função *</label>
+                                    <label class="form-control-label" for="selectBasicTipo">Tipo da Função <span style="color: red">*</span></label>
                                     <select class="form-control minha-classe" id="selectBasicTipo" name="selectTipo">
                                         <option value="" disabled selected>Selecionar Tipo da Função</option>
                                         <option value="Interna">Interna</option>

@@ -56,7 +56,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label class="form-control-label" for="titulo">Título</label>
+                                    <label class="form-control-label" for="titulo">Título <span style="color: red">*</span></label>
                                     <input type="text" class="form-control" name="titulo" id="BasicTitulo" placeholder="Título">
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
 
                             <div class="row">
                                 <div class="col-xl-12 form-group">
-                                    <label class="form-control-label" for="descricao">Descrição</label>
+                                    <label class="form-control-label" for="descricao">Descrição <span style="color: red">*</span></label>
                                     <textarea class="form-control" rows="5" name="descricao" id="BasicDescricao" placeholder="Insira uma Descrição"></textarea>
                                 </div> 
                             </div>

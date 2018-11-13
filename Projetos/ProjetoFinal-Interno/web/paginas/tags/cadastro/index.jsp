@@ -19,13 +19,13 @@
                         <div class="example">
                             <div class="row">
                                 <div class="form-group col-md-6">  
-                                    <label class="form-control-label" for="inputBasicTitulo">Título</label>
+                                    <label class="form-control-label" for="inputBasicTitulo">Título <span style="color: red">*</span></label>
                                     <input type="text" class="form-control minha-classe" id="inputBasicTitulo" name="inputTitulo" autocomplete="off" placeholder="Título"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">    
-                                    <label class="form-control-label" for="selectBasicCriticidade">Criticidade da Função</label>
+                                    <label class="form-control-label" for="selectBasicCriticidade">Criticidade da Função <span style="color: red">*</span></label>
                                     <select class="form-control minha-classe" id="selectBasicTipo" name="selectCriticidade">
                                         <option value="" disabled selected>Selecionar Criticidade</option>
                                         <option value="Baixa">Baixa</option>
