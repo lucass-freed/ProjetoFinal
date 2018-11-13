@@ -14,7 +14,7 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/tema/global/css/bootstrap.min.css">
         <link rel="stylesheet" href="/tema/global/css/bootstrap-extend.min.css">
-        <link rel="stylesheet" href="css/site.min.css">
+        <link rel="stylesheet" href="/css/site.css">
         <link rel="stylesheet" href="/css/login.css">
 
         <!-- Plugins -->
